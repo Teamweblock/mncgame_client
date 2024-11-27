@@ -1,0 +1,117 @@
+.EntrepreneurialMain {
+  width: 80%;
+  margin: auto;
+}
+
+.EntrepreneurialMainPaet {
+  width: 100%;
+  display: flex;
+}
+
+.EntrepreneurialImageSeaction {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.EntrepreneurialImage {
+  width: 90%;
+  transition: transform 0.3s ease;
+  /* Smooth transition */
+}
+
+.EntrepreneurialTextSeacation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.EntrepreneurialTitle {
+  color: #012055;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.EntrepreneurialText {
+  color: #848484;
+  font-size: 18px;
+}
+
+.EntrepreneurialButton {
+  border: 2px solid #FFA024;
+  border-radius: 6px;
+  padding: 10px;
+  width: 35%;
+  color: black;
+  font: 600;
+  background-color: #fff;
+}
+
+.EntrepreneurialButton:hover {
+  color: #fff;
+  background-color: #FFA024;
+}
+
+.EntrepreneurialImage:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width:1024px) {
+
+  .EntrepreneurialTitle {
+    font-size: 43px;
+  }
+
+  .EntrepreneurialButton {
+    width: 40%;
+  }
+
+}
+
+@media screen and (max-width:768px) {
+
+  .EntrepreneurialMain {
+    margin-bottom: 10px;
+  }
+
+  .EntrepreneurialTitle {
+    font-size: 38px;
+  }
+
+  .EntrepreneurialButton {
+    padding: 8px;
+    font-size: 16px;
+    width: 45%;
+  }
+}
+
+@media screen and (max-width:426px) {
+
+  .EntrepreneurialTitle {
+    font-size: 33px;
+  }
+
+  .EntrepreneurialText {
+    font-size: 15px;
+  }
+
+  .EntrepreneurialButton {
+    padding: 9px;
+    font-size: 12px;
+    width: 60%;
+  }
+
+  .EntrepreneurialImageSeaction {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width:376px) {
+
+  .EntrepreneurialTitle {
+    font-size: 28px;
+  }
+
+}

@@ -1,0 +1,210 @@
+.loading-container {
+  display: flex; /* Center horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: black; /* Optional: Add a contrasting background */
+}
+
+.loading-container p {
+  color: white; /* White text color */
+  font-size: 1.5rem; /* Adjust size as needed */
+  font-weight: bold; /* Optional: Make it bold for better visibility */
+  text-align: center; /* Center the text */
+}
+
+.Game1-sinlgeplayer-bg {
+  background-image: url("/src/Assets/gameimages/img1.jpg");
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  background-position: center;
+}
+
+.timer {
+  text-align: center;
+  display: flex;
+  color: white;
+  font-weight: 700;
+  margin: auto;
+  padding-bottom: 15px;
+}
+
+.time-group {
+  line-height: 40px;
+}
+
+.minutes {
+  font-size: 130px;
+  color: white;
+  font-weight: 700;
+}
+
+.dot2 {
+  font-size: 130px;
+  color: white;
+}
+
+.minutes-text {
+  color: white;
+  font-size: 20px;
+}
+
+.time-group {
+  line-height: 40px;
+}
+
+.seconds {
+  color: white;
+  font-size: 130px;
+}
+
+.seconds-text {
+  color: white;
+  font-size: 20px;
+}
+
+.icon4-game1 {
+  position: absolute;
+  height: 10%;
+  right: 10%;
+  top: 15%;
+}
+
+.solution-box input {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  height: 90px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.solution-box {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.next-button {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+
+  text-align: center;
+  margin-top: 30px;
+}
+
+.show-button {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.single-player-part {
+  /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%); */
+  padding-top: 150px;
+}
+
+.countdown {
+  color: white;
+
+  margin: auto;
+  text-align: center;
+}
+
+.countdown h2 {
+  font-size: 100px;
+}
+
+.next-button:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.show-button:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 1234px) {
+  /* .Game1-bg{
+      height: 180vh;
+    } */
+}
+
+@media screen and (max-width: 1140px) {
+  .single-player-part {
+    padding-top: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Game1-sinlgeplayer-bg {
+    height: 130vh !important;
+  }
+
+  .single-player-part {
+    padding-top: 165px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .solution-box input {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 523px) {
+  .seconds {
+    font-size: 90px !important;
+  }
+
+  .minutes {
+    font-size: 90px !important;
+  }
+
+  .dot2 {
+    font-size: 90px !important;
+  }
+}
+
+@media screen and (max-width: 453px) {
+  .question-box p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 413px) {
+  .next-button {
+    margin-left: 0px !important;
+  }
+}
+
+@media screen and (max-width: 354px) {
+  .Game1-sinlgeplayer-bg {
+    height: 185vh !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .question-box {
+    width: 227px;
+  }
+}

@@ -1,0 +1,424 @@
+.Game1-bg-result {
+  background-image: url(/src/Assets/gameimages/img1.jpg);
+  width: 100%;
+  height: 100vh;
+  padding-top: 50px;
+  background-position: center;
+  background-size: cover;
+}
+
+.Game1-bg-result2 {
+  background-image: url(/src/Assets/gameimages/img1.jpg);
+  width: 100%;
+  height: 100vh;
+  padding-top: 50px;
+  background-position: center;
+  background-size: cover;
+}
+
+.mnc-logo {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+
+}
+
+.btn-group2 {
+  text-align: center;
+}
+
+.icon7-game1 {
+  position: absolute;
+  height: 10%;
+  top: 7%;
+  right: 15%;
+}
+
+.icon8-game1 {
+  position: absolute;
+  height: 10%;
+  bottom: 3%;
+  left: 7%;
+
+}
+
+.icon9-game1 {
+  position: absolute;
+  height: 10%;
+  top: 13%;
+  right: 10%;
+
+}
+
+.welldone-text {
+  font-size: 80px;
+  color: white;
+  text-align: center;
+  line-height: 90px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: -5px;
+  margin-top: 60px;
+
+}
+
+.players-width {
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+}
+
+.player1 {
+  display: flex;
+  gap: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.player-text {
+  color: white;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.player1-result {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.slider-container h5 {
+  color: white;
+}
+
+/* Slider.css */
+/* Slider.css */
+/* Slider.css */
+.slider-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.progress-bar {
+  background-color: white !important;
+  border-radius: 10px;
+  height: 10px;
+  width: 100%;
+  position: relative;
+  border: none !important;
+  margin-bottom: 0px !important;
+}
+
+.progress {
+  background-color: #00B0FF !important;
+  height: 100%;
+  position: relative;
+  height: -webkit-fill-available;
+
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  /* Position the circle at the end */
+  width: 15px;
+  /* Same as the height of the progress bar */
+  height: 15px;
+  background-color: #FFB300;
+  /* Orange circle */
+  border-radius: 50%;
+}
+
+.player2 {
+  display: flex;
+  gap: 50px;
+}
+
+.home-btn {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.next-btn {
+  width: 200px;
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 20px;
+
+  text-align: center;
+  margin-top: 30px;
+
+}
+
+.home-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.slider-container h5 {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 2560px) {
+  
+  .Game1-bg-result {
+    height: 120vh;
+  }
+}
+
+@media screen and (max-width:1540px) {
+  .Game1-bg-result {
+    height: 115vh;
+  }
+}
+
+@media screen and (max-width:1400px) {
+  .Game1-bg-result {
+    height: 120vh;
+  }
+}
+
+/* @media screen and (max-width:1072px) {
+    .Game1-bg-result{
+      height: 130vh;
+    }
+  } */
+
+@media screen and (max-width: 885px) {
+
+  .Game1-bg-result {
+    height: 100vh !important;
+  }
+}
+
+
+@media screen and (max-width:835px) {
+
+  .player1 {
+    display: block;
+  }
+
+  .player2 {
+    display: block;
+  }
+
+  .Game1-bg-result {
+    height: 125vh !important;
+  }
+
+  /* .Game1-bg-result2 {
+    height: 135vh;
+  } */
+}
+
+@media screen and (max-width: 769px) {
+
+  .Game1-bg-result {
+    height: 144vh !important;
+  }
+}
+
+
+@media screen and (max-width:620px) {
+  .slider-container {
+    display: block;
+  }
+}
+
+@media screen and (max-width:673px) {
+
+  /* .Game1-bg-result{
+          height: 230vh !important;
+        } */
+  .player1-result {
+    font-size: 15px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  /* .Game1-bg-result{
+          height: 200vh;
+        } */
+}
+
+@media screen and (max-width:534px) {
+
+  /* .Game1-bg-result{
+          height: 240vh;
+        } */
+  .mnc-logo {
+    left: 35%;
+  }
+}
+
+@media screen and (max-width:400px) {
+  /* .Game1-bg-result{
+          height: 260vh;
+        } */
+}
+
+@media screen and (max-width:352px) {
+  /* .Game1-bg-result{
+          height: 280vh;
+        } */
+}
+
+@media screen and (max-width:483px) {
+  .welldone-text {
+    font-size: 50px;
+    margin-top: 80px;
+  }
+}
+
+@media screen and (max-width:1130px) {
+  /* .Game1-bg-result{
+          height: 160vh;
+        } */
+}
+
+@media screen and (max-width:575px) {
+
+  .Game1-bg-result {
+    height: 140vh;
+  }
+
+  .Game1-bg-result2 {
+    height: 140vh;
+  }
+}
+
+@media screen and (max-width:524px) {
+  .next-btn {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  /* .Game1-bg-result2 {
+    height: 150vh;
+  } */
+}
+
+@media screen and (max-width:384px) {
+  /* .Game1-bg-result{
+      height: 240vh;
+    } */
+}
+
+@media screen and (max-width:376px) {
+  .Game1-bg-result {
+    height: 225vh !important;
+  }
+
+  .Game1-bg-result2 {
+    height: 150vh;
+  }
+}
+
+@media screen and (max-width:320px) {
+  .Game1-bg-result {
+    height: 335vh !important;
+  }
+
+  .Game1-bg-result2 {
+    height: 220vh;
+  }
+}
+
+@media screen and (max-width:863px) {
+  .icon8-game1 {
+    position: absolute;
+    height: 10%;
+    bottom: 0%;
+    left: 2%;
+  }
+}
+
+@media screen and (max-width:463px) {
+  .icon8-game1 {
+    left: 0%;
+  }
+}
+
+@media screen and (max-width:1289px) {
+  .progress-bar-container {
+    max-width: 440px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .progress-bar-container {
+    max-width: 354px;
+  }
+}
+
+@media screen and (max-width:1378px) {
+  .progress-bar-container {
+    max-width: 586px !important;
+  }
+}
+
+@media screen and (max-width:1298px) {
+  .progress-bar-container {
+    max-width: 500px !important;
+  }
+}
+
+@media screen and (max-width:1175px) {
+  .progress-bar-container {
+    max-width: 350px !important;
+  }
+}
+
+@media screen and (max-width:1043px) {
+  .progress-bar-container {
+    max-width: 300px !important;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .progress-bar-container {
+    max-width: 343px !important;
+  }
+}

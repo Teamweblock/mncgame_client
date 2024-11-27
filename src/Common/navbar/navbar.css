@@ -1,0 +1,239 @@
+/* 
+
+
+ .navbar {
+  display: flex;
+  justify-content: end !important;
+  align-items: center;
+  padding: 1rem;
+  top: 0;
+  gap: 40px;
+background-color: transparent;
+z-index: 1;
+position: absolute;
+margin-right: 200px !important;
+padding: 12px;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  margin: 0 1rem;
+}
+.navbar ul li{
+  list-style: none;
+}
+.navbar ul li a{
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+.navbar .login-button {
+  display: flex;
+  align-items: center;
+  margin-right: 200px;
+}
+
+.loginbtn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.active {
+  color: #C04AE2;
+}
+.navbar ul li a:hover,
+.navbar ul li a.active {
+  color: #c04ae2;
+  text-decoration: none;
+  border-bottom: 2px solid #C04AE2;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar ul li {
+    margin: 0.5rem 0;
+  }
+
+  .navbar .login-button {
+    margin-top: 1rem;
+  }
+} 
+ */
+
+/* General Styles */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: right !important;
+
+padding-bottom: 50px;
+margin-top: 50px;
+  background: transparent;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  padding-right: 50px;
+}
+.navbar-menu {
+  margin-bottom: 0px !important;
+  padding-right: 250px;
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-logo a {
+  font-size: 1.5rem;
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navbar-menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  align-items: center;
+
+}
+
+.navbar-menu li {
+
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: black;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+.loginbtn{
+padding: 6px 50px !important;
+}
+.navbar-menu li a:hover {
+  color: #c04ae2;
+}
+.navbar ul li a:hover,
+.navbar ul li a.active {
+  color: #c04ae2 !important;
+  text-decoration: none;
+  border-bottom: 2px solid #c04ae2;
+}
+.login-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+
+}
+.fa-bars {
+  position: absolute;
+  right: 25px;
+  top: -40px;
+  color: black;
+}
+.fa-times {
+  position: absolute;
+  top: -40px;
+  right: 25px;
+  color: black;
+}
+.nav-logo{
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+}
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+  }
+
+  .navbar-logo {
+    margin-bottom: 10px;
+  }
+.login-button{
+  justify-content: flex-end;
+    margin-right: 100px;
+}
+  .navbar-menu-icon {
+    display: block;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    text-align: center;
+    padding-right: 0px ;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+padding-bottom: 140px;
+  }
+
+  .navbar-menu li {
+    margin: 10px 0;
+  }
+
+  .login-button {
+    width: 100%;
+    justify-content: center;
+
+    margin-right: 0px ;
+  }
+  .navbar-menu{
+    gap: 0px;
+  }
+  .navbar-menu li a {
+    color: black !important;
+  }
+  .navbar-menu{
+    padding-right: 0px !important;
+  }
+  
+}
+@media screen and (max-width:990px) {
+  .navbar-menu{
+    padding-right:185px;
+  }
+  
+}
+@media screen and (max-width: 858px) {
+  .navbar-menu{
+    padding-right:142px ;
+  }
+  
+}
+

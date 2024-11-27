@@ -1,0 +1,174 @@
+.game3-bg {
+    background-image: url("/src/Assets/gameimages/img10.jpg");
+    width: 100%;
+    height: 100vh;
+    padding: 30px 0px;
+  
+    position: relative;
+    background-position: center;
+    background-size: cover;
+  }
+  .icon1-game3 {
+    position: absolute;
+    height: 10%;
+    top: 17%;
+    left: 15%;
+  }
+  .game3result-width {
+    width: 80%;
+    margin: auto;
+  }
+  .result-group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    grid-template-columns: 1fr 2fr;
+    transform: translate(-50%, -50%);
+  }
+  .result-img {
+    width: 100%;
+  }
+  .progress-bar-container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 725px;
+    text-align: center;
+  }
+  
+  
+  .progress-bar {
+    position: static;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 2px solid black;
+  }
+  .progress-bar-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(201, 9, 176);
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+  .progress-bar-label2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(227, 227, 28);
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+  .progress-bar-label3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(168, 68, 249);
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+  .progress-bar-label5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #76c7c0;
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+  .progress-bar-label4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: skyblue;
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+  .progress-bar-fill {
+    height: 10px;
+    background-color: rgb(201, 9, 176);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    border-radius: 25px 0 0 25px;
+  }
+  
+  .progress-bar-fill2 {
+    height: 10px;
+    background-color: rgb(227, 227, 28);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    border-radius: 25px 0 0 25px;
+  }
+  
+  .progress-bar-fill3 {
+    height: 10px;
+    background-color: rgb(168, 68, 249);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    border-radius: 25px 0 0 25px;
+  }
+  
+  .progress-bar-fill4 {
+    height: 10px;
+    background-color: skyblue;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    border-radius: 25px 0 0 25px;
+  }
+  
+  .progress-bar-fill5 {
+    height: 10px;
+    background-color: #76c7c0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    border-radius: 25px 0 0 25px;
+  }
+  
+  
+  
+  .progress-bar-percentage {
+    width: 40px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+  
+    font-size: 13px;
+    border-radius: 6px;
+    margin-top: 45px;
+    position: absolute;
+    z-index: 1;
+  
+    margin-right: -30px;
+  
+    transition: opacity 0.3s;
+  }
+  .progress-bar-percentage::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+  
+    margin-left: -17px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+  }
+  .range-box {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+  }

@@ -1,0 +1,808 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 255, 255) !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+} */
+
+a {
+  text-decoration: none !important;
+}
+
+.input {
+  padding: 8px;
+  margin: 10px 0px;
+  width: -webkit-fill-available;
+  padding-left: 30px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
+.icon-group {
+  display: flex;
+  gap: 23px;
+}
+
+i {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: rgb(163, 162, 162);
+}
+
+.form-check-label {
+  font-size: 12px;
+}
+
+/* span {
+  color: red;
+} */
+
+.text-center {
+  text-align: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.skill-img {
+  width: 100%;
+}
+
+.skill-input {
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+}
+
+.search-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  font-weight: 500;
+  position: absolute;
+  top: -37px;
+  right: 10px;
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+}
+
+.absolute-img1 {
+  width: 250px;
+  height: 300px;
+  position: absolute;
+  left: -130px;
+  top: 599px;
+}
+
+.bg-img1 {
+  background-image: url("../src/Assets/images//img11.png");
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+.pilot-img {
+  width: 90%;
+}
+
+.play-btn {
+  border: 2px solid #009eff;
+  border-radius: 6px;
+  padding: 10px;
+  color: black;
+}
+
+.play-btn:hover {
+  border: none;
+  background-color: #009eff;
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+}
+
+.piolot-part {
+  width: 70%;
+  margin: auto;
+}
+
+.skill-part1 {
+  width: 68%;
+  float: inline-end;
+  z-index: 1;
+  position: relative;
+}
+
+.edge-part {
+  width: 80%;
+  margin: auto;
+}
+
+.play-btn2 {
+  border: 2px solid #ffa024;
+  border-radius: 6px;
+  padding: 10px;
+  color: black;
+}
+
+.play-btn2:hover {
+  border: none;
+  background-color: #ffa024;
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+}
+
+.piolt {
+  width: 80%;
+  margin: auto;
+}
+
+.game {
+  width: 80%;
+  margin: auto;
+}
+
+.strategy-part {
+  width: 80%;
+  margin: auto;
+}
+
+.contact-text {
+  color: #c04ae2;
+  letter-spacing: 2px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.contact-form {
+  width: 70%;
+  margin: auto;
+}
+
+.form {
+  display: inline-grid;
+  width: 80%;
+  margin: auto;
+}
+
+.form-input {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding-left: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.start-btn {
+  background-color: #c04ae2;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 24px;
+  margin-top: 15px;
+  text-align: start;
+}
+
+.start-btn:hover {
+  background-color: pink;
+}
+
+.details {
+  width: 80%;
+  margin-top: 40px;
+}
+
+.phone-icon {
+  background-color: rgb(221, 87, 109);
+  color: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  padding: 13px;
+}
+
+.email-icon {
+  background-color: green;
+  color: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  padding: 13px;
+}
+
+.add-icon {
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  padding: 13px;
+}
+
+.footer {
+  width: 70%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.footer-input {
+  padding: 15px !important;
+  background-color: aliceblue;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+
+.f-input-icon {
+  position: absolute;
+  margin-top: 16px;
+  right: 10px;
+  font-size: 23px;
+}
+
+.weblock-link {
+  color: black;
+}
+
+.f-logo {
+  width: 100px;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.f-title {
+  font-weight: 800;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.f-title h6 {
+  color: #000;
+  font-weight: 400 !important;
+}
+
+.f-icon {
+  margin-right: 20px;
+}
+
+.f-subtitle {
+  color: #000;
+  font-weight: 400;
+}
+
+.f-icon1 {
+  background-color: #fd6685;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.f-icon2 {
+  background-color: #54d6a1;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.f-icon3 {
+  background-color: #fe9b40;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.absolute-img2 {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 60px;
+  margin-top: -30px;
+}
+
+.absolute-img3 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 50px;
+}
+
+.play-btn3 {
+  border: 2px solid #9cff00;
+  border-radius: 6px;
+  padding: 10px;
+  color: black;
+}
+
+.play-btn3:hover {
+  border: none;
+  background-color: #9cff00;
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+}
+
+.animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10%);
+  }
+}
+
+.bg-img1 {
+  animation: slideIn 3s ease-in-out infinite alternate;
+  /* Adjust timing and animation properties as needed */
+}
+
+.text {
+  width: 80%;
+  margin: auto;
+}
+
+.login-bg-img {
+  background-image: url("../src//Assets/images/loginimg2.jpg");
+  width: 100%;
+  height: 800px;
+  background-position: center;
+  background-size: cover;
+}
+
+.login-img {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+}
+
+.game {
+  width: 80%;
+  margin: auto;
+}
+
+.loginform {
+  border: 5px solid black;
+  border-radius: 20px;
+  border-right: 13px solid black;
+  border-bottom: 13px solid black;
+  width: 100%;
+  margin: auto;
+}
+
+.login-input {
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  width: 100%;
+  padding: 10px;
+  font-weight: 700;
+  color: black;
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  background-color: red;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  padding: 10px;
+  font-weight: 700;
+}
+
+#button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#button.changed {
+  background-color: red;
+}
+
+.loginbtn {
+  border: 2px solid #c04ae2;
+}
+
+.card1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: 0.4s ease-in;
+}
+
+.game1-bg-img {
+  background-image: url("../src/Assets/images/bg-img2.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 900px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.card1:hover {
+  background: rgb(238, 7, 110);
+  background-image: linear-gradient(90deg, #f61b10, #ef0963);
+  color: rgb(238, 7, 110);
+  border-radius: 10px;
+  transform: translateY(-0.5rem);
+  transition: 1s;
+}
+
+.clippath {
+  clip-path: circle(50% at 50% 93%);
+  background-image: url("../src/Assets/images/bgimg1.jpg");
+}
+
+.person-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  z-index: 1;
+  margin-right: 150px;
+}
+
+.contact-grid {
+  width: 80% !important;
+  margin: auto !important;
+}
+
+.bottom-footer {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.f-icons {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.f-icon-gap {
+  gap: 12px;
+}
+
+.addskill-part-1 {
+  width: 40%;
+}
+
+.addskill-part-2 {
+  width: 60%;
+}
+
+.addskill-part-main {
+  width: 100%;
+  height: 1120px;
+  display: flex;
+  margin-top: -120px;
+  /* background-image: url('./Assets/images/gameimg2.png'); */
+  background-image: url("./Assets/illustration/Untitled-2.png");
+  /* background-image: url('./Assets/illustration/illustration_header.png'); */
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.game-main-part {
+  width: 100%;
+  display: flex;
+}
+
+.game-part1 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-part2 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-img {
+  width: 80%;
+}
+
+.game-description {
+  width: 60%;
+}
+
+.contact-main {
+  width: 60%;
+  margin: auto;
+  display: flex;
+}
+
+.contact-part1 {
+  width: 50%;
+}
+
+.contact-part2 {
+  width: 50%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 2fr;
+  gap: 60px;
+}
+
+.contact-title {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.footer-icon-group {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+
+  align-items: baseline;
+}
+
+.socialicons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.contact-bg {
+  background-image: url("../src/Assets/images/img24.png");
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 700px) {
+  .contact-title {
+    font-size: 20px;
+  }
+
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 60px;
+  }
+
+  .addskill-part-main {
+    height: 730px;
+  }
+
+  .addskill-part-1 {
+    width: 100%;
+    margin: auto;
+  }
+
+  .game-part1 {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .game-part2 {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .game-main-part {
+    width: 100%;
+    display: block;
+  }
+
+  .game-img {
+    width: 60%;
+    margin-top: 30px;
+  }
+
+  .game-description {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .addskill-part-main {
+    height: 730px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .contact-main {
+    display: block;
+    width: 80%;
+  }
+
+  .footer {
+    width: 80%;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  .contact-part1 {
+    width: 100%;
+  }
+
+  .contact-part2 {
+    width: 100%;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+}
+
+.process-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step {
+  text-align: center;
+}
+
+.connector {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: lightblue;
+  border-radius: 50%;
+  animation: dotAnimation 2s infinite;
+}
+
+.line {
+  width: 100px;
+  /* Adjust this based on the distance between steps */
+  height: 4px;
+  background-color: lightblue;
+  animation: lineAnimation 2s infinite;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@keyframes dotAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes lineAnimation {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /* .footer-text{
+
+  } */
+}
+
+@media screen and (max-width: 768px) {
+  .footer-icon-group {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .footer-bottom {
+    gap: 30px;
+  }
+
+  .footer-text {
+    font-size: 9px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .footer-text {
+    font-size: 9px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer-text {
+    font-size: 10px !important;
+  }
+}

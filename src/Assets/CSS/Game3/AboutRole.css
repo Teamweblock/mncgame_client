@@ -1,0 +1,247 @@
+.Game3-bg2 {
+  background-image: url("/src/Assets/gameimages/img8.png");
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+.icon1-game3 {
+  position: absolute;
+  height: 10%;
+  top: 23%;
+  left: 15%;
+}
+
+.aboutrole-width {
+  width: 60%;
+  margin: auto;
+}
+
+.meeting1 {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.meeting2 {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 70px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.about-group {
+  display: grid;
+
+  gap: 30px;
+
+  padding-top: 180px;
+  grid-template-columns: 1fr 2fr;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.aboutimg {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.about-para {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.about-role-title {
+  color: #f97316;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.about-role-text {
+  color: #333;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.choose-text {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  color: white;
+}
+
+
+.rolepage-width {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+.btn-group2 {
+  margin-top: 30px;
+
+  text-align: center;
+
+}
+
+@media screen and (max-width:1155px) {
+  .about-group {
+    display: block;
+  }
+
+  .about-para {
+    margin-top: 30px;
+  }
+
+  .Game3-bg2 {
+    height: 120vh;
+  }
+
+  .dropdown-toggle {
+    margin-top: 30px;
+  }
+
+  .Game3-bg2 {
+    height: 150vh;
+  }
+}
+
+@media screen and (max-width:584px) {
+  .about-group {
+    width: 80%;
+    margin: auto;
+  }
+
+  .aboutrole-width {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:365px) {
+  .Game3-bg2 {
+    height: 130vh;
+  }
+}
+
+@media screen and (max-width:745px) {
+  .Game3-bg2 {
+    height: 170vh;
+
+  }
+}
+
+@media screen and (max-width:658px) {
+  .chooserole-title {
+    font-size: 60px;
+  }
+
+  .role-text {
+    font-size: 60px;
+  }
+
+}
+
+@media screen and (max-width:482px) {}
+
+@media screen and (max-width:400px) {}
+
+@media screen and (max-width:347px) {
+  .Game3-bg2 {
+    height: 180vh;
+  }
+
+}
+
+@media screen and (max-width:1148px) {
+  .Game3-bg2 {
+    height: 175vh;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .Game3-bg2 {
+    height: 190vh;
+  }
+}
+
+
+@media screen and (max-width:1078px) {}
+
+@media screen and (max-width:1234px) {
+  .Game3-bg2 {
+    height: 120vh !important;
+  }
+}
+
+@media screen and (max-width:1151px) {
+  .Game3-bg2 {
+    height: 170vh !important;
+  }
+}
+
+@media screen and (max-width:483px) {
+  .Game3-bg2 {
+    height: 180vh !important;
+  }
+}
+
+@media screen and (max-width:726px) {
+  .Game3-bg2 {
+    height: 180vh !important;
+  }
+}
+
+@media screen and (max-width:420px) {
+  .Game3-bg2 {
+    height: 190vh !important;
+  }
+
+  .meeting1 {
+    padding: 10px 20px;
+
+  }
+
+  .meeting2 {
+    padding: 10px 20px;
+
+  }
+}
+
+@media screen and (max-width:382px) {
+  .Game3-bg2 {
+    height: 240vh !important;
+  }
+
+  .meeting1,
+  .meeting2 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+}
+
+@media screen and (max-width:699px) {
+  .meeting2 {
+    margin-left: 0px;
+  }
+}

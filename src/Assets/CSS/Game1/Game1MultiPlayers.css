@@ -1,0 +1,332 @@
+
+
+.Game1-bg2 {
+  background-image: url(/src/Assets/gameimages/img1.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.timer {
+  text-align: center;
+  display: flex;
+  color: white;
+  font-weight: 700;
+  margin: auto;
+  padding-bottom: 15px;
+}
+
+.time-group {
+  line-height: 40px;
+}
+
+.minutes {
+  font-size: 130px;
+  color: white;
+  font-weight: 700;
+}
+
+.dot2 {
+  font-size: 130px;
+  color: white;
+}
+
+.minutes-text {
+  color: white;
+  font-size: 20px;
+}
+
+.time-group {
+  line-height: 40px;
+}
+
+.seconds {
+  color: white;
+  font-size: 130px;
+}
+
+.seconds-text {
+  color: white;
+  font-size: 20px;
+}
+
+.mnc-logo {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+
+}
+
+.icon6-game1 {
+  position: absolute;
+  height: 10%;
+  left: 13%;
+  bottom: 18%;
+
+}
+
+.players-group {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  top: 7%;
+  right: 7%;
+  color: white;
+  text-align: center;
+}
+
+.avtar-img {
+  width: 100px;
+  height: 100px;
+}
+
+.game1-width {
+  width: 70%;
+  margin: auto;
+}
+
+.multiple-player-part {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.multiple-player-part {
+  margin-top: 50px;
+}
+
+.question-box {
+  background-color: white;
+  padding: 20px;
+  color: black;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+
+  background: rgb(55, 212, 241);
+  background: linear-gradient(0deg,
+      rgba(55, 212, 241, 1) 0%,
+      rgba(195, 242, 251, 1) 0%,
+      rgba(213, 246, 252, 1) 23%,
+      rgba(205, 244, 252, 1) 47%,
+      rgba(255, 255, 255, 1) 100%);
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.show-btn {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.next-button:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.show-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 811px) {
+  .avtar-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .multiple-player-part {
+    margin-top: 200px;
+  }
+
+}
+
+@media screen and (max-width:715px) {
+  .multiple-player-part {
+    margin-top: 250px;
+  }
+}
+
+@media screen and (max-width:769px) {
+
+  .players-group {
+    top: 15%;
+    right: 38%;
+  }
+}
+
+@media screen and (max-width:575px) {
+
+  .players-group {
+    top: 15%;
+    right: 32%;
+  }
+}
+
+@media screen and (max-width:525px) {
+
+  .players-group {
+    top: 15%;
+    right: 32%;
+  }
+
+  .countdown h2 {
+    font-size: 90px !important;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width:553px) {
+  /* .multiple-player-part {
+    margin-top: 300px;
+  } */
+
+}
+
+@media screen and (max-width:640px) {
+  .solution-box input {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width:1234px) {
+  /* .Game1-bg {
+    height: 130vh;
+  } */
+}
+
+@media screen and (max-width:453px) {
+
+  .players-group {
+    margin-top: 15%;
+  }
+}
+
+@media screen and (max-width:351px) {
+
+  .players-group {
+    margin-top: 20%;
+  }
+}
+
+@media screen and (max-width:383px) {
+  /* .Game1-bg {
+    height: 140vh;
+  } */
+}
+
+@media screen and (max-width:500px) {
+  .icon3-game1 {
+    left: 1%;
+  }
+}
+
+@media screen and (max-width:1334px) {
+  .Game1-bg2 {
+    height: 120vh;
+
+  }
+}
+
+@media screen and (max-width:810px) {
+  .Game1-bg2 {
+    height: 140vh;
+
+  }
+}
+
+@media screen and (max-width:714px) {
+  .Game1-bg2 {
+    height: 150vh;
+  }
+}
+
+@media screen and (max-width:670px) {
+  .Game1-bg2 {
+    height: 160vh;
+
+  }
+}
+
+@media screen and (max-width:657px) {
+  .multiple-player-part {
+    margin-top: 385px;
+  }
+}
+
+@media screen and (max-width:552px) {
+  .Game1-bg2 {
+    height: 170vh;
+
+  }
+}
+
+@media screen and (max-width:480px) {
+  .Game1-bg2 {
+    height: 170vh;
+  }
+
+  .players-group {
+    top: 15%;
+    right: 30%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+
+  .players-group {
+    top: 15%;
+    right: 25%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+  .players-group {
+    top: 15%;
+    right: 26%;
+  }
+}
+
+@media screen and (max-width:375px) {
+
+  .players-group {
+    top: 15%;
+    right: 23%;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+
+  .Game1-bg2 {
+    height: 230vh;
+  }
+
+  .players-group {
+    top: 15%;
+    right: 20%;
+  }
+
+  .multiple-player-part {
+    margin-top: 480px;
+  }
+}

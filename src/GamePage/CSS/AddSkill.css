@@ -1,0 +1,74 @@
+.AddSkill {
+  font-size: 40px;
+  color: #1F4279;
+  margin-top: 140px;
+}
+
+.AddSkillSubText {
+  font-size: 18px;
+  color: gray;
+  width: 122%;
+}
+
+.skill-input {
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.game-img3 {
+  width: 40%;
+  position: absolute;
+  top: 20%;
+  right: 1%;
+}
+
+@media screen and (max-width:1024px) {
+
+  .AddSkill {
+    font-size: 43px;
+  }
+
+  .game-img3 {
+    top: 28%;
+    right: 5%;
+  }
+
+}
+
+@media screen and (max-width:768px) {
+  .AddSkill {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width:426px) {
+
+  .AddSkill {
+    font-size: 33px;
+  }
+
+  .AddSkillSubText {
+    font-size: 15px;
+  }
+
+  .game-img3 {
+    top: 35%;
+    right: 5%;
+  }
+
+}
+
+@media screen and (max-width:376px) {
+
+  .game-img3 {
+    top: 40%;
+    right: 5%;
+  }
+
+}
