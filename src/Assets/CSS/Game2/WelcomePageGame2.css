@@ -187,3 +187,8 @@
         height: 115vh;
     }
 }
+
+.credit-score-result{
+    color: white;
+    padding: 50px 30px;
+}

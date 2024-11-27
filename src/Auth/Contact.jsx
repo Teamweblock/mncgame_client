@@ -166,6 +166,16 @@ const Contact = () => {
                   <p>hello@rainydesign.com</p>
                 </div>
               </div>
+              <div className="d-flex gap-3 mt-3" >
+                <div className="f-icon3">
+                  {/* <img src={icon2} className="contact-icon"/> */}
+                  <FaLocationDot />
+                </div>
+                <div>
+                  <h6 style={{ fontWeight: "700" }}>Address</h6>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+              </div>
               {/* <div className="d-flex gap-3 mt-3" >
                 <div className="f-icon3">
                   <FaLocationDot />
