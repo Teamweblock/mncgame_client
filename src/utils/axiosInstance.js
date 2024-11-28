@@ -311,8 +311,6 @@ export const submitGame2Answer = async (payload) => {
 
 // The API call for getting questions for a specific level
 export const get2GameResult = async (payload) => {
-  console.log('payload', payload);
-
   try {
     const response = await axiosInstance.post(
       "/secoundGame/getplayerResult",

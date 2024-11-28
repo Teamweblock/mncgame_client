@@ -7,7 +7,7 @@ import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 function randomID(len) {
   let result = '';
   var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
-    maxPos = chars.length,
+    maxPos = chars?.length,
     i;
   len = len || 5;
   for (i = 0; i < len; i++) {

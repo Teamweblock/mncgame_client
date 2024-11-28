@@ -65,7 +65,14 @@ const Game2LevelPage = () => {
       toast.error("An unexpected error occurred. Please try again.");
     }
   };
-
+  // Remove levelNumber from localStorage on initial load
+  useEffect(() => {
+    const storedlevelNumber = localStorage?.getItem("levelNumber");
+    if (storedlevelNumber) {
+      localStorage?.removeItem("levelNumber");
+      console.log("levelNumber removed from localStorage on first load.");
+    }
+  }, []);
   return (
     <div className="level-bg">
       <div className="pt-50">

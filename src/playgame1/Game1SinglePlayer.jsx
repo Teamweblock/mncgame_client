@@ -36,7 +36,7 @@ const Game1SinglePlayer = () => {
   const handleNextQuestion = async () => {
     // e.preventDefault();
     try {
-      if (currentQuestionIndex <= playerData.length - 1) {
+      if (currentQuestionIndex <= playerData?.length - 1) {
         if (userAnswer?.trim() === "") {
           alert("Please enter an answer before proceeding.");
           return; // Don't proceed if the input is empty
@@ -53,7 +53,7 @@ const Game1SinglePlayer = () => {
         if (response?.success === true) {
           setUserAnswer("");
           // Check if it's the last question
-          if (currentQuestionIndex === playerData.length - 1) {
+          if (currentQuestionIndex === playerData?.length - 1) {
             // Clear only the `currentQuestionIndex` for the specific `levelNumber`
             localStorage.removeItem(`currentQuestionIndex_${levelNumber}`);
             navigate("/game1result2");
@@ -164,7 +164,7 @@ const Game1SinglePlayer = () => {
             clearInterval(timerId);
 
             // Check if we are on the last question
-            if (currentQuestionIndex >= playerData.length - 1) {
+            if (currentQuestionIndex >= playerData?.length - 1) {
               navigate("/game1result2"); // Navigate to results
             } else {
               setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // Move to next question
@@ -188,22 +188,24 @@ const Game1SinglePlayer = () => {
 
   useEffect(() => {
     if (levelNumber) {
+      // Retrieve the saved index from localStorage
       const savedIndex = localStorage.getItem(
         `currentQuestionIndex_${levelNumber}`
       );
-      setCurrentQuestionIndex(savedIndex ? parseInt(savedIndex, 10) : 0);
+      // Parse and set the current question index, defaulting to 0 if none is found
+      setCurrentQuestionIndex(savedIndex ? Number(savedIndex) : 0);
     }
   }, [levelNumber]);
 
-  // Save the currentQuestionIndex to localStorage whenever it updates
   useEffect(() => {
-    if (levelNumber !== null) {
+    if (levelNumber) {
+      // Save the currentQuestionIndex to localStorage when it updates
       localStorage.setItem(
         `currentQuestionIndex_${levelNumber}`,
-        currentQuestionIndex
+        currentQuestionIndex // Convert to string for storage
       );
     }
-  }, [currentQuestionIndex, levelNumber]);
+  }, [currentQuestionIndex, levelNumber, playerData]);
 
   return (
     <div className="Game1-sinlgeplayer-bg">
@@ -230,7 +232,9 @@ const Game1SinglePlayer = () => {
             <>
               <div className="questions-game1">
                 <div className="question-box">
-                  <h3>Question {currentQuestionIndex + 1}</h3>
+                  <h4>
+                    Question {currentQuestionIndex + 1} {"-"}
+                  </h4>
                   <p>{playerData[currentQuestionIndex]?.questionText}</p>
                 </div>
                 <div className="solution-box">
@@ -256,7 +260,7 @@ const Game1SinglePlayer = () => {
                 </button>
               </div>
             )}
-            {currentQuestionIndex < playerData.length - 1 ? (
+            {currentQuestionIndex < playerData?.length - 1 ? (
               <div className="">
                 <button className="next-button" onClick={handleNextQuestion}>
                   Next

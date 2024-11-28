@@ -34,7 +34,14 @@ const Game1Result2 = () => {
     navigate("/");
   };
   const selectLevelpage = () => {
-    navigate(`/game1levelpage?playerType=${playerType}`);
+    // Increment the level
+    const newLevelNumber = Number(levelNumber) + 1;
+    // Store the updated level back in localStorage
+    localStorage.setItem("levelNumber", newLevelNumber);
+    // Navigate to the new level with updated levelNumber in the URL
+    navigate(
+      `/game1singleplayer?levelNumber=${newLevelNumber}&playerType=${playerType}`
+    );
   };
   const handlegetresult = async () => {
     try {

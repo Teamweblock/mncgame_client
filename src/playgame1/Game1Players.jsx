@@ -32,6 +32,15 @@ const Game1Players = () => {
     navigate(`/game1levelpage?playerType=${playerType}`);
   };
 
+  // Remove playerType from localStorage on initial load
+  useEffect(() => {
+    const storedPlayerType = localStorage?.getItem("playerType");
+    if (storedPlayerType) {
+      localStorage?.removeItem("playerType");
+      console.log("playerType removed from localStorage on first load.");
+    }
+  }, []);
+
   return (
     <>
       <div className="game1-bg">
