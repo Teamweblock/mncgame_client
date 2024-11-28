@@ -37,7 +37,6 @@ const Game2Questions = () => {
           if (currentIndex === playerData.length - 1) {
             setShowResults(true);
             // Clear all localStorage except the token
-            localStorage.removeItem(`currentIndex${levelNumber}`);
             navigate("/game2result");
           } else {
             console.log("check");
@@ -137,64 +136,54 @@ const Game2Questions = () => {
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         alt="icon2"
       />
-      {playerData?.length > 0 ? (
-        <>
-          <div className="game2-question-part">
-            <div className="game2-width">
-              <div className="card-container">
-                <div className="question-box">
-                  <p>
-                    {currentIndex + 1}.{" "}
-                    {playerData && playerData[currentIndex]
-                      ? playerData[currentIndex]?.questionText
-                      : "Loading..."}
-                  </p>
-                </div>
-                <div className="option-card">
-                  {playerData[currentIndex]?.options?.map(
-                    (optionText, index) => {
-                      const optionLetter = String.fromCharCode(65 + index); // Convert index to A, B, C, D
-                      return (
-                        <div
-                          key={optionLetter}
-                          className={`card-option${
-                            index + 1
-                          } card-content content${optionLetter} ${
-                            selectedOption === optionLetter ? "selected" : ""
-                          }`}
-                          onClick={() => handleOptionClick(optionLetter)}
-                        >
-                          <div className="card-content1">
-                            <h1>{optionLetter}.</h1>
-                            <div className={`option${optionLetter}`}>
-                              {optionText}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    }
-                  )}
-                </div>
-                {!showResults && !isQuizEnded && (
-                  <button onClick={handleNextClick} className="next-button">
-                    Next
-                  </button>
-                )}
-                {isQuizEnded && (
-                  <button
-                    onClick={handleNextClick}
-                    className="show-results-button"
-                  >
-                    Show Results
-                  </button>
-                )}
-              </div>
+      <div className="game2-question-part">
+        <div className="game2-width">
+          <div className="card-container">
+            <div className="question-box">
+              <p>
+                {currentIndex + 1}.{" "}
+                {playerData && playerData[currentIndex]
+                  ? playerData[currentIndex]?.questionText
+                  : "Loading..."}
+              </p>
             </div>
+            <div className="option-card">
+              {playerData[currentIndex]?.options?.map((optionText, index) => {
+                const optionLetter = String.fromCharCode(65 + index); // Convert index to A, B, C, D
+
+                return (
+                  <div
+                    key={optionLetter}
+                    className={`card-option${
+                      index + 1
+                    } card-content content${optionLetter} ${
+                      selectedOption === optionLetter ? "selected" : ""
+                    }`}
+                    onClick={() => handleOptionClick(optionLetter)}
+                  >
+                    <div className="card-content1">
+                      <h1>{optionLetter}.</h1>
+                      <div className={`option${optionLetter}`}>
+                        {optionText}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {!showResults && !isQuizEnded && (
+              <button onClick={handleNextClick} className="next-button-game2">
+                Next
+              </button>
+            )}
+            {isQuizEnded && (
+              <button onClick={handleNextClick} className="show-results-button">
+                Show Results
+              </button>
+            )}
           </div>
-        </>
-      ) : (
-        <p>Loading questions...</p>
-      )}
+        </div>
+      </div>
 
       {/* <h6 className='game-footer-text'><span style={{fontWeight:"700", color:"white"}}>MULTI</span> NETWORKING COMPANY</h6> */}
     </div>

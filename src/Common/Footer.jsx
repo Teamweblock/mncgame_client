@@ -126,19 +126,19 @@ const Footer = () => {
           </div>
           <div>
             <h6 className="f-title">Get in Touch</h6>
-            {/* <div className="d-flex gap-4">
-              <MdLocationPin />
+            <div className=" get-in-touch">
+              <MdLocationPin className="footer-icon-set" />
               <p>22/1 Lorem ipsum, sshdi india 1348</p>
-            </div> */}
-            <div className="d-flex gap-4">
-              <MdOutlineMail />
+            </div>
+            <div className="get-in-touch">
+              <MdOutlineMail className="footer-icon-set"/>
               <p>xuwelkhan@gmail.com</p>
             </div>
-            <div className="d-flex gap-4">
-              <FaPhoneAlt />
+            <div className="get-in-touch">
+              <FaPhoneAlt className="footer-icon-set"/>
               <p>+91 01679 252595</p>
             </div>
-            <div className="icon-group">
+            {/* <div className="icon-group">
               <div>
                 <p>
                   <b>Follow Us</b>
@@ -151,12 +151,29 @@ const Footer = () => {
                 <FaYoutube style={{ color: "#FF0000" }} />
                 <FaInstagram style={{ color: "#C13584" }} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
         <div className="text-center sub-footer">
-          <div>
+          {/* icons add */}
+            
+          
+          <div className="copyright">
+          <div className="icon-group">
+             
+          <p className="follow-us">
+                Follow Us
+                </p>
+             
+
+              <div className="socialicons">
+                <FaFacebookF style={{ color: "#0165E1" }} />
+                <FaTwitter style={{ color: "#1DA1F2" }} />
+                <FaYoutube style={{ color: "#FF0000" }} />
+                <FaInstagram style={{ color: "#C13584" }} />
+              </div>
+            </div>
             <p className="footer-text">
               All rights reserverd @ <b>Multi networking company</b> 2024 |
               Developed by:

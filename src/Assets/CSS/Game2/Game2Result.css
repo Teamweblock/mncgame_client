@@ -75,11 +75,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+/* 
 .game2result-width {
-  /* width: 80%;
-  margin: auto; */
-}
+  width: 80%;
+  margin: auto;
+} */
 
 .text-white1 {
   color: white;
@@ -123,8 +123,8 @@
   line-height: 0.2;
 }
 
-.text-centergame2 {
-}
+/* .text-centergame2 {
+} */
 
 @media screen and (max-width: 645px) {
   .Game2-bg {

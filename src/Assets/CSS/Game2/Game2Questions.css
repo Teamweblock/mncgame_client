@@ -3,16 +3,26 @@
   height: 100vh;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
+
 }
 
 .question-box {
   background-color: white;
-  padding: 20px;
+  /* padding: 20px; */
   color: black;
   border-radius: 20px;
   font-size: 20px;
   text-align: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.question-game2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .game2-question-part {
@@ -20,6 +30,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 20px;
+  margin: auto;
+ 
 }
 
 .show-results-button {
@@ -35,6 +48,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 40px;
+  gap: 20px;
 }
 
 .game2-width {
@@ -55,14 +69,19 @@
 .card-option1 {
   background-color: #fff; /* Default white background */
   position: relative;
-  width: 480px;
+  /* width: 480px; */
   height: 100px;
-  padding: 10px 20px;
-  margin: 20px;
+  /* padding: 10px 20px; */
+  /* margin: 20px 20px 0px 0px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
   color: black; /* Default text color */
   transition: all 0.4s ease-out; /* Smooth transition for background and text color */
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .card-option1::before {
@@ -70,7 +89,7 @@
   position: absolute;
   width: 12px; /* Small white stripe */
   height: 100%;
-  background-color: orange; /* White stripe */
+  background-color: #fd8347; /* White stripe */
   top: 0;
   left: 0;
   z-index: 2; /* Ensure stripe stays on top of the background */
@@ -82,7 +101,7 @@
   position: absolute;
   width: 0%; /* Initially hidden orange background */
   height: 100%;
-  background-color: orange;
+  background-color: #fd8347;
   top: 0;
   left: 0;
   transition: 0.4s ease-out;
@@ -123,14 +142,20 @@
 .card-option2 {
   background-color: #fff; /* Default white background */
   position: relative;
-  width: 480px;
+  /* width: 480px; */
   height: 100px;
   padding: 10px 20px;
-  margin: 20px;
+  /* margin: 20px 0 0 20px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
   color: black; /* Default text color */
   transition: all 0.4s ease-out; /* Smooth transition for background and text color */
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  font-size: 17px;
+  font-weight: 600;
+
 }
 
 .card-option2::before {
@@ -192,14 +217,19 @@
 .card-option3 {
   background-color: #fff; /* Default white background */
   position: relative;
-  width: 480px;
+  /* width: 480px; */
   height: 100px;
   padding: 10px 20px;
-  margin: 20px;
+  /* margin: 20px 20px 0 0; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
   color: black; /* Default text color */
   transition: all 0.4s ease-out; /* Smooth transition for background and text color */
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .card-option3::before {
@@ -208,6 +238,7 @@
   width: 12px; /* Small white stripe */
   height: 100%;
   background-color: #ffda67; /* White stripe */
+  
   top: 0;
   left: 0;
   z-index: 2; /* Ensure stripe stays on top of the background */
@@ -260,14 +291,20 @@
 .card-option4 {
   background-color: #fff; /* Default white background */
   position: relative;
-  width: 480px;
+  /* width: 480px; */
   height: 100px;
   padding: 10px 20px;
-  margin: 20px;
+  /* margin: 20px 0 0 20px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
   color: black; /* Default text color */
   transition: all 0.4s ease-out; /* Smooth transition for background and text color */
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  font-size: 17px;
+  font-weight: 600;
+ 
 }
 
 .card-option4::before {
@@ -343,6 +380,7 @@
   align-items: center;
   /* padding: 10px 20px; */
   padding: 10px 10px 10px 60px;
+  
 }
 
 .card-content1 h1 {
@@ -437,6 +475,7 @@
   height: 10%;
   bottom: 18%;
   left: 10%;
+
 }
 
 .result-img2 {
@@ -455,26 +494,31 @@
 }
 
 @media screen and (max-width: 1187px) {
+  .icon10-game1{
+    display: none;
+  }
+
   .option-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-  .card-option2 {
+  /* .card-option2 {
     margin-top: 30px;
+    margin: 20px 0;
   }
 
   .card-option1 {
-    margin-top: 30px;
+    margin: 20px 0 0 0;
   }
 
   .card-option3 {
-    margin-top: 30px;
+    margin: 20px 0 0 0;
   }
 
   .card-option4 {
-    margin-top: 30px;
-  }
+    margin: 20px 0 0 0;
+  } */
 
   .Game2-bg {
     height: 300vh !important;
@@ -504,4 +548,22 @@
   .Game2-bg {
     height: 110vh !important;
   }
+}
+
+.next-button-game2{
+  background-color: white;
+  border-radius: 30px;
+  width: 200px;
+  border: none;
+   color: black;
+   padding: 5px 10px ;
+   font-size: 18px;
+   font-weight: 600;
+  margin-top: 30px;
+  height: 50px;
+}
+.next-button-game2:hover{
+  background-color: #ff8c00;
+  color: white;
+  font-weight: 600;
 }

@@ -1,65 +1,125 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import img1 from "../Assets/gameimages/img6.png";
 import icon1 from "../Assets/gameimages/icon1.png";
 import logo from "../Assets/gameimages/mnclogo2.png";
-import data from "../playgame1/Game1Data"; // Assuming you have a data file with questions
 import "../Assets/CSS/Game1/Game1MultiPlayers.css";
-import { io } from "socket.io-client";
-import { joinMultipleGame } from "../utils/axiosInstance";
+import {
+  getQuestionsForLevel,
+  submitGame1Answer,
+} from "../utils/axiosInstance";
 import { toast } from "react-toastify";
 
 const Game1MultiPlayer = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [playerData, setPlayerData] = useState([]);
+  const [userAnswer, setUserAnswer] = useState(""); // To store the input value
   const [timeLeft, setTimeLeft] = useState(180); // 3 minutes in seconds
   const [countdown, setCountdown] = useState(3); // 3-second countdown
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [PlayerData, setPlayerData] = useState(null);
-  const [socket, setSocket] = useState(null);
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [gameStatus, setGameStatus] = useState("Playing...");
-  const roomCode = new URLSearchParams(location.search).get("roomCode");
-  const levelNumber = new URLSearchParams(location.search).get("levelNumber");
-
-  useEffect(() => {
-    let playerId;
-    // Join the game room
-    socket.emit("joinRoom", { roomCode, playerId });
-    // Listen for a new question
-    socket.on("questionReceived", (data) => {
-      setQuestion(data);
-      setGameStatus("Playing...");
-    });
-
-    // Listen for game over
-    socket.on("gameOver", (result) => {
-      setGameStatus("Game Over");
-      navigate("/gameResult", { state: { result } });
-    });
-
-    // Handle opponent disconnection
-    socket.on("playerDisconnected", (message) => {
-      toast.warn(message.message);
-      navigate("/game1levelpage");
-    });
-
-    return () => {
-      socket.emit("leaveRoom", { roomCode, playerId });
-      socket.off("questionReceived");
-      socket.off("gameOver");
-      socket.off("playerDisconnected");
-    };
-  }, [roomCode, navigate]);
+  const [levelNumber, setLevelNumber] = useState(null);
+  const [playerType, setPlayerType] = useState(null);
+  const navigate = useNavigate();
 
   const handleMouseMove = (e) => {
     const { clientX, clientY } = e;
     const x = (window.innerWidth / 1 - clientX) / 120;
     const y = (window.innerHeight / 1 - clientY) / 120;
     setOffset({ x, y });
+  };
+
+  const handleInputChange = (e) => {
+    setUserAnswer(e.target.value); // Update the state with input value
+  };
+
+  const handleNextQuestion = async () => {
+    try {
+      // if (userAnswer?.trim() === "") {
+      //   alert("Please enter an answer before proceeding.");
+      //   return; // Don't proceed if the input is empty
+      // }
+
+      const payload = {
+        level: levelNumber,
+        answers: userAnswer,
+        questionId: playerData[currentQuestionIndex]?.questionId?._id,
+        index: currentQuestionIndex,
+      };
+      const response = await submitGame1Answer(JSON.stringify(payload));
+
+      if (response?.success === true) {
+        setUserAnswer("");
+        if (currentQuestionIndex === playerData.length - 1) {
+          localStorage.removeItem(`currentQuestionIndex_${levelNumber}`);
+          navigate("/game1result");
+        } else {
+          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+          setTimeLeft(180); // Reset timer
+        }
+      }
+    } catch (error) {
+      console.error("Error during API call:", error);
+      toast.error(
+        "There was an error while submitting your answer. Please try again."
+      );
+    }
+  };
+
+  const handleBack = () => {
+    navigate("/game1players"); // Implement your back navigation logic here
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return (
+      <div className="timer">
+        <div className="time-group">
+          <div>
+            <span className="minutes">{minutes}</span>
+            <span className="dot2">:</span>
+          </div>
+          <div>
+            <span className="minutes-text">MINUTE</span>
+          </div>
+        </div>
+        <div className="time-group">
+          <div>
+            <span className="seconds">
+              {seconds < 10 ? "0" : ""}
+              {seconds}
+            </span>
+          </div>
+          <div>
+            <span className="seconds-text">SECOND</span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  const UserTimer = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return (
+      <>
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="">
+            <span className="text-white" style={{ fontSize: "1.1rem" }}>
+              {minutes}
+            </span>
+            <span className="text-white" style={{ fontSize: "1.1rem" }}>
+              :
+            </span>
+          </div>
+          <div className="">
+            <span className="text-white" style={{ fontSize: "1.1rem" }}>
+              {seconds < 10 ? "0" : ""}
+              {seconds}
+            </span>
+          </div>
+        </div>
+      </>
+    );
   };
 
   useEffect(() => {
@@ -97,95 +157,57 @@ const Game1MultiPlayer = () => {
     }
   }, [countdown, currentQuestionIndex]);
 
-  // const handleNextQuestion = () => {
-  //   if (currentQuestionIndex < data.length - 1) {
-  //     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-  //     setTimeLeft(180); // Reset timer
-  //   } else {
-  //     navigate("/game1levelpage?playerType=multiple");
-  //   }
-  // };
+  // Load level and player type from localStorage
+  useEffect(() => {
+    const level = localStorage.getItem("levelNumber");
+    const player = localStorage.getItem("playerType");
 
-  const handleNextQuestion = async (levelNumber, playerType) => {
-    try {
-      const payload = { level: levelNumber };
-      const apiCall = joinMultipleGame;
-      const response = await apiCall(payload);
-
-      if (response?.status === true) {
-        setPlayerData(response.formattedQuestions || []);
-        if (currentQuestionIndex < data.length - 1) {
-          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-          setTimeLeft(180); // Reset timer
-        } else {
-          navigate("/game1levelpage?playerType=multiple");
-        }
-      } else {
-        toast.error("Failed to fetch questions. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error fetching questions:", error);
-      toast.error("Error while fetching questions. Check your connection.");
+    if (level && player) {
+      setLevelNumber(level);
+      setPlayerType(player);
     }
-  };
+  }, []);
 
-  const handleBack = () => {
-    navigate("/game1players"); // Implement your back navigation logic here
-  };
+  // Load questions for multiplayer from the server
+  useEffect(() => {
+    if (levelNumber && playerType) {
+      const payload = {
+        level: levelNumber,
+      };
 
-  const formatTime = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-    return (
-      <div className="timer">
-        <div className="time-group">
-          <div>
-            <span className="minutes">{minutes}</span>
-            <span className="dot2">:</span>
-          </div>
-          <div>
-            <span className="minutes-text">MINUTE</span>
-          </div>
-        </div>
-        <div className="time-group">
-          <div>
-            <span className="seconds">
-              {seconds < 10 ? "0" : ""}
-              {seconds}
-            </span>
-          </div>
-          <div>
-            <span className="seconds-text">SECOND</span>
-          </div>
-        </div>
-      </div>
-    );
-  };
+      const apiCall = getQuestionsForLevel;
+      apiCall(payload)
+        .then((data) => {
+          if (data?.status === true) {
+            setPlayerData(data.formattedQuestions);
+          }
+        })
+        .catch((error) => {
+          console.error("Error during API call:", error);
+          toast.error("An error occurred. Please try again.");
+        });
+    }
+  }, [levelNumber, playerType]);
 
-  const UserTimer = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-    return (
-      <>
-        <div className="d-flex justify-content-center align-items-center">
-          <div className="">
-            <span className="text-white" style={{ fontSize: "1.1rem" }}>
-              {minutes}
-            </span>
-            <span className="text-white" style={{ fontSize: "1.1rem" }}>
-              :
-            </span>
-          </div>
-          <div className="">
-            <span className="text-white" style={{ fontSize: "1.1rem" }}>
-              {seconds < 10 ? "0" : ""}
-              {seconds}
-            </span>
-          </div>
-        </div>
-      </>
-    );
-  };
+  // Timer to save the current question index on every change
+  useEffect(() => {
+    if (levelNumber) {
+      const savedIndex = localStorage.getItem(
+        `currentQuestionIndex_${levelNumber}`
+      );
+      setCurrentQuestionIndex(savedIndex ? parseInt(savedIndex, 10) : 0);
+    }
+  }, [levelNumber]);
+
+  // Save the currentQuestionIndex to localStorage whenever it updates
+  useEffect(() => {
+    if (levelNumber !== null) {
+      localStorage.setItem(
+        `currentQuestionIndex_${levelNumber}`,
+        currentQuestionIndex
+      );
+    }
+  }, [currentQuestionIndex, levelNumber]);
 
   return (
     <div className="Game1-bg2">
@@ -219,10 +241,16 @@ const Game1MultiPlayer = () => {
           {countdown === 0 && <p className="timer">{formatTime(timeLeft)}</p>}
           <div className="questions-game1">
             <div className="question-box">
-              <p>{data[currentQuestionIndex].question}</p>
+              <h3>Question {currentQuestionIndex + 1}</h3>
+              <p>{playerData[currentQuestionIndex]?.questionText}</p>
             </div>
             <div className="solution-box">
-              <input type="text" placeholder="Type Your Solution" />
+              <input
+                type="text"
+                placeholder="Type Your Solution"
+                value={userAnswer}
+                onChange={handleInputChange}
+              />
             </div>
             <div className="text-center">
               {currentQuestionIndex === 0 && (
@@ -230,7 +258,7 @@ const Game1MultiPlayer = () => {
                   Back
                 </button>
               )}
-              {currentQuestionIndex < data.length - 1 ? (
+              {currentQuestionIndex < playerData.length - 1 ? (
                 <button className="show-btn" onClick={handleNextQuestion}>
                   Next
                 </button>
@@ -239,11 +267,9 @@ const Game1MultiPlayer = () => {
                   className="show-btn"
                   onClick={() => navigate("/game1result")}
                 >
-                  Show Result
+                  Show Results
                 </button>
               )}
-
-              {/* Conditionally render the Back button for the first question */}
             </div>
           </div>
         </div>

@@ -25,8 +25,8 @@ const Game1WaitingPage = () => {
       try {
         const payload = { level: levelNumber };
         const response = await joinmultipleGame(JSON.stringify(payload));
-        if (response?.data) {
-          setPlayerId(response.data);
+        if (response) {
+          setPlayerId(response);
         }
       } catch (err) {
         console.error("Error: Unable to join the queue", err);
@@ -44,7 +44,25 @@ const Game1WaitingPage = () => {
     // Emit joinQueue event
     socket.emit("joinQueue", { level: levelNumber, playerId });
 
-    const handleMatchFound = ({ roomCode }) => {
+    // const handleMatchFound = ({ player1Id, player2Id }) => {
+    //   console.log("player1Id", player1Id);
+    //   console.log("player2Id", player2Id);
+
+    //   setQueueStatus("Match found! Starting the game...");
+    //   setTimeout(() => {
+    //     // navigate(
+    //     //   `/game1multiplayer?roomCode=${roomCode}&levelNumber=${levelNumber}`
+    //     // );
+    //   }, 2000); // Delay to show the message
+    // };
+
+    const handleDisconnectMessage = (message) => {
+      toast.info(message);
+      navigate("/game1levelpage");
+    };
+
+    const handleStart = (roomCode) => {
+      console.log("roomCode", roomCode);
       setQueueStatus("Match found! Starting the game...");
       setTimeout(() => {
         navigate(
@@ -53,20 +71,17 @@ const Game1WaitingPage = () => {
       }, 2000); // Delay to show the message
     };
 
-    const handleDisconnectMessage = (message) => {
-      toast.info(message);
-      navigate("/game1levelpage");
-    };
-
-    socket.on("matchFound", handleMatchFound);
+    // socket.on("playersReady", handleMatchFound);
+    socket.on("startGame", handleStart);
     socket.on("disconnectMessage", handleDisconnectMessage);
 
     // Cleanup socket listeners
     return () => {
-      socket.off("matchFound", handleMatchFound);
+      // socket.off("playersReady", handleMatchFound);
+      socket.on("startGame", handleStart);
       socket.off("disconnectMessage", handleDisconnectMessage);
     };
-  }, [playerId, levelNumber, navigate]);
+  }, [playerId, levelNumber]);
 
   useEffect(() => {
     // Countdown timer logic

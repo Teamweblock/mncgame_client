@@ -82,12 +82,6 @@ const Game1SinglePlayer = () => {
     if (playerType === "single") {
       apiCall = getQuestionsForLevel; // Use getQuestionsForLevel for single-player
     }
-    // if (playerType === "single") {
-    //   apiCall = getQuestionsForLevel; // Use getQuestionsForLevel for single-player
-    // } else if (playerType === "multiple") {
-    //   apiCall = joinMultipleGame; // Use joinMultipleGame for multiplayer
-    // }
-
     try {
       const data = await apiCall(payload); // Call the appropriate API with the payload
       if (data?.status === true) {

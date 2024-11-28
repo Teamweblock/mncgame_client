@@ -5,6 +5,7 @@ import "ag-charts-enterprise"; // Required for enterprise features
 import { toast } from "react-toastify";
 import { get2GameResult } from "../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import Game2NewResult from "./Game2NewResult";
 
 const Speedometer = () => {
   const navigate = useNavigate();
@@ -15,7 +16,10 @@ const Speedometer = () => {
     // Retrieve level number from localStorage
     const storedLevel = localStorage.getItem("levelNumber");
     if (storedLevel) {
-      setLevelNumber(storedLevel);
+      setLevelNumber(parseInt(storedLevel, 10));
+    }
+    else {
+      console.warn("Level number not found in localStorage.");
     }
   }, []);
 
@@ -94,11 +98,15 @@ const Speedometer = () => {
   return (
     <div className="Game2-result flex flex-col items-center min-h-screen bg-gray-100 p-6">
       {/* Title */}
-      <h1 className="text-2xl font-bold mb-4">Your Credit Score</h1>
+      {/* <h1 className="text-2xl font-bold mb-4">Your Credit Score</h1> */}
 
       {/* AgGauge Component */}
       <div className="gauge-container my-6">
-        <AgGauge options={gaugeOptions} />
+        {/* <AgGauge options={gaugeOptions} /> */}
+        {/* new result add */}
+        <Game2NewResult score={score} levelNumber={levelNumber}/>
+
+        
       </div>
 
       {/* Navigation Buttons */}
