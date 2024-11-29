@@ -460,7 +460,7 @@ const Home = () => {
       </div>
 
       <div className="home-container-3 mt-6">
-        <p className="title-text2 mt-5">BUILD TRUST FIRST</p>
+        <p className="text-nowrap  font-bold mt-4 text-[#a90bd4]">BUILD TRUST FIRST</p>
         <div className="text-5xl font-bold mt-2 max-md:text-3xl max-md:w-[90%] text-center">
           Why You Should Choose Us ?
         </div>

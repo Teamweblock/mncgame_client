@@ -1,5 +1,5 @@
 .top-text-group {
-    width: 60%;
+  
     margin: auto;
     text-align: center;
     margin-top: 60px;
@@ -7,7 +7,7 @@
 
 .title-top {
     font-weight: 700;
-    font-size: 48px;
+    font-size: 50px;
 }
 
 html {
@@ -40,17 +40,14 @@ html {
 }
 
 .mnc-group {
-    width: 75%;
+    
     margin: auto;
     margin-top: 30px;
 }
-
+/* 
 .img-text-group {
-    display: flex;
-    gap: 30px;
-
-    align-items: center;
-}
+   
+} */
 
 .multi-text {
     color: #0099fe;
@@ -78,12 +75,12 @@ html {
     font-weight: 500;
 }
 
-.ourmission-group {
+/* .ourmission-group {
     width: 50%;
     text-align: center;
     margin-top: 30px !important;
     margin: auto;
-}
+} */
 
 .para-top {
     color: #929292;
@@ -111,17 +108,17 @@ html {
     height: 40px;
 }
 
-.whymnc-group {
-    width: 80%;
+/* .whymnc-group {
+    width: 70%;
     margin: auto;
     margin-top: 100px;
-}
+} */
 
-.about-img2 {
+/* .about-img2 {
     height: 521px;
     width: 70%;
 
-}
+} */
 
 .logo-text-group {
     display: flex;
@@ -130,16 +127,16 @@ html {
     align-items: center;
 }
 
-.ourservice-group {
+/* .ourservice-group {
     width: 55%;
     margin: auto;
     margin-top: 100px;
     padding-bottom: 100px;
     position: relative;
-}
+} */
 
 .ourservice-group p {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 20px;
 }
 
@@ -153,7 +150,7 @@ html {
 .about-icon2 {
     width: 21%;
     position: absolute;
-    right: 27%;
+    right: 38%;
     top: 69%;
 
 }
@@ -180,6 +177,8 @@ html {
 .img5-div {
     text-align: end;
     margin-top: -193px;
+    justify-content:flex-end ;
+    display: flex;
 }
 
 .about-img6 {
@@ -241,11 +240,15 @@ html {
     position: absolute;
     bottom: -14px;
     /* Adjust this to position the line further down */
+    /* width set of line  */
+    width: 22%;
     left: 0;
-    width: 30%;
+    /* width: 30%; */
     height: 4px;
     /* Thickness of the line */
-    background-color: #85defe;
+    /* mew color line  */
+    background-color: #0dbfff;
+    /* background-color: #85defe; */
     /* Color of the line */
     margin-top: 10px;
 }
@@ -337,9 +340,9 @@ html {
         margin-left: 252px;
     }
 
-    .img-text-group {
+    /* .img-text-group {
         display: block;
-    }
+    } */
 
     .logo-img2 {
         margin-top: 20px;
@@ -425,7 +428,7 @@ html {
     }
 
     .about-icon2 {
-        top: 73%;
+        top: 64%;
     }
 
     .img5-div {
@@ -579,4 +582,18 @@ html {
         margin-top: 80px;
     }
 
+}
+
+/* know more btn css add new  */
+.ourmission-know-more-btn{
+    /* background-color: #061773; */
+    background-image: linear-gradient(to right, #061773 , #2342bf);
+
+    border-radius: 30px;
+    color: white;
+    border: none;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: 500;
 }
