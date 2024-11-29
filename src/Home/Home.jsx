@@ -158,7 +158,107 @@ const Home = () => {
       discription:
         "Develop and practice a solution-oriented mindset with our interactive game. Whether playing individually or in teams, challenge yourself to solve problems cre- atively and measure your solution-oriented abilities",
     },
-  ]
+  ];
+
+  const PlanList = [
+    {
+      title: "Basic ",
+      price: "299",
+      time: "1 month",
+      bgColor:"bg-yellow-400",
+      about: [
+        {
+          icon: img133,
+          text: "Add Free For 10 Round",
+        },
+        {
+          icon: img133,
+          text: "Performance Tracking",
+        },
+        {
+          icon: img133,
+          text: "Solo Gameplay",
+        },
+        {
+          icon: img132,
+          text: "Team Gameplay",
+        },
+        {
+          icon: img132,
+          text: "Comprehensive Portfolio",
+        },
+        {
+          icon: img132,
+          text: "Access To Preminum Players",
+        },
+      ],
+    },
+    {
+      title: "Standard ",
+      price: "299",
+      time: "1 month",
+      bgColor:"#3085b0",
+      about: [
+        {
+          icon: img133,
+          text: "Add Free For 10 Round",
+        },
+        {
+          icon: img133,
+          text: "Performance Tracking",
+        },
+        {
+          icon: img133,
+          text: "Solo Gameplay",
+        },
+        {
+          icon: img133,
+          text: "Team Gameplay",
+        },
+        {
+          icon: img133,
+          text: "Comprehensive Portfolio",
+        },
+        {
+          icon: img132,
+          text: "Access To Preminum Players",
+        },
+      ],
+    },
+    {
+      title: "Advanced ",
+      price: "399",
+      time: "1 month",
+      bgColor:"#49e26e",
+      about: [
+        {
+          icon: img133,
+          text: "Add Free For 10 Round",
+        },
+        {
+          icon: img133,
+          text: "Performance Tracking",
+        },
+        {
+          icon: img133,
+          text: "Solo Gameplay",
+        },
+        {
+          icon: img133,
+          text: "Team Gameplay",
+        },
+        {
+          icon: img133,
+          text: "Comprehensive Portfolio",
+        },
+        {
+          icon: img133,
+          text: "Access To Preminum Players",
+        },
+      ],
+    },
+  ];
+
   return (
     <>
       {/* <div className="home-container-2">
@@ -489,9 +589,8 @@ const Home = () => {
             alt=""
           />
 
-          <div className=" mt-5  max-md:w-[90%] md:text-right text-center ">
-           
-            <p className="mt-3 text-nowrap  font-bold max-md:px-4 text-[#a90bd4]">
+          <div className=" mt-4  max-md:w-[90%] text-right max-md:text-center  ">
+            <p className=" text-nowrap  font-bold max-md:px-4 text-[#a90bd4]">
               WHAT WE DO
             </p>
             <div>
@@ -522,12 +621,11 @@ const Home = () => {
           <div className="grid grid-cols-2 gap-10 max-md:grid-cols-1 max-md:w-[90%] mx-auto md:mt-20 mt-10">
             {shippingList.map((shipping, index) => (
               <div className=" rounded-xl bg-white shadow-md md:px-10 px-5 md:py-20 py-10 flex justify-center text-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300 ease-in-out">
-                <img src={shipping.img} alt="" height={100} width={100}/>
+                <img src={shipping.img} alt="" height={100} width={100} />
                 <p className="text-2xl font-bold">{shipping.title}</p>
-                <p className="text-sm font-medium text-gray-400">{shipping.discription}</p>
-
-
-
+                <p className="text-sm font-medium text-gray-400">
+                  {shipping.discription}
+                </p>
               </div>
             ))}
           </div>
@@ -588,7 +686,7 @@ const Home = () => {
             src={img1313}
             alt=""
           />
-   
+
           <div className="e-box1">
             <img
               style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
@@ -608,30 +706,42 @@ const Home = () => {
                 alt=""
               />
             </div>
-            <div className="title-text mt-5">
-              <h6 className="title-text2">OUR PROJECT</h6>
-              <h1 className="title-text">Pratice Your Skills</h1>
-              <h1 className="title-text">With Us In Our Arcade</h1>
+            <div className="title-text ">
+              <p className=" text-nowrap text-center  font-bold text-[#a90bd4]">
+                OUR PROJECT
+              </p>
+
+              <div className="text-5xl font-bold max-md:text-3xl ">
+                Pratice Your Skills
+              </div>
+              <div className="text-5xl font-bold max-md:text-3xl  mt-1">
+                With Us In Our Arcade
+              </div>
             </div>
           </div>
           <div className="">
-            <div className="port-part-1">
+            <div className="port-part-1 md:pl-20 ">
               <div className="img-b1">
                 <img className="img-bi1" src={imgbi1} alt="" />
               </div>
-              <div className="part-1-text">
-                <div className="font-1">
+              <div className="part-1-text flex justify-center flex-col max-md:mx-auto max-md:text-center">
+                <div className="font-1 max-md:mx-auto max-lg:mt-6">
                   <h3 className="h2">1</h3>
 
-                  <img className="h1" src={imgf17} alt="" />
+                  <img className="h1 " src={imgf17} alt="" />
                 </div>
-                <h6 className="problem-text">Problem Solving Skills</h6>
+                <div className="text-2xl font-bold text-[#fd6784]">
+                  Problem Solving Skills
+                </div>
                 <h2>Problem Pilot</h2>
-                <p className="para-text">
+
+                <div className="md:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4">
                   Welcome to Career Voyage! Conquer challenges, showcase skills
                   and advance your professional journey !
-                </p>
-                <button onClick={playGame1}>Play Now</button>
+                </div>
+                <button onClick={playGame1} className="max-md:mx-auto ">
+                  Play Now
+                </button>
                 <div className="">
                   <img
                     className="image-26 parallax-layer"
@@ -644,12 +754,12 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="port-part-2">
-              <div className="img-b2">
+            <div className="port-part-2 md:pl-24">
+              <div className="img-b2 ">
                 <img className="img-bi2" src={imgbi2} alt="" />
               </div>
-              <div className="part-2-text">
-                <div className="font-2">
+              <div className="part-2-text flex justify-center flex-col max-md:mx-auto max-md:text-center max-md:mt-10 ">
+                <div className="font-2 max-md:mx-auto">
                   <h3 className="h2">2</h3>
 
                   <img className="h1" src={imgf22222} alt="" />
@@ -664,27 +774,33 @@ const Home = () => {
                     alt=""
                   />
                 </div>
-                <h6>Entrepreneurial Mindset Development</h6>
+                <div className="text-2xl font-bold text-[#55d6a3]">
+                  Entrepreneurial Mindset Development
+                </div>
                 <h2>Entrepreneurial Edge</h2>
-                <p className="para-text">
+                <div className="md:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4 mt-4">
                   Welcome to Mindset Mastery! Ignite your entrepreneurial
                   spirit, conquer challenges, and cultivate a mindset for
                   success!
-                </p>
-                <button onClick={playGame2}>Play Now</button>
+                </div>
+                <button onClick={playGame2} className="max-md:mx-auto">
+                  Play Now
+                </button>
               </div>
             </div>
-            <div className="port-part-3">
+            <div className="port-part-3 md:pl-16">
               <div className="img-b3">
                 <img className="img-bi3" src={imgbi3} alt="" />
               </div>
-              <div className="part-3-text">
-                <div className="font-3">
+              <div className="part-3-text flex justify-center flex-col max-md:mx-auto max-md:text-center">
+                <div className="font-3 max-md:mx-auto">
                   <h3 className="h2">3</h3>
 
                   <img className="h1" src={imgf3333} alt="" />
                 </div>
-                <h6>Fundamental Skills Development</h6>
+                <div className="text-2xl font-bold text-[#d542fd]">
+                  Fundamental Skills Development
+                </div>
                 <h2>Strategic Trial</h2>
                 <div className="img-e">
                   <img
@@ -696,11 +812,13 @@ const Home = () => {
                     alt=""
                   />
                 </div>
-                <p className="para-text">
+                <div className="md:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4">
                   Welcome to SkillForge! Cultivate core skills, hone strategic
                   views, and craft your roadmap to success!
-                </p>
-                <button onClick={playGame3}>Play Now</button>
+                </div>
+                <button onClick={playGame3} className="max-md:mx-auto">
+                  Play Now
+                </button>
               </div>
             </div>
           </div>
@@ -724,7 +842,7 @@ const Home = () => {
             </div>
             <img className="join-img2" src={img40} /> */}
             <img className="join-img2" src={join} alt="" srcset="" />
-            <div className="join-group2">
+            <div className="join-group2 pt-[30%] text-center mx-auto flex justify-center flex-col xl:pl-[40%] md:pl-[30%] pl-[25%]  max-sm:hidden">
               <h1>Come on, join with us !</h1>
               <p>Create an account and refer your friend</p>
             </div>
@@ -750,23 +868,25 @@ const Home = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="join-us">
+            <div className="join-us max-lg:pt-32">
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
-                  <h2 className="">TESTIMONIAL</h2>
+                  <h2 className=" ml-2">TESTIMONIAL</h2>
                 </div>
-                <h1>They are awesome!</h1>
+                <div className="">
+                  <h1>They are awesome!</h1>
 
-                <p className="theyare-content">
-                  Kollit a do eiusmod tempor incididunt ut labore et do irure
-                  dolor in reprehenderit in voluptate velit esse cillum dolore
-                  eu fugiat nulla pariatur.
-                </p>
-                <div className="name-teg">
-                  <img className="img-33" src={img33} alt="" />
-                  <h3> Kabir Manja</h3>
-                  <h4>Music Producer</h4>
+                  <p className="theyare-content">
+                    Kollit a do eiusmod tempor incididunt ut labore et do irure
+                    dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu fugiat nulla pariatur.
+                  </p>
+                  <div className="name-teg">
+                    <img className="img-33" src={img33} alt="" />
+                    <h3> Kabir Manja</h3>
+                    <h4>Music Producer</h4>
+                  </div>
                 </div>
               </div>
               {/* <img src={icon21} className="image21" style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} /> */}
@@ -778,10 +898,14 @@ const Home = () => {
               />
               <div className="join-2">
                 <img className="img-32" src={imgc32} alt="" />
-                <img className="img-1313c" src={img1313c} alt="" />
-                <img className="img-31-1" src={imgc31} alt="" />
                 <img
-                  className="img-30"
+                  className="img-1313c max-sm:hidden"
+                  src={img1313c}
+                  alt=""
+                />
+                <img className="img-31-1 max-sm:hidden" src={imgc31} alt="" />
+                <img
+                  className="img-30 max-sm:hidden"
                   src={imgc30}
                   alt=""
                   style={{
@@ -792,30 +916,32 @@ const Home = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="join-us">
+            <div className="join-us max-lg:pt-32">
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
-                  <h2 className="">TESTIMONIAL</h2>
+                  <h2 className="ml-2">TESTIMONIAL</h2>
                 </div>
-                <h1>They are awesome!</h1>
+                <div className="">
+                  <h1>They are awesome!</h1>
 
-                <p className="theyare-content">
-                  Kollit a do eiusmod tempor incididunt ut labore et do irure
-                  dolor in reprehenderit in voluptate velit esse cillum dolore
-                  eu fugiat nulla pariatur.
-                </p>
-                <div className="name-teg">
-                  <img className="img-33" src={img33} alt="" />
-                  <h3> Kabir Manja</h3>
-                  <h4>Music Producer</h4>
+                  <p className="theyare-content">
+                    Kollit a do eiusmod tempor incididunt ut labore et do irure
+                    dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu fugiat nulla pariatur.
+                  </p>
+                  <div className="name-teg">
+                    <img className="img-33" src={img33} alt="" />
+                    <h3> Kabir Manja</h3>
+                    <h4>Music Producer</h4>
+                  </div>
                 </div>
               </div>
-              <img
+              {/* <img
                 src={icon21}
                 className="image21"
                 style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-              />
+              /> */}
               <img src={image1} className="testi-img1" />
               <img
                 src={aicon}
@@ -824,10 +950,14 @@ const Home = () => {
               />
               <div className="join-2">
                 <img className="img-32" src={imgc32} alt="" />
-                <img className="img-1313c" src={img1313c} alt="" />
-                <img className="img-31-1" src={imgc31} alt="" />
                 <img
-                  className="img-30"
+                  className="img-1313c max-sm:hidden"
+                  src={img1313c}
+                  alt=""
+                />
+                <img className="img-31-1 max-sm:hidden" src={imgc31} alt="" />
+                <img
+                  className="img-30 max-sm:hidden"
                   src={imgc30}
                   alt=""
                   style={{
@@ -839,30 +969,32 @@ const Home = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <div className="join-us">
+            <div className="join-us max-lg:pt-32">
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
-                  <h2 className="">TESTIMONIAL</h2>
+                  <h2 className="ml-2">TESTIMONIAL</h2>
                 </div>
-                <h1>They are awesome!</h1>
+                <div className="">
+                  <h1>They are awesome!</h1>
 
-                <p className="theyare-content">
-                  Kollit a do eiusmod tempor incididunt ut labore et do irure
-                  dolor in reprehenderit in voluptate velit esse cillum dolore
-                  eu fugiat nulla pariatur.
-                </p>
-                <div className="name-teg">
-                  <img className="img-33" src={img33} alt="" />
-                  <h3> Kabir Manja</h3>
-                  <h4>Music Producer</h4>
+                  <p className="theyare-content">
+                    Kollit a do eiusmod tempor incididunt ut labore et do irure
+                    dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu fugiat nulla pariatur.
+                  </p>
+                  <div className="name-teg">
+                    <img className="img-33" src={img33} alt="" />
+                    <h3> Kabir Manja</h3>
+                    <h4>Music Producer</h4>
+                  </div>
                 </div>
               </div>
-              <img
+              {/* <img
                 src={icon21}
                 className="image21"
                 style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-              />
+              /> */}
               <img src={image1} className="testi-img1" />
               <img
                 src={aicon}
@@ -871,10 +1003,14 @@ const Home = () => {
               />
               <div className="join-2">
                 <img className="img-32" src={imgc32} alt="" />
-                <img className="img-1313c" src={img1313c} alt="" />
-                <img className="img-31-1" src={imgc31} alt="" />
                 <img
-                  className="img-30"
+                  className="img-1313c max-sm:hidden"
+                  src={img1313c}
+                  alt=""
+                />
+                <img className="img-31-1 max-sm:hidden" src={imgc31} alt="" />
+                <img
+                  className="img-30 max-sm:hidden"
                   src={imgc30}
                   alt=""
                   style={{
@@ -885,159 +1021,316 @@ const Home = () => {
             </div>
           </SwiperSlide>
         </Swiper>
+<div className="" >
+<div className="subscription-title md:mt-60 mt-20 ">
+            <h6>SUBSCRIBE PLANS</h6>
+            <div className="text-5xl font-bold max-md:text-3xl mt-2 px-2 ">
+              Forge Personalized Paths for
+            </div>
+            <div className="text-5xl font-bold max-md:text-3xl  px-2">
+              Your Journey Ahead!
+            </div>
+          </div>
 
-        <div className="subscription">
+        <div className=" grid lg:grid-cols-3 w-[70%] max-md:grid-cols-1 max-md:w-[90%] md:grid-cols-2 gap-8 md:gap-14 my-20  mx-auto ">
+
+        {PlanList.map((plan, planIndex) => (
+          <div
+            key={planIndex}
+            className="box-249 px-8 py-10 bg-white rounded-lg shadow-lg"
+            id={`box-${planIndex}`}
+         
+          >
+            <div className="line-s"></div>
+            <div className="text-3xl font-normal max-sm:text-2xl">
+              {plan.title.toUpperCase()}
+              <br />
+           <span className="font-semibold"> PLAN</span>   
+            </div>
+            <div className="line my-2"></div>
+            <div className="text-5xl font-bold max-sm:text-3xl">
+              {plan.price}/-
+            </div>
+            <div className="text-[16px] text-gray-400 font-medium">
+              {plan.time.toUpperCase()}
+            </div>
+
+            {/* Features List */}
+            <div className="list-none mt-4 space-y-2 ">
+              {plan.about.map((feature, featureIndex) => (
+                <li key={featureIndex} className="flex items-center gap-2 text-sm font-bold">
+                  <img
+                    className="img-133"
+                    src={feature.icon}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
+                  {feature.text}
+                </li>
+              ))}
+            </div>
+
+            <button className={`${plan.bgColor} text-white py-2 px-4 rounded-lg text-lg font-bold w-full mt-4`} style={{ backgroundColor: plan.bgColor }}>
+              BUY NOW
+            </button>
+          </div>
+        ))}
+  </div>
+  </div>
+
+        {/* <div className="subscription">
           <div className="subscription-title">
             <h6>SUBSCRIBE PLANS</h6>
-            <p>
+            <div className="text-5xl font-bold max-md:text-3xl mt-2 px-2 ">
               Forge Personalized Paths for
-              <br /> Your Journey Ahead!
-            </p>
+            </div>
+            <div className="text-5xl font-bold max-md:text-3xl  px-2">
+              Your Journey Ahead!
+            </div>
           </div>
-          <div className="box-main">
-            <div className="box-249" id="box-007">
+          <div className=" grid lg:grid-cols-3 w-[70%] max-md:grid-cols-1 max-md:w-[90%] md:grid-cols-2 gap-14 my-20  ">
+            <div
+              className="box-249 p-4 bg-white rounded-lg shadow-md"
+              id="box-007"
+            >
               <div className="line-s" id="line-s1"></div>
-              <h1>BASIC</h1>
-              <h2>PLAN</h2>
-              <div className="line" id="line-1"></div>
-              <h3>249/-</h3>
-              <h4>PER MONTH</h4>
-              <div className="tc">
-                <p>
-                  <img className="img-133" src={img133} alt="" />
+              <div className="text-3xl font-normal max-sm:text-2xl">BASIC</div>
+              <div className="text-3xl font-semibold max-sm:text-2xl">PLAN</div>
+              <div className="line my-2" id="line-1"></div>
+              <div className="text-5xl font-bold max-sm:text-3xl">249/-</div>
+              <div className="text-[16px] text-gray-400 font-medium">
+                PER MONTH
+              </div>
+              <div className="tc mt-4">
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Add Free For 10 Round
                 </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Performance Tracking
                 </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Solo Gameplay
                 </p>
-                <p>
-                  <img className="img-133" src={img132} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img132}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Team Gameplay
                 </p>
-                <p>
-                  <img className="img-133" src={img132} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img132}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Comprehensive Portfolio
                 </p>
-                <p>
-                  <img className="img-133" src={img132} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img132}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Access To Preminum Players
                 </p>
               </div>
-              <button className="bu-1">BUY NOW</button>
+              <button className=" bg-yellow-400 text-white py-2 px-4 rounded-lg text-lg font-bold w-full">
+                BUY NOW
+              </button>
             </div>
-            <div className="box-299" id="box-007">
-              <div className="line-s" id="line-s2"></div>
-              <h1>STRNDARD</h1>
-              <h2>PLAN</h2>
-              <div className="line" id="line-2"></div>
-              <h3>299/-</h3>
-              <h4>PER MONTH</h4>
-              <div className="tc">
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Add Free For 10 Round
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Performance Tracking
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Solo Gameplay
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Team Gameplay
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Comprehensive Portfolio
-                </p>
-                <p>
-                  <img className="img-133" src={img132} alt="" />
-                  Access To Preminum Players
-                </p>
+            <div
+              className="box-299 p-4 bg-white rounded-lg shadow-md"
+              id="box-007"
+            >
+              <div className="line-s my-2" id="line-s2"></div>
+              <div className="text-3xl font-normal max-sm:text-2xl">
+                STRNDARD
               </div>
-              <button className="bu-2">BUY NOW</button>
-            </div>
-            {/* <div className="box-399" id="box-007">
-              <div className="line-s" id="line-s3"></div>
-              <h1>ADVANCED</h1>
-              <h2>PLAN</h2>
-              <div className="line" id="line-3"></div>
-              <h3>399/-</h3>
-              <h4>PER MONTH</h4>
-              <div className="tc">
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Add Free For 10 Round
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Performance Tracking
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Solo Gameplay
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Team Gameplay
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Comprehensive Portfolio
-                </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
-                  Access To Preminum Players
-                </p>
-              </div>
-              <button className="bu-3">BUY NOW</button>
-            </div> */}
+              <div className="text-3xl font-semibold max-sm:text-2xl">PLAN</div>
 
-            <div className="box-249" id="box-007">
-              <div className="line-s" id="line-s3"></div>
-              <h1>ADVANCED</h1>
-              <h2>PLAN</h2>
-              <div className="line" id="line-1"></div>
-              <h3>399/-</h3>
-              <h4>PER MONTH</h4>
-              <div className="tc">
-                <p>
-                  <img className="img-133" src={img133} alt="" />
+              <div className="line my-2" id="line-2"></div>
+              <div className="text-5xl font-bold max-sm:text-3xl">299/-</div>
+              <div className="text-[16px] text-gray-400 font-medium">
+                PER MONTH
+              </div>
+
+              <div className="tc mt-4">
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Add Free For 10 Round
                 </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Performance Tracking
                 </p>
-                <p>
-                  <img className="img-133" src={img133} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Solo Gameplay
                 </p>
-                <p>
-                  <img className="img-133" src={img132} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Team Gameplay
                 </p>
-                <p>
-                  <img className="img-133" src={img132} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Comprehensive Portfolio
                 </p>
-                <p>
-                  <img className="img-133" src={img132} alt="" />
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img132}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
                   Access To Preminum Players
                 </p>
               </div>
-              <button className="bu-3">BUY NOW</button>
+              <button className="bg-[#3085b0] text-white py-2 px-4 rounded-lg text-lg font-bold w-full">
+                BUY NOW
+              </button>
+            </div>
+           
+            <div
+              className="box-249 p-4 bg-white rounded-lg shadow-md"
+              id="box-007"
+            >
+              <div className="line-s" id="line-s3"></div>
+              <h1 className="text-2xl font-normal ">ADVANCED</h1>
+              <h2 className="text-2xl font-semibold">PLAN</h2>
+              <div className="line my-2" id="line-1"></div>
+              <div className="text-5xl font-bold max-sm:text-3xl">299/-</div>
+              <div className="text-[16px] text-gray-400 font-medium">
+                PER MONTH
+              </div>
+              <div className="tc mt-4">
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
+                  Add Free For 10 Round
+                </p>
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
+                  Performance Tracking
+                </p>
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img133}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
+                  Solo Gameplay
+                </p>
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img132}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
+                  Team Gameplay
+                </p>
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img132}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
+                  Comprehensive Portfolio
+                </p>
+                <p className="flex items-center gap-2">
+                  <img
+                    className="img-133"
+                    src={img132}
+                    alt=""
+                    height={20}
+                    width={20}
+                  />
+                  Access To Preminum Players
+                </p>
+              </div>
+              <button className=" bg-[#49e26e] text-white py-2 px-4 rounded-lg text-lg font-bold w-full">
+                BUY NOW
+              </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div id="contact">
         <Contact />
