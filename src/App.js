@@ -42,6 +42,9 @@ import Game2LevelPage from "./playgame2/Game2LevelPage";
 import ForgotPassword from "./Auth/ForgotPassword";
 import ResetPassword from "./Auth/ResetPassword";
 import Game1WaitingPage from "./playgame1/Game1WaitingPage";
+import Overview from "./Profile/OverView";
+import Statics from "./Profile/Statics";
+import UpdateProfile from "./Profile/UpdateProfile";
 
 const App = () => {
   const location = useLocation();
@@ -105,7 +108,12 @@ const App = () => {
     "/game1result2",
     "/game1levelpage",
     "/game2levelpage",
+   "/user-profile"
+  
+
   ];
+ 
+
 
   return (
     <div>
@@ -149,6 +157,11 @@ const App = () => {
         <Route path="/person3result" element={<Person3Result />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contactus" element={<Contact />} />
+        
+        <Route path="/profile/overview" element={<Overview />} />
+        <Route path="/profile/statistics" element={<Statics />} />
+        <Route path="/profile/update-profile" element={<UpdateProfile />} />
+        
       </Routes>
       {!noNavbarPaths.includes(location.pathname) && <Footer />}
       <ToastContainer />

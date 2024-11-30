@@ -528,17 +528,13 @@ code {
   gap: 12px;
 }
 
-.addskill-part-1 {
-  width: 40%;
-}
 
-.addskill-part-2 {
-  width: 60%;
-}
+
+
 
 .addskill-part-main {
   width: 100%;
-  height: 1120px;
+  height: 100vh;
   display: flex;
   margin-top: -120px;
   /* background-image: url('./Assets/images/gameimg2.png'); */
@@ -645,14 +641,9 @@ code {
     gap: 60px;
   }
 
-  .addskill-part-main {
-    height: 730px;
-  }
 
-  .addskill-part-1 {
-    width: 100%;
-    margin: auto;
-  }
+
+
 
   .game-part1 {
     width: 70%;
@@ -682,9 +673,7 @@ code {
 }
 
 @media (max-width: 1199px) {
-  .addskill-part-main {
-    height: 730px;
-  }
+
 }
 
 @media (max-width: 1000px) {

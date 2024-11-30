@@ -86,7 +86,7 @@ const Footer = () => {
       </div>
       </div> */}
       <div className="footer max-md:w-[90%]">
-        <div className=" grid xl:grid-cols-4 lg md:gap-20 max-sm:grid-cols-1 max-md:grid-cols-2 ">
+        <div className=" grid xl:grid-cols-4 lg md:gap-20 max-sm:grid-cols-1 max-md:grid-cols-1 ">
           <div className="max-md:text-center">
             <div className="max-sm:flex justify-center">
 

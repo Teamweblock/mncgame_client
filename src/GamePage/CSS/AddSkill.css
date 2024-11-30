@@ -1,14 +1,10 @@
-.AddSkill {
-  font-size: 40px;
-  color: #1F4279;
-  margin-top: 140px;
-}
 
-.AddSkillSubText {
+
+/* .AddSkillSubText {
   font-size: 18px;
   color: gray;
   width: 122%;
-}
+} */
 
 .skill-input {
   background-color: white;
@@ -30,9 +26,7 @@
 
 @media screen and (max-width:1024px) {
 
-  .AddSkill {
-    font-size: 43px;
-  }
+ 
 
   .game-img3 {
     top: 28%;
@@ -42,20 +36,14 @@
 }
 
 @media screen and (max-width:768px) {
-  .AddSkill {
-    font-size: 38px;
-  }
+ 
 }
 
 @media screen and (max-width:426px) {
 
-  .AddSkill {
-    font-size: 33px;
-  }
 
-  .AddSkillSubText {
-    font-size: 15px;
-  }
+
+ 
 
   .game-img3 {
     top: 35%;

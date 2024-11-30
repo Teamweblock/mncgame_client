@@ -32,7 +32,7 @@ const Contact = () => {
     <div>
       <div style={{ textAlign: "center" }}>
         <h6 className="contact-text mt-5">CONTACT US</h6>
-        <h1 className=" text-5xl font-bold max-md:text-3xl my-4 ">
+        <h1 className=" text-5xl font-bold max-md:text-3xl my-4  max-md:w-[90%] mx-auto">
           Stay Connected with us for
           <br className="max-md:hidden" /> any reason
         </h1>

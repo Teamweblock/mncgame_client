@@ -7,6 +7,8 @@ import LoginPage from "../../Auth/LoginPage";
 import logo from "../../Assets/images/logoimg.png";
 import "./navbar.css";
 import { Menu } from "lucide-react";
+import { User } from 'lucide-react';
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -58,6 +60,13 @@ const Navbar = () => {
               >
                 Login
               </button>
+
+<Link to="/profile/overview">
+              <div className="rounded-full h-10 w-10 flex justify-center items-center  bg-[#f37ce7]">
+                <User  color="white"/>
+
+              </div>
+</Link>
             </ul>
           </div>
         </div>
