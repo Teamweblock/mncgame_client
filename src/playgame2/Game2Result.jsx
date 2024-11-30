@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../Assets/CSS/Game2/Game2Result.css"; // Custom styles
-import { AgGauge } from "ag-charts-react";
 import "ag-charts-enterprise"; // Required for enterprise features
 import { toast } from "react-toastify";
 import { get2GameResult } from "../utils/axiosInstance";
@@ -12,27 +11,17 @@ const Speedometer = () => {
   const [score, setScore] = useState(0);
   const [levelNumber, setLevelNumber] = useState(null);
 
-  useEffect(() => {
-    // Retrieve level number from localStorage
-    const storedLevel = localStorage.getItem("levelNumber");
-    if (storedLevel) {
-      setLevelNumber(parseInt(storedLevel, 10));
-    }
-    else {
-      console.warn("Level number not found in localStorage.");
-    }
-  }, []);
-
   // Fetch the result from the API
-  const handleGetResult = async () => {
+  const handlegetresult = async () => {
     try {
       const payload = { level: levelNumber };
       const response = await get2GameResult(JSON.stringify(payload));
 
       if (response) {
-        const levelScores = response.levelScores || [];
-        const scores = levelScores.map((level) => level.score);
-        const singleScore = scores[0] || 0;
+        // Extract the scores from levelScores
+        const levelScores = response.levelScores || []; // Ensure it exists
+        const scores = levelScores.map((level) => level?.score);
+        const singleScore = scores[0] || 0; // Fallback to 0 if scores array is empty
         setScore(singleScore);
       } else {
         toast.error("Failed to fetch results. Please try again.");
@@ -43,17 +32,31 @@ const Speedometer = () => {
     }
   };
 
+  // Prevent memory leaks
   useEffect(() => {
-    // Fetch the result whenever the component mounts
-    handleGetResult();
+    if (levelNumber) {
+      handlegetresult(levelNumber);
+    }
   }, [levelNumber]);
 
+  useEffect(() => {
+    // Get the levelNumber from localStorage
+    const storedlevel = localStorage.getItem("levelNumber");
+    if (storedlevel) {
+      setLevelNumber(storedlevel);
+    }
+  }, []);
   const handleHome = () => {
     navigate("/");
   };
 
   const selectLevelPage = () => {
-    navigate("/game2levelpage");
+    // Increment the level
+    const newLevelNumber = Number(levelNumber) + 1;
+    // Store the updated level back in localStorage
+    localStorage.setItem("levelNumber", newLevelNumber);
+    // Navigate to the new level with updated levelNumber in the URL
+    navigate(`/game2levelpage?levelNumber=${newLevelNumber}`);
   };
 
   const gaugeOptions = {
@@ -104,9 +107,7 @@ const Speedometer = () => {
       <div className="gauge-container my-6">
         {/* <AgGauge options={gaugeOptions} /> */}
         {/* new result add */}
-        <Game2NewResult score={score} levelNumber={levelNumber}/>
-
-        
+        <Game2NewResult score={score} levelNumber={levelNumber} />
       </div>
 
       {/* Navigation Buttons */}

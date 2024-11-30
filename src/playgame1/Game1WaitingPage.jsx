@@ -43,19 +43,6 @@ const Game1WaitingPage = () => {
 
     // Emit joinQueue event
     socket.emit("joinQueue", { level: levelNumber, playerId });
-
-    // const handleMatchFound = ({ player1Id, player2Id }) => {
-    //   console.log("player1Id", player1Id);
-    //   console.log("player2Id", player2Id);
-
-    //   setQueueStatus("Match found! Starting the game...");
-    //   setTimeout(() => {
-    //     // navigate(
-    //     //   `/game1multiplayer?roomCode=${roomCode}&levelNumber=${levelNumber}`
-    //     // );
-    //   }, 2000); // Delay to show the message
-    // };
-
     const handleDisconnectMessage = (message) => {
       toast.info(message);
       navigate("/game1levelpage");
@@ -71,13 +58,11 @@ const Game1WaitingPage = () => {
       }, 2000); // Delay to show the message
     };
 
-    // socket.on("playersReady", handleMatchFound);
     socket.on("startGame", handleStart);
     socket.on("disconnectMessage", handleDisconnectMessage);
 
     // Cleanup socket listeners
     return () => {
-      // socket.off("playersReady", handleMatchFound);
       socket.on("startGame", handleStart);
       socket.off("disconnectMessage", handleDisconnectMessage);
     };

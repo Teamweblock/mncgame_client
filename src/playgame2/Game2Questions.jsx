@@ -23,7 +23,7 @@ const Game2Questions = () => {
   const handleNextClick = async () => {
     // e.preventDefault();
     try {
-      if (currentIndex <= playerData.length - 1) {
+      if (currentIndex <= playerData?.length - 1) {
         const payload = {
           level: levelNumber,
           answers: selectedOption,
@@ -34,13 +34,12 @@ const Game2Questions = () => {
         const response = await submitGame2Answer(JSON.stringify(payload));
         if (response?.success === true) {
           // Check if it's the last question
-          if (currentIndex === playerData.length - 1) {
+          if (currentIndex === playerData?.length - 1) {
             setShowResults(true);
-            // Clear all localStorage except the token
+            // Clear only the `currentIndex` for the specific `levelNumber`
+            localStorage.removeItem(`currentIndex_${levelNumber}`);
             navigate("/game2result");
           } else {
-            console.log("check");
-
             if (!isQuizEnded) {
               setCurrentIndex((prevIndex) => prevIndex + 1);
               setSelectedOption(null);
@@ -119,7 +118,7 @@ const Game2Questions = () => {
     if (levelNumber !== null) {
       localStorage.setItem(`currentIndex_${levelNumber}`, currentIndex);
     }
-  }, [currentIndex, levelNumber]);
+  }, [currentIndex, levelNumber, playerData]);
 
   return (
     <div className="Game2-bg">

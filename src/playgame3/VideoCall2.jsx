@@ -31,7 +31,7 @@ function VideoCall2() {
           currentUserVideoRef.current.play();
           call.answer(mediaStream);
           call.on('stream', (remoteStream) => {
-            for (let i = 0; i < remoteVideoRefs.length; i++) {
+            for (let i = 0; i < remoteVideoRefs?.length; i++) {
               if (remoteVideoRefs[i].current && !remoteVideoRefs[i].current.srcObject) {
                 remoteVideoRefs[i].current.srcObject = remoteStream;
                 remoteVideoRefs[i].current.play();
@@ -56,7 +56,7 @@ function VideoCall2() {
 
         const call = peerInstance.current.call(remotePeerId, mediaStream);
         call.on('stream', (remoteStream) => {
-          for (let i = 0; i < remoteVideoRefs.length; i++) {
+          for (let i = 0; i < remoteVideoRefs?.length; i++) {
             if (remoteVideoRefs[i].current && !remoteVideoRefs[i].current.srcObject) {
               remoteVideoRefs[i].current.srcObject = remoteStream;
               remoteVideoRefs[i].current.play();

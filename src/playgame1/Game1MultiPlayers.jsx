@@ -49,7 +49,7 @@ const Game1MultiPlayer = () => {
 
       if (response?.success === true) {
         setUserAnswer("");
-        if (currentQuestionIndex === playerData.length - 1) {
+        if (currentQuestionIndex === playerData?.length - 1) {
           localStorage.removeItem(`currentQuestionIndex_${levelNumber}`);
           navigate("/game1result");
         } else {
@@ -241,7 +241,9 @@ const Game1MultiPlayer = () => {
           {countdown === 0 && <p className="timer">{formatTime(timeLeft)}</p>}
           <div className="questions-game1">
             <div className="question-box">
-              <h3>Question {currentQuestionIndex + 1}</h3>
+              <h4>
+                Question {currentQuestionIndex + 1} {"-"}
+              </h4>
               <p>{playerData[currentQuestionIndex]?.questionText}</p>
             </div>
             <div className="solution-box">
@@ -258,7 +260,7 @@ const Game1MultiPlayer = () => {
                   Back
                 </button>
               )}
-              {currentQuestionIndex < playerData.length - 1 ? (
+              {currentQuestionIndex < playerData?.length - 1 ? (
                 <button className="show-btn" onClick={handleNextQuestion}>
                   Next
                 </button>
