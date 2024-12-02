@@ -6,7 +6,7 @@ import { get2GameResult } from "../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import Game2NewResult from "./Game2NewResult";
 
-const Speedometer = () => {
+const Game2Result = () => {
   const navigate = useNavigate();
   const [score, setScore] = useState(0);
   const [levelNumber, setLevelNumber] = useState(null);
@@ -129,4 +129,4 @@ const Speedometer = () => {
   );
 };
 
-export default Speedometer;
+export default Game2Result;

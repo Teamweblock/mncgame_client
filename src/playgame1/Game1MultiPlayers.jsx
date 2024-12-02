@@ -217,7 +217,7 @@ const Game1MultiPlayer = () => {
         className="icon6-game1 parallax-layer"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
       />
-      <div className="players-group">
+      {/* <div className="players-group">
         <div className="player-1">
           {countdown > 0 && <h6>{countdown}</h6>}
           {countdown === 0 && <h6>{UserTimer(timeLeft)}</h6>}
@@ -230,7 +230,7 @@ const Game1MultiPlayer = () => {
           <img className="avtar-img" src={img1} alt="Avatar" />
           <h6>Opponent 2</h6>
         </div>
-      </div>
+      </div> */}
       <div className="game1-width">
         <div className="multiple-player-part">
           {countdown > 0 && (
