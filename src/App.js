@@ -160,7 +160,7 @@ const App = () => {
         
         <Route path="/profile/overview" element={<Overview />} />
         <Route path="/profile/statistics" element={<Statics />} />
-        <Route path="/profile/update-profile" element={<UpdateProfile />} />
+        <Route path="/profile/update" element={<UpdateProfile />} />
         
       </Routes>
       {!noNavbarPaths.includes(location.pathname) && <Footer />}

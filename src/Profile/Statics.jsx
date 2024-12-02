@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import ManagementChart from "./ManagementChart";
 import Cart from "./Cart";
 import Sidebar from "./Sidebar";
+import ProfileHeader from "./ProfileHeader";
 
 const Statics = () => {
   const skills = [
@@ -21,6 +22,7 @@ const Statics = () => {
 
   
       <div className="bg-[#eff2f9] p-4 rounded-lg   my-4  md:ml-[300px]  w-full">
+        <ProfileHeader/>
         <div className="bg-white rounded-lg pb-10">
           <div className="flex justify-between items-center p-4">
             <p className="text-[1.3rem] text-[#0e2b54] font-semibold">
@@ -112,7 +114,7 @@ const Statics = () => {
             </div>
             {/* right div */}
             <div className="flex-1 flex flex-col gap-5">
-              <div className="shadow-lg rounded-lg px-4 pb-6   border flex flex-col gap-4 pt-4 h-72  ">
+              <div className="shadow-lg rounded-lg px-4 pb-6   border flex flex-col gap-4 pt-4 h-80  ">
                 <p className="text-[1.3rem] text-[#0e2b54] font-bold ">
                   Management Skills
                 </p>

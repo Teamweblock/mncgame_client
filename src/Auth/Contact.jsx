@@ -116,7 +116,7 @@ const Contact = () => {
         <div className="contact-main">
           <div className="contact-part1">
             <div className="text-2xl py-2 font-semibold ">Write us a message</div>
-            <div className="form">
+            <div className="form text-gray-400 font-medium">
               <input
                 className="form-input"
                 type="text"

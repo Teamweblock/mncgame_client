@@ -21,7 +21,7 @@ code {
 .level-bg {
   background-image: url("/src/Assets/images/img1.png");
   height: 100vh;
-  background-repeat: no-repeat;
+  background-repeat:no-repeat ;
   background-position: center;
   background-size: cover;
 }
@@ -30,11 +30,7 @@ code {
   padding-top: 50px;
 }
 
-.level-text {
-  color: white;
-  font-size: 40px;
-  padding-top: 50px;
-}
+
 
 .level-img {
   width: 200px;
@@ -167,9 +163,7 @@ code {
     gap: 0;
   }
 
-  .level-text {
-    padding-top: 100px;
-  }
+
 }
 
 @media only screen and (max-width: 432px) {
@@ -186,9 +180,7 @@ code {
     height: 130px;
   }
 
-  .level-text {
-    padding-top: 100px;
-  }
+
 }
 
 @media only screen and (max-width: 376px) {

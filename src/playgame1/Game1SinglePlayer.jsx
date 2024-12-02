@@ -101,13 +101,17 @@ const Game1SinglePlayer = () => {
     const seconds = time % 60;
     return (
       <div className="timer">
+        
+     
+
+
         <div className="time-group">
           <div>
             <span className="minutes">{minutes}</span>
             <span className="dot2">:</span>
           </div>
           <div>
-            <span className="minutes-text">MINUTE</span>
+            <span className="text-white font-medium text-[1rem]">MINUTE</span>
           </div>
         </div>
         <div className="time-group">
@@ -118,7 +122,7 @@ const Game1SinglePlayer = () => {
             </span>
           </div>
           <div>
-            <span className="seconds-text">SECOND</span>
+            <span className="text-white font-medium text-[1rem]">SECOND</span>
           </div>
         </div>
       </div>
@@ -209,7 +213,7 @@ const Game1SinglePlayer = () => {
 
   return (
     <div className="Game1-sinlgeplayer-bg">
-      <img src={logo} className="mnc-logo" />
+      <img src={logo} className="mnc-logo flex justify-center items-center" />
       <img
         src={icon1}
         className="icon3-game1 parallax-layer"
@@ -220,31 +224,33 @@ const Game1SinglePlayer = () => {
         className="icon4-game1 parallax-layer"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
       />
-      <div className="game1-width">
+      <div className="game1-width max-md:w-[90%] w-[70%] mx-auto">
         <div className="single-player-part">
           {countdown > 0 && (
             <div className="countdown">
               <h2> {countdown}</h2>
             </div>
+            
           )}
           {countdown === 0 && <p className="timer">{formatTime(timeLeft)}</p>}
           {playerData?.length > 0 ? (
             <>
               <div className="questions-game1">
-                <div className="question-box">
-                  <h4>
+                <div className="bg-gradient-to-t from-[#37d4f1] via-[#c3f2fb] to-white max-md:w-full text-[17px] md:text-[1.4rem] font-semibold  items-center  rounded-lg text-center md:py-5 max-md:py-3  justify-center">
+                  {/* <h4>
                     Question {currentQuestionIndex + 1} {"-"}
-                  </h4>
+                  </h4> */}
                   <p>{playerData[currentQuestionIndex]?.questionText}</p>
                 </div>
-                <div className="solution-box">
+            
                   <input
                     type="text"
+                    className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black "
                     placeholder="Type Your Solution"
                     value={userAnswer} // Bind the input value with state
                     onChange={handleInputChange} // Update state when input changes
                   />
-                </div>
+                
               </div>
             </>
           ) : (
@@ -263,12 +269,12 @@ const Game1SinglePlayer = () => {
             {currentQuestionIndex < playerData?.length - 1 ? (
               <div className="">
                 <button className="next-button" onClick={handleNextQuestion}>
-                  Next
+                  Next 
                 </button>
               </div>
             ) : (
               <div className="">
-                <button className="show-button" onClick={handleNextQuestion}>
+                <button className="show-button text-nowrap" onClick={handleNextQuestion}>
                   Show Results
                 </button>
               </div>
