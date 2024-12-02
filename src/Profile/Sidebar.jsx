@@ -56,7 +56,10 @@ const Sidebar = () => {
             {/* </Link> */}
           </li>
           <li className="flex items-center gap-2">
-            <Link to="/profile/update-profile" className="flex  items-center gap-2">
+            <Link
+              to="/profile/update-profile"
+              className="flex  items-center gap-2"
+            >
               <UserPen
                 size={20}
                 strokeWidth={2}
