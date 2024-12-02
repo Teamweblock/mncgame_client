@@ -32,9 +32,9 @@ const Contact = () => {
     <div>
       <div style={{ textAlign: "center" }}>
         <h6 className="contact-text mt-5">CONTACT US</h6>
-        <h1 className="contact-title" style={{ padding: "10px 0px 30px 0px" }}>
+        <h1 className=" text-5xl font-bold max-md:text-3xl my-4  max-md:w-[90%] mx-auto">
           Stay Connected with us for
-          <br /> any reason
+          <br className="max-md:hidden" /> any reason
         </h1>
       </div>
       <img style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} src={img16} className="absolute-img2 parallax-layer" />
@@ -115,7 +115,7 @@ const Contact = () => {
       <div className="">
         <div className="contact-main">
           <div className="contact-part1">
-            <h3 className="mb-3 ">Write us a message</h3>
+            <div className="text-2xl py-2 font-semibold ">Write us a message</div>
             <div className="form">
               <input
                 className="form-input"

@@ -216,6 +216,7 @@ code {
   padding: 10px 24px;
   margin-top: 15px;
   text-align: start;
+  margin-top: 10px;
 }
 
 .start-btn:hover {
@@ -225,6 +226,7 @@ code {
 .details {
   width: 80%;
   margin-top: 40px;
+  color: gray;
 }
 
 .phone-icon {
@@ -257,7 +259,7 @@ code {
 .footer {
   width: 70%;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
 }
 
 .footer-input {
@@ -291,21 +293,14 @@ code {
   font-weight: 800;
   margin-bottom: 20px;
   margin-top: 20px;
+  font-size: 25px;
 }
 
-.f-title h6 {
-  color: #000;
-  font-weight: 400 !important;
-}
 
 .f-icon {
   margin-right: 20px;
 }
 
-.f-subtitle {
-  color: #000;
-  font-weight: 400;
-}
 
 .f-icon1 {
   background-color: #fd6685;
@@ -533,17 +528,13 @@ code {
   gap: 12px;
 }
 
-.addskill-part-1 {
-  width: 40%;
-}
 
-.addskill-part-2 {
-  width: 60%;
-}
+
+
 
 .addskill-part-main {
   width: 100%;
-  height: 1120px;
+  height: 100vh;
   display: flex;
   margin-top: -120px;
   /* background-image: url('./Assets/images/gameimg2.png'); */
@@ -602,7 +593,7 @@ code {
 }
 
 .contact-title {
-  font-size: 48px;
+  font-size: 50px;
   font-weight: 700;
 }
 
@@ -641,7 +632,7 @@ code {
 
 @media (max-width: 700px) {
   .contact-title {
-    font-size: 20px;
+    font-size: 12px;
   }
 
   .footer-grid {
@@ -650,14 +641,9 @@ code {
     gap: 60px;
   }
 
-  .addskill-part-main {
-    height: 730px;
-  }
 
-  .addskill-part-1 {
-    width: 100%;
-    margin: auto;
-  }
+
+
 
   .game-part1 {
     width: 70%;
@@ -687,15 +673,13 @@ code {
 }
 
 @media (max-width: 1199px) {
-  .addskill-part-main {
-    height: 730px;
-  }
+
 }
 
 @media (max-width: 1000px) {
   .contact-main {
     display: block;
-    width: 80%;
+    width: 90%;
   }
 
   .footer {

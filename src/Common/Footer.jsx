@@ -85,58 +85,74 @@ const Footer = () => {
         </div>
       </div>
       </div> */}
-      <div className="footer">
-        <div className="footer-grid">
-          <div>
+      <div className="footer max-md:w-[90%]">
+        <div className=" grid xl:grid-cols-4 lg md:gap-20 max-sm:grid-cols-1 max-md:grid-cols-1 ">
+          <div className="max-md:text-center">
+            <div className="max-sm:flex justify-center">
+
             <img src={logo} className="f-logo" />
-            <p>
+            </div>
+            <p className="text-[17px] text-gray-400">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard
             </p>
-            <div className="position-relative">
+            <div className=" relative">
               <input
                 type="text"
                 className="footer-input"
                 placeholder="Submit email"
               />
-              <MdOutlineMail className="f-input-icon" />
+              <MdOutlineMail className="right-3 top-4 absolute" size={20} />
             </div>
           </div>
-          <div>
-            <h6 className="f-title">About</h6>
+          <div className="max-sm:text-center ">
+            <h6 className="f-title ">About</h6>
+            <div className="max-sm:flex  justify-center gap-4 max-sm:flex-wrap text-lg font-semibold text-gray-400">
+
+        
             <Link to={"/"}>
-              <h6 className="f-subtitle">Home</h6>
+              <h6 className="f-subtitle text-gray-400 text-[17px]">Home</h6>
             </Link>
             <Link to={"/about"}>
-              <h6 className="f-subtitle">About Us</h6>
+              <h6 className="f-subtitle text-gray-400 text-[17px]">About Us</h6>
             </Link>
             <Link to={"/games"}>
-              <h6 className="f-subtitle">Games</h6>
+              <h6 className="f-subtitle text-gray-400 text-[17px]">Games</h6>
             </Link>
             <Link to={"/contactus"}>
-              <h6 className="f-subtitle">Contact Us</h6>
+              <h6 className="f-subtitle text-gray-400 text-[17px]">Contact Us</h6>
             </Link>
           </div>
-          <div>
-            <h6 className="f-title">Service</h6>
-            <h6 className="f-subtitle">ProblemPilot</h6>
-            <h6 className="f-subtitle">Entrepreneurial Edge</h6>
-            <h6 className="f-subtitle">Startegy Trial</h6>
-            <h6 className="f-subtitle">Portfolio</h6>
           </div>
-          <div>
+          <div className="max-sm:text-center">
+            <h6 className="f-title">Service</h6>
+            <div className="max-sm:flex  justify-center gap-2 max-sm:flex-wrap text-lg font-semibold text-gray-400">
+
+
+       
+            <h6 className="f-subtitle text-gray-400 text-[17px]">ProblemPilot</h6>
+            <h6 className="f-subtitle text-gray-400 text-[17px]">Entrepreneurial Edge</h6>
+            <h6 className="f-subtitle text-gray-400 text-[17px]">Startegy Trial</h6>
+            <h6 className="f-subtitle text-gray-400 text-[17px]">Portfolio</h6>
+          </div>
+          </div>
+          <div className="max-sm:text-center">
             <h6 className="f-title">Get in Touch</h6>
+            <div className="max-sm:flex  justify-center gap-2 max-sm:flex-wrap text-lg font-semibold text-gray-400">
+
+
+       
             <div className=" get-in-touch">
-              <MdLocationPin className="footer-icon-set" />
-              <p>22/1 Lorem ipsum, sshdi india 1348</p>
+              <MdLocationPin className="footer-icon-set"  size={25}/>
+              <p className="text-[17px] text-gray-400">22/1 Lorem ipsum, sshdi india 1348</p>
             </div>
             <div className="get-in-touch">
-              <MdOutlineMail className="footer-icon-set"/>
-              <p>xuwelkhan@gmail.com</p>
+              <MdOutlineMail className="footer-icon-set" size={25}/>
+              <p className="text-[17px] text-gray-400">xuwelkhan@gmail.com</p>
             </div>
             <div className="get-in-touch">
-              <FaPhoneAlt className="footer-icon-set"/>
-              <p>+91 01679 252595</p>
+              <FaPhoneAlt className="footer-icon-set" size={25}/>
+              <p className="text-[17px] text-gray-400">+91 01679 252595</p>
             </div>
             {/* <div className="icon-group">
               <div>
@@ -153,28 +169,29 @@ const Footer = () => {
               </div>
             </div> */}
           </div>
+          </div>
         </div>
 
-        <div className="text-center sub-footer">
+        <div className=" mt-10">
           {/* icons add */}
             
           
-          <div className="copyright">
-          <div className="icon-group">
+          <div className=" sm:flex justify-between max-sm:flex-col max-sm:text-center max-sm:justify-center ">
+          <div className="sm:flex gap-2 items-center ">
              
-          <p className="follow-us">
+          <p className="text-[18px] font-semibold max-sm:text-center  ">
                 Follow Us
                 </p>
              
 
-              <div className="socialicons">
-                <FaFacebookF style={{ color: "#0165E1" }} />
-                <FaTwitter style={{ color: "#1DA1F2" }} />
-                <FaYoutube style={{ color: "#FF0000" }} />
-                <FaInstagram style={{ color: "#C13584" }} />
+              <div className="flex gap-2 justify-center  items-center mb-3">
+                <FaFacebookF style={{ color: "#0165E1" }}  size={25}/>
+                <FaTwitter style={{ color: "#1DA1F2" }}size={25} />
+                <FaYoutube style={{ color: "#FF0000" }} size={25}/>
+                <FaInstagram style={{ color: "#C13584" }} size={25}/>
               </div>
             </div>
-            <p className="footer-text">
+            <p className="text-gray-400 text-sm font-semibold mt-2">
               All rights reserverd @ <b>Multi networking company</b> 2024 |
               Developed by:
               <a
