@@ -70,7 +70,7 @@ const LoginPage = () => {
   return (
     <div className="login-bg-img">
       <div className="container">
-          <img src="./mainlogo.png" alt="" height={50} width={140} style={{marginTop:"30px"}}/>
+          <img src="./mainlogo.png" alt="" height={45} width={120} style={{marginTop:"30px"}}/>
         <div className="row">
           <div className="col-md-6">
             <img className="login-img" src={loginimg1} alt="Login" />

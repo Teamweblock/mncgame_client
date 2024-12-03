@@ -48,7 +48,7 @@ const WelcomePageGame2 = () => {
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         />
         <div className="welcome-title">
-          <h1 className="welcome-text2">WELCOME TO ENTREPRENEURIAL EDGE</h1>
+          <h1 className="mt-5 text-center text-white font-bold 2xl:text-8xl xl:text-6xl max-lg:text-5xl max-sm:text-3xl max-md:text-4xl">WELCOME TO ENTREPRENEURIAL EDGE</h1>
           {/* <TextAnimation text="WELCOME TO  ENTREPRENEURIAL EDGE" speed={150} className="animated-text" /> */}
           <h4 className="welcome-para2">Entrepreneurial Mindset Development</h4>
           <div className="playbtn">

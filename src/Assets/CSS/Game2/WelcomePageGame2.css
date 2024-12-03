@@ -4,6 +4,7 @@
     height: 100vh;
 }
 
+
 .welcome-title {
     position: absolute;
     top: 50%;
@@ -188,7 +189,4 @@
     }
 }
 
-.credit-score-result{
-    color: white;
-    padding: 50px 30px;
-}
+/*  */

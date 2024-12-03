@@ -103,7 +103,8 @@
   color: white;
   border: none;
   padding: 10px 50px;
-  border-radius: 20px;
+  width: 200px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 20px;
   text-align: center;
@@ -143,6 +144,10 @@
   .players-group {
     top: 15%;
     right: 38%;
+  }
+  .avtar-img {
+    width: 60px;
+    height: 60px;
   }
 }
 

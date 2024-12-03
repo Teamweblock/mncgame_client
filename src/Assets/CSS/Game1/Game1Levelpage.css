@@ -18,13 +18,18 @@ code {
   margin-top: 10px;
 }
 
-.level-bg {
-  background-image: url("/src/Assets/images/img1.png");
-  height: 100vh;
-  background-repeat:no-repeat ;
-  background-position: center;
-  background-size: cover;
-}
+
+  .level-bg {
+    background-image: url("/src/Assets/images/img1.png"); 
+    background-repeat: no-repeat; 
+    background-position: center top; 
+    background-size: cover; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: start; 
+  }
+
 
 .pt-50 {
   padding-top: 50px;
@@ -54,10 +59,7 @@ code {
   margin-top: -10px;
 }
 
-.level-img-div {
-  width: 90%;
-  margin: auto;
-}
+
 
 .level-img-grid {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -103,9 +105,7 @@ code {
 }
 
 @media screen and (max-width: 885px) {
-  .level-bg {
-    height: 110vh;
-  }
+
 
   .level-img {
     width: 180px;
@@ -134,9 +134,7 @@ code {
 }
 
 @media only screen and (max-width: 784px) {
-  .level-bg {
-    height: 110vh;
-  }
+
 
   .level-img-grid {
     display: grid;
@@ -153,8 +151,7 @@ code {
 }
 
 @media only screen and (max-width: 575px) {
-  .level-bg {
-    height: 140vh;
+ 
   }
 
   .level-img-grid {
@@ -164,12 +161,9 @@ code {
   }
 
 
-}
 
 @media only screen and (max-width: 432px) {
-  .level-bg {
-    height: 300vh;
-  }
+ 
 
   .level-img-grid {
     display: grid;
@@ -184,13 +178,9 @@ code {
 }
 
 @media only screen and (max-width: 376px) {
-  .level-bg {
-    height: 310vh;
-  }
+
 }
 
 @media only screen and (max-width: 320px) {
-  .level-bg {
-    height: 410vh;
-  }
+ 
 }

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { get2GameResult } from "../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import Game2NewResult from "./Game2NewResult";
+import logo from "../Assets/gameimages/mnclogo2.png";
 
 const Speedometer = () => {
   const navigate = useNavigate();
@@ -99,32 +100,30 @@ const Speedometer = () => {
   };
 
   return (
-    <div className="Game2-result flex flex-col items-center min-h-screen bg-gray-100 p-6">
-      {/* Title */}
-      {/* <h1 className="text-2xl font-bold mb-4">Your Credit Score</h1> */}
+    <div className="new-result ">
+         <img
+        src={logo}
+        
+        onClick={handleHome}
+        height={45} width={100}
+      className="cursor-pointer pb-3 absolute sm:top-[10%] sm:left-[10%] flex justify-center items-center mx-auto top-[4%] left-[6%]"
+      />
+      <div className="flex  flex-col justify-center items-center  h-screen">
 
-      {/* AgGauge Component */}
-      <div className="gauge-container my-6">
-        {/* <AgGauge options={gaugeOptions} /> */}
-        {/* new result add */}
-        <Game2NewResult score={score} levelNumber={levelNumber} />
-      </div>
+     
+   
+      <Game2NewResult score={score} levelNumber={levelNumber} />
 
       {/* Navigation Buttons */}
-      <div className="btn-groupgame2 my-4 flex gap-4">
-        <button
-          className="home-btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          onClick={handleHome}
-        >
+      <div className="pt-10 sm:gap-5 gap-3 flex  max-sm:flex-col">
+        <button className="btnhome" onClick={handleHome}>
           Home
         </button>
-        <button
-          className="next-btn bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-          onClick={selectLevelPage}
-        >
+        <button className="btnhome" onClick={selectLevelPage}>
           Next Level
         </button>
       </div>
+    </div>
     </div>
   );
 };
