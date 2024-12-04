@@ -118,8 +118,7 @@ const Game2Questions = () => {
     if (levelNumber !== null) {
       localStorage.setItem(`currentIndex_${levelNumber}`, currentIndex);
     }
-  }, [currentIndex, levelNumber, playerData]);
-
+  }, [currentIndex, levelNumber]);
   return (
     <div className="Game2-bg">
       <img src={logo} className="mnc-logo" alt="logo" />
@@ -149,7 +148,6 @@ const Game2Questions = () => {
             <div className="option-card">
               {playerData[currentIndex]?.options?.map((optionText, index) => {
                 const optionLetter = String.fromCharCode(65 + index); // Convert index to A, B, C, D
-
                 return (
                   <div
                     key={optionLetter}

@@ -62,7 +62,7 @@ const Game1SinglePlayer = () => {
             setTimeLeft(180); // Reset timer
           }
         }
-      } else {  
+      } else {
         alert("Game Over! You have answered all questions.");
       }
     } catch (error) {
@@ -205,7 +205,7 @@ const Game1SinglePlayer = () => {
         currentQuestionIndex // Convert to string for storage
       );
     }
-  }, [currentQuestionIndex, levelNumber, playerData]);
+  }, [currentQuestionIndex, levelNumber]);
 
   return (
     <div className="Game1-sinlgeplayer-bg">
@@ -228,30 +228,30 @@ const Game1SinglePlayer = () => {
             </div>
           )}
           {countdown === 0 && <p className="timer">{formatTime(timeLeft)}</p>}
-          {playerData?.length > 0 ? (
-            <>
-              <div className="questions-game1">
-                <div className="question-box">
-                  <h4>
-                    Question {currentQuestionIndex + 1} {"-"}
-                  </h4>
-                  <p>{playerData[currentQuestionIndex]?.questionText}</p>
-                </div>
-                <div className="solution-box">
-                  <input
-                    type="text"
-                    placeholder="Type Your Solution"
-                    value={userAnswer} // Bind the input value with state
-                    onChange={handleInputChange} // Update state when input changes
-                  />
-                </div>
+          {/* {playerData?.length > 0 ? ( */}
+          <>
+            <div className="questions-game1">
+              <div className="question-box">
+                <h4>
+                  Question {currentQuestionIndex + 1} {"-"}
+                </h4>
+                <p>{playerData[currentQuestionIndex]?.question}</p>
               </div>
-            </>
-          ) : (
+              <div className="solution-box">
+                <input
+                  type="text"
+                  placeholder="Type Your Solution"
+                  value={userAnswer} // Bind the input value with state
+                  onChange={handleInputChange} // Update state when input changes
+                />
+              </div>
+            </div>
+          </>
+          {/* ) : (
             <div className="loading-container">
               <p>Loading questions...</p>
             </div>
-          )}
+          )} */}
           <div className="text-center d-sm-flex flex-sm-wrap justify-content-sm-center">
             {currentQuestionIndex === 0 && (
               <div className="">
