@@ -45,13 +45,15 @@ const SignUppage = () => {
     <div>
       <div className="login-bg-img">
         <div className="container">
+        <img src="./mainlogo.png" alt="" height={45} width={120} style={{marginTop:"30px"}}/>
+
           <div className="row">
             <div className="col-md-6">
               <img className="login-img" src={loginimg1} alt="Login" />
             </div>
             <div className="col-md-6 d-flex justify-content-center align-items-center text-center">
               <div className="loginform">
-                <div
+                {/* <div
                   style={{
                     borderBottom: "5px solid black",
                     padding: "10px",
@@ -59,22 +61,35 @@ const SignUppage = () => {
                   }}
                 >
                   Not logged in yet?
-                </div>
-                <div style={{ width: "80%", margin: "auto" }}>
+                </div> */}
+                <div className="all-circle">
+              <div  className="login-discription">
+                Not account yet?
+              </div>
+              <div className="both-circle">
+              <div className="black-circle">
+                <div className="white-circle"></div>
+              </div>
+              <div className="black-circle">
+                <div className="white-circle"></div>
+              </div>
+              <div className="black-circle">
+                {/* <div className="white-circle"></div> */}
+              </div>
+              </div>
+              </div>
+                <div >
                   <h1
-                    style={{
-                      fontWeight: "700",
-                      fontSize: "60px",
-                      marginTop: "10px",
-                    }}
+                  className="text-6xl font-bold  max-lg:text-3xl max-sm:text-2xl text-center pt-3"
+                 
                   >
                     <span style={{ color: "orange" }}>Create</span>, Your
                     <br /> account today!
                   </h1>
-                  <form className="px-5 py-5" onSubmit={handleSubmit}>
+                  <form className="px-3 py-5" onSubmit={handleSubmit}>
                     {/* First Name and Last Name Input Fields */}
-                    <div className="d-flex gap-3">
-                      <div>
+                    <div className="flex gap-4 max-sm:flex-col">
+                   
                         <input
                           type="text"
                           placeholder="First Name"
@@ -85,8 +100,8 @@ const SignUppage = () => {
                           className="login-input"
                           aria-label="First Name"
                         />
-                      </div>
-                      <div>
+                    
+                    
                         <input
                           type="text"
                           placeholder="Last Name"
@@ -97,11 +112,11 @@ const SignUppage = () => {
                           className="login-input"
                           aria-label="Last Name"
                         />
-                      </div>
+                     
                     </div>
 
                     {/* Email Input Field */}
-                    <div className="mt-3">
+               
                       <input
                         type="email"
                         placeholder="Email"
@@ -112,10 +127,10 @@ const SignUppage = () => {
                         className="login-input"
                         aria-label="Email"
                       />
-                    </div>
+                
 
                     {/* Password Input Field */}
-                    <div className="input-group flex flex-nowrap mt-3">
+                    <div className="border-b w-full relative justify-between">
                       <input
                         type={showPassword ? "text" : "password"}
                         placeholder="Password"
@@ -123,11 +138,11 @@ const SignUppage = () => {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="login-input"
+                        className="login-input relative"
                         aria-label="Password"
                       />
                       <div
-                        className="cursor-pointer text-xl mt-2"
+                        className="cursor-pointer text-xl mt-2 absolute right-2 bottom-3"
                         onClick={() => setShowPassword((prev) => !prev)}
                         aria-label="Toggle Password Visibility"
                       >
@@ -136,7 +151,7 @@ const SignUppage = () => {
                     </div>
 
                     {/* Confirm Password Input Field */}
-                    <div className="input-group flex flex-nowrap mt-3">
+                    <div className="border-b w-full relative justify-between">
                       <input
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder="Confirm Password"
@@ -148,7 +163,7 @@ const SignUppage = () => {
                         aria-label="Confirm Password"
                       />
                       <div
-                        className="cursor-pointer text-xl mt-2"
+                        className="cursor-pointer text-xl mt-2 absolute right-2 bottom-3"
                         onClick={() => setShowConfirmPassword((prev) => !prev)}
                         aria-label="Toggle Confirm Password Visibility"
                       >
