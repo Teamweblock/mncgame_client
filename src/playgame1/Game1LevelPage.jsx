@@ -96,7 +96,7 @@ const Game1LevelPage = () => {
       localStorage?.removeItem("levelNumber");
       console.log("levelNumber removed from localStorage on first load.");
     }
-  }, []);
+  }, []);  
   return (
     <div className="level-bg  ">
       <div className="pt-50">

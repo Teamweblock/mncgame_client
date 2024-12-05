@@ -62,7 +62,7 @@ const Game1SinglePlayer = () => {
             setTimeLeft(180); // Reset timer
           }
         }
-      } else {
+      } else {  
         alert("Game Over! You have answered all questions.");
       }
     } catch (error) {
