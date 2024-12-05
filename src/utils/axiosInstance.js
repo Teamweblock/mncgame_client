@@ -153,7 +153,7 @@ export const joinmultipleGame = async (payload) => {
 };
 
 // The API call for getting questions for a specific level
-export const getQuestionsForLevel = async (payload) => {
+export const getQuestionsForLevel = async (payload, navigate) => {
   try {
     const response = await axiosInstance.post(
       "/firstGame/getQuestionsForLevel",
@@ -171,8 +171,12 @@ export const getQuestionsForLevel = async (payload) => {
   } catch (error) {
     // Handle errors
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message || error?.message || "An error occurred. Please try again.";
     toast.error(errorMessage);
+    // Check for specific error message and navigate
+    if (error?.response?.status === 400 && errorMessage === "You have already completed this level.") {
+      navigate("/game1singlelevelpage"); // Replace '/specific-path' with the desired route
+    }
     return null; // Return null to indicate failure
   }
 };

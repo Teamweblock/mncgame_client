@@ -19,6 +19,7 @@ const Game1SinglePlayer = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [levelNumber, setLevelNumber] = useState(null);
   const [playerType, setPlayerType] = useState(null);
+  const [loading, setLoading] = useState(true); // Track loading state
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -70,28 +71,32 @@ const Game1SinglePlayer = () => {
       toast.error("There was an error while fetching data. Please try again.");
     }
   };
-  // The updated handleLevelClick function
-  const handleLevelClick = async (levelNumber, playerType) => {
-    // Construct the payload to be sent to the API
-    const payload = {
-      level: levelNumber,
-    };
+  // Fetch questions for the level when level and player type change
+  useEffect(() => {
+    if (levelNumber && playerType) {
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const data = await getQuestionsForLevel(
+            { level: levelNumber },
+            navigate
+          );
+          console.log("data?.status", data);
+          console.log("data?.status", data?.status);
+          if (data?.status === true) {
+            setPlayerData(data.formattedQuestions);
+          }
+        } catch (error) {
+          console.error("Error fetching questions", error);
+          toast.error("Failed to load questions.");
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchData();
+    }
+  }, [levelNumber, playerType]);
 
-    // Define the API function to be called based on player type
-    let apiCall;
-    if (playerType === "single") {
-      apiCall = getQuestionsForLevel; // Use getQuestionsForLevel for single-player
-    }
-    try {
-      const data = await apiCall(payload); // Call the appropriate API with the payload
-      if (data?.status === true) {
-        setPlayerData(data.formattedQuestions);
-      }
-    } catch (error) {
-      console.error("Error during API call:", error);
-      toast.error("An error occurred. Please try again.");
-    }
-  };
   const handleBack = () => {
     navigate("/game1players"); // Implement your back navigation here
   };
@@ -165,7 +170,8 @@ const Game1SinglePlayer = () => {
 
             // Check if we are on the last question
             if (currentQuestionIndex >= playerData?.length - 1) {
-              navigate("/game1result2"); // Navigate to results
+              handleNextQuestion();
+              // navigate("/game1result2"); // Navigate to results
             } else {
               setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // Move to next question
               setTimeLeft(180); // Reset timer
@@ -179,12 +185,6 @@ const Game1SinglePlayer = () => {
       return () => clearInterval(timerId);
     }
   }, [countdown, currentQuestionIndex, playerData?.length, navigate]);
-
-  useEffect(() => {
-    if (levelNumber && playerType) {
-      handleLevelClick(levelNumber, playerType);
-    }
-  }, [levelNumber, playerType]);
 
   useEffect(() => {
     if (levelNumber) {
@@ -220,62 +220,75 @@ const Game1SinglePlayer = () => {
         className="icon4-game1 parallax-layer"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
       />
-      <div className="game1-width">
-        <div className="single-player-part">
-          {countdown > 0 && (
-            <div className="countdown">
-              <h2> {countdown}</h2>
-            </div>
-          )}
-          {countdown === 0 && <p className="timer">{formatTime(timeLeft)}</p>}
-          {/* {playerData?.length > 0 ? ( */}
-          <>
-            <div className="questions-game1">
-              <div className="question-box">
-                <h4>
-                  Question {currentQuestionIndex + 1} {"-"}
-                </h4>
-                <p>{playerData[currentQuestionIndex]?.question}</p>
-              </div>
-              <div className="solution-box">
-                <input
-                  type="text"
-                  placeholder="Type Your Solution"
-                  value={userAnswer} // Bind the input value with state
-                  onChange={handleInputChange} // Update state when input changes
-                />
-              </div>
-            </div>
-          </>
-          {/* ) : (
-            <div className="loading-container">
-              <p>Loading questions...</p>
-            </div>
-          )} */}
-          <div className="text-center d-sm-flex flex-sm-wrap justify-content-sm-center">
-            {currentQuestionIndex === 0 && (
-              <div className="">
-                <button className="next-button me-md-3" onClick={handleBack}>
-                  Back
-                </button>
-              </div>
-            )}
-            {currentQuestionIndex < playerData?.length - 1 ? (
-              <div className="">
-                <button className="next-button" onClick={handleNextQuestion}>
-                  Next
-                </button>
-              </div>
-            ) : (
-              <div className="">
-                <button className="show-button" onClick={handleNextQuestion}>
-                  Show Results
-                </button>
-              </div>
-            )}
-          </div>
+      {loading ? (
+        <div className="loading-container">
+          <p>Loading questions...</p>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="game1-width">
+            <div className="single-player-part">
+              {countdown > 0 && (
+                <div className="countdown">
+                  <h2> {countdown}</h2>
+                </div>
+              )}
+              {countdown === 0 && (
+                <p className="timer">{formatTime(timeLeft)}</p>
+              )}
+              <>
+                <div className="questions-game1">
+                  <div className="question-box">
+                    <h4>
+                      Question {currentQuestionIndex + 1} {"-"}
+                    </h4>
+                    <p>{playerData[currentQuestionIndex]?.question}</p>
+                  </div>
+                  <div className="solution-box">
+                    <input
+                      type="text"
+                      placeholder="Type Your Solution"
+                      value={userAnswer} // Bind the input value with state
+                      onChange={handleInputChange} // Update state when input changes
+                    />
+                  </div>
+                </div>
+              </>
+              <div className="text-center d-sm-flex flex-sm-wrap justify-content-sm-center">
+                {currentQuestionIndex === 0 && (
+                  <div className="">
+                    <button
+                      className="next-button me-md-3"
+                      onClick={handleBack}
+                    >
+                      Back
+                    </button>
+                  </div>
+                )}
+                {currentQuestionIndex < playerData?.length - 1 ? (
+                  <div className="">
+                    <button
+                      className="next-button"
+                      onClick={handleNextQuestion}
+                    >
+                      Next
+                    </button>
+                  </div>
+                ) : (
+                  <div className="">
+                    <button
+                      className="show-button"
+                      onClick={handleNextQuestion}
+                    >
+                      Show Results
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
