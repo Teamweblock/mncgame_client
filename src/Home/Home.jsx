@@ -165,7 +165,7 @@ const Home = () => {
       title: "Basic ",
       price: "299",
       time: "1 month",
-      bgColor:"bg-yellow-400",
+      bgColor: "bg-yellow-400",
       about: [
         {
           icon: img133,
@@ -197,7 +197,7 @@ const Home = () => {
       title: "Standard ",
       price: "299",
       time: "1 month",
-      bgColor:"#3085b0",
+      bgColor: "#3085b0",
       about: [
         {
           icon: img133,
@@ -229,7 +229,7 @@ const Home = () => {
       title: "Advanced ",
       price: "399",
       time: "1 month",
-      bgColor:"#49e26e",
+      bgColor: "#49e26e",
       about: [
         {
           icon: img133,
@@ -460,7 +460,9 @@ const Home = () => {
       </div>
 
       <div className="home-container-3 mt-6">
-        <p className="text-nowrap  font-bold mt-4 text-[#a90bd4]">BUILD TRUST FIRST</p>
+        <p className="text-nowrap  font-bold mt-4 text-[#a90bd4]">
+          BUILD TRUST FIRST
+        </p>
         <div className="text-5xl font-bold mt-2 max-md:text-3xl max-md:w-[90%] text-center">
           Why You Should Choose Us ?
         </div>
@@ -508,7 +510,7 @@ const Home = () => {
           </div>
         </div> */}
 
-        <div className="grid lg:grid-cols-3 gap-10  w-[90%] md:w-[70%] mx-auto mt-20  sm:grid-cols-2 grid-cols-1">
+        <div className="grid lg:grid-cols-3 gap-10  w-[90%] lg:w-[70%] mx-auto mt-20  sm:grid-cols-2 grid-cols-1">
           {businessList.map((business, index) => (
             <div
               key={index}
@@ -542,14 +544,14 @@ const Home = () => {
         </div>
       </div>
 
-      <div className=" w-[70%] max-md:w-[90%] mx-auto  about  flex items-center justify-between pt-10 gap-10">
-        <div className="ab-part-1  lg:mb-64  mt-14">
-          <div className="flex items-center md:gap-4 max-md:text-center max-md:flex-col">
+      <div className=" lg:w-[70%] w-[90%]   mx-auto  about  flex items-center justify-between pt-10 gap-10 max-lg:flex-col">
+        <div className="ab-part-1 mt-14">
+          <div className="flex items-center md:gap-4 max-lg:text-center max-lg:flex-col">
             <p className="text-5xl font-bold max-md:text-3xl">About US</p>
             <div className="h-1 w-32 bg-yellow-300"></div>
           </div>
           {/* <img src={icon20} className="icon20"/> */}
-          <div className=" mt-3 text-sm font-medium max-md:text-center">
+          <div className=" mt-3 text-sm font-medium max-lg:text-center">
             <p>
               At The Multi Networking Company, we are dedicated to empowering
               individuals by facilitating their careers.
@@ -570,11 +572,11 @@ const Home = () => {
           </div>
         </div>
         <div className="ab-part-2">
-          <div className="ab12">
-            <img className="img-ab5" src={imgab5} alt="" />
-            <img className="img-ab4" src={aboutimg} alt="" />
+          <div className="ab12 flex max-lg:flex-col max-lg:justify-center max-lg:mx-auto">
+            <img className="img-ab5 flex justify-center mx-auto" src={imgab5} alt="" />
+            <img className="img-ab4 flex max-lg:justify-center max-lg:mx-auto -ml-[100px] mt-20" src={aboutimg} alt="" />
           </div>
-          <div className="extra md:ml-56 justify-sart flex sm:ml-32 ml-24">
+          <div className="extra md:ml-48 justify-sart flex sm:ml-32 ml-24 max-xl:hidden">
             <img className="img-6" src={img6} alt="" />
           </div>
         </div>
@@ -589,7 +591,7 @@ const Home = () => {
             alt=""
           />
 
-          <div className=" mt-4  max-md:w-[90%] text-right max-md:text-center  ">
+          <div className=" mt-4  max-md:w-[90%] lg:text-right max-lg:text-center  ">
             <p className=" text-nowrap  font-bold max-md:px-4 text-[#a90bd4]">
               WHAT WE DO
             </p>
@@ -611,14 +613,14 @@ const Home = () => {
           />
         </div>
 
-        <div className="what-main1">
+        <div className="what-main1 w-[70%] max-lg:w-[90%] mx-auto">
           <img
             style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
             className="aicon  parallax-layer"
             src={aicon}
             alt=""
           />
-          <div className="grid grid-cols-2 gap-10 max-md:grid-cols-1 max-md:w-[90%] mx-auto md:mt-20 mt-10">
+          <div className="grid grid-cols-2 gap-10 max-md:grid-cols-1 max-lg:w-[90%] mx-auto md:mt-20 mt-10">
             {shippingList.map((shipping, index) => (
               <div className=" rounded-xl bg-white shadow-md md:px-10 px-5 md:py-20 py-10 flex justify-center text-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300 ease-in-out">
                 <img src={shipping.img} alt="" height={100} width={100} />
@@ -720,26 +722,26 @@ const Home = () => {
             </div>
           </div>
           <div className="">
-            <div className="port-part-1 md:pl-20 ">
-              <div className="img-b1">
-                <img className="img-bi1" src={imgbi1} alt="" />
+            <div className="port-part-1 mt-10   lg:w-[70%] w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-10 max-lg:flex-col">
+              <div className="img-b1 max-sm:h-[50%] max-sm:w-[50%] h-[30%] w-[30%] ">
+                <img className="img-bi1" src={imgbi1} alt=""height={300} width={300} />
               </div>
-              <div className="part-1-text flex justify-center flex-col max-md:mx-auto max-md:text-center">
-                <div className="font-1 max-md:mx-auto max-lg:mt-6">
+              <div className="part-1-text lg:ml-10 flex justify-center flex-col max-lg:text-center ">
+                <div className="font-1 max-lg:mx-auto max-lg:mt-10 max-sm:mt-4">
                   <h3 className="h2">1</h3>
 
-                  <img className="h1 " src={imgf17} alt="" />
+                  <img className=" w-8 h-16 mt-7 -ml-[27px] " src={imgf17} alt="" />
                 </div>
                 <div className="text-2xl font-bold text-[#fd6784]">
                   Problem Solving Skills
                 </div>
-                <h2>Problem Pilot</h2>
+                <div className="text-4xl font-bold mt-1 max-md:text-3xl max-sm:text-2xl">Problem Pilot</div>
 
-                <div className="md:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4">
+                <div className=" max-lg:mx-auto text-sm text-gray-400 font-medium mb-4 max-md:px-4 mt-2">
                   Welcome to Career Voyage! Conquer challenges, showcase skills
                   and advance your professional journey !
                 </div>
-                <button onClick={playGame1} className="max-md:mx-auto ">
+                <button onClick={playGame1} className="max-lg:mx-auto ">
                   Play Now
                 </button>
                 <div className="">
@@ -754,15 +756,15 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="port-part-2 md:pl-24">
-              <div className="img-b2 ">
+            <div className=" sm:mt-10 port-part-2 lg:w-[70%] lg:flex-row-reverse w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-10 max-lg:flex-col">
+              <div className="img-b2 max-sm:h-[50%] max-sm:w-[50%] h-[30%] w-[30%]">
                 <img className="img-bi2" src={imgbi2} alt="" />
               </div>
-              <div className="part-2-text flex justify-center flex-col max-md:mx-auto max-md:text-center max-md:mt-10 ">
-                <div className="font-2 max-md:mx-auto">
+              <div className="part-2-text flex justify-center flex-col max-lg:mx-auto max-lg:text-center ">
+                <div className="font-1 max-lg:mx-auto max-lg:mt-10 max-sm:mt-4">
                   <h3 className="h2">2</h3>
 
-                  <img className="h1" src={imgf22222} alt="" />
+                  <img className=" w-8 h-[70px] mt-7 -ml-[34px]" src={imgf22222} alt="" />
                 </div>
                 <div className="img-d">
                   <img
@@ -778,25 +780,25 @@ const Home = () => {
                   Entrepreneurial Mindset Development
                 </div>
                 <h2>Entrepreneurial Edge</h2>
-                <div className="md:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4 mt-4">
+                <div className="lg:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4 mt-4">
                   Welcome to Mindset Mastery! Ignite your entrepreneurial
                   spirit, conquer challenges, and cultivate a mindset for
                   success!
                 </div>
-                <button onClick={playGame2} className="max-md:mx-auto">
+                <button onClick={playGame2} className="max-lg:mx-auto">
                   Play Now
                 </button>
               </div>
             </div>
-            <div className="port-part-3 md:pl-16">
-              <div className="img-b3">
-                <img className="img-bi3" src={imgbi3} alt="" />
+            <div className="port-part-3 sm:mt-10    lg:w-[70%] w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-10 max-lg:flex-col">
+              <div className="img-b3 max-sm:h-[50%] max-sm:w-[50%] h-[30%] w-[30%]">
+                <img className="img-bi3" src={imgbi3} alt=""height={300} width={300} />
               </div>
-              <div className="part-3-text flex justify-center flex-col max-md:mx-auto max-md:text-center">
-                <div className="font-3 max-md:mx-auto">
+              <div className="part-1-text lg:ml-10 flex justify-center flex-col max-lg:text-center">
+                <div className="font-1 max-lg:mx-auto max-lg:mt-10 max-sm:mt-4">
                   <h3 className="h2">3</h3>
 
-                  <img className="h1" src={imgf3333} alt="" />
+                  <img className="w-8 h-[68px] mt-7 -ml-[29px]" src={imgf3333} alt="" />
                 </div>
                 <div className="text-2xl font-bold text-[#d542fd]">
                   Fundamental Skills Development
@@ -812,11 +814,11 @@ const Home = () => {
                     alt=""
                   />
                 </div>
-                <div className="md:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4">
+                <div className="lg:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4">
                   Welcome to SkillForge! Cultivate core skills, hone strategic
                   views, and craft your roadmap to success!
                 </div>
-                <button onClick={playGame3} className="max-md:mx-auto">
+                <button onClick={playGame3} className="max-lg:mx-auto">
                   Play Now
                 </button>
               </div>
@@ -865,10 +867,10 @@ const Home = () => {
             delay: 3000, // Adjust the delay to your preference
             disableOnInteraction: false, // Allows autoplay to continue after user interaction
           }}
-          className="mySwiper"
+          className="mySwiper "
         >
           <SwiperSlide>
-            <div className="join-us max-lg:pt-32">
+            <div className="join-us ">
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
@@ -916,7 +918,7 @@ const Home = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="join-us max-lg:pt-32">
+            <div className="join-us">
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
@@ -969,7 +971,7 @@ const Home = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <div className="join-us max-lg:pt-32">
+            <div className="join-us 0">
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
@@ -1021,8 +1023,8 @@ const Home = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-<div className="" >
-<div className="subscription-title md:mt-60 mt-20 ">
+        <div className="">
+          <div className="subscription-title md:mt-60 mt-20 ">
             <h6>SUBSCRIBE PLANS</h6>
             <div className="text-5xl font-bold max-md:text-3xl mt-2 px-2 ">
               Forge Personalized Paths for
@@ -1032,52 +1034,56 @@ const Home = () => {
             </div>
           </div>
 
-        <div className=" grid lg:grid-cols-3 w-[70%] max-md:grid-cols-1 max-md:w-[90%] md:grid-cols-2 gap-8 md:gap-14 my-20  mx-auto ">
+          <div className=" grid lg:grid-cols-3 w-[70%] max-md:grid-cols-1 max-lg:w-[90%] md:grid-cols-2 gap-6 md:gap-14 my-20  mx-auto ">
+            {PlanList.map((plan, planIndex) => (
+              <div
+                key={planIndex}
+                className="box-249 px-8 py-10 bg-white rounded-lg shadow-lg"
+                id={`box-${planIndex}`}
+              >
+                <div className="line-s"></div>
+                <div className="text-3xl font-normal max-sm:text-2xl">
+                  {plan.title.toUpperCase()}
+                  <br />
+                  <span className="font-semibold"> PLAN</span>
+                </div>
+                <div className="line my-2"></div>
+                <div className="text-5xl font-bold max-sm:text-3xl">
+                  {plan.price}/-
+                </div>
+                <div className="text-[16px] text-gray-400 font-medium">
+                  {plan.time.toUpperCase()}
+                </div>
 
-        {PlanList.map((plan, planIndex) => (
-          <div
-            key={planIndex}
-            className="box-249 px-8 py-10 bg-white rounded-lg shadow-lg"
-            id={`box-${planIndex}`}
-         
-          >
-            <div className="line-s"></div>
-            <div className="text-3xl font-normal max-sm:text-2xl">
-              {plan.title.toUpperCase()}
-              <br />
-           <span className="font-semibold"> PLAN</span>   
-            </div>
-            <div className="line my-2"></div>
-            <div className="text-5xl font-bold max-sm:text-3xl">
-              {plan.price}/-
-            </div>
-            <div className="text-[16px] text-gray-400 font-medium">
-              {plan.time.toUpperCase()}
-            </div>
+                {/* Features List */}
+                <div className="list-none mt-4 space-y-2 ">
+                  {plan.about.map((feature, featureIndex) => (
+                    <li
+                      key={featureIndex}
+                      className="flex items-center gap-2 text-sm font-bold"
+                    >
+                      <img
+                        className="img-133"
+                        src={feature.icon}
+                        alt=""
+                        height={20}
+                        width={20}
+                      />
+                      {feature.text}
+                    </li>
+                  ))}
+                </div>
 
-            {/* Features List */}
-            <div className="list-none mt-4 space-y-2 ">
-              {plan.about.map((feature, featureIndex) => (
-                <li key={featureIndex} className="flex items-center gap-2 text-sm font-bold">
-                  <img
-                    className="img-133"
-                    src={feature.icon}
-                    alt=""
-                    height={20}
-                    width={20}
-                  />
-                  {feature.text}
-                </li>
-              ))}
-            </div>
-
-            <button className={`${plan.bgColor} text-white py-2 px-4 rounded-lg text-lg font-bold w-full mt-4`} style={{ backgroundColor: plan.bgColor }}>
-              BUY NOW
-            </button>
+                <button
+                  className={`${plan.bgColor} text-white py-2 px-4 rounded-lg text-lg font-bold w-full mt-4`}
+                  style={{ backgroundColor: plan.bgColor }}
+                >
+                  BUY NOW
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-  </div>
-  </div>
+        </div>
 
         {/* <div className="subscription">
           <div className="subscription-title">

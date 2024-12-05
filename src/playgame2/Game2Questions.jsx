@@ -121,7 +121,7 @@ const Game2Questions = () => {
   }, [currentIndex, levelNumber]);
   return (
     <div className="Game2-bg">
-      <img src={logo} className="mnc-logo" alt="logo" />
+      <img src={logo} className="absolute top-[10%] left-[8%] max-md:left-[5%]" alt="logo" height={45} width={100}/>
       <img
         src={icon1}
         className="icon10-game1 parallax-layer"
@@ -130,22 +130,23 @@ const Game2Questions = () => {
       />
       <img
         src={icon2}
-        className="icon11-game1 parallax-layer"
+        className="icon11-game1 parallax-layer max-md:hidden"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         alt="icon2"
       />
-      <div className="game2-question-part">
+      <div className=" w-[80%] mx-auto max-md:w-[90%] pt-20">
         <div className="game2-width">
           <div className="card-container">
-            <div className="question-box">
+            <div className="bg-white px-2 max-md:w-full text-[17px] md:text-[1.4rem] font-semibold  items-center  rounded-lg text-center md:py-10 max-md:py-4  justify-center">
               <p>
                 {currentIndex + 1}.{" "}
                 {playerData && playerData[currentIndex]
                   ? playerData[currentIndex]?.questionText
                   : "Loading..."}
+                  
               </p>
             </div>
-            <div className="option-card">
+            <div className="grid grid-cols-2 gap-8 max-lg:grid-cols-1 pt-10">
               {playerData[currentIndex]?.options?.map((optionText, index) => {
                 const optionLetter = String.fromCharCode(65 + index); // Convert index to A, B, C, D
                 return (
@@ -155,13 +156,15 @@ const Game2Questions = () => {
                       index + 1
                     } card-content content${optionLetter} ${
                       selectedOption === optionLetter ? "selected" : ""
-                    }`}
+                    }` }
                     onClick={() => handleOptionClick(optionLetter)}
+                    
                   >
-                    <div className="card-content1">
-                      <h1>{optionLetter}.</h1>
-                      <div className={`option${optionLetter}`}>
-                        {optionText}
+                    {/* card-content1 */}
+                    <div className="flex items-center justify-start gap-6 absolute left-10">
+                      <h2>{optionLetter}.</h2>
+                      <div className={`option${optionLetter} pb-2`}>
+                        {optionText} 
                       </div>
                     </div>
                   </div>

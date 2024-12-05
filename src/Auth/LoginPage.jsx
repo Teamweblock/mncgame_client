@@ -70,7 +70,7 @@ const LoginPage = () => {
   return (
     <div className="login-bg-img">
       <div className="container">
-          <img src="./mainlogo.png" alt="" height={50} width={140} style={{marginTop:"30px"}}/>
+          <img src="./mainlogo.png" alt="" height={45} width={120} style={{marginTop:"30px"}}/>
         <div className="row">
           <div className="col-md-6">
             <img className="login-img" src={loginimg1} alt="Login" />
@@ -93,9 +93,9 @@ const LoginPage = () => {
               </div>
               </div>
               </div>
-              <div style={{ width: "80%", margin: "auto" }}>
+              <div className="px-3">
                 <h1
-                className="login-heading"
+                className="login-heading text-center mx-auto"
                   style={{
                   
                   }}
@@ -103,7 +103,7 @@ const LoginPage = () => {
                   <span style={{ color: "#fec200" }}>Hello,</span> login to{" "}
                   your paradise!
                 </h1>
-                <form onSubmit={handleSubmit} className="px-5 py-5">
+                <form onSubmit={handleSubmit} className="px-1 py-5">
                   <input
                     className="login-input"
                     placeholder="Email"
@@ -112,7 +112,7 @@ const LoginPage = () => {
                     onChange={handleChange}
                     required
                   />
-                  <div className="input-group flex flex-nowrap">
+                  <div className="border-b w-full relative justify-between">
                     <input
                       className="login-input"
                       placeholder="Password"
@@ -122,7 +122,7 @@ const LoginPage = () => {
                       required
                     />
                     <div
-                      className="cursor-pointer text-xl mt-2"
+                      className="cursor-pointer text-xl mt-2 absolute right-2 bottom-3"
                       onClick={() => setShowPassword((prev) => !prev)}
                     >
                       <span>{showPassword ? <FaEyeSlash /> : <FaEye />}</span>

@@ -28,7 +28,7 @@ const AddSkill = () => {
       <div>
         <div className="addskill-part-main ">
           <div className="addskill-part-1 lg:w-[70%] w-[90%] mx-auto  ">
-            <div className=" max-lg:mt-[500px] lg:mt-[130px] xl:mt-[250px] lg:w-[45%] w-full   max-lg:text-center flex justify-center  flex-col  max-lg:mx-auto" >
+            <div className=" max-lg:mt-[600px] lg:mt-[130px] xl:mt-[250px] lg:w-[45%] w-full   max-lg:text-center flex justify-center  flex-col  max-lg:mx-auto" >
               <h2 className=" max-lg:text-3xl max-sm:text-2xl text-5xl font-bold text-[#112e58] max-lg:text-center">
                 Are you ready to put your entrepreneurial skills to the test?
               </h2>

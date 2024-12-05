@@ -15,11 +15,10 @@ const Game2NewResult = ({score ,levelNumber}) => {
   }
   return (
     <>
-     <div className="welcomepage-bg">
-        <img src={logo} className="mnc-logo"  onClick={handleHomePage} style={{cursor:"pointer",marginTop:"20px"}}/>
+     <div className=" w-full flex justify-center  items-center flex-col  ">
         <img
           src={icon1}
-          className="icon1-game1 parallax-layer"
+          className="icon1-game1 parallax-layer max-sm:hidden"
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         />
         <img
@@ -27,10 +26,10 @@ const Game2NewResult = ({score ,levelNumber}) => {
           className="icon2-game1 parallax-layer"
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         />
-        <h1 className='credit-score-result'>Your Credit score</h1>
+        <h1 className='text-center  text-white font-bold'>Your Credit score</h1>
     
         <GameChartResult score={score} levelNumber={levelNumber}/>
-        {/* <h6 className='game-footer-text'><span style={{fontWeight:"700", color:"white"}}>MULTI</span> NETWORKING COMPANY</h6> */}
+       
       </div>
     </>
   )

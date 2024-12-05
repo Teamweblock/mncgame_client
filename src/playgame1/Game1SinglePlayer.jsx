@@ -112,7 +112,7 @@ const Game1SinglePlayer = () => {
             <span className="dot2">:</span>
           </div>
           <div>
-            <span className="minutes-text">MINUTE</span>
+            <span className="text-white font-medium text-[1rem]">MINUTE</span>
           </div>
         </div>
         <div className="time-group">
@@ -123,7 +123,7 @@ const Game1SinglePlayer = () => {
             </span>
           </div>
           <div>
-            <span className="seconds-text">SECOND</span>
+            <span className="text-white font-medium text-[1rem]">SECOND</span>
           </div>
         </div>
       </div>
@@ -209,7 +209,7 @@ const Game1SinglePlayer = () => {
 
   return (
     <div className="Game1-sinlgeplayer-bg">
-      <img src={logo} className="mnc-logo" />
+      <img src={logo} className="mnc-logo flex justify-center items-center" />
       <img
         src={icon1}
         className="icon3-game1 parallax-layer"
@@ -226,7 +226,7 @@ const Game1SinglePlayer = () => {
         </div>
       ) : (
         <>
-          <div className="game1-width">
+          <div className="game1-width max-md:w-[90%] w-[70%] mx-auto">
             <div className="single-player-part">
               {countdown > 0 && (
                 <div className="countdown">
@@ -236,24 +236,30 @@ const Game1SinglePlayer = () => {
               {countdown === 0 && (
                 <p className="timer">{formatTime(timeLeft)}</p>
               )}
-              <>
-                <div className="questions-game1">
-                  <div className="question-box">
-                    <h4>
-                      Question {currentQuestionIndex + 1} {"-"}
-                    </h4>
-                    <p>{playerData[currentQuestionIndex]?.question}</p>
-                  </div>
-                  <div className="solution-box">
+              {playerData?.length > 0 ? (
+                <>
+                  <div className="questions-game1">
+                    <div className="bg-gradient-to-t from-[#37d4f1] via-[#c3f2fb] to-white max-md:w-full text-[17px] md:text-[1.4rem] font-semibold  items-center  rounded-lg text-center md:py-5 max-md:py-3  justify-center">
+                      {/* <h4>
+                    Question {currentQuestionIndex + 1} {"-"}
+                  </h4> */}
+                      <p>{playerData[currentQuestionIndex]?.questionText}</p>
+                    </div>
+
                     <input
                       type="text"
+                      className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black "
                       placeholder="Type Your Solution"
                       value={userAnswer} // Bind the input value with state
                       onChange={handleInputChange} // Update state when input changes
                     />
                   </div>
+                </>
+              ) : (
+                <div className="loading-container">
+                  <p>Loading questions...</p>
                 </div>
-              </>
+              )}
               <div className="text-center d-sm-flex flex-sm-wrap justify-content-sm-center">
                 {currentQuestionIndex === 0 && (
                   <div className="">
@@ -277,7 +283,7 @@ const Game1SinglePlayer = () => {
                 ) : (
                   <div className="">
                     <button
-                      className="show-button"
+                      className="show-button text-nowrap"
                       onClick={handleNextQuestion}
                     >
                       Show Results

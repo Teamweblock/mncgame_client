@@ -54,7 +54,7 @@
   height: 40px;
   position: absolute;
   top: 10%;
-  left: 15%;
+  left: 16%;
 }
 
 .icon6-game1 {
@@ -79,10 +79,7 @@
   height: 100px;
 }
 
-.game1-width {
-  width: 70%;
-  margin: auto;
-}
+
 
 .multiple-player-part {
   position: absolute;
@@ -95,25 +92,7 @@
   margin-top: 50px;
 }
 
-.question-box {
-  background-color: white;
-  padding: 20px;
-  color: black;
-  border-radius: 20px;
-  font-size: 20px;
-  text-align: center;
 
-  background: rgb(55, 212, 241);
-  background: linear-gradient(
-    0deg,
-    rgba(55, 212, 241, 1) 0%,
-    rgba(195, 242, 251, 1) 0%,
-    rgba(213, 246, 252, 1) 23%,
-    rgba(205, 244, 252, 1) 47%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  font-weight: 600;
-}
 
 .text-center {
   text-align: center;
@@ -124,7 +103,8 @@
   color: white;
   border: none;
   padding: 10px 50px;
-  border-radius: 20px;
+  width: 200px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 20px;
   text-align: center;
@@ -164,6 +144,10 @@
   .players-group {
     top: 15%;
     right: 38%;
+  }
+  .avtar-img {
+    width: 60px;
+    height: 60px;
   }
 }
 

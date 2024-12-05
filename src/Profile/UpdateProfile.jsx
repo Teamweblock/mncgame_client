@@ -1,6 +1,7 @@
 import React from "react";
 import { ChevronDown } from "lucide-react";
 import Sidebar from "./Sidebar";
+import ProfileHeader from "./ProfileHeader";
 
 const UpdateProfile = () => {
   const fields = [
@@ -34,6 +35,7 @@ const UpdateProfile = () => {
     <div className="flex lg:w-[90%] w-full">
     <Sidebar />
       <div className=" mt-3     md:ml-[300px] w-full ">
+      <ProfileHeader/>
         <h1 className="text-[1.3rem] font-bold text-[#0e2b54] max-md:px-4">
           Edit Your Profile
         </h1>

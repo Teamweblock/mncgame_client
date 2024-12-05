@@ -211,50 +211,52 @@ const Game1MultiPlayer = () => {
 
   return (
     <div className="Game1-bg2">
-      <img src={logo} className="mnc-logo" />
+      <img src={logo} className="absolute top-[10%] left-[15%]" width={100} height={45}/>
       <img
         src={icon1}
-        className="icon6-game1 parallax-layer"
+        className="icon6-game1 parallax-layer max-md:hidden"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
       />
-      {/* <div className="players-group">
-        <div className="player-1">
+      <div className="flex gap-6 items-center  justify-end max-md:justify-center max-lg:pt-44 px-10 pt-20">
+        <div className="flex flex-col items-center">
           {countdown > 0 && <h6>{countdown}</h6>}
           {countdown === 0 && <h6>{UserTimer(timeLeft)}</h6>}
           <img className="avtar-img" src={img1} alt="Avatar" />
-          <h6>Opponent 1</h6>
+          <h6 className="text-white">Opponent 1</h6>
         </div>
-        <div className="player-2">
+        <div className="flex flex-col items-center">
           {countdown > 0 && <h6>{countdown}</h6>}
           {countdown === 0 && <h6>{UserTimer(timeLeft)}</h6>}
           <img className="avtar-img" src={img1} alt="Avatar" />
-          <h6>Opponent 2</h6>
+          <h6 className="text-white">Opponent 2</h6>
         </div>
-      </div> */}
-      <div className="game1-width">
-        <div className="multiple-player-part">
+      </div>
+      <div className=" max-md:w-[90%] w-[70%] mx-auto  max-md:pt-12">
+      {/* multiple-player-part */}
+        <div className="">
           {countdown > 0 && (
             <div className="countdown">
-              <h2 style={{ fontSize: "130px" }}> {countdown}</h2>
+              <h2 > {countdown}</h2>
             </div>
           )}
           {countdown === 0 && <p className="timer">{formatTime(timeLeft)}</p>}
-          <div className="questions-game1">
-            <div className="question-box">
-              <h4>
+          <div className="">
+            <div className="bg-gradient-to-t from-[#37d4f1] via-[#c3f2fb] to-white max-md:w-full text-[17px] md:text-[1.4rem] font-semibold  items-center  rounded-lg text-center md:py-5 max-md:py-3  justify-center">
+              {/* <h4>
                 Question {currentQuestionIndex + 1} {"-"}
-              </h4>
+              </h4> */}
               <p>{playerData[currentQuestionIndex]?.questionText}</p>
             </div>
-            <div className="solution-box">
+          
               <input
                 type="text"
                 placeholder="Type Your Solution"
                 value={userAnswer}
                 onChange={handleInputChange}
+                className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black"
               />
-            </div>
-            <div className="text-center">
+         
+            <div className="text-center flex gap-2 justify-center flex-wrap">
               {currentQuestionIndex === 0 && (
                 <button className="show-btn me-sm-3" onClick={handleBack}>
                   Back
@@ -266,7 +268,7 @@ const Game1MultiPlayer = () => {
                 </button>
               ) : (
                 <button
-                  className="show-btn"
+                  className="show-btn text-nowrap"
                   onClick={() => navigate("/game1result")}
                 >
                   Show Results

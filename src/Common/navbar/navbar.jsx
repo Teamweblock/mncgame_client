@@ -1,14 +1,11 @@
 // src/components/navbar/Navbar.jsx
 import React, { useState } from "react";
-import { NavLink, useNavigate, Link, useLocation } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import LoginPage from "../../Auth/LoginPage";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+
 import logo from "../../Assets/images/logoimg.png";
 import "./navbar.css";
 import { Menu } from "lucide-react";
-import { User } from 'lucide-react';
-
+import { User } from "lucide-react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,6 +29,10 @@ const Navbar = () => {
       ? "text-purple-600 border-b-2 border-purple-600"
       : "text-black";
 
+  const token = localStorage.getItem("token");
+  const isLoggedIn = !!token;
+  console.log("ajay", token, isLoggedIn);
+
   return (
     <>
       <nav className="transparent relative w-full bg-transparent pt-10 ">
@@ -54,25 +55,27 @@ const Navbar = () => {
               <Link to="/contact">
                 <li className={isActive("/contact")}>Contact</li>
               </Link>
-              <button
-                className="border-2 border-[#C04AE2] text-black font-semibold rounded-lg px-4 py-1 w-28"
-                onClick={handleOpen}
-              >
-                Login
-              </button>
 
-<Link to="/profile/overview">
-              <div className="rounded-full h-10 w-10 flex justify-center items-center  bg-[#f37ce7]">
-                <User  color="white"/>
-
-              </div>
-</Link>
+              {isLoggedIn ? (
+                <Link to="/profile/overview">
+                  <div className="rounded-full h-10 w-10 flex justify-center items-center  bg-[#f37ce7]">
+                    <User color="white" />
+                  </div>
+                </Link>
+              ) : (
+                <button
+                  className="border-2 border-[#C04AE2] text-black font-semibold rounded-lg px-4 py-1 w-28"
+                  onClick={handleOpen}
+                >
+                  Login
+                </button>
+              )}
             </ul>
           </div>
         </div>
 
         {menuOpen && (
-          <div className="absolute  top-0 right-0 w-[200px] h-[100vh] bg-[#ebe8fd] z-1000 flex flex-col  text-black font-semibold">
+          <div className="absolute z-10  top-0 right-0 w-[200px] h-[100vh] bg-[#ebe8fd] z-1000 flex flex-col  text-black font-semibold">
             <button
               className="absolute top-4 right-4 black text-3xl"
               onClick={toggleMenu}
@@ -101,12 +104,21 @@ const Navbar = () => {
                   <li className={` ${isActive("/contact")}`}>Contact</li>
                 </div>
               </Link>
-              <button
-                className="border-2 border-[#C04AE2] text-black font-semibold rounded-lg px-4 py-1 w-28"
-                onClick={handleOpen}
-              >
-                Login
-              </button>
+              {isLoggedIn ? (
+                <Link to="/profile/overview" onClick={toggleMenu}>
+                  <div className="w-max">
+                    <li className={` ${isActive("/profile/overview")}`}>
+                      Profile
+                    </li>
+                  </div>
+                </Link>
+              ) :  <button
+              className="border-2 border-[#C04AE2] text-black font-semibold rounded-lg px-4 py-1 w-28"
+              onClick={handleOpen}
+            >
+              Login
+            </button>}
+             
             </ul>
           </div>
         )}

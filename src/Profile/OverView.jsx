@@ -5,16 +5,19 @@ import { UserPen } from "lucide-react";
 import OverviewChart from "./OverviewChart";
 import SkillsOverview from "./SkillsOverview";
 import Sidebar from "./Sidebar";
+import ProfileHeader from "./ProfileHeader";
 
 
 const Overview = () => {
   return (
     <>
+    
     <div className="flex  lg:w-[90%] w-full">
         <Sidebar />
 
    
       <main className="  my-4  md:ml-[300px] w-full ">
+      <ProfileHeader/>
         <div className="flex gap-6  flex-wrap">
           {/* Customer Analysis Card */}
           <div className="bg-[#eff2f9] p-4 rounded-lg shadow lg:w-[75%] w-full">

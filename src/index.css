@@ -2,6 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -410,7 +411,6 @@ code {
 .login-img {
   width: 100%;
   height: 100%;
-  padding: 50px;
 }
 
 .game {
@@ -425,6 +425,7 @@ code {
   border-bottom: 13px solid black;
   width: 100%;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .login-input {
@@ -909,4 +910,23 @@ font-weight: 700;
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.forgetPass-bg{
+  background-image: url("/public/forget.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    object-fit: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+
+}
+
+.resetPass-bg{
+  background-image: url("/src/Assets/gameimages/img1.jpg");
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  background-position:center;
 }

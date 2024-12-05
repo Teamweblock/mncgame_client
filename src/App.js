@@ -45,6 +45,8 @@ import Game1WaitingPage from "./playgame1/Game1WaitingPage";
 import Overview from "./Profile/OverView";
 import Statics from "./Profile/Statics";
 import UpdateProfile from "./Profile/UpdateProfile";
+import CheckMail from "./Auth/CheckMail";
+import Congrates from "./Auth/Congrates";
 
 const App = () => {
   const location = useLocation();
@@ -160,7 +162,9 @@ const App = () => {
         
         <Route path="/profile/overview" element={<Overview />} />
         <Route path="/profile/statistics" element={<Statics />} />
-        <Route path="/profile/update-profile" element={<UpdateProfile />} />
+        <Route path="/profile/update" element={<UpdateProfile />} />
+        <Route path="/checkMail" element={<CheckMail />} />
+        <Route path="/congrates" element={<Congrates />} />
         
       </Routes>
       {!noNavbarPaths.includes(location.pathname) && <Footer />}

@@ -17,7 +17,7 @@ const PilotSection = () => {
 
   return (
     <>
-      <div className="ProblemMain mx-auto  lg:-mt-[250px] w-[80%] max-md:w-[90%]    ">
+      <div className="ProblemMain mx-auto  lg:-mt-[250px] w-[80%] max-md:w-[90%]   max-lg:pt-10  max-md:pt-20 max-sm:pt-40 max-xl:pt-[200px] max-2xl:pt-[300px] ">
         <div className="ProblemMainPaet flex max-lg:flex-col max-lg:items-center max-lg:justify-center ">
           <div className="ProblemImageSeaction lg:w-[50%]">
             <div>
