@@ -78,6 +78,8 @@ const Game1LevelPage = () => {
         playerType,
       });
       if (response) {
+        console.log(response, "response");
+
         navigate(
           `/game1${
             playerType === "multiple" ? "waiting" : "singleplayer"
@@ -96,7 +98,7 @@ const Game1LevelPage = () => {
       localStorage?.removeItem("levelNumber");
       console.log("levelNumber removed from localStorage on first load.");
     }
-  }, []);  
+  }, []);
   return (
     <div className="level-bg">
       <div className="pt-50">
