@@ -214,7 +214,7 @@ const Game1MultiPlayer = () => {
       <img src={logo} className="absolute top-[10%] left-[15%]" width={100} height={45}/>
       <img
         src={icon1}
-        className="icon6-game1 parallax-layer"
+        className="icon6-game1 parallax-layer max-md:hidden"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
       />
       <div className="flex gap-6 items-center  justify-end max-md:justify-center max-lg:pt-44 px-10 pt-20">
@@ -256,7 +256,7 @@ const Game1MultiPlayer = () => {
                 className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black"
               />
          
-            <div className="text-center">
+            <div className="text-center flex gap-2 justify-center flex-wrap">
               {currentQuestionIndex === 0 && (
                 <button className="show-btn me-sm-3" onClick={handleBack}>
                   Back

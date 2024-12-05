@@ -45,7 +45,7 @@ const Game1Players = () => {
     <>
       <div className="game1-bg">
         <a href="/">
-          <img src={logo} className="mnc-logo" alt="Logo" />
+          <img src={logo} className="h-[45px] w-[100px] absolute md:top-20 top-10 left-20" alt="Logo" />
         </a>
         <img
           src={icon1}
@@ -59,7 +59,7 @@ const Game1Players = () => {
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
           alt="Icon2"
         />
-        <div className=" absolute inset-0 justify-center md:gap-20  flex items-center max-lg:flex-col max-sm:mt-20">
+        <div className=" absolute inset-0 justify-center md:gap-20  flex items-center max-lg:flex-col max-sm:mt-28">
           <div className="flex flex-col  lg:gap-5  justify-center  ">
             <img src={img1} className="player-img hover:scale-110 cursor-pointer  transition-transform duration-300 ease-in-out" alt="Single Player"  />
               <button
