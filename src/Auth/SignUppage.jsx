@@ -88,7 +88,7 @@ const SignUppage = () => {
                   </h1>
                   <form className="px-3 py-5" onSubmit={handleSubmit}>
                     {/* First Name and Last Name Input Fields */}
-                    <div className="flex gap-4 max-sm:flex-col">
+                    <div className="flex sm:gap-4 max-sm:flex-col">
                    
                         <input
                           type="text"

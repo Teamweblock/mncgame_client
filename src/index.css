@@ -425,6 +425,7 @@ code {
   border-bottom: 13px solid black;
   width: 100%;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .login-input {

@@ -220,7 +220,7 @@ const ForgotPassword = () => {
                  Forget Password ?
                 <p className="text-[1.5rem] max-sm:text-[1.1rem]  md:pt-2 font-bold text-[#ff3a4b] ">No Worries <span className="text-black">we'll send you  reset instructions</span></p>
                 </h1>
-                <form className="px-1 py-5" onClick={handleSubmit}>
+                <form className="px-1 lg:py-5" onClick={handleSubmit}>
                   <input
                     className="login-input text-black placeholder:text-black "
                     placeholder="Enter Your Email"
@@ -233,7 +233,7 @@ const ForgotPassword = () => {
                 
        
                  
-                <button className=" mt-5 text-white font-bold text-[1.2rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg">
+                <button className=" mt-5 text-white font-bold text-[1.1rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg">
                   {loading ? (
                     <CircularProgress size={20} color="inherit" />
                   ) : (
