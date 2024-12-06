@@ -47,6 +47,7 @@ import Statics from "./Profile/Statics";
 import UpdateProfile from "./Profile/UpdateProfile";
 import CheckMail from "./Auth/CheckMail";
 import Congrates from "./Auth/Congrates";
+import SwipeSide from "./Home/Testimonials";
 
 const App = () => {
   const location = useLocation();
@@ -165,6 +166,7 @@ const App = () => {
         <Route path="/profile/update" element={<UpdateProfile />} />
         <Route path="/checkMail" element={<CheckMail />} />
         <Route path="/congrates" element={<Congrates />} />
+        <Route path="/swipersie" element={<SwipeSide />} />
         
       </Routes>
       {!noNavbarPaths.includes(location.pathname) && <Footer />}

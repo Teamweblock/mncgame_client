@@ -76,6 +76,7 @@ import icon20 from "../Assets/icon/icon4.png";
 import icon21 from "../Assets/icon/131.png";
 import img40 from "../Assets/illustration/411.png";
 import join from "../Assets/illustration/Group 1.png";
+import SwipeSide from "./Testimonials";
 
 // E:\MNC\mnc\src\images\HOME\icon\11111.png
 
@@ -165,7 +166,8 @@ const Home = () => {
       title: "Basic ",
       price: "299",
       time: "1 month",
-      bgColor: "bg-yellow-400",
+      bgColor: "#facc15",
+
       about: [
         {
           icon: img133,
@@ -429,24 +431,17 @@ const Home = () => {
         />
 
         <div className="banner-main">
-          <div className="banner-part1">
-            <div className="banner-text">
-              <h1 className="banner-title  max-lg:text-center text-6xl font-bold max-md:text-4xl">
-                Work Smartly with Endless Possibility
+          <div className="banner-part1 md:pb-28 ">
+            <div className="banner-text md:w-[60%] md:ml-[35%]">
+              <h1 className="banner-title  max-lg:text-center text-7xl font-bold max-md:text-4xl md:mt-10 max-xl:text-5xl">
+                Work Smartly With Endless Possibility
               </h1>
-              <p
-                className="text-[1.4rem] text-[#5e5c5c] font-bold max-lg:text-center"
-                // style={{
-                //   color: "#5e5c5c",
-                //   fontWeight: "700",
-                //   fontSize: "25px",
-                // }}
-              >
+              <p className="text-[1.6rem] mt-6 text-[#5e5c5c] font-bold max-lg:text-center">
                 Chart your career path with our digital compass
               </p>
               <div>
-                <div className=" max-lg:text-center">
-                  <button className="border-none text-[1.3rem] font-bold text-[#101010]">
+                <div className=" max-lg:text-center xl:mt-[25%] lg:ml-[7%]">
+                  <button className="border-none text-[1.6rem] font-bold text-[#101010]">
                     Get Started
                   </button>
                 </div>
@@ -460,13 +455,15 @@ const Home = () => {
       </div>
 
       <div className="home-container-3 mt-6">
-        <p className="text-nowrap  font-bold mt-4 text-[#a90bd4]">
+        <p className="text-nowrap  text-[1.3rem] font-medium tracking-widest  pt-40 text-[#a90bd4]">
           BUILD TRUST FIRST
         </p>
-        <div className="text-5xl font-bold mt-2 max-md:text-3xl max-md:w-[90%] text-center">
+        <div className="text-6xl font-bold mt-2 max-md:text-3xl max-md:w-[90%] text-center text-[#151310]">
           Why You Should Choose Us ?
         </div>
-        <div className="text-5xl font-bold  max-md:text-3xl">What We Are?</div>
+        <div className="text-6xl mt-2 font-bold  max-md:text-3xl text-[#151310]">
+          What We Are?
+        </div>
         <div className="img-b21">
           <img
             className="img-21 parallax-layer"
@@ -510,15 +507,15 @@ const Home = () => {
           </div>
         </div> */}
 
-        <div className="grid lg:grid-cols-3 gap-10  w-[90%] lg:w-[70%] mx-auto mt-20  sm:grid-cols-2 grid-cols-1">
+        <div className="grid lg:grid-cols-3 gap-10  w-[90%] lg:w-[70%] mx-auto mt-32  sm:grid-cols-2 grid-cols-1">
           {businessList.map((business, index) => (
             <div
               key={index}
               className={`border-[6px] ${
-                index === 0 ? "border-[#fe6686]" : ""
-              } ${index === 1 ? "border-[#54d6a1]" : ""} ${
-                index === 2 ? "border-[#fe9a3f]" : ""
-              }  text-center px-5 md:px-10 rounded-xl flex flex-col items-center gap-2 justify-center md:py-14 py-8 `}
+                index === 0 ? "border-[#ffcdbd]" : ""
+              } ${index === 1 ? "border-[#d7efc2]" : ""} ${
+                index === 2 ? "border-[#ffca9d]" : ""
+              }  text-center px-3 md:px-10 rounded-xl flex flex-col items-center gap-2 justify-center md:py-20 py-16 `}
             >
               <img
                 src={business.img}
@@ -527,8 +524,8 @@ const Home = () => {
                 width={100}
                 className=""
               />
-              <p className="text-2xl font-extrabold ">{business.title}</p>
-              <p className="text-sm font-medium text-gray-400">
+              <p className="text-[1.7rem] font-bold ">{business.title}</p>
+              <p className="text-[1.2rem] font-medium text-[#5a4d43]">
                 {business.discription}
               </p>
             </div>
@@ -544,19 +541,21 @@ const Home = () => {
         </div>
       </div>
 
-      <div className=" lg:w-[70%] w-[90%]   mx-auto  about  flex items-center justify-between pt-10 gap-10 max-lg:flex-col">
-        <div className="ab-part-1 mt-14">
+      <div className=" lg:w-[70%] w-[90%]   mx-auto  about  flex items-center justify-between pt-40 gap-10 max-lg:flex-col">
+        <div className="ab-part-1 ">
           <div className="flex items-center md:gap-4 max-lg:text-center max-lg:flex-col">
-            <p className="text-5xl font-bold max-md:text-3xl">About US</p>
-            <div className="h-1 w-32 bg-yellow-300"></div>
+            <p className="text-6xl font-bold max-md:text-3xl text-[#24201c]">
+              About Us
+            </p>
+            <div className="h-1 w-40 bg-[#ffe744]"></div>
           </div>
           {/* <img src={icon20} className="icon20"/> */}
-          <div className=" mt-3 text-sm font-medium max-lg:text-center">
+          <div className=" mt-3 text-[1.2rem] font-medium max-lg:text-center">
             <p>
               At The Multi Networking Company, we are dedicated to empowering
               individuals by facilitating their careers.
             </p>
-            <p>
+            <p className="py-2">
               Our service portfolio focuses on promoting discussions on problem
               areas, collaborative problem-solving, and arrang- ing online
               conferences for networking with like minded people.
@@ -571,12 +570,20 @@ const Home = () => {
             <button>KONW MORE</button>
           </div>
         </div>
-        <div className="ab-part-2">
+        <div className="ab-part-2 ">
           <div className="ab12 flex max-lg:flex-col max-lg:justify-center max-lg:mx-auto">
-            <img className="img-ab5 flex justify-center mx-auto" src={imgab5} alt="" />
-            <img className="img-ab4 flex max-lg:justify-center max-lg:mx-auto -ml-[100px] mt-20" src={aboutimg} alt="" />
+            <img
+              className="img-ab5 flex justify-center mx-auto"
+              src={imgab5}
+              alt=""
+            />
+            <img
+              className="img-ab4 flex max-lg:justify-center max-lg:mx-auto -ml-[100px] mt-20"
+              src={aboutimg}
+              alt=""
+            />
           </div>
-          <div className="extra md:ml-48 justify-sart flex sm:ml-32 ml-24 max-xl:hidden">
+          <div className="extra md:ml-48 justify-sart flex sm:ml-32 ml-24 max-2xl:hidden">
             <img className="img-6" src={img6} alt="" />
           </div>
         </div>
@@ -591,15 +598,15 @@ const Home = () => {
             alt=""
           />
 
-          <div className=" mt-4  max-md:w-[90%] lg:text-right max-lg:text-center  ">
-            <p className=" text-nowrap  font-bold max-md:px-4 text-[#a90bd4]">
+          <div className=" mt-4  max-md:w-[90%] lg:text-right max-lg:text-center px-4 ">
+            <p className="text-nowrap  text-[1.3rem] font-medium tracking-widest  pt-40 text-[#a90bd4]">
               WHAT WE DO
             </p>
             <div>
-              <div className="text-5xl font-bold max-md:text-3xl ">
+              <div className="text-6xl font-bold max-md:text-3xl text-[#24201c] ">
                 Architects of opportunity, shaping
               </div>
-              <div className="text-5xl font-bold max-md:text-3xl  mt-2">
+              <div className="text-6xl font-bold max-md:text-3xl text-[#24201c]  mt-2">
                 careers, fostering innovation. Welcome.
               </div>
             </div>
@@ -622,10 +629,13 @@ const Home = () => {
           />
           <div className="grid grid-cols-2 gap-10 max-md:grid-cols-1 max-lg:w-[90%] mx-auto md:mt-20 mt-10">
             {shippingList.map((shipping, index) => (
-              <div className=" rounded-xl bg-white shadow-md md:px-10 px-5 md:py-20 py-10 flex justify-center text-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300 ease-in-out">
+              <div
+                className="  bg-white shadow-md md:px-10 px-5 md:py-20 py-10 flex justify-center text-center items-center flex-col gap-2 hover:scale-105 transition-transform duration-300 ease-in-out"
+                style={{ borderRadius: "20px" }}
+              >
                 <img src={shipping.img} alt="" height={100} width={100} />
-                <p className="text-2xl font-bold">{shipping.title}</p>
-                <p className="text-sm font-medium text-gray-400">
+                <p className="text-3xl mt-2 font-bold">{shipping.title}</p>
+                <p className="text-[1.2rem] font-medium text-[#5a4d43]">
                   {shipping.discription}
                 </p>
               </div>
@@ -681,7 +691,7 @@ const Home = () => {
           </div>
         </div> */}
 
-        <div className="position-relative w-100 max-md:mt-6">
+        <div className=" max-md:mt-6">
           <img
             style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
             className="e-box-img1 parallax-layer"
@@ -709,35 +719,48 @@ const Home = () => {
               />
             </div>
             <div className="title-text ">
-              <p className=" text-nowrap text-center  font-bold text-[#a90bd4]">
+              <p className="text-nowrap  text-[1.3rem] font-medium tracking-widest  pt-40 text-[#a90bd4]">
                 OUR PROJECT
               </p>
 
-              <div className="text-5xl font-bold max-md:text-3xl ">
+              <div className="text-6xl font-bold max-md:text-3xl text-[#24201c]">
                 Pratice Your Skills
               </div>
-              <div className="text-5xl font-bold max-md:text-3xl  mt-1">
+              <div className="text-6xl font-bold max-md:text-3xl  mt-3 text-[#24201c]">
                 With Us In Our Arcade
               </div>
             </div>
           </div>
           <div className="">
-            <div className="port-part-1 mt-10   lg:w-[70%] w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-10 max-lg:flex-col">
-              <div className="img-b1 max-sm:h-[50%] max-sm:w-[50%] h-[30%] w-[30%] ">
-                <img className="img-bi1" src={imgbi1} alt=""height={300} width={300} />
+            <div className="port-part-1 mt-10 relative   lg:w-[70%] w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-20 max-lg:flex-col">
+              <div
+                className="border-[6px] border-[#ffcdbd] ]  w-[220px] h-[230px]  sm:w-[300px] sm:h-[330px] "
+                style={{ borderRadius: "15px" }}
+              >
+                <img
+                  className="absolute top-16 sm:h-[400px] sm:w-[400px] h-[270px] w-[270px] "
+                  src={imgbi1}
+                  alt=""
+                />
               </div>
-              <div className="part-1-text lg:ml-10 flex justify-center flex-col max-lg:text-center ">
-                <div className="font-1 max-lg:mx-auto max-lg:mt-10 max-sm:mt-4">
-                  <h3 className="h2">1</h3>
+              <div className="part-1-text  lg:pl-20 flex justify-center flex-col max-lg:text-center  lg:w-[60%]">
+                <div className="font-1 max-lg:mx-auto ">
+                  <h3 className="h2 text-[#151310]">1</h3>
 
-                  <img className=" w-8 h-16 mt-7 -ml-[27px] " src={imgf17} alt="" />
+                  <img
+                    className=" w-8 h-16 mt-7 -ml-[25px] "
+                    src={imgf17}
+                    alt=""
+                  />
                 </div>
                 <div className="text-2xl font-bold text-[#fd6784]">
                   Problem Solving Skills
                 </div>
-                <div className="text-4xl font-bold mt-1 max-md:text-3xl max-sm:text-2xl">Problem Pilot</div>
+                <div className="text-5xl text-[#161310] font-bold mt-2 mb-4 max-md:text-3xl max-sm:text-2xl">
+                  Problem Pilot
+                </div>
 
-                <div className=" max-lg:mx-auto text-sm text-gray-400 font-medium mb-4 max-md:px-4 mt-2">
+                <div className=" max-lg:mx-auto text-[1.3rem] text-[#5a4d43] font-medium mb-4 max-md:px-4 mt-2">
                   Welcome to Career Voyage! Conquer challenges, showcase skills
                   and advance your professional journey !
                 </div>
@@ -756,15 +779,27 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className=" sm:mt-10 port-part-2 lg:w-[70%] lg:flex-row-reverse w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-10 max-lg:flex-col">
-              <div className="img-b2 max-sm:h-[50%] max-sm:w-[50%] h-[30%] w-[30%]">
-                <img className="img-bi2" src={imgbi2} alt="" />
+            <div className=" sm:mt-10 port-part-2 lg:w-[70%] lg:flex-row-reverse w-[90%] mx-auto pt-16 flex justify-between  max-lg:items-center gap-10 max-lg:flex-col relative">
+              <div
+                className="border-[6px] border-[#9cf6d2] w-[220px] h-[230px] sm:w-[300px] sm:h-[330px] max-xl:pr-20"
+                style={{ borderRadius: "15px" }}
+              >
+                <img
+                  className="absolute top-16 right-2 sm:h-[400px] sm:w-[400px] h-[270px] w-[270px] max-xl:pl-20"
+                  src={imgbi2}
+                  alt=""
+                />
               </div>
-              <div className="part-2-text flex justify-center flex-col max-lg:mx-auto max-lg:text-center ">
-                <div className="font-1 max-lg:mx-auto max-lg:mt-10 max-sm:mt-4">
-                  <h3 className="h2">2</h3>
 
-                  <img className=" w-8 h-[70px] mt-7 -ml-[34px]" src={imgf22222} alt="" />
+              <div className="part-2-text flex justify-center flex-col max-lg:mx-auto max-lg:text-center lg:w-[60%]  ">
+                <div className="font-1 max-lg:mx-auto ">
+                  <h3 className="h2 text-[#151310]">2</h3>
+
+                  <img
+                    className=" w-10 h-[70px] mt-6 -ml-[34px]"
+                    src={imgf22222}
+                    alt=""
+                  />
                 </div>
                 <div className="img-d">
                   <img
@@ -779,8 +814,10 @@ const Home = () => {
                 <div className="text-2xl font-bold text-[#55d6a3]">
                   Entrepreneurial Mindset Development
                 </div>
-                <h2>Entrepreneurial Edge</h2>
-                <div className="lg:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4 mt-4">
+                <div className="text-5xl text-[#161310] font-bold mt-2 mb-4 max-md:text-3xl max-sm:text-2xl">
+                  Entrepreneurial Edge
+                </div>
+                <div className=" max-lg:mx-auto text-[1.3rem] text-[#5a4d43] font-medium mb-4 max-md:px-4 mt-2">
                   Welcome to Mindset Mastery! Ignite your entrepreneurial
                   spirit, conquer challenges, and cultivate a mindset for
                   success!
@@ -790,20 +827,33 @@ const Home = () => {
                 </button>
               </div>
             </div>
-            <div className="port-part-3 sm:mt-10    lg:w-[70%] w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-10 max-lg:flex-col">
-              <div className="img-b3 max-sm:h-[50%] max-sm:w-[50%] h-[30%] w-[30%]">
-                <img className="img-bi3" src={imgbi3} alt=""height={300} width={300} />
+            <div className="port-part-3 sm:mt-10  relative  lg:w-[70%] w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-20 max-lg:flex-col">
+              <div
+                className="border-[6px] border-[#ffb1d9] ] w-[220px] h-[230px]  sm:w-[300px] sm:h-[330px] "
+                style={{ borderRadius: "15px" }}
+              >
+                <img
+                  className="absolute top-16 sm:h-[400px] sm:w-[400px] h-[270px] w-[270px]"
+                  src={imgbi3}
+                  alt=""
+                />
               </div>
-              <div className="part-1-text lg:ml-10 flex justify-center flex-col max-lg:text-center">
-                <div className="font-1 max-lg:mx-auto max-lg:mt-10 max-sm:mt-4">
-                  <h3 className="h2">3</h3>
+              <div className="part-1-text lg:pl-20 flex justify-center flex-col max-lg:text-center lg:w-[60%]">
+                <div className="font-1 max-lg:mx-auto ">
+                  <h3 className="h2 text-[#151310]">3</h3>
 
-                  <img className="w-8 h-[68px] mt-7 -ml-[29px]" src={imgf3333} alt="" />
+                  <img
+                    className="w-12 h-[74px] mt-[25px] -ml-[42px]"
+                    src={imgf3333}
+                    alt=""
+                  />
                 </div>
                 <div className="text-2xl font-bold text-[#d542fd]">
                   Fundamental Skills Development
                 </div>
-                <h2>Strategic Trial</h2>
+                <div className="text-5xl text-[#161310] font-bold mt-2 mb-4 max-md:text-3xl max-sm:text-2xl">
+                  Strategic Trial
+                </div>
                 <div className="img-e">
                   <img
                     style={{
@@ -814,13 +864,16 @@ const Home = () => {
                     alt=""
                   />
                 </div>
-                <div className="lg:w-[70%] text-sm text-gray-400 font-medium mb-4 max-md:px-4">
+                <div className=" max-lg:mx-auto text-[1.3rem] text-[#5a4d43] font-medium mb-4 max-md:px-4 mt-2">
                   Welcome to SkillForge! Cultivate core skills, hone strategic
                   views, and craft your roadmap to success!
                 </div>
-                <button onClick={playGame3} className="max-lg:mx-auto">
+                <div
+                  onClick={playGame3}
+                  className="max-lg:mx-auto text-black text-lg  text-center flex justify-center cursor-pointer border-2 border-[#ffb1d9]  font-semibold rounded-lg px-4 py-2 w-40 h-[50px] hover:bg-[#ffb1d9] hover:text-white"
+                >
                   Play Now
-                </button>
+                </div>
               </div>
             </div>
           </div>
@@ -838,21 +891,28 @@ const Home = () => {
               alt=""
             />
           </div>
-          <div className="">
+          <div className="py-40">
             {/* <div className="text-center join-img3">
               <img className="img-p4" src={imgp4} alt="" />
             </div>
             <img className="join-img2" src={img40} /> */}
             <img className="join-img2" src={join} alt="" srcset="" />
-            <div className="join-group2 pt-[30%] text-center mx-auto flex justify-center flex-col xl:pl-[40%] md:pl-[30%] pl-[25%]  max-sm:hidden">
-              <h1>Come on, join with us !</h1>
-              <p>Create an account and refer your friend</p>
+            <div className="join-group2 pt-[33%] text-center mx-auto flex justify-center flex-col xl:pl-[35%] md:pl-[30%] pl-[25%]  max-sm:hidden">
+              <h1 className="text-[#221f1b] font-bold text-6xl max-md:text-3xl">Come on, join with us !</h1>
+              <p className="text-[1.3rem] text-[#5a4d43] font-medium mt-3">Create an account and refer your friend</p>
             </div>
           </div>
+          {/* <div className="text-center">
+      <img className="w-full h-[500px] max-sm:h-auto" src={join} alt="" srcset="" />
+
+      <h1 className="text-[#221f1b] font-bold text-6xl max-md:text-3xl">Come on, join with us !</h1>
+      <p className="text-[1.3rem] text-[#5a4d43] font-medium mt-3">Create an account and refer your friend</p>
+      </div> */}
         </div>
       </div>
+      
 
-      <div className="join-main">
+      <div className="join-main lg:mt-60">
         <img
           className="img-29 parallax-layer"
           src={img29}
@@ -860,12 +920,12 @@ const Home = () => {
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         />
 
-        <Swiper
+        {/* <Swiper
           pagination={true}
           modules={[Pagination, Autoplay]}
           autoplay={{
-            delay: 3000, // Adjust the delay to your preference
-            disableOnInteraction: false, // Allows autoplay to continue after user interaction
+            delay: 3000, 
+            disableOnInteraction: false, 
           }}
           className="mySwiper "
         >
@@ -874,7 +934,7 @@ const Home = () => {
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
-                  <h2 className=" ml-2">TESTIMONIAL</h2>
+                  <h2 className=" text-nowrap  text-[1.3rem] font-medium tracking-widest   text-[#a90bd4]">TESTIMONIAL</h2>
                 </div>
                 <div className="">
                   <h1>They are awesome!</h1>
@@ -891,7 +951,6 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              {/* <img src={icon21} className="image21" style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} /> */}
               <img src={image1} className="testi-img1" />
               <img
                 src={aicon}
@@ -922,7 +981,7 @@ const Home = () => {
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
-                  <h2 className="ml-2">TESTIMONIAL</h2>
+                  <h2 className="text-nowrap  text-[1.3rem] font-medium tracking-widest   text-[#a90bd4]">TESTIMONIAL</h2>
                 </div>
                 <div className="">
                   <h1>They are awesome!</h1>
@@ -939,11 +998,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              {/* <img
-                src={icon21}
-                className="image21"
-                style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-              /> */}
+         
               <img src={image1} className="testi-img1" />
               <img
                 src={aicon}
@@ -975,7 +1030,7 @@ const Home = () => {
               <div className="join-1">
                 <div className="join-group">
                   <img className="join-img" src={img28} />
-                  <h2 className="ml-2">TESTIMONIAL</h2>
+                  <h2 className="text-nowrap  text-[1.3rem] font-medium tracking-widest   text-[#a90bd4]">TESTIMONIAL</h2>
                 </div>
                 <div className="">
                   <h1>They are awesome!</h1>
@@ -992,11 +1047,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              {/* <img
-                src={icon21}
-                className="image21"
-                style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-              /> */}
+             
               <img src={image1} className="testi-img1" />
               <img
                 src={aicon}
@@ -1022,36 +1073,39 @@ const Home = () => {
               </div>
             </div>
           </SwiperSlide>
-        </Swiper>
-        <div className="">
-          <div className="subscription-title md:mt-60 mt-20 ">
-            <h6>SUBSCRIBE PLANS</h6>
-            <div className="text-5xl font-bold max-md:text-3xl mt-2 px-2 ">
+        </Swiper> */}
+        <SwipeSide/>
+
+          <div className="subscription-title md:mt-72 mt-20 ">
+          <div className="text-nowrap  text-[1.3rem] font-medium tracking-widest   text-[#a90bd4]">
+          SUBSCRIBE PLANS</div>
+          <div className="text-6xl font-bold max-md:text-3xl text-[#24201c]">
               Forge Personalized Paths for
             </div>
-            <div className="text-5xl font-bold max-md:text-3xl  px-2">
+            <div className="text-6xl font-bold max-md:text-3xl mt-2 text-[#24201c]">
               Your Journey Ahead!
             </div>
           </div>
 
-          <div className=" grid lg:grid-cols-3 w-[70%] max-md:grid-cols-1 max-lg:w-[90%] md:grid-cols-2 gap-6 md:gap-14 my-20  mx-auto ">
+          <div className=" grid lg:grid-cols-3 w-[70%] max-md:grid-cols-1 max-lg:w-[90%] md:grid-cols-2 gap-6 md:gap-14 my-20  mx-auto  pb-40">
             {PlanList.map((plan, planIndex) => (
               <div
                 key={planIndex}
                 className="box-249 px-8 py-10 bg-white rounded-lg shadow-lg"
                 id={`box-${planIndex}`}
               >
-                <div className="line-s"></div>
-                <div className="text-3xl font-normal max-sm:text-2xl">
+                <div className="line-s" id="line-s1"     
+                ></div>
+                <div className="text-4xl font-normal max-sm:text-2xl">
                   {plan.title.toUpperCase()}
                   <br />
-                  <span className="font-semibold"> PLAN</span>
+                  <span className="font-bold"> PLAN</span>
                 </div>
-                <div className="line my-2"></div>
-                <div className="text-5xl font-bold max-sm:text-3xl">
+                <div className={`line my-3 ${plan.bgColor}` } style={{ backgroundColor: plan.bgColor }}></div>
+                <div className="text-6xl text-[#27231f] font-bold max-sm:text-3xl">
                   {plan.price}/-
                 </div>
-                <div className="text-[16px] text-gray-400 font-medium">
+                <div className="text-[17px] text-[#413a33] font-normal">
                   {plan.time.toUpperCase()}
                 </div>
 
@@ -1083,7 +1137,7 @@ const Home = () => {
               </div>
             ))}
           </div>
-        </div>
+      
 
         {/* <div className="subscription">
           <div className="subscription-title">
@@ -1338,7 +1392,7 @@ const Home = () => {
           </div>
         </div> */}
       </div>
-      <div id="contact">
+      <div id="contact" className="pt-20">
         <Contact />
       </div>
     </>
