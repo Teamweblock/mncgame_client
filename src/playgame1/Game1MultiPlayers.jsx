@@ -211,7 +211,10 @@ const Game1MultiPlayer = () => {
 
   return (
     <div className="Game1-bg2">
-      <img src={logo} className="absolute top-[10%] left-[15%]" width={100} height={45}/>
+      <div className="max-lg:flex max-lg:justify-center max-lg:mx-auto">
+
+      <img src={logo} className="absolute top-[10%] lg:left-[15%] " width={100} height={45}/>
+      </div>
       <img
         src={icon1}
         className="icon6-game1 parallax-layer max-md:hidden"
@@ -253,10 +256,10 @@ const Game1MultiPlayer = () => {
                 placeholder="Type Your Solution"
                 value={userAnswer}
                 onChange={handleInputChange}
-                className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black"
+                className="outline-none text-wrap max-md:py-3 leading-relaxed md:py-[35px] w-[90%] flex justify-center mt-10   px-2 mx-auto rounded-lg text-center font-bold text-[18px] text-black"
               />
          
-            <div className="text-center flex gap-2 justify-center flex-wrap">
+            <div className="text-center flex gap-2 justify-center flex-wrap pb-4">
               {currentQuestionIndex === 0 && (
                 <button className="show-btn me-sm-3" onClick={handleBack}>
                   Back

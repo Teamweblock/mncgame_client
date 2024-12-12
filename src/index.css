@@ -952,3 +952,14 @@ font-weight: 700;
 .custom-pagination .swiper-pagination-bullet-active {
   background-color: #1b1916; /* Active dot color */
 }
+
+.waiting-page-multi {
+  background-image: url("/src/Assets/gameimages/img1.jpg");
+  background-repeat: no-repeat; 
+  background-position: center top; 
+  background-size: cover; 
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: start; 
+}

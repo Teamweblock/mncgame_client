@@ -781,13 +781,14 @@ const Home = () => {
             </div>
             <div className=" sm:mt-10 port-part-2 lg:w-[70%] lg:flex-row-reverse w-[90%] mx-auto pt-16 flex justify-between  max-lg:items-center gap-10 max-lg:flex-col relative">
               <div
-                className="border-[6px] border-[#9cf6d2] w-[220px] h-[230px] sm:w-[300px] sm:h-[330px] max-xl:pr-20"
-                style={{ borderRadius: "15px" }}
+                className=" border-[6px] border-[#9cf6d2] w-[220px] h-[230px] sm:w-[300px] sm:h-[330px]"
+                style={{ borderRadius: "15px"}}
               >
                 <img
-                  className="absolute top-16 right-2 sm:h-[400px] sm:w-[400px] h-[270px] w-[270px] max-xl:pl-20"
+                  className="absolute top-16 right-3  sm:h-[400px] sm:w-[400px] h-[250px] w-[250px]  "
                   src={imgbi2}
                   alt=""
+              
                 />
               </div>
 
@@ -898,8 +899,12 @@ const Home = () => {
             <img className="join-img2" src={img40} /> */}
             <img className="join-img2" src={join} alt="" srcset="" />
             <div className="join-group2 pt-[33%] text-center mx-auto flex justify-center flex-col xl:pl-[35%] md:pl-[30%] pl-[25%]  max-sm:hidden">
-              <h1 className="text-[#221f1b] font-bold text-6xl max-md:text-3xl">Come on, join with us !</h1>
-              <p className="text-[1.3rem] text-[#5a4d43] font-medium mt-3">Create an account and refer your friend</p>
+              <h1 className="text-[#221f1b] font-bold text-6xl max-md:text-3xl">
+                Come on, join with us !
+              </h1>
+              <p className="text-[1.3rem] text-[#5a4d43] font-medium mt-3">
+                Create an account and refer your friend
+              </p>
             </div>
           </div>
           {/* <div className="text-center">
@@ -910,7 +915,6 @@ const Home = () => {
       </div> */}
         </div>
       </div>
-      
 
       <div className="join-main lg:mt-60">
         <img
@@ -1074,70 +1078,72 @@ const Home = () => {
             </div>
           </SwiperSlide>
         </Swiper> */}
-        <SwipeSide/>
+        <SwipeSide />
 
-          <div className="subscription-title md:mt-72 mt-20 ">
+        <div className="subscription-title md:mt-72 mt-20 ">
           <div className="text-nowrap  text-[1.3rem] font-medium tracking-widest   text-[#a90bd4]">
-          SUBSCRIBE PLANS</div>
+            SUBSCRIBE PLANS
+          </div>
           <div className="text-6xl font-bold max-md:text-3xl text-[#24201c]">
-              Forge Personalized Paths for
-            </div>
-            <div className="text-6xl font-bold max-md:text-3xl mt-2 text-[#24201c]">
-              Your Journey Ahead!
-            </div>
+            Forge Personalized Paths for
           </div>
+          <div className="text-6xl font-bold max-md:text-3xl mt-2 text-[#24201c]">
+            Your Journey Ahead!
+          </div>
+        </div>
 
-          <div className=" grid lg:grid-cols-3 w-[70%] max-md:grid-cols-1 max-lg:w-[90%] md:grid-cols-2 gap-6 md:gap-14 my-20  mx-auto  pb-40">
-            {PlanList.map((plan, planIndex) => (
-              <div
-                key={planIndex}
-                className="box-249 px-8 py-10 bg-white rounded-lg shadow-lg"
-                id={`box-${planIndex}`}
-              >
-                <div className="line-s" id="line-s1"     
-                ></div>
-                <div className="text-4xl font-normal max-sm:text-2xl">
-                  {plan.title.toUpperCase()}
-                  <br />
-                  <span className="font-bold"> PLAN</span>
-                </div>
-                <div className={`line my-3 ${plan.bgColor}` } style={{ backgroundColor: plan.bgColor }}></div>
-                <div className="text-6xl text-[#27231f] font-bold max-sm:text-3xl">
-                  {plan.price}/-
-                </div>
-                <div className="text-[17px] text-[#413a33] font-normal">
-                  {plan.time.toUpperCase()}
-                </div>
-
-                {/* Features List */}
-                <div className="list-none mt-4 space-y-2 ">
-                  {plan.about.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-center gap-2 text-sm font-bold"
-                    >
-                      <img
-                        className="img-133"
-                        src={feature.icon}
-                        alt=""
-                        height={20}
-                        width={20}
-                      />
-                      {feature.text}
-                    </li>
-                  ))}
-                </div>
-
-                <button
-                  className={`${plan.bgColor} text-white py-2 px-4 rounded-lg text-lg font-bold w-full mt-4`}
-                  style={{ backgroundColor: plan.bgColor }}
-                >
-                  BUY NOW
-                </button>
+        <div className=" grid lg:grid-cols-3 w-[70%] max-md:grid-cols-1 max-lg:w-[90%] md:grid-cols-2 gap-6 md:gap-14 my-20  mx-auto  pb-40">
+          {PlanList.map((plan, planIndex) => (
+            <div
+              key={planIndex}
+              className="box-249 px-8 py-10 bg-white rounded-lg shadow-lg"
+              id={`box-${planIndex}`}
+            >
+              <div className="line-s" id="line-s1"></div>
+              <div className="text-4xl font-normal max-sm:text-2xl">
+                {plan.title.toUpperCase()}
+                <br />
+                <span className="font-bold"> PLAN</span>
               </div>
-            ))}
-          </div>
-      
+              <div
+                className={`line my-3 ${plan.bgColor}`}
+                style={{ backgroundColor: plan.bgColor }}
+              ></div>
+              <div className="text-6xl text-[#27231f] font-bold max-sm:text-3xl">
+                {plan.price}/-
+              </div>
+              <div className="text-[17px] text-[#413a33] font-normal">
+                {plan.time.toUpperCase()}
+              </div>
+
+              {/* Features List */}
+              <div className="list-none mt-4 space-y-2 ">
+                {plan.about.map((feature, featureIndex) => (
+                  <li
+                    key={featureIndex}
+                    className="flex items-center gap-2 text-sm font-bold"
+                  >
+                    <img
+                      className="img-133"
+                      src={feature.icon}
+                      alt=""
+                      height={20}
+                      width={20}
+                    />
+                    {feature.text}
+                  </li>
+                ))}
+              </div>
+
+              <button
+                className={`${plan.bgColor} text-white py-2 px-4 rounded-lg text-lg font-bold w-full mt-4`}
+                style={{ backgroundColor: plan.bgColor }}
+              >
+                BUY NOW
+              </button>
+            </div>
+          ))}
+        </div>
 
         {/* <div className="subscription">
           <div className="subscription-title">

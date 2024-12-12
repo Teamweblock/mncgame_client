@@ -45,7 +45,8 @@ const WelcomePageGame1 = () => {
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         />
         <div className="absolute top-1/3 md:top-1/2  w-full mx-auto transform -translate-x-1/2 -translate-y-1/2 left-1/2 max-md:mt-20">
-          <h1 className=" mt-5 text-center text-white font-bold 2xl:text-8xl xl:text-6xl max-lg:text-5xl max-sm:text-3xl max-md:text-4xl px-1">WELCOME TO PROBLEM PILOT </h1>
+          <div className=" mt-5 text-center text-white font-bold 2xl:text-8xl xl:text-6xl  max-xl:text-5xl max-lg:text-5xl max-sm:text-3xl max-md:text-4xl px-1">WELCOME TO  </div>
+          <div className=" text-center text-white font-bold 2xl:text-8xl xl:text-6xl max-xl:text-5xl max-lg:text-5xl max-sm:text-3xl max-md:text-4xl px-1">PROBLEM PILOT </div>
 
           {/* <TextAnimation text="WELCOME TO PROBLEM PILOT" speed={150} /> */}
           <h4 className="welcome-para">Problem Solving Skills Development</h4>

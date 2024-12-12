@@ -8,6 +8,7 @@ import { googleAuth, signIn } from "../utils/axiosInstance";
 import { useDispatch } from "react-redux";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { toast } from 'react-toastify'; 
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,16 +21,36 @@ const LoginPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const res = await signIn(JSON.stringify(formData));
+  //   if (res && res.token) {
+  //     localStorage.setItem("token", res.token);
+  //     dispatch(login(res.token));
+  //     setFormData({});
+  //     navigate("/");
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await signIn(JSON.stringify(formData));
+
     if (res && res.token) {
+    
+      const currentTime = new Date().getTime();
+      const expirationTime = currentTime + 2 * 60 * 60 * 1000;
+
+    
       localStorage.setItem("token", res.token);
+      localStorage.setItem("tokenExpiration", expirationTime);
+
+    
       dispatch(login(res.token));
       setFormData({});
       navigate("/");
     }
   };
+
 
   const responseGoogle = async (authResult) => {
     try {
@@ -39,7 +60,11 @@ const LoginPage = () => {
       const token = result?.token;
       if (result && token) {
         localStorage.setItem("token", result.token);
+        console.log("token save ho gya j ajay", );
+        
         dispatch(login(result.token));
+        console.log("token save ho gya j", );
+
         navigate("/");
       } else {
         console.error("Google login failed at backend:", result);
@@ -61,11 +86,32 @@ const LoginPage = () => {
     navigate("/forgotPassword");
   };
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const expirationTime = localStorage.getItem("tokenExpiration");
+    const currentTime = new Date().getTime();
+  
+    // Log the current token and expiration status
+    console.log("Current Token:", token);
+    console.log("Token Expiration Time:", expirationTime);
+    console.log("Current Time:", currentTime);
+  
+    if (token && expirationTime && currentTime > expirationTime) {
+      // Token is expired, remove it from localStorage
+      localStorage.removeItem("token");
+      localStorage.removeItem("tokenExpiration");
+  
+      console.log("Token has expired and has been removed.");
+  
+      // Optionally, notify the user with a toast or alert
+      toast.error("Your session has expired. Please log in again.");
+      navigate("/login"); // Redirect to login page
+    } else {
+      console.log("Token is valid.");
+    }
+  }, [navigate]);
+  
+
 
   return (
     <div className="login-bg-img">

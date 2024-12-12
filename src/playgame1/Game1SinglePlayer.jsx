@@ -111,7 +111,7 @@ const Game1SinglePlayer = () => {
             <span className="dot2">:</span>
           </div>
           <div>
-            <span className="text-white font-medium text-[1rem]">MINUTE</span>
+            <span className="text-white font-bold text-[1.2rem]">MINUTE</span>
           </div>
         </div>
         <div className="time-group">
@@ -122,7 +122,7 @@ const Game1SinglePlayer = () => {
             </span>
           </div>
           <div>
-            <span className="text-white font-medium text-[1rem]">SECOND</span>
+            <span className="text-white font-bold text-[1.2rem]">SECOND</span>
           </div>
         </div>
       </div>
