@@ -32,7 +32,7 @@ const Game1Result = () => {
     navigate("/");
   };
   const selectLevelpage = () => {
-    navigate("/game1levelpage");
+    navigate("/game1singlelevelpage");
   };
   return (
     <>

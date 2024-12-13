@@ -16,8 +16,7 @@ import { forgotPassword } from "../utils/axiosInstance";
 import logo from "../Assets/images/logoimg.png";
 
 import loginimg1 from "../Assets/images/loginimg1.png";
-import { ChevronLeft } from 'lucide-react';
-
+import { ChevronLeft } from "lucide-react";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -30,9 +29,10 @@ const ForgotPassword = () => {
     try {
       const payload = { email };
       const responce = await forgotPassword(JSON.stringify(payload));
-      // if (responce.success == true) {
-      //   navigate("/login");
-      // }
+      if (responce.success == true) {
+        console.log("responce.success", responce.success);
+        navigate("/checkMail");
+      }
     } catch (error) {
       console.log("Error:- Unable to send reset email", error);
     } finally {
@@ -40,19 +40,17 @@ const ForgotPassword = () => {
     }
   };
 
-  const handleHome=() => {
+  const handleHome = () => {
     navigate("/");
-  }
+  };
   return (
     <>
-    {/* <div className="login-bg-img  overflow-hidden h-screen" */}
-    {/* > */}
-      
+      {/* <div className="login-bg-img  overflow-hidden h-screen" */}
+      {/* > */}
 
       {/* <img src={logo} alt="" height={45} width={160} className="pt-10 sm:px-4 px-2  cursor-pointer"onClick={handleHome}/> */}
 
-      
-    {/* <Container
+      {/* <Container
    sx={{
     display: "flex",
     justifyContent: "center",
@@ -187,72 +185,86 @@ const ForgotPassword = () => {
       </Grid>
     </Container> */}
 
+      <div className="login-bg-img">
+        <div className="container">
+          <img
+            src="./mainlogo.png"
+            alt=""
+            height={45}
+            width={120}
+            style={{ marginTop: "30px" }}
+          />
+          <div className="row">
+            <div className="col-md-6">
+              <img className="login-img" src="/forget.jpg" alt="Login" />
+            </div>
+            <div className="col-md-6 d-flex  " style={{ marginTop: "50px" }}>
+              <div className="loginform">
+                <div className="all-circle">
+                  <div className="login-discription">
+                    Not logged into your account yet?
+                  </div>
+                  <div className="both-circle">
+                    <div className="black-circle">
+                      <div className="white-circle"></div>
+                    </div>
+                    <div className="black-circle">
+                      <div className="white-circle"></div>
+                    </div>
+                    <div className="black-circle">
+                      {/* <div className="white-circle"></div> */}
+                    </div>
+                  </div>
+                </div>
+                <div className="px-3 py-20">
+                  <h1 className="text-5xl max-lg:text-4xl max-md:text-3xl max-sm:text-2xl font-bold py-4 text-center mx-auto">
+                    Forget Password ?
+                    <p className="text-[1.5rem] max-sm:text-[1.1rem]  md:pt-2 font-bold text-[#ff3a4b] ">
+                      No Worries{" "}
+                      <span className="text-black">
+                        we'll send you reset instructions
+                      </span>
+                    </p>
+                  </h1>
+                  <form className="px-1 lg:py-5" onSubmit={handleSubmit}>
+                    <input
+                      className="login-input text-black placeholder:text-black "
+                      placeholder="Enter Your Email"
+                      type="email"
+                      name="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <button
+                      type="submit"
+                      className=" mt-5 text-white font-bold text-[1.1rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg"
+                    >
+                      {loading ? (
+                        <CircularProgress size={20} color="inherit" />
+                      ) : (
+                        "Send Reset Password"
+                      )}
+                    </button>
+                  </form>
 
-    <div className="login-bg-img">
-      <div className="container">
-          <img src="./mainlogo.png" alt="" height={45} width={120} style={{marginTop:"30px"}}/>
-        <div className="row">
-          <div className="col-md-6">
-            <img className="login-img" src="/forget.jpg" alt="Login" />
-          </div>
-          <div className="col-md-6 d-flex  " style={{marginTop:"50px"}}>
-            <div className="loginform">
-              <div className="all-circle">
-              <div  className="login-discription">
-                Not logged into your account yet?
-              </div>
-              <div className="both-circle">
-              <div className="black-circle">
-                <div className="white-circle"></div>
-              </div>
-              <div className="black-circle">
-                <div className="white-circle"></div>
-              </div>
-              <div className="black-circle">
-                {/* <div className="white-circle"></div> */}
-              </div>
-              </div>
-              </div>
-              <div className="px-3 py-20">
-                <h1
-                className="text-5xl max-lg:text-4xl max-md:text-3xl max-sm:text-2xl font-bold py-4 text-center mx-auto"
-                >
-                 Forget Password ?
-                <p className="text-[1.5rem] max-sm:text-[1.1rem]  md:pt-2 font-bold text-[#ff3a4b] ">No Worries <span className="text-black">we'll send you  reset instructions</span></p>
-                </h1>
-                <form className="px-1 lg:py-5" onClick={handleSubmit}>
-                  <input
-                    className="login-input text-black placeholder:text-black "
-                    placeholder="Enter Your Email"
-                    type="email"
-                    name="email"
-                    onChange={(e) => setEmail(e.target.value)}
-            
-                    required
-                  />
-                
-       
-                 
-                <button className=" mt-5 text-white font-bold text-[1.1rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg">
-                  {loading ? (
-                    <CircularProgress size={20} color="inherit" />
-                  ) : (
-                    "Send Reset Password"
-                  )}
-              </button>
-                </form>
-
-                <button  onClick={() => navigate("/login")}  className="flex items-center gap-2 text-[1.2rem] font-semibold mx-auto mt-4"> <span><ChevronLeft size={20}/></span>Back To login</button>
-              
+                  <button
+                    onClick={() => navigate("/login")}
+                    className="flex items-center gap-2 text-[1.2rem] font-semibold mx-auto mt-4"
+                  >
+                    {" "}
+                    <span>
+                      <ChevronLeft size={20} />
+                    </span>
+                    Back To login
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    {/* </div> */}
+      {/* </div> */}
     </>
-          
   );
 };
 

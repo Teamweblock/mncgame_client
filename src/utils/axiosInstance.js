@@ -6,9 +6,7 @@ const axiosInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-});
-
-
+}); 
 const axiosApi = axios.create({
   baseURL: "http://localhost:8000",
   headers: {
@@ -153,10 +151,10 @@ export const joinmultipleGame = async (payload) => {
 };
 
 // The API call for getting questions for a specific level
-export const getQuestionsForLevel = async (payload, navigate) => {
+export const getQuestionsForsingleLevel = async (payload, navigate) => {
   try {
     const response = await axiosInstance.post(
-      "/firstGame/getQuestionsForLevel",
+      "/firstGame/single/getQuestionsForLevel",
       payload
     );
 
@@ -176,6 +174,35 @@ export const getQuestionsForLevel = async (payload, navigate) => {
     // Check for specific error message and navigate
     if (error?.response?.status === 400 && errorMessage === "You have already completed this level.") {
       navigate("/game1singlelevelpage"); // Replace '/specific-path' with the desired route
+    }
+    return null; // Return null to indicate failure
+  }
+};
+
+// The API call for getting questions for a specific level
+export const getQuestionsFormultipleLevel = async (payload, navigate) => {
+  try {
+    const response = await axiosInstance.post(
+      "/firstGame/multiple/getQuestionsForLevel",
+      payload
+    );
+
+    // Check if the response is successful
+    if (response && response?.status === 200) {
+      toast.success("Level questions fetched successfully.");
+      return response.data; // Return the actual data
+    }
+    // Handle unexpected status codes
+    toast.error("Unexpected response from the server.");
+    return null;
+  } catch (error) {
+    // Handle errors
+    const errorMessage =
+      error?.response?.data?.message || error?.message || "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    // Check for specific error message and navigate
+    if (error?.response?.status === 400 && errorMessage === "You have already completed this level.") {
+      navigate("/game1multiplelevelpage"); // Replace '/specific-path' with the desired route
     }
     return null; // Return null to indicate failure
   }

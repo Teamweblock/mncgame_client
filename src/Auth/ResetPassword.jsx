@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Box,
   TextField,
@@ -19,6 +19,7 @@ const ResetPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ const ResetPassword = () => {
       const response = await resetaPassword(JSON.stringify(payload));
       if (response) {
         setMessage(response.message || "Password reset successfully!");
+        navigate("/congrates");
         setError(false);
       }
     } catch (err) {
@@ -170,7 +172,6 @@ const ResetPassword = () => {
                       Reset Password
                     </button>
                   </form>
-
                 </div>
               </div>
             </div>

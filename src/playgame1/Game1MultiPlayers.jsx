@@ -5,7 +5,7 @@ import icon1 from "../Assets/gameimages/icon1.png";
 import logo from "../Assets/gameimages/mnclogo2.png";
 import "../Assets/CSS/Game1/Game1MultiPlayers.css";
 import {
-  getQuestionsForLevel,
+  getQuestionsFormultipleLevel,
   submitGame1Answer,
 } from "../utils/axiosInstance";
 import { toast } from "react-toastify";
@@ -19,6 +19,7 @@ const Game1MultiPlayer = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [levelNumber, setLevelNumber] = useState(null);
   const [playerType, setPlayerType] = useState(null);
+  const [playersAnswered, setPlayersAnswered] = useState(0); // To track who has submitted answers
   const navigate = useNavigate();
 
   const handleMouseMove = (e) => {
@@ -33,28 +34,34 @@ const Game1MultiPlayer = () => {
   };
 
   const handleNextQuestion = async () => {
+    if (userAnswer.trim() === "") {
+      toast.error("Please enter an answer before proceeding.");
+      return;
+    }
+
+    const payload = {
+      level: levelNumber,
+      answers: userAnswer,
+      questionId: playerData[currentQuestionIndex]?.questionId?._id,
+      index: currentQuestionIndex,
+    };
+
     try {
-      // if (userAnswer?.trim() === "") {
-      //   alert("Please enter an answer before proceeding.");
-      //   return; // Don't proceed if the input is empty
-      // }
-
-      const payload = {
-        level: levelNumber,
-        answers: userAnswer,
-        questionId: playerData[currentQuestionIndex]?.questionId?._id,
-        index: currentQuestionIndex,
-      };
       const response = await submitGame1Answer(JSON.stringify(payload));
-
       if (response?.success === true) {
-        setUserAnswer("");
-        if (currentQuestionIndex === playerData?.length - 1) {
-          localStorage.removeItem(`currentQuestionIndex_${levelNumber}`);
-          navigate("/game1result");
-        } else {
-          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-          setTimeLeft(180); // Reset timer
+        setUserAnswer(""); // Reset the answer input
+        setPlayersAnswered((prev) => prev + 1); // Increment answered players
+
+        if (playersAnswered === playerData.length) {
+          // Move to next question or show results
+          if (currentQuestionIndex === playerData?.length - 1) {
+            localStorage.removeItem(`currentQuestionIndex_${levelNumber}`);
+            navigate("/game1result");
+          } else {
+            setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+            setTimeLeft(180); // Reset timer for the next question
+            setPlayersAnswered(0); // Reset the answered players counter
+          }
         }
       }
     } catch (error) {
@@ -97,6 +104,7 @@ const Game1MultiPlayer = () => {
       </div>
     );
   };
+
   const UserTimer = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -171,12 +179,8 @@ const Game1MultiPlayer = () => {
   // Load questions for multiplayer from the server
   useEffect(() => {
     if (levelNumber && playerType) {
-      const payload = {
-        level: levelNumber,
-      };
-
-      const apiCall = getQuestionsForLevel;
-      apiCall(payload)
+      const payload = { level: levelNumber };
+      getQuestionsFormultipleLevel(payload)
         .then((data) => {
           if (data?.status === true) {
             setPlayerData(data.formattedQuestions);
@@ -211,15 +215,21 @@ const Game1MultiPlayer = () => {
 
   return (
     <div className="Game1-bg2">
-      <img src={logo} className="absolute top-[10%] left-[15%]" width={100} height={45}/>
+      <img
+        src={logo}
+        className="absolute top-[10%] left-[15%]"
+        width={100}
+        height={45}
+      />
       <img
         src={icon1}
         className="icon6-game1 parallax-layer max-md:hidden"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
       />
-      <div className="flex gap-6 items-center  justify-end max-md:justify-center max-lg:pt-44 px-10 pt-20">
+      <div className="flex gap-6 items-center justify-end max-md:justify-center max-lg:pt-44 px-10 pt-20">
         <div className="flex flex-col items-center">
           {countdown > 0 && <h6>{countdown}</h6>}
+          {/* {countdown === 0 && <h6>1:15</h6>} */}
           {countdown === 0 && <h6>{UserTimer(timeLeft)}</h6>}
           <img className="avtar-img" src={img1} alt="Avatar" />
           <h6 className="text-white">Opponent 1</h6>
@@ -227,35 +237,34 @@ const Game1MultiPlayer = () => {
         <div className="flex flex-col items-center">
           {countdown > 0 && <h6>{countdown}</h6>}
           {countdown === 0 && <h6>{UserTimer(timeLeft)}</h6>}
+          {/* {countdown === 0 && <h6>1:20</h6>} */}
           <img className="avtar-img" src={img1} alt="Avatar" />
           <h6 className="text-white">Opponent 2</h6>
         </div>
       </div>
+
       <div className=" max-md:w-[90%] w-[70%] mx-auto  max-md:pt-12">
-      {/* multiple-player-part */}
+        {/* multiple-player-part */}
         <div className="">
           {countdown > 0 && (
             <div className="countdown">
-              <h2 > {countdown}</h2>
+              <h2> {countdown}</h2>
             </div>
           )}
           {countdown === 0 && <p className="timer">{formatTime(timeLeft)}</p>}
           <div className="">
             <div className="bg-gradient-to-t from-[#37d4f1] via-[#c3f2fb] to-white max-md:w-full text-[17px] md:text-[1.4rem] font-semibold  items-center  rounded-lg text-center md:py-5 max-md:py-3  justify-center">
-              {/* <h4>
-                Question {currentQuestionIndex + 1} {"-"}
-              </h4> */}
-              <p>{playerData[currentQuestionIndex]?.questionText}</p>
+              <p>{playerData[currentQuestionIndex]?.question}</p>
             </div>
-          
-              <input
-                type="text"
-                placeholder="Type Your Solution"
-                value={userAnswer}
-                onChange={handleInputChange}
-                className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black"
-              />
-         
+
+            <input
+              type="text"
+              placeholder="Type Your Solution"
+              value={userAnswer}
+              onChange={handleInputChange}
+              className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black"
+            />
+
             <div className="text-center flex gap-2 justify-center flex-wrap">
               {currentQuestionIndex === 0 && (
                 <button className="show-btn me-sm-3" onClick={handleBack}>

@@ -5,7 +5,7 @@ import icon1 from "../Assets/gameimages/icon1.png";
 import icon2 from "../Assets/gameimages/icon4.png";
 import logo from "../Assets/gameimages/mnclogo2.png";
 import {
-  getQuestionsForLevel,
+  getQuestionsForsingleLevel,
   submitGame1Answer,
 } from "../utils/axiosInstance";
 import { toast } from "react-toastify";
@@ -77,12 +77,10 @@ const Game1SinglePlayer = () => {
       const fetchData = async () => {
         setLoading(true);
         try {
-          const data = await getQuestionsForLevel(
+          const data = await getQuestionsForsingleLevel(
             { level: levelNumber },
             navigate
           );
-          console.log("data?.status", data);
-          console.log("data?.status", data?.status);
           if (data?.status === true) {
             setPlayerData(data.formattedQuestions);
           }
@@ -243,7 +241,7 @@ const Game1SinglePlayer = () => {
                       {/* <h4>
                     Question {currentQuestionIndex + 1} {"-"}
                   </h4> */}
-                      <p>{playerData[currentQuestionIndex]?.questionText}</p>
+                      <p>{playerData[currentQuestionIndex]?.question}</p>
                     </div>
 
                     <input

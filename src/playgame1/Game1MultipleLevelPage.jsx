@@ -8,7 +8,7 @@ import logo from "../Assets/gameimages/mnclogo2.png";
 import { Check1validlevel } from "../utils/axiosInstance";
 import "../Assets/CSS/Game1/Game1Levelpage.css";
 
-const Game1LevelPage = () => {
+const Game1MultipleLevelPage = () => {
   const navigate = useNavigate();
   const [lockedLevels, setLockedLevels] = useState({});
   const [playerType, setPlayerType] = useState(null);
@@ -78,11 +78,7 @@ const Game1LevelPage = () => {
         playerType,
       });
       if (response) {
-        navigate(
-          `/game1${
-            playerType === "multiple" ? "waiting" : "singleplayer"
-          }?levelNumber=${levelNumber}&playerType=${playerType}`
-        );
+        navigate(`/game1waiting?levelNumber=${levelNumber}`);
       }
     } catch (error) {
       console.error("Error during level click:", error);
@@ -96,16 +92,18 @@ const Game1LevelPage = () => {
       localStorage?.removeItem("levelNumber");
       console.log("levelNumber removed from localStorage on first load.");
     }
-  }, []);  
+  }, []);
   return (
-    <div className="level-bg  ">
+    <div className="level-bg">
       <div className="pt-50">
         <a href="/">
           <img src={logo} className="mnc-logo" alt="Logo" />
         </a>
       </div>
       <div className="level-img-div pt-20">
-        <h1 className="xl:text-5xl md:text-3xl text-2xl text-white font-bold text-center max-sm:pt-10">LEVEL SELECT</h1>
+        <h1 className="xl:text-5xl md:text-3xl text-2xl text-white font-bold text-center max-sm:pt-10">
+          LEVEL SELECT
+        </h1>
         <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-md:grid-cols-3 max-sm:grid-cols-2">
           {[...Array(10).keys()].map((level) => {
             const levelNumber = level + 1;
@@ -124,7 +122,11 @@ const Game1LevelPage = () => {
                   {lockedLevels[`level${levelNumber}`] && (
                     <FaLock className="lock-icon" size={30} />
                   )}
-                  <h3 className={`level-num-text${levelNumber > 3 ? "2" : ""}  text-[1.2rem] pt-2 font-bold pb-2`}>
+                  <h3
+                    className={`level-num-text${
+                      levelNumber > 3 ? "2" : ""
+                    }  text-[1.2rem] pt-2 font-bold pb-2`}
+                  >
                     LEVEL {levelNumber}
                   </h3>
                 </div>
@@ -137,4 +139,4 @@ const Game1LevelPage = () => {
   );
 };
 
-export default Game1LevelPage;
+export default Game1MultipleLevelPage;

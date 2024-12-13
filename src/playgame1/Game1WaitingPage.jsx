@@ -24,25 +24,6 @@ const Game1WaitingPage = () => {
     queueStatusRef.current = queueStatus;
   }, [queueStatus]);
 
-  // Fetch player ID and join queue
-  useEffect(() => {
-    const fetchPlayerId = async () => {
-      try {
-        const payload = { level: levelNumber };
-        const response = await joinmultipleGame(JSON.stringify(payload));
-        if (response) {
-          setPlayerId(response);
-        }
-      } catch (err) {
-        console.error("Error: Unable to join the queue", err);
-        toast.error("An error occurred while joining the queue.");
-        navigate("/game1levelpage");
-      }
-    };
-
-    fetchPlayerId();
-  }, [levelNumber, navigate]);
-
   // Handle socket events
   useEffect(() => {
     if (!playerId) return;
@@ -51,6 +32,7 @@ const Game1WaitingPage = () => {
 
     // Handle opponent match found
     const handleStart = ({ roomCode, opponentName }) => {
+      console.log("opponentName", opponentName);
       setQueueStatus("Match found! Starting the game...");
       setOpponent({ name: opponentName, avatar: female }); // Assuming opponent avatar is female for now
       setTimeout(() => {
@@ -63,7 +45,7 @@ const Game1WaitingPage = () => {
     // Handle queue timeout or disconnection
     const handleDisconnectMessage = (message) => {
       toast.info(message);
-      navigate("/game1levelpage");
+      navigate("/game1multiplelevelpage");
     };
 
     socket.on("startGame", handleStart);
@@ -84,7 +66,7 @@ const Game1WaitingPage = () => {
           if (queueStatusRef.current === "Waiting for opponent...") {
             socket.emit("leaveQueue", { playerId });
             toast.info("No match found. Returning to level selection.");
-            navigate("/game1levelpage");
+            navigate("/game1multiplelevelpage");
           }
         }
         return prev - 1;
@@ -97,7 +79,7 @@ const Game1WaitingPage = () => {
   // Cancel button handler
   const handleCancel = () => {
     socket.emit("leaveQueue", { playerId });
-    navigate("/game1levelpage");
+    navigate("/game1multiplelevelpage");
   };
 
   // Format timer (MM:SS)
@@ -106,6 +88,25 @@ const Game1WaitingPage = () => {
     const seconds = time % 60;
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
+  // Fetch player ID and join queue
+  useEffect(() => {
+    const fetchPlayerId = async () => {
+      try {
+        const payload = { level: levelNumber };
+        const response = await joinmultipleGame(JSON.stringify(payload));
+        if (response) {
+          setPlayerId(response);
+        }
+      } catch (err) {
+        console.error("Error: Unable to join the queue", err);
+        toast.error("An error occurred while joining the queue.");
+        navigate("/game1multiplelevelpage");
+      }
+    };
+
+    fetchPlayerId();
+    console.log("levelNumber", levelNumber);
+  }, [levelNumber]);
 
   return (
     <div className="waiting-bg">

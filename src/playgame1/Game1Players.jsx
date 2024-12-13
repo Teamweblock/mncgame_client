@@ -29,8 +29,13 @@ const Game1Players = () => {
   // Navigate to the level page with playerType stored in local storage
   const handlePlayerLevel = (playerType) => {
     localStorage.setItem("playerType", playerType); // Save playerType to local storage
-    // navigate(`/game1levelpage?playerType=${playerType}`);
-    navigate(`/game1singlelevelpage`);
+    console.log("playerType", playerType);
+
+    if (playerType == "multiple") {
+      navigate(`/game1multiplelevelpage`); // Navigate to the level page
+    } else if (playerType == "single") {
+      navigate(`/game1singlelevelpage`); // Navigate to the level page
+    }
   };
 
   // Remove playerType from localStorage on initial load
