@@ -1,9 +1,12 @@
 .game1-bg {
-  background-image: url(/src/Assets/gameimages/img1.jpg);
+  background-image: url("/src/Assets/gameimages/img1.jpg");
   width: 100%;
-  height: 100vh;
-  background-size: cover;
+  min-height: 100vh;
+ 
   background-position: center;
+  background-size: cover;
+
+
 }
 
 .mnc-logo {
@@ -53,8 +56,8 @@
 }
 
 .player-img {
-  width: 90%;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   margin: auto;
   object-fit: contain;
   transition: transform 0.2s ease-in-out;
@@ -71,17 +74,19 @@
 
 
 .players-btn {
-  background-color: darkorange;
+  background-color: #ff6e3d;
   color: white;
   border: none;
 
-  border-radius: 10px;
+  border-radius: 50px;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 20px;
   text-align: center;
   width: 200px;
  
-  height: 50px;
+  height: 45px;
+
+  margin-bottom: 40px;
 }
 
 .players-btn:hover {
@@ -99,9 +104,7 @@
     margin-top: 147px;
   }
 
-  /* .game1-bg{
-     height: 130vh !important;
-    } */
+
 
 
 
@@ -114,9 +117,6 @@
       width: 90%;
     }
 
-    .game1-bg {
-      height: 110vh !important;
-    }
 
  
 
@@ -124,11 +124,7 @@
   }
 }
 
-@media screen and (max-width: 1234px) {
-  /* .Game1-bg{
-      height: 120vh;
-    } */
-}
+
 
 @media screen and (max-width:413px) {
 
@@ -142,9 +138,6 @@
     margin-top: 50px;
   }
 
-  .game1-bg {
-    height: 130vh !important;
-  }
 }
 
 @media screen and (max-width:496px) {
@@ -164,9 +157,7 @@
     margin-top: 175px !important;
   }
 
-  .game1-bg {
-    height: 150vh !important;
-  }
+
 }
 
 /* @media screen and (max-width: 321px) {

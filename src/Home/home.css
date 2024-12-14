@@ -47,8 +47,8 @@
 }
 
 .banner-text {
-  width: 60%;
-  margin-left: 40%;
+
+  /* margin-left: 40%; */
 }
 
 /* .banner-title {
@@ -155,7 +155,7 @@
  
   border: none;
   outline: none;
-  border: 7px solid #fcd7df;
+  border: 7px solid #eee2e5;
   border-radius: 15px;
 }
 
@@ -223,7 +223,7 @@
   background: url("../Assets/images/TESTI_BG.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+
 }
 
 .join-us {
@@ -1061,7 +1061,7 @@ body {
   font-weight: 700;
   color: #fff;
   /* background-color: #cc96db; */
-  background-color: #c04ae2;
+  background-color: #f7accd;
   width: 180px;
   height: 50px;
   border-radius: 5px;
@@ -1171,7 +1171,6 @@ body {
 
 .about .ab-part-2 {
   width: 100%;
-
   display: flex;
   flex-direction: column;
 }
@@ -1186,7 +1185,7 @@ body {
 .about .ab-part-2 .ab12 .img-ab5 {
   width: 50%;
   height: 69%;
-  margin-top: 0px;
+ 
 }
 
 .about .ab-part-2 .ab12 .img-ab4 {
@@ -1384,7 +1383,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding-bottom: 290px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1918,14 +1917,7 @@ body {
 
 /* ************************************************************ */
 /* join us start */
-.join-main {
-  width: 100%;
-  background: url("../Assets/images/TESTI_BG.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-top: 18%;
-  position: relative;
-}
+
 
 
 @media screen and (max-width : 2560px) {
@@ -1998,9 +1990,7 @@ body {
 
 @media screen and (max-width : 960px) {
 
-  .join-main {
-    margin-top: 22%;
-  }
+ 
 
   .join-img2 {
     top: 95.5% !important;
@@ -2072,9 +2062,6 @@ body {
     padding-bottom: 70px;
   }
 
-  .join-main {
-    margin-top: 35%;
-  }
 
   .join-img2 {
     top: 97.9% !important;
@@ -2099,9 +2086,7 @@ body {
     padding-bottom: 70px;
   }
 
-  .join-main {
-    margin-top: 40%;
-  }
+  
 
   .join-img2 {
     top: 98.5% !important;
@@ -2245,9 +2230,7 @@ body {
   font-weight: 700;
 }
 
-.mySwiper {
- margin-top: -10px;
-}
+
 
 .what-box1 h1 {
   font-size: 38px;
@@ -2275,10 +2258,10 @@ body {
 }
 
 @media (max-width: 1000px) {
-  /* .banner-title {
+  .banner-title {
     font-size: 40px;
     font-weight: 700;
-  } */
+  }
 
   .banner-text {
     width: 80%;
@@ -2388,9 +2371,7 @@ body {
     font-size: 30px !important;
   }
 
-  .banner-text {
-    margin-top: 200px;
-  }
+  
 }
 
 @media (max-width: 1200px) {
@@ -2412,9 +2393,7 @@ body {
   }
 
 
-  .banner-text {
-    margin-top: 100px;
-  }
+ 
 }
 
 
@@ -2487,9 +2466,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .banner-text {
-    margin-top: 120px;
-  }
+  
 
   .subscription-title h6 {
     font-size: 15px;
@@ -2639,16 +2616,12 @@ body {
 
 
 @media screen and (max-width: 597px) {
-  .banner-text p {
-    font-size: 20px !important;
-  }
+ 
 }
 
 @media screen and (max-width: 365px) {
 
-  .banner-text p {
-    font-size: 17px !important;
-  }
+ 
 }
 
 @media screen and (max-width: 478px) {
@@ -2954,7 +2927,7 @@ body {
   }
 
   .about .ab-part-2 .ab12 {
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 }
 

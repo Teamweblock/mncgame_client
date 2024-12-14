@@ -265,12 +265,13 @@ code {
 
 .footer-input {
   padding: 15px !important;
-  background-color: aliceblue;
+  background-color: #fff3d8;
   padding: 10px;
   border-radius: 5px;
   border: none;
   width: 100%;
   outline: none;
+  color: #bba692
 }
 
 .f-input-icon {
@@ -737,7 +738,7 @@ code {
   width: 100px;
   /* Adjust this based on the distance between steps */
   height: 4px;
-  background-color: lightblue;
+ 
   animation: lineAnimation 2s infinite;
 }
 
@@ -929,4 +930,36 @@ font-weight: 700;
   height: 100vh;
   object-fit: cover;
   background-position:center;
+}
+
+
+/* Customize the pagination dots */
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px; /* Adjust position */
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #a90bd4; /* Dot color */
+  opacity: 1; /* Fully visible */
+  transition: background-color 0.3s ease;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #1b1916; /* Active dot color */
+}
+
+.waiting-page-multi {
+  background-image: url("/src/Assets/gameimages/img1.jpg");
+  background-repeat: no-repeat; 
+  background-position: center top; 
+  background-size: cover; 
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: start; 
 }

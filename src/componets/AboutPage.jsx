@@ -66,22 +66,23 @@ const AboutPage = () => {
       <div>
         <div className="top-text-group">
           <div className="logo-text-group lg:w-[60%] max-sm:w-[90%] mx-auto ">
-            <h1 className="title-top">Let's Introduce </h1>
-            <img className=" lg:h-[50px] lg:w-40 w-28 h-9" src={logo} alt="Logo"/>
+            <h1 className="text-7xl font-bold text-[#000000]">Let's Introduce </h1>
+            <img className=" lg:h-[60px] lg:w-44 w-28 h-9" src={logo} alt="Logo"/>
           </div>
-          <p className="text-lg font-semibold text-gray-400 lg:w-[60%] mx-auto text-center w-full">
+          <p className="text-[1.3rem] font-semibold text-[#948675] lg:w-[60%] mx-auto text-center w-full">
             The Multi Networking Company empowers career growth through
             collaborative problem-solving and innovative networking, fostering meaningful connections and skill development.
           </p>
         </div>
         <img className="about-img1" src={img3} alt="About" />
         <div className="mnc-group w-[70%] mx-auto max-md:w-[90%]">
-          <div className=" max-md:flex flex-col items-center justify-center max-md:text-center ">
+          <div className=" flex gap-10">
+            
             <div>
-              <img className="logo-img2" src={img10} alt="Multi" />
+              <img className="h-[100px] w-[100px]" src={img10} alt="Multi" />
             </div>
             <div>
-              <h3 className="multi-text mt-4 text-animated">Multi</h3>
+              <h3 className="multi-text mt-2 text-animated">Multi</h3>
               <p className="about-para-text">
                 Abroad approach to networking, involving various types of interactions and opportunities
               </p>

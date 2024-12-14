@@ -1,7 +1,7 @@
 .Game1-bg-result {
   background-image: url(/src/Assets/gameimages/img1.jpg);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 50px;
   background-position: center;
   background-size: cover;
@@ -10,7 +10,7 @@
 .Game1-bg-result2 {
   background-image: url(/src/Assets/gameimages/img1.jpg);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 50px;
   background-position: center;
   background-size: cover;
@@ -65,9 +65,7 @@
 }
 
 .players-width {
-  width: 80%;
-  margin: auto;
-  padding: 30px;
+ 
 }
 
 .player1 {
@@ -95,25 +93,22 @@
   line-height: 25px;
 }
 
-.slider-container h5 {
-  color: white;
-}
 
 /* Slider.css */
 /* Slider.css */
 /* Slider.css */
 .slider-container {
-  width: 100%;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+ 
 }
 
 .progress-bar-container {
   display: flex;
   align-items: center;
-  width: 100%;
+
 }
 
 .progress-bar {
@@ -195,27 +190,19 @@
   transition: 0.3s;
 }
 
-.slider-container h5 {
-  font-size: 15px;
-}
+
 
 @media screen and (max-width: 2560px) {
   
-  .Game1-bg-result {
-    height: 120vh;
-  }
+ 
 }
 
 @media screen and (max-width:1540px) {
-  .Game1-bg-result {
-    height: 115vh;
-  }
+ 
 }
 
 @media screen and (max-width:1400px) {
-  .Game1-bg-result {
-    height: 120vh;
-  }
+ 
 }
 
 /* @media screen and (max-width:1072px) {
@@ -226,9 +213,7 @@
 
 @media screen and (max-width: 885px) {
 
-  .Game1-bg-result {
-    height: 100vh !important;
-  }
+  
 }
 
 
@@ -242,27 +227,19 @@
     display: block;
   }
 
-  .Game1-bg-result {
-    height: 125vh !important;
-  }
+ 
 
-  /* .Game1-bg-result2 {
-    height: 135vh;
-  } */
+
 }
 
 @media screen and (max-width: 769px) {
 
-  .Game1-bg-result {
-    height: 144vh !important;
-  }
+ 
 }
 
 
 @media screen and (max-width:620px) {
-  .slider-container {
-    display: block;
-  }
+
 }
 
 @media screen and (max-width:673px) {
@@ -270,10 +247,6 @@
   /* .Game1-bg-result{
           height: 230vh !important;
         } */
-  .player1-result {
-    font-size: 15px;
-    padding: 20px;
-  }
 }
 
 @media screen and (max-width:600px) {
@@ -319,13 +292,9 @@
 
 @media screen and (max-width:575px) {
 
-  .Game1-bg-result {
-    height: 140vh;
-  }
+ 
 
-  .Game1-bg-result2 {
-    height: 140vh;
-  }
+ 
 }
 
 @media screen and (max-width:524px) {
@@ -335,35 +304,23 @@
     margin-top: 20px;
   }
 
-  /* .Game1-bg-result2 {
-    height: 150vh;
-  } */
+
 }
 
 @media screen and (max-width:384px) {
-  /* .Game1-bg-result{
-      height: 240vh;
-    } */
+
 }
 
 @media screen and (max-width:376px) {
-  .Game1-bg-result {
-    height: 225vh !important;
-  }
+  
 
-  .Game1-bg-result2 {
-    height: 150vh;
-  }
+
 }
 
 @media screen and (max-width:320px) {
-  .Game1-bg-result {
-    height: 335vh !important;
-  }
 
-  .Game1-bg-result2 {
-    height: 220vh;
-  }
+
+
 }
 
 @media screen and (max-width:863px) {
@@ -382,43 +339,37 @@
 }
 
 @media screen and (max-width:1289px) {
-  .progress-bar-container {
+  /* .progress-bar-container {
     max-width: 440px;
-  }
+  } */
 }
 
 @media screen and (max-width:768px) {
-  .progress-bar-container {
-    max-width: 354px;
-  }
+
 }
 
 @media screen and (max-width:1378px) {
-  .progress-bar-container {
+  /* .progress-bar-container {
     max-width: 586px !important;
-  }
+  } */
 }
 
 @media screen and (max-width:1298px) {
-  .progress-bar-container {
+  /* .progress-bar-container {
     max-width: 500px !important;
-  }
+  } */
 }
 
 @media screen and (max-width:1175px) {
-  .progress-bar-container {
+  /* .progress-bar-container {
     max-width: 350px !important;
-  }
+  } */
 }
 
 @media screen and (max-width:1043px) {
-  .progress-bar-container {
-    max-width: 300px !important;
-  }
+  
 }
 
 @media screen and (max-width:768px) {
-  .progress-bar-container {
-    max-width: 343px !important;
-  }
+
 }

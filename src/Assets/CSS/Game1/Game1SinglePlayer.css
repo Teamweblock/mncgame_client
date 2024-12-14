@@ -15,8 +15,7 @@
 .Game1-sinlgeplayer-bg {
   background-image: url("/src/Assets/gameimages/img1.jpg");
   width: 100%;
-  height: 100vh;
- 
+  min-height: 100vh;
   background-position: cover;
   background-repeat: no-repeat;
 }
@@ -112,7 +111,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50% , -50%); */
-  padding-top: 150px;
+  padding-top: 250px;
 }
 
 .countdown {
@@ -151,9 +150,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Game1-sinlgeplayer-bg {
-    height: 130vh !important;
-  }
+  
 
   .single-player-part {
     padding-top: 165px;
@@ -188,9 +185,7 @@
 }
 
 @media screen and (max-width: 354px) {
-  .Game1-sinlgeplayer-bg {
-    height: 185vh !important;
-  }
+
 }
 
 @media screen and (max-width: 320px) {

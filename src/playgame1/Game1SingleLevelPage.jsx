@@ -94,19 +94,24 @@ const Game1SingleLevelPage = () => {
       localStorage?.removeItem("levelNumber");
       console.log("levelNumber removed from localStorage on first load.");
     }
-  }, []);
+  }, []);  
+
+
+  const hadleHome = () => {
+    navigate("/");
+  }
+
   return (
-    <div className="level-bg  ">
-      <div className="pt-50">
+    <div className="level-bg">
+      <div className="pt-20 px-10 flex items-center justify-between w-[90%] mx-auto max-lg:justify-center">
         <a href="/">
-          <img src={logo} className="mnc-logo" alt="Logo" />
+          <img src={logo} className="" alt="Logo" />
         </a>
+        <button className="bg-[#ff5024] max-lg:hidden text-white text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]" onClick={hadleHome}>EXIT TO HOME</button>
       </div>
-      <div className="level-img-div pt-20">
-        <h1 className="xl:text-5xl md:text-3xl text-2xl text-white font-bold text-center max-sm:pt-10">
-          LEVEL SELECT
-        </h1>
-        <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-md:grid-cols-3 max-sm:grid-cols-2">
+      <div className="level-img-div  w-[95%] mx-auto">
+        <h1 className="xl:text-5xl md:text-3xl text-2xl text-white font-bold text-center max-sm:pt-10">LEVEL SELECT</h1>
+        <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-md:grid-cols-3 max-sm:grid-cols-2 pt-6">
           {[...Array(10).keys()].map((level) => {
             const levelNumber = level + 1;
             return (
@@ -122,7 +127,11 @@ const Game1SingleLevelPage = () => {
                     onClick={() => handleLevelClick(levelNumber)}
                   />
                   {lockedLevels[`level${levelNumber}`] && (
-                    <FaLock className="lock-icon" size={30} />
+                    <div className="bg-[#fff2d8] w-12 h-12 rounded-lg flex items-center justify-center absolute top-4 right-2 max-lg:h-8 max-lg:w-8">
+                      <img src="./levellock.png" className=" h-8 w-8 max-lg:w-6 max-lg:h-6" alt="" />
+
+                      {/* <FaLock className=" h-6 w-6 max-lg:w-4 max-lg:h-4"  color="#ffbd2c" /> */}
+                    </div>
                   )}
                   <h3
                     className={`level-num-text${
@@ -136,6 +145,7 @@ const Game1SingleLevelPage = () => {
             );
           })}
         </div>
+        <button className="bg-[#ff5024] mx-auto lg:hidden flex justify-center mb-4 text-white text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]" onClick={hadleHome}>EXIT TO HOME</button>
       </div>
     </div>
   );

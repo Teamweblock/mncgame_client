@@ -48,6 +48,9 @@ import CheckMail from "./Auth/CheckMail";
 import Congrates from "./Auth/Congrates";
 import Game1SingleLevelPage from "./playgame1/Game1SingleLevelPage";
 import Game1MultipleLevelPage from "./playgame1/Game1MultipleLevelPage";
+import SwipeSide from "./Home/Testimonials";
+import MultiplayerWaitingPage from "./playgame1/MultiplayerWaitingPage";
+import Popup from "./playgame1/Popup";
 
 const App = () => {
   const location = useLocation();
@@ -113,7 +116,11 @@ const App = () => {
     "/user-profile",
     // "/game1levelpage",
     "/game1singlelevelpage",
-    "/game1multiplelevelpage"
+    "/game1multiplelevelpage",
+    "/user-profile",
+    "/waiting-player"
+
+
   ];
   return (
     <div>
@@ -165,6 +172,11 @@ const App = () => {
         <Route path="/profile/update" element={<UpdateProfile />} />
         <Route path="/checkMail" element={<CheckMail />} />
         <Route path="/congrates" element={<Congrates />} />
+
+        <Route path="/swipersie" element={<SwipeSide />} />
+        <Route path="/waiting-player" element={<MultiplayerWaitingPage />} />
+        <Route path="/popup" element={<Popup />} />
+
 
       </Routes>
       {!noNavbarPaths.includes(location.pathname) && <Footer />}

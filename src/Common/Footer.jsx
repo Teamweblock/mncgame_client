@@ -85,74 +85,74 @@ const Footer = () => {
         </div>
       </div>
       </div> */}
-      <div className="footer max-md:w-[90%]">
-        <div className=" grid xl:grid-cols-4 lg md:gap-20 max-sm:grid-cols-1 max-md:grid-cols-1 ">
-          <div className="max-md:text-center">
-            <div className="max-sm:flex justify-center">
+      <div className="footer max-md:w-[90%] pt-20">
+        <div className=" grid xl:grid-cols-4 lg md:gap-20 md:grid-cols-2 max-xl:grid-cols-3 max-sm:grid-cols-1 ">
+          <div className="">
+            <div className="max-md:flex justify-center mx-auto">
 
             <img src={logo} className="f-logo" />
             </div>
-            <p className="text-[17px] text-gray-400">
+            <p className="text-[1.3rem] text-[#bba692]">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard
             </p>
             <div className=" relative">
               <input
                 type="text"
-                className="footer-input"
+                className="footer-input text-[1rem] text-[#bba692]"
                 placeholder="Submit email"
               />
               <MdOutlineMail className="right-3 top-4 absolute" size={20} />
             </div>
           </div>
-          <div className="max-sm:text-center ">
-            <h6 className="f-title ">About</h6>
-            <div className="max-sm:flex  justify-center gap-4 max-sm:flex-wrap text-lg font-semibold text-gray-400">
+          <div className=" ">
+            <div className="   text-start text-lg font-normal ">
+            <h6 className="f-title">About</h6>
 
         
             <Link to={"/"}>
-              <h6 className="f-subtitle text-gray-400 text-[17px]">Home</h6>
+              <h6 className="f-subtitle text-[#bba692]">Home</h6>
             </Link>
             <Link to={"/about"}>
-              <h6 className="f-subtitle text-gray-400 text-[17px]">About Us</h6>
+              <h6 className="f-subtitle text-[#bba692]">About Us</h6>
             </Link>
             <Link to={"/games"}>
-              <h6 className="f-subtitle text-gray-400 text-[17px]">Games</h6>
+              <h6 className="f-subtitle text-[#bba692]">Games</h6>
             </Link>
             <Link to={"/contactus"}>
-              <h6 className="f-subtitle text-gray-400 text-[17px]">Contact Us</h6>
+              <h6 className="f-subtitle text-[#bba692]">Contact Us</h6>
             </Link>
           </div>
           </div>
-          <div className="max-sm:text-center">
+          <div className="">
+            <div className=" gap-4  text-start text-lg font-semibold ">
             <h6 className="f-title">Service</h6>
-            <div className="max-sm:flex  justify-center gap-2 max-sm:flex-wrap text-lg font-semibold text-gray-400">
 
 
        
-            <h6 className="f-subtitle text-gray-400 text-[17px]">ProblemPilot</h6>
-            <h6 className="f-subtitle text-gray-400 text-[17px]">Entrepreneurial Edge</h6>
-            <h6 className="f-subtitle text-gray-400 text-[17px]">Startegy Trial</h6>
-            <h6 className="f-subtitle text-gray-400 text-[17px]">Portfolio</h6>
+            <h6 className="f-subtitle text-[#bba692]">ProblemPilot</h6>
+            <h6 className="f-subtitle text-[#bba692]">Entrepreneurial Edge</h6>
+            <h6 className="f-subtitle text-[#bba692]">Startegy Trial</h6>
+            <h6 className="f-subtitle text-[#bba692]">Portfolio</h6>
           </div>
           </div>
-          <div className="max-sm:text-center">
+          <div className="">
+            <div className=" gap-4  text-start text-[1.3rem] font-normal">
             <h6 className="f-title">Get in Touch</h6>
-            <div className="max-sm:flex  justify-center gap-2 max-sm:flex-wrap text-lg font-semibold text-gray-400">
 
 
        
-            <div className=" get-in-touch">
+            <div className=" flex gap-2 items-center">
               <MdLocationPin className="footer-icon-set"  size={25}/>
-              <p className="text-[17px] text-gray-400">22/1 Lorem ipsum, sshdi india 1348</p>
+              <p className="text-[#bba692] text-[1.3rem] font-normal">22/1 Lorem ipsum, sshdi india 1348</p>
             </div>
-            <div className="get-in-touch">
+            <div className="flex gap-2 items-center">
               <MdOutlineMail className="footer-icon-set" size={25}/>
-              <p className="text-[17px] text-gray-400">xuwelkhan@gmail.com</p>
+              <p className="text-[#bba692] text-[1.3rem] font-normal">xuwelkhan@gmail.com</p>
             </div>
-            <div className="get-in-touch">
+            <div className="flex gap-2 items-center">
               <FaPhoneAlt className="footer-icon-set" size={25}/>
-              <p className="text-[17px] text-gray-400">+91 01679 252595</p>
+              <p className="text-[#bba692] text-[1.3rem] font-normal">+91 01679 252595</p>
             </div>
             {/* <div className="icon-group">
               <div>
