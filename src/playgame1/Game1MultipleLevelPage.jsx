@@ -78,7 +78,7 @@ const Game1MultipleLevelPage = () => {
         playerType,
       });
       if (response) {
-        navigate(`/game1waiting?levelNumber=${levelNumber}`);
+        navigate(`/waiting-player?levelNumber=${levelNumber}`);
       }
     } catch (error) {
       console.error("Error during level click:", error);

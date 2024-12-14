@@ -27,9 +27,7 @@ const Game1WaitingPage = () => {
   // Handle socket events
   useEffect(() => {
     if (!playerId) return;
-
     socket.emit("joinQueue", { level: levelNumber, playerId });
-
     // Handle opponent match found
     const handleStart = ({ roomCode, opponentName }) => {
       console.log("opponentName", opponentName);
