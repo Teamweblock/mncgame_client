@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    ".src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -9,6 +9,12 @@ module.exports = {
         lg: '0 2px 4px rgba(255, 255, 255, 0.5)',
         xl: '0 4px 6px rgba(255, 255, 255, 0.7)',
       },
+      // boxShadow: {
+      //   glow: '0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.5)',
+      // },
+      // colors: {
+      //   glow: '#ffffff', // Change this to your desired glow color
+      // },
       animation: {
         'fade-in-up': 'fadeInUp 1s ease-out',
       },

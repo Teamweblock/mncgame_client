@@ -100,33 +100,6 @@ const MultiplayerWaitingPage = () => {
   }, [playerId, levelNumber, navigate]);
 
   // Countdown timer
-  // useEffect(() => {
-  //   if (timeLeft <= 0 && !isDialogOpen) {
-  //     setIsDialogOpen(true);
-  //     socket.emit("leaveQueue", { playerId });
-  //     return;
-  //   }
-
-  //   const countdown = setInterval(() => {
-  //     setTimeLeft((prev) => {
-  //       if (prev <= 1) {
-  //         clearInterval(countdown);
-  //         if (
-  //           queueStatusRef.current ===
-  //           "WAITING TO CONNECT WITH OTHER PLAYERS ..."
-  //         ) {
-  //           socket.emit("leaveQueue", { playerId });
-  //           setIsDialogOpen(true);
-  //         }
-  //         return 0;
-  //       }
-  //       return prev - 1;
-  //     });
-  //   }, 1000);
-
-  //   return () => clearInterval(countdown);
-  // }, [timeLeft, playerId, isDialogOpen]);
-  // Countdown timer
   useEffect(() => {
     const countdown = setInterval(() => {
       setTimeLeft((prev) => {
@@ -149,25 +122,6 @@ const MultiplayerWaitingPage = () => {
     return () => clearInterval(countdown);
   }, [playerId, isDialogOpen]);
 
-  // useEffect(() => {
-  //   if (timeLeft <= 0 && !isDialogOpen) {
-  //     setIsDialogOpen(true);
-  //     socket.emit("leaveQueue", { playerId }); // Automatically leave the queue after timeout
-  //     return;
-  //   }
-
-  //   const countdown = setInterval(() => {
-  //     setTimeLeft((prev) => {
-  //       if (prev <= 1) {
-  //         clearInterval(countdown);
-  //         return 0; // Ensure it hits exactly 0
-  //       }
-  //       return prev - 1;
-  //     });
-  //   }, 1000);
-
-  //   return () => clearInterval(countdown);
-  // }, [timeLeft, playerId, isDialogOpen]);
   const handleCancel = () => {
     if (window.confirm("Are you sure you want to leave the queue?")) {
       socket.emit("leaveQueue", { playerId });
