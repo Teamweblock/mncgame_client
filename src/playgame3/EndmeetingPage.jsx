@@ -46,6 +46,7 @@ const EndmeetingPage = () => {
   ];
   const [selectedParticipant, setSelectedParticipant] = useState(null); // State for selected participant
   const [currentTopic, setCurrentTopic] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [sliderValues, setSliderValues] = useState({
     creativity: 0,
     strategicThinking: 0,

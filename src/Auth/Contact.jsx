@@ -154,7 +154,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h6 style={{ fontWeight: "700" }}>Phone</h6>
-                  <p>0123-4567-8910</p>
+                  <p>+91 98335 74462</p>
                 </div>
               </div>
               <div className="d-flex gap-3 mt-3" >
@@ -164,7 +164,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h6 style={{ fontWeight: "700" }}>Email</h6>
-                  <p>hello@rainydesign.com</p>
+                  <p>multinetworkingcompany@gmail.com</p>
                 </div>
               </div>
               <div className="d-flex gap-3 mt-3" >
@@ -174,7 +174,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h6 style={{ fontWeight: "700" }}>Address</h6>
-                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <p>Mumbai, India</p>
                 </div>
               </div>
               {/* <div className="d-flex gap-3 mt-3" >

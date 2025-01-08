@@ -85,7 +85,7 @@ const Footer = () => {
         </div>
       </div>
       </div> */}
-      <div className="footer grid gap-2 max-md:w-[90%] pt-20">
+      <div className="footer grid gap-2 md:w-[90%] pt-20">
         <div className=" grid xl:grid-cols-4 lg md:gap-10 md:grid-cols-2 max-xl:grid-cols-3 max-sm:grid-cols-1 ">
           <div className="text-start">
             <div className="max-md:flex justify-center mx-auto">
@@ -144,15 +144,15 @@ const Footer = () => {
 
               <div className=" flex gap-2 items-center">
                 <MdLocationPin className="footer-icon-set" size={25} />
-                <p className="text-[#bba692] text-[1.3rem] font-normal">22/1 Lorem ipsum, sshdi india 1348</p>
+                <p className="text-[#bba692] text-[1.3rem] font-normal">Mumbai, India</p>
               </div>
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-1 items-center">
                 <MdOutlineMail className="footer-icon-set" size={25} />
-                <p className="text-[#bba692] text-[1.3rem] font-normal">xuwelkhan@gmail.com</p>
+                <p className="text-[#bba692] text-[1.3rem] font-normal">multinetworkingcompany@gmail.com</p>
               </div>
               <div className="flex gap-2 items-center">
                 <FaPhoneAlt className="footer-icon-set" size={25} />
-                <p className="text-[#bba692] text-[1.3rem] font-normal">+91 01679 252595</p>
+                <p className="text-[#bba692] text-[1.3rem] font-normal">+91 98335 74462</p>
               </div>
               {/* <div className="icon-group">
               <div>

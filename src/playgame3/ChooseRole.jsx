@@ -1,12 +1,4 @@
 
-import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import CloseIcon from "@mui/icons-material/Close";
-import icon1 from "../Assets/gameimages/icon1.png";
-import icon2 from "../Assets/gameimages/icon5.png";
-import logo from "../Assets/gameimages/mnclogo2.png";
 
 // import React, { useEffect, useState } from "react";
 // import CloseIcon from "@mui/icons-material/Close";
@@ -544,6 +536,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import CloseIcon from "@mui/icons-material/Close";
+import icon1 from "../Assets/gameimages/icon1.png";
+import icon2 from "../Assets/gameimages/icon5.png";
+import logo from "../Assets/gameimages/mnclogo2.png";
 
 const roles = [
   {
