@@ -53,7 +53,7 @@ const Game1WaitingPage = () => {
       socket.off("startGame", handleStart);
       socket.off("disconnectMessage", handleDisconnectMessage);
     };
-  }, [playerId, levelNumber, navigate]);
+  }, [playerId, levelNumber]);
 
   // Countdown timer
   useEffect(() => {
