@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import { joinmultipleGame } from "../utils/axiosInstance";
-import io from "socket.io-client";
 import logo from "../Assets/gameimages/mnclogo2.png";
 import female from "../Assets/images/female.avif";
-
-const socket = io("http://localhost:8000"); // Update with your backend URL
+import socket from "../utils/socket"; // Import the shared socket instance
 
 const MultiplayerWaitingPage = () => {
   const navigate = useNavigate();
@@ -65,9 +64,9 @@ const MultiplayerWaitingPage = () => {
       setPlayers(playersData);
       if (playersData.every((player) => player.status === "READY")) {
         setQueueStatus("All players are ready! Starting game...");
-        setTimeout(() => {
-          socket.emit("startGame");
-        }, 3000);
+        // setTimeout(() => {
+        //   socket.emit("startGame");
+        // }, 3000);
       }
     };
 
@@ -85,11 +84,8 @@ const MultiplayerWaitingPage = () => {
     socket.on("playersStatus", handlePlayersStatus);
     socket.on("playersReady", handlePlayersReady);
     socket.on("startGame", handleStart);
+
     socket.on("disconnectMessage", handleDisconnectMessage);
-    socket.on("connect_error", (err) => {
-      console.error("Socket connection error:", err);
-      navigate("/game1multiplelevelpage");
-    });
 
     return () => {
       socket.off("playersStatus", handlePlayersStatus);
@@ -111,6 +107,14 @@ const MultiplayerWaitingPage = () => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(countdown);
+          if (
+            queueStatusRef.current ===
+            "WAITING TO CONNECT WITH OTHER PLAYERS ..."
+          ) {
+            socket.emit("leaveQueue", { playerId });
+            toast.info("No match found. Returning to level selection.");
+            navigate("/game1multiplelevelpage");
+          }
         }
         return prev - 1;
       });

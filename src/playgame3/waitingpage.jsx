@@ -52,6 +52,8 @@ const MultiplayerWaitingPage = () => {
       } catch (err) {
         console.error("Error: Unable to join the queue", err);
         setIsDialogOpen(true);
+        // navigate("/chooserole");
+
       }
     };
 
@@ -64,12 +66,24 @@ const MultiplayerWaitingPage = () => {
     socket.emit("eventFormeet", { playerId: playerId, role: role });
 
     const handlePlayersStatus = (playersData) => {
+      console.log("playersData", playersData);
+
       setPlayers(playersData);
-      setQueueStatus(`${playersData.length} player(s) connected...`);
+      if (playersData?.length === 1) {
+        setQueueStatus("1 player connected...");
+      } else if (playersData?.length === 2) {
+        setQueueStatus("2 players connected...");
+      } else if (playersData?.length === 3) {
+        setQueueStatus("3 players connected...");
+      } else if (playersData?.length === 4) {
+        setQueueStatus("4 players connected...");
+      }
     };
 
     const handlePlayersReady = (playersData) => {
       setPlayers(playersData);
+      console.log("playersData", playersData);
+
       if (playersData.every((player) => player.status === "ready")) {
         setQueueStatus("All players are ready! Starting game...");
         setTimeout(() => {
@@ -87,6 +101,8 @@ const MultiplayerWaitingPage = () => {
 
     const handleDisconnectMessage = () => {
       setIsDialogOpen(true);
+      // navigate("/chooserole");
+
     };
 
     socket.on("playersStatus", handlePlayersStatus);
@@ -96,6 +112,8 @@ const MultiplayerWaitingPage = () => {
     socket.on("connect_error", (err) => {
       console.error("Socket connection error:", err);
       setIsDialogOpen(true);
+      // navigate("/chooserole");
+
     });
 
     return () => {
@@ -116,14 +134,21 @@ const MultiplayerWaitingPage = () => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(countdown);
-          socket.emit("leaveQueue", { playerId });
+          if (
+            queueStatusRef.current ===
+            "WAITING TO CONNECT WITH OTHER PLAYERS ..."
+          ) {
+            socket.emit("leaveQueue", { playerId });
+            toast.info("No match found. Returning to level selection.");
+            navigate("/chooserole");
+          }
         }
         return prev - 1;
       });
     }, 1000);
 
     return () => clearInterval(countdown);
-  }, [timeLeft, playerId]);
+  }, [timeLeft, playerId, navigate]);
 
   const handleCancel = () => {
     if (window.confirm("Are you sure you want to leave the queue?")) {

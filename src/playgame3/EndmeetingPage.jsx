@@ -44,8 +44,7 @@ const EndmeetingPage = () => {
     "The company has been shortlisted for a prestigious industry award.",
     "A new government regulation will affect our operations starting next quarter.",
   ];
-
-  const [selectedParticipant, setSelectedParticipant] = useState(null);
+  const [selectedParticipant, setSelectedParticipant] = useState(null); // State for selected participant
   const [currentTopic, setCurrentTopic] = useState("");
   const [sliderValues, setSliderValues] = useState({
     creativity: 0,
@@ -54,11 +53,8 @@ const EndmeetingPage = () => {
     managementSkills: 0,
     overallImpact: 0,
   });
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  // const [value, setValue] = useState();
-
-  const navigate = useNavigate();
-
+  const navigate = useNavigate(); // Initialize navigate hook
+  // Set a random topic on component mount
   useEffect(() => {
     setCurrentTopic(getRandomTopic());
   }, []);

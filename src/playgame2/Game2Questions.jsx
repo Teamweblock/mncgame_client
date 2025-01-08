@@ -24,6 +24,12 @@ const Game2Questions = () => {
     // e.preventDefault();
     try {
       if (currentIndex <= playerData?.length - 1) {
+        console.log("selectedOption", selectedOption);
+
+        if (selectedOption?.trim() === "" || selectedOption === null) {
+          alert("Please enter an answer before proceeding.");
+          return; // Don't proceed if the input is empty
+        }
         const payload = {
           level: levelNumber,
           answers: selectedOption,

@@ -926,7 +926,6 @@ const Home = () => {
               alt=""
             />
           </div>
-
           {/* <div className="text-center">
       <img className="w-full h-[500px] max-sm:h-auto" src={join} alt="" srcset="" />
 

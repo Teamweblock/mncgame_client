@@ -75,6 +75,25 @@ const Game2Result = () => {
     // Navigate to the new level with updated levelNumber in the URL
 
     navigate(`/game2question?levelNumber=${newLevelNumber}`);
+  
+
+    // Check if the new level number is greater than or equal to 4 or exceeds maxLevel
+    if (newLevelNumber >= 4) {
+      alert("You have not moved to the next level.");
+      return; // Stop further execution
+    }
+    if (newLevelNumber >= maxLevel) {
+      // Show a message if the new level exceeds or is equal to maxLevel
+      alert(
+        "You have not moved to the next level. You've reached the maximum level."
+      );
+      return; // Stop further execution
+    }
+    // Store the updated level back in localStorage
+    localStorage.setItem("levelNumber", newLevelNumber);
+    // Navigate to the new level with updated levelNumber in the URL
+
+    navigate(`/game2question?levelNumber=${newLevelNumber}`);
   };
   
   return (

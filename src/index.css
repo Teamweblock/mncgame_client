@@ -564,7 +564,6 @@ code {
   text-orientation: mixed;
   transform: rotate(180deg);
 }
-
 /* Add smooth transitions for carousel */
 .transition-all {
   transition: all 0.3s ease-in-out;

@@ -111,7 +111,7 @@ const SignUppage = () => {
                         className="login-input"
                         aria-label="Last Name"
                       />
-                    </div>
+                
 
                     {/* Email Input Field */}
 
@@ -125,7 +125,7 @@ const SignUppage = () => {
                       className="login-input"
                       aria-label="Email"
                     />
-
+</div>
                     {/* Password Input Field */}
                     <div className="border-b w-full relative justify-between">
                       <input
