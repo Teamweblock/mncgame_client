@@ -1,5 +1,5 @@
 .Game3-bg2 {
-  background-image: url("/src/Assets/gameimages/img8.png");
+  background-image: url("../../../Assets/gameimages/img8.png");
   width: 100%;
   height: 100vh;
   background-position: center;
@@ -87,7 +87,6 @@
   color: white;
 }
 
-
 .rolepage-width {
   width: 50%;
   display: flex;
@@ -101,10 +100,9 @@
   margin-top: 30px;
 
   text-align: center;
-
 }
 
-@media screen and (max-width:1155px) {
+@media screen and (max-width: 1155px) {
   .about-group {
     display: block;
   }
@@ -126,7 +124,7 @@
   }
 }
 
-@media screen and (max-width:584px) {
+@media screen and (max-width: 584px) {
   .about-group {
     width: 80%;
     margin: auto;
@@ -137,20 +135,19 @@
   }
 }
 
-@media screen and (max-width:365px) {
+@media screen and (max-width: 365px) {
   .Game3-bg2 {
     height: 130vh;
   }
 }
 
-@media screen and (max-width:745px) {
+@media screen and (max-width: 745px) {
   .Game3-bg2 {
     height: 170vh;
-
   }
 }
 
-@media screen and (max-width:658px) {
+@media screen and (max-width: 658px) {
   .chooserole-title {
     font-size: 60px;
   }
@@ -158,76 +155,74 @@
   .role-text {
     font-size: 60px;
   }
-
 }
 
-@media screen and (max-width:482px) {}
+@media screen and (max-width: 482px) {
+}
 
-@media screen and (max-width:400px) {}
+@media screen and (max-width: 400px) {
+}
 
-@media screen and (max-width:347px) {
+@media screen and (max-width: 347px) {
   .Game3-bg2 {
     height: 180vh;
   }
-
 }
 
-@media screen and (max-width:1148px) {
+@media screen and (max-width: 1148px) {
   .Game3-bg2 {
     height: 175vh;
   }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 425px) {
   .Game3-bg2 {
     height: 190vh;
   }
 }
 
+@media screen and (max-width: 1078px) {
+}
 
-@media screen and (max-width:1078px) {}
-
-@media screen and (max-width:1234px) {
+@media screen and (max-width: 1234px) {
   .Game3-bg2 {
     height: 120vh !important;
   }
 }
 
-@media screen and (max-width:1151px) {
+@media screen and (max-width: 1151px) {
   .Game3-bg2 {
     height: 170vh !important;
   }
 }
 
-@media screen and (max-width:483px) {
+@media screen and (max-width: 483px) {
   .Game3-bg2 {
     height: 180vh !important;
   }
 }
 
-@media screen and (max-width:726px) {
+@media screen and (max-width: 726px) {
   .Game3-bg2 {
     height: 180vh !important;
   }
 }
 
-@media screen and (max-width:420px) {
+@media screen and (max-width: 420px) {
   .Game3-bg2 {
     height: 190vh !important;
   }
 
   .meeting1 {
     padding: 10px 20px;
-
   }
 
   .meeting2 {
     padding: 10px 20px;
-
   }
 }
 
-@media screen and (max-width:382px) {
+@media screen and (max-width: 382px) {
   .Game3-bg2 {
     height: 240vh !important;
   }
@@ -237,10 +232,9 @@
     font-size: 14px;
     font-weight: 600;
   }
-
 }
 
-@media screen and (max-width:699px) {
+@media screen and (max-width: 699px) {
   .meeting2 {
     margin-left: 0px;
   }

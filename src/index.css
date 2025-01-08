@@ -34,14 +34,6 @@ code {
     monospace;
 }
 
-/* form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-} */
-
 a {
   text-decoration: none !important;
 }
@@ -71,10 +63,6 @@ i {
 .form-check-label {
   font-size: 12px;
 }
-
-/* span {
-  color: red;
-} */
 
 .text-center {
   text-align: center;
@@ -117,16 +105,6 @@ code {
   position: absolute;
   left: -130px;
   top: 599px;
-}
-
-.bg-img1 {
-  background-image: url("../src/Assets/images/img11.png");
-  width: 100%;
-  height: 600px;
-  position: absolute;
-  top: 0;
-  background-position: center;
-  background-size: cover;
 }
 
 .pilot-img {
@@ -214,7 +192,6 @@ code {
 }
 
 .form-input {
-  /* outline border none ; */
   outline: none;
   padding: 10px;
   background-color: white;
@@ -403,11 +380,6 @@ code {
   }
 }
 
-.bg-img1 {
-  animation: slideIn 3s ease-in-out infinite alternate;
-  /* Adjust timing and animation properties as needed */
-}
-
 .text {
   width: 80%;
   margin: auto;
@@ -420,7 +392,6 @@ code {
   background-position: center;
   background-size: cover;
   overflow: hidden;
-  /* margin-bottom: 20px; */
 }
 
 .login-img {
@@ -523,7 +494,7 @@ code {
 }
 
 .welcomepage-bg3 {
-  background-image: url("/src/Assets/gameimages/img8.png");
+  background-image: url("../src/Assets/gameimages/img8.png");
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -563,19 +534,15 @@ code {
   text-orientation: mixed;
   transform: rotate(180deg);
 }
-/* Add smooth transitions for carousel */
 .transition-all {
   transition: all 0.3s ease-in-out;
 }
-*/ .addskill-part-main {
+.addskill-part-main {
   width: 100%;
   height: 100vh;
   display: flex;
-  /* background-image: url('./Assets/images/gameimg2.png'); */
   background-image: url("./Assets/illustration/Slider-Image.png");
-  /* background-image: url('./Assets/illustration/headerimage.png'); */
   background-size: cover;
-  /* background-position: right top; */
   background-repeat: no-repeat;
 }
 
@@ -761,7 +728,6 @@ code {
 
 .line {
   width: 100px;
-  /* Adjust this based on the distance between steps */
   height: 4px;
 
   animation: lineAnimation 2s infinite;
@@ -802,12 +768,6 @@ code {
   }
 }
 
-@media screen and (max-width: 1024px) {
-  /* .footer-text{
-
-  } */
-}
-
 @media screen and (max-width: 768px) {
   .footer-icon-group {
     display: block;
@@ -836,8 +796,6 @@ code {
   }
 }
 
-/* footer new css */
-
 .copyright {
   display: flex;
   justify-content: space-between;
@@ -857,8 +815,6 @@ code {
 .footer-text {
   margin-top: 12px;
 }
-
-/* login page css  */
 
 .google-btn {
   border: none;
@@ -943,7 +899,7 @@ code {
   margin: auto;
 }
 .resetPass-bg {
-  background-image: url("/src/Assets/gameimages/img1.jpg");
+  background-image: url("../src/Assets/gameimages/img1.jpg");
   width: 100%;
   height: 100vh;
   object-fit: cover;
@@ -951,40 +907,39 @@ code {
 }
 
 .endmetting {
-  background-image: url("/src/Assets/gameimages/endmetting.png");
+  background-image: url("../src/Assets/gameimages/endmetting.png");
   width: 100%;
   object-fit: cover;
   background-position: center;
 }
 .game3result {
-  background-image: url("/src/Assets/gameimages/game3result.png");
+  background-image: url("../src/Assets/gameimages/game3result.png");
   width: 100%;
   object-fit: cover;
   background-position: center;
 }
 
-/* Customize the pagination dots */
 .custom-pagination {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px; /* Adjust position */
+  margin-top: 20px;
 }
 
 .custom-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: #a90bd4; /* Dot color */
-  opacity: 1; /* Fully visible */
+  background-color: #a90bd4;
+  opacity: 1;
   transition: background-color 0.3s ease;
 }
 
 .custom-pagination .swiper-pagination-bullet-active {
-  background-color: #1b1916; /* Active dot color */
+  background-color: #1b1916;
 }
 
 .waiting-page-multi {
-  background-image: url("/src/Assets/gameimages/img1.jpg");
+  background-image: url("../src/Assets/gameimages/img1.jpg");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;

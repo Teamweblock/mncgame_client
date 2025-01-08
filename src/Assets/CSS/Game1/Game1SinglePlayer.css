@@ -1,19 +1,19 @@
 .loading-container {
-  display: flex; /* Center horizontally and vertically */
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
 }
 
 .loading-container p {
-  color: white; /* White text color */
-  font-size: 1.5rem; /* Adjust size as needed */
-  font-weight: bold; /* Optional: Make it bold for better visibility */
-  text-align: center; /* Center the text */
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .Game1-sinlgeplayer-bg {
-  background-image: url("/src/Assets/gameimages/img1.jpg");
+  background-image: url("../../../Assets/gameimages/img1.jpg");
   width: 100%;
   min-height: 100vh;
   background-position: cover;
@@ -44,7 +44,6 @@
   color: white;
 }
 
-
 .time-group {
   line-height: 40px;
 }
@@ -53,8 +52,6 @@
   color: white;
   font-size: 130px;
 }
-
-
 
 .icon4-game1 {
   position: absolute;
@@ -67,12 +64,11 @@
   width: 90%;
   margin: auto;
   text-align: center;
- 
+
   border-radius: 10px;
   border: none;
   font-size: 20px;
   font-weight: 700;
-
 }
 
 .solution-box {
@@ -107,10 +103,6 @@
 }
 
 .single-player-part {
-  /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%); */
   padding-top: 250px;
 }
 
@@ -137,12 +129,6 @@
   transition: 0.3s;
 }
 
-@media screen and (max-width: 1234px) {
-  /* .Game1-bg{
-      height: 180vh;
-    } */
-}
-
 @media screen and (max-width: 1140px) {
   .single-player-part {
     padding-top: 200px;
@@ -150,8 +136,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  
-
   .single-player-part {
     padding-top: 165px;
   }
@@ -177,19 +161,10 @@
   }
 }
 
-
 @media screen and (max-width: 413px) {
   .next-button {
     margin-left: 0px !important;
   }
-}
-
-@media screen and (max-width: 354px) {
-
-}
-
-@media screen and (max-width: 320px) {
-  
 }
 
 .question-box {
@@ -203,5 +178,4 @@
     rgba(205, 244, 252, 1) 47%,
     rgba(255, 255, 255, 1) 100%
   );
-  
 }

@@ -1,5 +1,5 @@
 .Game1-bg2 {
-  background-image: url("/src/Assets/gameimages/img1.jpg");
+  background-image: url("../../../Assets/images/img1.jpg");
   width: 100%;
   min-height: 100vh;
   background-size: cover;
@@ -167,22 +167,10 @@
   }
 }
 
-@media screen and (max-width: 553px) {
-  /* .multiple-player-part {
-    margin-top: 300px;
-  } */
-}
-
 @media screen and (max-width: 640px) {
   .solution-box input {
     font-size: 15px;
   }
-}
-
-@media screen and (max-width: 1234px) {
-  /* .Game1-bg {
-    height: 130vh;
-  } */
 }
 
 @media screen and (max-width: 453px) {
@@ -197,37 +185,16 @@
   }
 }
 
-@media screen and (max-width: 383px) {
-  /* .Game1-bg {
-    height: 140vh;
-  } */
-}
-
 @media screen and (max-width: 500px) {
   .icon3-game1 {
     left: 1%;
   }
 }
 
-@media screen and (max-width: 1334px) {
-}
-
-@media screen and (max-width: 810px) {
-}
-
-@media screen and (max-width: 714px) {
-}
-
-@media screen and (max-width: 670px) {
-}
-
 @media screen and (max-width: 657px) {
   .multiple-player-part {
     margin-top: 385px;
   }
-}
-
-@media screen and (max-width: 552px) {
 }
 
 @media screen and (max-width: 480px) {
