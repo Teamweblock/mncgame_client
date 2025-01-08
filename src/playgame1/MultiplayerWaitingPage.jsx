@@ -9,7 +9,7 @@ import socket from "../utils/socket"; // Import the shared socket instance
 const MultiplayerWaitingPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [timeLeft, setTimeLeft] = useState(119);
+  const [timeLeft, setTimeLeft] = useState(120);
   const [playerId, setPlayerId] = useState("");
   const [players, setPlayers] = useState([]);
   const [queueStatus, setQueueStatus] = useState(
@@ -35,7 +35,7 @@ const MultiplayerWaitingPage = () => {
         }
       } catch (err) {
         console.error("Error: Unable to join the queue", err);
-        setIsDialogOpen(true)
+        setIsDialogOpen(true);
         navigate("/game1multiplelevelpage");
       }
     };
@@ -73,12 +73,16 @@ const MultiplayerWaitingPage = () => {
     const handleStart = ({ roomCode }) => {
       setQueueStatus("Match found! Starting the game...");
       setTimeout(() => {
-        navigate(`/game1multiplayer?roomCode=${roomCode}&levelNumber=${levelNumber}`);
+        navigate(
+          `/game1multiplayer?roomCode=${roomCode}&levelNumber=${levelNumber}`
+        );
       }, 5000);
     };
 
-    const handleDisconnectMessage = (message) => {
-      navigate("/game1multiplelevelpage");
+    const handleDisconnectMessage = () => {
+      socket.emit("leaveQueue", { playerId });
+      setIsDialogOpen(true);
+      // navigate("/game1multiplelevelpage");
     };
 
     socket.on("playersStatus", handlePlayersStatus);
@@ -96,33 +100,54 @@ const MultiplayerWaitingPage = () => {
   }, [playerId, levelNumber, navigate]);
 
   // Countdown timer
-  useEffect(() => {
-    if (timeLeft <= 0 && !isDialogOpen) {
-      setIsDialogOpen(true);
-      socket.emit("leaveQueue", { playerId }); // Automatically leave the queue after timeout
-      return;
-    }
+  // useEffect(() => {
+  //   if (timeLeft <= 0 && !isDialogOpen) {
+  //     setIsDialogOpen(true);
+  //     socket.emit("leaveQueue", { playerId });
+  //     return;
+  //   }
 
+  //   const countdown = setInterval(() => {
+  //     setTimeLeft((prev) => {
+  //       if (prev <= 1) {
+  //         clearInterval(countdown);
+  //         if (
+  //           queueStatusRef.current ===
+  //           "WAITING TO CONNECT WITH OTHER PLAYERS ..."
+  //         ) {
+  //           socket.emit("leaveQueue", { playerId });
+  //           setIsDialogOpen(true);
+  //         }
+  //         return 0;
+  //       }
+  //       return prev - 1;
+  //     });
+  //   }, 1000);
+
+  //   return () => clearInterval(countdown);
+  // }, [timeLeft, playerId, isDialogOpen]);
+  // Countdown timer
+  useEffect(() => {
     const countdown = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
-          clearInterval(countdown);
+          clearInterval(countdown); // Stop the interval
           if (
+            !isDialogOpen &&
             queueStatusRef.current ===
-            "WAITING TO CONNECT WITH OTHER PLAYERS ..."
+              "WAITING TO CONNECT WITH OTHER PLAYERS ..."
           ) {
-            socket.emit("leaveQueue", { playerId });
-            setIsDialogOpen(true);
-            // toast.info("No match found. Returning to level selection.");
-            // navigate("/game1multiplelevelpage");
+            setIsDialogOpen(true); // Open the dialog box
+            socket.emit("leaveQueue", { playerId }); // Emit leaveQueue event
           }
+          return 0; // Ensure the timer stops at 0
         }
         return prev - 1;
       });
     }, 1000);
 
     return () => clearInterval(countdown);
-  }, [timeLeft, playerId, isDialogOpen]);
+  }, [playerId, isDialogOpen]);
 
   // useEffect(() => {
   //   if (timeLeft <= 0 && !isDialogOpen) {
@@ -130,7 +155,7 @@ const MultiplayerWaitingPage = () => {
   //     socket.emit("leaveQueue", { playerId }); // Automatically leave the queue after timeout
   //     return;
   //   }
-  
+
   //   const countdown = setInterval(() => {
   //     setTimeLeft((prev) => {
   //       if (prev <= 1) {
@@ -140,7 +165,7 @@ const MultiplayerWaitingPage = () => {
   //       return prev - 1;
   //     });
   //   }, 1000);
-  
+
   //   return () => clearInterval(countdown);
   // }, [timeLeft, playerId, isDialogOpen]);
   const handleCancel = () => {
@@ -180,7 +205,8 @@ const MultiplayerWaitingPage = () => {
               <div
                 className="border-[4px] max-lg:mx-2 mx-3 my-3 max-lg:my-2 rounded-3xl"
                 style={{
-                  borderColor: player.status === "READY" ? "#34fc34" : "#ff142f",
+                  borderColor:
+                    player.status === "READY" ? "#34fc34" : "#ff142f",
                 }}
               >
                 <div className="flex flex-col items-center gap-2 my-8 max-lg:my-2">
@@ -196,7 +222,11 @@ const MultiplayerWaitingPage = () => {
                   </p>
                   <button
                     className={`mx-2 text-white font-bold py-2 px-5 md:px-10 text-lg rounded-full transition duration-300 ease-in-out 
-                    ${player.status === "READY" ? "bg-gradient-to-r from-[#8D00FF] via-[#AA1BFF] to-[#C736FF]" : "bg-red-500"} 
+                    ${
+                      player.status === "READY"
+                        ? "bg-gradient-to-r from-[#8D00FF] via-[#AA1BFF] to-[#C736FF]"
+                        : "bg-red-500"
+                    } 
                     hover:bg-opacity-80 hover:scale-105`}
                   >
                     {player.status.toUpperCase()}
@@ -218,10 +248,10 @@ const MultiplayerWaitingPage = () => {
       </div>
 
       <div className="absolute bottom-8 right-8 text-white">
-          <p className="text-sm tracking-widest">
-            MULTI <span className="">NETWORKING COMPANY</span>
-          </p>
-        </div>
+        <p className="text-sm tracking-widest">
+          MULTI <span className="">NETWORKING COMPANY</span>
+        </p>
+      </div>
 
       {/* Dialog Box */}
       {isDialogOpen && (
@@ -229,7 +259,8 @@ const MultiplayerWaitingPage = () => {
           <div className="bg-yellow-500 p-6 shadow-lg max-w-sm w-full outline outline-4 outline-yellow-500 relative rounded-lg">
             <div className="absolute inset-0 m-[10px] border-4 border-white rounded-xl pointer-events-none"></div>
             <h2 className="text-white text-xl font-bold mb-4 leading-relaxed text-center relative z-10 mt-6">
-              LOOKS LIKE WE COULDN'T <br /> FIND A MATCH <br /> TRY AGAIN FOR A BETTER <br /> SHOT!
+              LOOKS LIKE WE COULDN'T <br /> FIND A MATCH <br /> TRY AGAIN FOR A
+              BETTER <br /> SHOT!
             </h2>
             <div className="text-center relative z-20">
               <button
@@ -251,7 +282,6 @@ const MultiplayerWaitingPage = () => {
 
 export default MultiplayerWaitingPage;
 
-
 // import React, { useEffect, useState, useRef } from "react";
 // import { useNavigate, useLocation } from "react-router-dom";
 // import { toast } from "react-toastify";
@@ -260,7 +290,7 @@ export default MultiplayerWaitingPage;
 // import logo from "../Assets/gameimages/mnclogo2.png";
 // import female from "../Assets/images/female.avif";
 
-// const socket = io("http://localhost:8000"); // Update with your backend URL
+// const socket = io("http://13.127.231.142:8000"); // Update with your backend URL
 
 // const MultiplayerWaitingPage = () => {
 //   const navigate = useNavigate();
@@ -404,7 +434,7 @@ export default MultiplayerWaitingPage;
 //       <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-20 max-lg:pt-10 max-lg:justify-center">
 //         <img src={logo} alt="Game Logo" height={50} width={120} />
 //         <button
-//           className="bg-orange-500 text-white text-xl font-bold rounded-full px-6 py-2 max-lg:hidden 
+//           className="bg-orange-500 text-white text-xl font-bold rounded-full px-6 py-2 max-lg:hidden
 //     hover:bg-orange-600 hover:scale-105 hover:shadow-lg transition-all"
 //           // onClick={handleButtonClick}
 //         >
@@ -438,8 +468,8 @@ export default MultiplayerWaitingPage;
 //                     {player?.name || "Unknown Player"}
 //                   </p>
 //                   <button
-//                     className={`mx-2 text-white font-bold py-2 px-3 md:px-10 text-lg rounded-full transition duration-300 ease-in-out 
-//                     ${player.status === "READY" ? "bg-green-500" : "bg-red-500"} 
+//                     className={`mx-2 text-white font-bold py-2 px-3 md:px-10 text-lg rounded-full transition duration-300 ease-in-out
+//                     ${player.status === "READY" ? "bg-green-500" : "bg-red-500"}
 //                     hover:bg-opacity-80 hover:scale-105`}
 //                   >
 //                     {player.status.toUpperCase()}
@@ -477,7 +507,6 @@ export default MultiplayerWaitingPage;
 //   OKAY
 // </button>
 
-
 //     </div>
 //   </div>
 // </div>
@@ -490,10 +519,6 @@ export default MultiplayerWaitingPage;
 
 // export default MultiplayerWaitingPage;
 
-
-
-
-
 // import React, { useEffect, useState, useRef } from "react";
 // import { useNavigate, useLocation } from "react-router-dom";
 // import { toast } from "react-toastify";
@@ -502,7 +527,7 @@ export default MultiplayerWaitingPage;
 // import logo from "../Assets/gameimages/mnclogo2.png";
 // import female from "../Assets/images/female.avif";
 
-// const socket = io("http://localhost:8000"); // Update with your backend URL
+// const socket = io("http://13.127.231.142:8000"); // Update with your backend URL
 
 // const MultiplayerWaitingPage = () => {
 //   const navigate = useNavigate();
@@ -548,7 +573,7 @@ export default MultiplayerWaitingPage;
 
 //     const handlePlayersStatus = (playersData) => {
 //       console.log('playersData',playersData);
-      
+
 //       setPlayers(playersData);
 //       if (playersData?.length === 1) {
 //         setQueueStatus("1 player connected...");

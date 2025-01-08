@@ -76,8 +76,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "build": "react-scripts build --no-minify",
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -107,6 +107,8 @@
     "globals": "^15.12.0",
     "nodemon": "^3.1.4",
     "postcss": "^8.4.49",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard": "^36.0.1",
     "tailwindcss": "^3.4.15",
     "typescript-eslint": "^8.14.0"
   }

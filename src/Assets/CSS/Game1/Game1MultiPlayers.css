@@ -1,5 +1,5 @@
 .Game1-bg2 {
-  background-image: url(/src/Assets/gameimages/img1.jpg);
+  background-image: url("/src/Assets/gameimages/img1.jpg");
   width: 100%;
   min-height: 100vh;
   background-size: cover;
@@ -79,8 +79,6 @@
   height: 100px;
 }
 
-
-
 .multiple-player-part {
   position: absolute;
   top: 50%;
@@ -91,8 +89,6 @@
 .multiple-player-part {
   margin-top: 50px;
 }
-
-
 
 .text-center {
   text-align: center;
@@ -217,15 +213,12 @@
 }
 
 @media screen and (max-width: 810px) {
-
 }
 
 @media screen and (max-width: 714px) {
-
 }
 
 @media screen and (max-width: 670px) {
-
 }
 
 @media screen and (max-width: 657px) {
@@ -235,12 +228,9 @@
 }
 
 @media screen and (max-width: 552px) {
-
 }
 
 @media screen and (max-width: 480px) {
-
-
   .players-group {
     top: 15%;
     right: 30%;
@@ -269,8 +259,6 @@
 }
 
 @media screen and (max-width: 320px) {
-
-
   .players-group {
     top: 15%;
     right: 20%;
