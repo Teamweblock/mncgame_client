@@ -39,7 +39,7 @@ function VideoCall() {
             console.log('Received remote stream from:', call.peer);
             setRemoteStreams((prevStreams) => {
               const updatedStreams = [...prevStreams];
-              for (let i = 0; i < updatedStreams.length; i++) {
+              for (let i = 0; i < updatedStreams?.length; i++) {
                 if (!updatedStreams[i]) {
                   updatedStreams[i] = remoteStream;
                   break;
@@ -58,7 +58,7 @@ function VideoCall() {
   }, []);
 
   useEffect(() => {
-    for (let i = 0; i < remoteStreams.length; i++) {
+    for (let i = 0; i < remoteStreams?.length; i++) {
       if (remoteVideoRefs[i].current && remoteStreams[i]) {
         remoteVideoRefs[i].current.srcObject = remoteStreams[i];
         remoteVideoRefs[i].current.onloadedmetadata = () => {
@@ -97,7 +97,7 @@ function VideoCall() {
   };
 
   const shuffleArray = (array) => {
-    let currentIndex = array.length, randomIndex;
+    let currentIndex = array?.length, randomIndex;
 
     while (currentIndex !== 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);

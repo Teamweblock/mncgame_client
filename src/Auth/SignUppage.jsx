@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import loginimg1 from "../Assets/images/loginimg1.png";
+import loginimg1 from "../Assets/images/signup.png";
 import { useNavigate } from "react-router-dom";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { signUp } from "../utils/axiosInstance";
@@ -45,13 +45,21 @@ const SignUppage = () => {
     <div>
       <div className="login-bg-img">
         <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <img className="login-img" src={loginimg1} alt="Login" />
+          <img
+            src="./mainlogo.png"
+            alt=""
+            height={45}
+            width={120}
+            style={{ marginTop: "100px" }}
+          />
+
+          <div className="row m-auto pb-16 md:pb-[135px] lg:pb-[80px] xl:pb-[40px]">
+            <div className="col-md-6 mt-5">
+              <img className="login-img sm:block hidden" src={loginimg1} alt="Login" />
             </div>
             <div className="col-md-6 d-flex justify-content-center align-items-center text-center">
               <div className="loginform">
-                <div
+                {/* <div
                   style={{
                     borderBottom: "5px solid black",
                     padding: "10px",
@@ -59,63 +67,67 @@ const SignUppage = () => {
                   }}
                 >
                   Not logged in yet?
+                </div> */}
+                <div className="all-circle">
+                  <div className="login-discription">Not account yet?</div>
+                  <div className="both-circle">
+                    <div className="black-circle">
+                      <div className="white-circle"></div>
+                    </div>
+                    <div className="black-circle">
+                      <div className="white-circle"></div>
+                    </div>
+                    <div className="black-circle">
+                      {/* <div className="white-circle"></div> */}
+                    </div>
+                  </div>
                 </div>
-                <div style={{ width: "80%", margin: "auto" }}>
-                  <h1
-                    style={{
-                      fontWeight: "700",
-                      fontSize: "60px",
-                      marginTop: "10px",
-                    }}
-                  >
+                <div>
+                  <h1 className="text-6xl font-bold  max-lg:text-3xl max-sm:text-2xl text-center pt-3">
                     <span style={{ color: "orange" }}>Create</span>, Your
                     <br /> account today!
                   </h1>
-                  <form className="px-5 py-5" onSubmit={handleSubmit}>
+                  <form className="px-3 py-5" onSubmit={handleSubmit}>
                     {/* First Name and Last Name Input Fields */}
-                    <div className="d-flex gap-3">
-                      <div>
-                        <input
-                          type="text"
-                          placeholder="First Name"
-                          name="firstName"
-                          value={formData.firstName}
-                          onChange={handleChange}
-                          required
-                          className="login-input"
-                          aria-label="First Name"
-                        />
-                      </div>
-                      <div>
-                        <input
-                          type="text"
-                          placeholder="Last Name"
-                          name="lastName"
-                          value={formData.lastName}
-                          onChange={handleChange}
-                          required
-                          className="login-input"
-                          aria-label="Last Name"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Email Input Field */}
-                    <div className="mt-3">
+                    <div className="flex sm:gap-4 max-sm:flex-col">
                       <input
-                        type="email"
-                        placeholder="Email"
-                        name="email"
-                        value={formData.email}
+                        type="text"
+                        placeholder="First Name"
+                        name="firstName"
+                        value={formData.firstName}
                         onChange={handleChange}
                         required
                         className="login-input"
-                        aria-label="Email"
+                        aria-label="First Name"
+                      />
+
+                      <input
+                        type="text"
+                        placeholder="Last Name"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                        className="login-input"
+                        aria-label="Last Name"
                       />
                     </div>
 
+                    {/* Email Input Field */}
+
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="login-input"
+                      aria-label="Email"
+                    />
+
                     {/* Password Input Field */}
-                    <div className="input-group flex flex-nowrap mt-3">
+                    <div className="border-b w-full relative justify-between">
                       <input
                         type={showPassword ? "text" : "password"}
                         placeholder="Password"
@@ -123,11 +135,11 @@ const SignUppage = () => {
                         value={formData.password}
                         onChange={handleChange}
                         required
-                        className="login-input"
+                        className="login-input relative"
                         aria-label="Password"
                       />
                       <div
-                        className="cursor-pointer text-xl mt-2"
+                        className="cursor-pointer text-xl mt-2 absolute right-2 bottom-3"
                         onClick={() => setShowPassword((prev) => !prev)}
                         aria-label="Toggle Password Visibility"
                       >
@@ -136,7 +148,7 @@ const SignUppage = () => {
                     </div>
 
                     {/* Confirm Password Input Field */}
-                    <div className="input-group flex flex-nowrap mt-3">
+                    <div className="border-b w-full relative justify-between">
                       <input
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder="Confirm Password"
@@ -148,7 +160,7 @@ const SignUppage = () => {
                         aria-label="Confirm Password"
                       />
                       <div
-                        className="cursor-pointer text-xl mt-2"
+                        className="cursor-pointer text-xl mt-2 absolute right-2 bottom-3"
                         onClick={() => setShowConfirmPassword((prev) => !prev)}
                         aria-label="Toggle Confirm Password Visibility"
                       >

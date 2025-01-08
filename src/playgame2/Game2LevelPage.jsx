@@ -66,36 +66,68 @@ const Game2LevelPage = () => {
     }
   };
 
+  const hadleHome = () => {
+    navigate("/");
+  };
+
+  // Remove levelNumber from localStorage on initial load
+  useEffect(() => {
+    const storedlevelNumber = localStorage?.getItem("levelNumber");
+    if (storedlevelNumber) {
+      localStorage?.removeItem("levelNumber");
+      console.log("levelNumber removed from localStorage on first load.");
+    }
+  }, []);
   return (
     <div className="level-bg">
-      <div className="pt-50">
+      <div className="pt-20 px-10 flex items-center justify-between w-[90%] mx-auto max-lg:justify-center">
         <a href="/">
-          <img src={logo} className="mnc-logo" alt="Logo" />
+          <img src={logo} className="" alt="Logo" />
         </a>
+        <button
+          className="bg-[#ff5024] text-slate-50 max-lg:hidden hover:bg-white hover:text-[#ff5024] hover:border-[#ff5024] transition delay-300  duration-1000  text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]"
+          onClick={hadleHome}
+        >
+          EXIT TO HOME
+        </button>
       </div>
-      <div className="level-img-div">
-        <div className="text-center">
-          <h1 className="level-text">LEVEL SELECT</h1>
+      <div className="level-img-div  w-[95%] mx-auto">
+      <div class="w-max mx-auto mt-3">
+        <h1 className="xl:text-5xl md:text-3xl text-2xl text-white font-bold text-center max-sm:pt-10 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5">
+          SELECT LEVEL 
+        </h1>
         </div>
-        <div className="level-img-grid">
+        <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-md:grid-cols-3 max-sm:grid-cols-2 pt-6">
           {[...Array(10).keys()].map((level) => {
             const levelNumber = level + 1;
             return (
               <div key={levelNumber} className="m-auto level-container">
-                <div className="level-box">
+                <div className="level-box cursor-pointer">
                   <img
                     className="level-img"
                     src={levelNumber <= 3 ? img2 : img3}
                     alt={`Level ${levelNumber}`}
                     style={{
-                      opacity: lockedLevels[`level${levelNumber}`] ? 0.5 : 1, // Apply opacity if locked
+                      opacity: lockedLevels[`level${levelNumber}`] ? 0.5 : 1,
                     }}
-                    onClick={() => handleLevelClick(levelNumber)} // Add click handler for level selection
+                    onClick={() => handleLevelClick(levelNumber)}
                   />
                   {lockedLevels[`level${levelNumber}`] && (
-                    <FaLock className="lock-icon" size={40} /> // Lock overlay
+                    <div className="bg-[#fff2d8] w-12 h-12 rounded-lg flex items-center justify-center absolute top-4 right-2 max-lg:h-8 max-lg:w-8">
+                      <img
+                        src="./levellock.png"
+                        className=" h-8 w-8 max-lg:w-6 max-lg:h-6"
+                        alt=""
+                      />
+
+                      {/* <FaLock className=" h-6 w-6 max-lg:w-4 max-lg:h-4"  color="#ffbd2c" /> */}
+                    </div>
                   )}
-                  <h3 className={`level-num-text${levelNumber > 3 ? "2" : ""}`}>
+                  <h3
+                    className={`level-num-text${
+                      levelNumber > 3 ? "2" : ""
+                    }  text-[1.2rem] pt-2 font-bold pb-2`}
+                  >
                     LEVEL {levelNumber}
                   </h3>
                 </div>
@@ -103,6 +135,12 @@ const Game2LevelPage = () => {
             );
           })}
         </div>
+        <button
+          className="bg-[#ff5024] mx-auto lg:hidden flex justify-center mb-4 text-white text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]"
+          onClick={hadleHome}
+        >
+          EXIT TO HOME
+        </button>
       </div>
     </div>
   );

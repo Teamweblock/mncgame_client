@@ -1,42 +1,27 @@
-.ProblemMain {
-  width: 80%;
-  margin: auto;
-}
 
-.ProblemMainPaet {
+
+/* .ProblemMainPaet {
   width: 90%;
   display: flex;
-}
+} */
 
 .ProblemImageSeaction {
-  width: 50%;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .ProblemImage {
-  width: 90%;
+  width: 70%;
   transition: transform 0.3s ease;
   /* Smooth transition */
 }
 
-.ProblemTextSeacation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.ProblemTitle {
-  color: #012055;
-  font-size: 50px;
-  font-weight: 700;
-}
 
-.ProblemText {
-  color: #848484;
-  font-size: 18px;
-}
+
+
 
 .ProblemButton {
   border: 2px solid #009EFF;
@@ -59,9 +44,7 @@
 
 @media screen and (max-width:1024px) {
 
-  .ProblemTitle {
-    font-size: 43px;
-  }
+ 
 
   .ProblemButton {
     width: 45%;
@@ -75,9 +58,6 @@
     margin-bottom: 10px;
   }
 
-  .ProblemTitle {
-    font-size: 38px;
-  }
 
   .ProblemButton {
     padding: 8px;
@@ -89,13 +69,7 @@
 
 @media screen and (max-width:426px) {
 
-  .ProblemTitle {
-    font-size: 33px;
-  }
 
-  .ProblemText {
-    font-size: 15px;
-  }
 
   .ProblemButton {
     padding: 9px;
@@ -103,17 +77,12 @@
     width: 65%;
   }
 
-  .ProblemImageSeaction {
-    width: 100%;
-  }
+ 
 
 }
 
 
 @media screen and (max-width:376px) { 
 
-  .ProblemTitle {
-    font-size: 28px;
-  }
-
+ 
 }

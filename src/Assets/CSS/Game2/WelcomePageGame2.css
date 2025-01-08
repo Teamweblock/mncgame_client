@@ -4,6 +4,7 @@
     height: 100vh;
 }
 
+
 .welcome-title {
     position: absolute;
     top: 50%;
@@ -187,3 +188,5 @@
         height: 115vh;
     }
 }
+
+/*  */

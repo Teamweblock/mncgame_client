@@ -1,13 +1,10 @@
-
-
 .Game1-bg2 {
   background-image: url(/src/Assets/gameimages/img1.jpg);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
 }
-
 
 .timer {
   text-align: center;
@@ -57,8 +54,7 @@
   height: 40px;
   position: absolute;
   top: 10%;
-  left: 15%;
-
+  left: 16%;
 }
 
 .icon6-game1 {
@@ -66,7 +62,6 @@
   height: 10%;
   left: 13%;
   bottom: 18%;
-
 }
 
 .players-group {
@@ -84,10 +79,7 @@
   height: 100px;
 }
 
-.game1-width {
-  width: 70%;
-  margin: auto;
-}
+
 
 .multiple-player-part {
   position: absolute;
@@ -100,23 +92,7 @@
   margin-top: 50px;
 }
 
-.question-box {
-  background-color: white;
-  padding: 20px;
-  color: black;
-  border-radius: 20px;
-  font-size: 20px;
-  text-align: center;
 
-  background: rgb(55, 212, 241);
-  background: linear-gradient(0deg,
-      rgba(55, 212, 241, 1) 0%,
-      rgba(195, 242, 251, 1) 0%,
-      rgba(213, 246, 252, 1) 23%,
-      rgba(205, 244, 252, 1) 47%,
-      rgba(255, 255, 255, 1) 100%);
-  font-weight: 600;
-}
 
 .text-center {
   text-align: center;
@@ -127,7 +103,8 @@
   color: white;
   border: none;
   padding: 10px 50px;
-  border-radius: 20px;
+  width: 200px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 20px;
   text-align: center;
@@ -136,13 +113,13 @@
 
 .next-button:hover {
   background-color: white;
-  color: black;
+  color: darkorange;
   transition: 0.3s;
 }
 
 .show-btn:hover {
   background-color: white;
-  color: black;
+  color: darkorange;
   transition: 0.3s;
 }
 
@@ -155,33 +132,33 @@
   .multiple-player-part {
     margin-top: 200px;
   }
-
 }
 
-@media screen and (max-width:715px) {
+@media screen and (max-width: 715px) {
   .multiple-player-part {
     margin-top: 250px;
   }
 }
 
-@media screen and (max-width:769px) {
-
+@media screen and (max-width: 769px) {
   .players-group {
     top: 15%;
     right: 38%;
   }
+  .avtar-img {
+    width: 60px;
+    height: 60px;
+  }
 }
 
-@media screen and (max-width:575px) {
-
+@media screen and (max-width: 575px) {
   .players-group {
     top: 15%;
     right: 32%;
   }
 }
 
-@media screen and (max-width:525px) {
-
+@media screen and (max-width: 525px) {
   .players-group {
     top: 15%;
     right: 32%;
@@ -194,95 +171,75 @@
   }
 }
 
-@media screen and (max-width:553px) {
+@media screen and (max-width: 553px) {
   /* .multiple-player-part {
     margin-top: 300px;
   } */
-
 }
 
-@media screen and (max-width:640px) {
+@media screen and (max-width: 640px) {
   .solution-box input {
     font-size: 15px;
   }
 }
 
-@media screen and (max-width:1234px) {
+@media screen and (max-width: 1234px) {
   /* .Game1-bg {
     height: 130vh;
   } */
 }
 
-@media screen and (max-width:453px) {
-
+@media screen and (max-width: 453px) {
   .players-group {
     margin-top: 15%;
   }
 }
 
-@media screen and (max-width:351px) {
-
+@media screen and (max-width: 351px) {
   .players-group {
     margin-top: 20%;
   }
 }
 
-@media screen and (max-width:383px) {
+@media screen and (max-width: 383px) {
   /* .Game1-bg {
     height: 140vh;
   } */
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   .icon3-game1 {
     left: 1%;
   }
 }
 
-@media screen and (max-width:1334px) {
-  .Game1-bg2 {
-    height: 120vh;
-
-  }
+@media screen and (max-width: 1334px) {
 }
 
-@media screen and (max-width:810px) {
-  .Game1-bg2 {
-    height: 140vh;
+@media screen and (max-width: 810px) {
 
-  }
 }
 
-@media screen and (max-width:714px) {
-  .Game1-bg2 {
-    height: 150vh;
-  }
+@media screen and (max-width: 714px) {
+
 }
 
-@media screen and (max-width:670px) {
-  .Game1-bg2 {
-    height: 160vh;
+@media screen and (max-width: 670px) {
 
-  }
 }
 
-@media screen and (max-width:657px) {
+@media screen and (max-width: 657px) {
   .multiple-player-part {
     margin-top: 385px;
   }
 }
 
-@media screen and (max-width:552px) {
-  .Game1-bg2 {
-    height: 170vh;
+@media screen and (max-width: 552px) {
 
-  }
 }
 
-@media screen and (max-width:480px) {
-  .Game1-bg2 {
-    height: 170vh;
-  }
+@media screen and (max-width: 480px) {
+
 
   .players-group {
     top: 15%;
@@ -291,7 +248,6 @@
 }
 
 @media screen and (max-width: 440px) {
-
   .players-group {
     top: 15%;
     right: 25%;
@@ -299,27 +255,21 @@
 }
 
 @media screen and (max-width: 420px) {
-
   .players-group {
     top: 15%;
     right: 26%;
   }
 }
 
-@media screen and (max-width:375px) {
-
+@media screen and (max-width: 375px) {
   .players-group {
     top: 15%;
     right: 23%;
   }
-
 }
 
 @media screen and (max-width: 320px) {
 
-  .Game1-bg2 {
-    height: 230vh;
-  }
 
   .players-group {
     top: 15%;

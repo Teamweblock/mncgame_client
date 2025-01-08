@@ -46,7 +46,7 @@
     border-radius: 25px;
     overflow: hidden;
     margin-bottom: 10px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
   }
   .progress-bar-label {
     font-size: 16px;
