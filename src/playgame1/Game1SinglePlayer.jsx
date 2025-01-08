@@ -5,8 +5,8 @@ import icon1 from "../Assets/gameimages/icon1.png";
 import icon2 from "../Assets/gameimages/icon4.png";
 import logo from "../Assets/gameimages/mnclogo2.png";
 import {
-  getQuestionsForLevel,
-  submitGame1Answer,
+  getQuestionsForsingleLevel,
+  submitGame1singleAnswer,
 } from "../utils/axiosInstance";
 import { toast } from "react-toastify";
 
@@ -19,6 +19,7 @@ const Game1SinglePlayer = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [levelNumber, setLevelNumber] = useState(null);
   const [playerType, setPlayerType] = useState(null);
+  const [loading, setLoading] = useState(true); // Track loading state
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -36,24 +37,27 @@ const Game1SinglePlayer = () => {
   const handleNextQuestion = async () => {
     // e.preventDefault();
     try {
-      if (currentQuestionIndex <= playerData.length - 1) {
+      if (currentQuestionIndex <= playerData?.length - 1) {
         if (userAnswer?.trim() === "") {
           alert("Please enter an answer before proceeding.");
           return; // Don't proceed if the input is empty
         }
+        console.log("playerData", playerData);
 
         const payload = {
           level: levelNumber,
           answers: userAnswer,
-          questionId: playerData[currentQuestionIndex]?.questionId?._id,
+          questionId:
+            playerData[currentQuestionIndex]?.questionId?._id ||
+            playerData[currentQuestionIndex]?._id,
           index: currentQuestionIndex,
         };
-        const response = await submitGame1Answer(JSON.stringify(payload));
+        const response = await submitGame1singleAnswer(JSON.stringify(payload));
 
         if (response?.success === true) {
           setUserAnswer("");
           // Check if it's the last question
-          if (currentQuestionIndex === playerData.length - 1) {
+          if (currentQuestionIndex === playerData?.length - 1) {
             // Clear only the `currentQuestionIndex` for the specific `levelNumber`
             localStorage.removeItem(`currentQuestionIndex_${levelNumber}`);
             navigate("/game1result2");
@@ -70,34 +74,30 @@ const Game1SinglePlayer = () => {
       toast.error("There was an error while fetching data. Please try again.");
     }
   };
-  // The updated handleLevelClick function
-  const handleLevelClick = async (levelNumber, playerType) => {
-    // Construct the payload to be sent to the API
-    const payload = {
-      level: levelNumber,
-    };
-
-    // Define the API function to be called based on player type
-    let apiCall;
-    if (playerType === "single") {
-      apiCall = getQuestionsForLevel; // Use getQuestionsForLevel for single-player
+  // Fetch questions for the level when level and player type change
+  useEffect(() => {
+    if (levelNumber && playerType) {
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const data = await getQuestionsForsingleLevel(
+            { level: levelNumber },
+            navigate
+          );
+          if (data?.status === true) {
+            setPlayerData(data.formattedQuestions);
+          }
+        } catch (error) {
+          console.error("Error fetching questions", error);
+          toast.error("Failed to load questions.");
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchData();
     }
-    // if (playerType === "single") {
-    //   apiCall = getQuestionsForLevel; // Use getQuestionsForLevel for single-player
-    // } else if (playerType === "multiple") {
-    //   apiCall = joinMultipleGame; // Use joinMultipleGame for multiplayer
-    // }
+  }, [levelNumber, playerType]);
 
-    try {
-      const data = await apiCall(payload); // Call the appropriate API with the payload
-      if (data?.status === true) {
-        setPlayerData(data.formattedQuestions);
-      }
-    } catch (error) {
-      console.error("Error during API call:", error);
-      toast.error("An error occurred. Please try again.");
-    }
-  };
   const handleBack = () => {
     navigate("/game1players"); // Implement your back navigation here
   };
@@ -113,7 +113,7 @@ const Game1SinglePlayer = () => {
             <span className="dot2">:</span>
           </div>
           <div>
-            <span className="minutes-text">MINUTE</span>
+            <span className="text-white font-bold text-[1.2rem]">MINUTE</span>
           </div>
         </div>
         <div className="time-group">
@@ -124,7 +124,7 @@ const Game1SinglePlayer = () => {
             </span>
           </div>
           <div>
-            <span className="seconds-text">SECOND</span>
+            <span className="text-white font-bold text-[1.2rem]">SECOND</span>
           </div>
         </div>
       </div>
@@ -170,8 +170,9 @@ const Game1SinglePlayer = () => {
             clearInterval(timerId);
 
             // Check if we are on the last question
-            if (currentQuestionIndex >= playerData.length - 1) {
-              navigate("/game1result2"); // Navigate to results
+            if (currentQuestionIndex >= playerData?.length - 1) {
+              handleNextQuestion();
+              // navigate("/game1result2"); // Navigate to results
             } else {
               setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // Move to next question
               setTimeLeft(180); // Reset timer
@@ -187,33 +188,31 @@ const Game1SinglePlayer = () => {
   }, [countdown, currentQuestionIndex, playerData?.length, navigate]);
 
   useEffect(() => {
-    if (levelNumber && playerType) {
-      handleLevelClick(levelNumber, playerType);
-    }
-  }, [levelNumber, playerType]);
-
-  useEffect(() => {
     if (levelNumber) {
+      // Retrieve the saved index from localStorage
       const savedIndex = localStorage.getItem(
         `currentQuestionIndex_${levelNumber}`
       );
-      setCurrentQuestionIndex(savedIndex ? parseInt(savedIndex, 10) : 0);
+      // Parse and set the current question index, defaulting to 0 if none is found
+      setCurrentQuestionIndex(savedIndex ? Number(savedIndex) : 0);
     }
   }, [levelNumber]);
 
-  // Save the currentQuestionIndex to localStorage whenever it updates
   useEffect(() => {
-    if (levelNumber !== null) {
+    if (levelNumber) {
+      // Save the currentQuestionIndex to localStorage when it updates
       localStorage.setItem(
         `currentQuestionIndex_${levelNumber}`,
-        currentQuestionIndex
+        currentQuestionIndex // Convert to string for storage
       );
     }
   }, [currentQuestionIndex, levelNumber]);
 
   return (
     <div className="Game1-sinlgeplayer-bg">
-      <img src={logo} className="mnc-logo" />
+      <a href="/">
+        <img src={logo} className="mnc-logo flex justify-center items-center" />
+      </a>
       <img
         src={icon1}
         className="icon3-game1 parallax-layer"
@@ -224,60 +223,81 @@ const Game1SinglePlayer = () => {
         className="icon4-game1 parallax-layer"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
       />
-      <div className="game1-width">
-        <div className="single-player-part">
-          {countdown > 0 && (
-            <div className="countdown">
-              <h2> {countdown}</h2>
-            </div>
-          )}
-          {countdown === 0 && <p className="timer">{formatTime(timeLeft)}</p>}
-          {playerData?.length > 0 ? (
-            <>
-              <div className="questions-game1">
-                <div className="question-box">
-                  <h3>Question {currentQuestionIndex + 1}</h3>
-                  <p>{playerData[currentQuestionIndex]?.questionText}</p>
-                </div>
-                <div className="solution-box">
-                  <input
-                    type="text"
-                    placeholder="Type Your Solution"
-                    value={userAnswer} // Bind the input value with state
-                    onChange={handleInputChange} // Update state when input changes
-                  />
-                </div>
-              </div>
-            </>
-          ) : (
-            <div className="loading-container">
-              <p>Loading questions...</p>
-            </div>
-          )}
-          <div className="text-center d-sm-flex flex-sm-wrap justify-content-sm-center">
-            {currentQuestionIndex === 0 && (
-              <div className="">
-                <button className="next-button me-md-3" onClick={handleBack}>
-                  Back
-                </button>
-              </div>
-            )}
-            {currentQuestionIndex < playerData.length - 1 ? (
-              <div className="">
-                <button className="next-button" onClick={handleNextQuestion}>
-                  Next
-                </button>
-              </div>
-            ) : (
-              <div className="">
-                <button className="show-button" onClick={handleNextQuestion}>
-                  Show Results
-                </button>
-              </div>
-            )}
-          </div>
+      {loading ? (
+        <div className="loading-container">
+          <p>Loading questions...</p>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="game1-width max-md:w-[90%] w-[70%] mx-auto">
+            <div className="single-player-part">
+              {countdown > 0 && (
+                <div className="countdown">
+                  <h2> {countdown}</h2>
+                </div>
+              )}
+              {countdown === 0 && (
+                <p className="timer">{formatTime(timeLeft)}</p>
+              )}
+              {playerData?.length > 0 ? (
+                <>
+                  <div className="questions-game1">
+                    <div className="bg-gradient-to-t from-[#37d4f1] via-[#c3f2fb] to-white max-md:w-full text-[17px] md:text-[1.4rem] font-semibold  items-center  rounded-lg text-center md:py-5 max-md:py-3  justify-center">
+                      {/* <h4>
+                    Question {currentQuestionIndex + 1} {"-"}
+                  </h4> */}
+                      <p>{playerData[currentQuestionIndex]?.question}</p>
+                    </div>
+
+                    <input
+                      type="text"
+                      className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black "
+                      placeholder="Type Your Solution"
+                      value={userAnswer} // Bind the input value with state
+                      onChange={handleInputChange} // Update state when input changes
+                    />
+                  </div>
+                </>
+              ) : (
+                <div className="loading-container">
+                  <p>Loading questions...</p>
+                </div>
+              )}
+              <div className="text-center d-sm-flex flex-sm-wrap justify-content-sm-center">
+                {currentQuestionIndex === 0 && (
+                  <div className="">
+                    <button
+                      className="next-button me-md-3"
+                      onClick={handleBack}
+                    >
+                      Back
+                    </button>
+                  </div>
+                )}
+                {currentQuestionIndex < playerData?.length - 1 ? (
+                  <div className="">
+                    <button
+                      className="next-button"
+                      onClick={handleNextQuestion}
+                    >
+                      Next
+                    </button>
+                  </div>
+                ) : (
+                  <div className="">
+                    <button
+                      className="show-button text-nowrap"
+                      onClick={handleNextQuestion}
+                    >
+                      Show Results
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

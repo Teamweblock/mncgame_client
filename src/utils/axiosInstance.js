@@ -7,8 +7,6 @@ const axiosInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
-
-
 const axiosApi = axios.create({
   baseURL: "http://localhost:8000",
   headers: {
@@ -35,9 +33,9 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response && error.response.status === 401) {
       // Token expired
-      localStorage.removeItem('token');
-      alert('Session expired. Please log in again.');
-      window.location.href = '/login';
+      localStorage.removeItem("token");
+      alert("Session expired. Please log in again.");
+      window.location.href = "/login";
     }
     return Promise.reject(error);
   }
@@ -54,7 +52,9 @@ export const signUp = async (payload) => {
     }
   } catch (error) {
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return false; // Return false to indicate failure
   }
@@ -69,7 +69,9 @@ export const signIn = async (payload) => {
     }
   } catch (error) {
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return false; // Return false to indicate failure
   }
@@ -84,7 +86,9 @@ export const googleAuth = async (payload) => {
     }
   } catch (error) {
     const errorMessage =
-      error?.response?.data?.message || error?.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error?.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return false; // Return false to indicate failure
   }
@@ -99,7 +103,9 @@ export const forgotPassword = async (payload) => {
     }
   } catch (error) {
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return false; // Return false to indicate failure
   }
@@ -114,7 +120,9 @@ export const resetaPassword = async (payload) => {
     }
   } catch (error) {
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return false; // Return false to indicate failure
   }
@@ -122,7 +130,10 @@ export const resetaPassword = async (payload) => {
 
 export const Check1validlevel = async (payload) => {
   try {
-    const response = await axiosInstance.post("/firstGame/checkVaildlevel", payload);
+    const response = await axiosInstance.post(
+      "/firstGame/checkVaildlevel",
+      payload
+    );
     if (response && response?.status === 200) {
       return true; // Return true to indicate success
     }
@@ -130,7 +141,30 @@ export const Check1validlevel = async (payload) => {
     return false; // Return false to indicate failure
   } catch (error) {
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false; // Return false to indicate failure
+  }
+};
+
+export const checkmultiVaildlevel = async (payload) => {
+  try {
+    const response = await axiosInstance.post(
+      "/firstGame/checkmultiVaildlevel",
+      payload
+    );
+    if (response && response?.status === 200) {
+      return true; // Return true to indicate success
+    }
+    toast.error("Unexpected response from the server.");
+    return false; // Return false to indicate failure
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return false; // Return false to indicate failure
   }
@@ -138,7 +172,10 @@ export const Check1validlevel = async (payload) => {
 
 export const joinmultipleGame = async (payload) => {
   try {
-    const response = await axiosInstance.post("/firstGame/joinmultipleGame", payload);
+    const response = await axiosInstance.post(
+      "/firstGame/joinmultipleGame",
+      payload
+    );
     if (response && response?.status === 200) {
       return response.data;
     }
@@ -146,17 +183,40 @@ export const joinmultipleGame = async (payload) => {
     return false; // Return false to indicate failure
   } catch (error) {
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false; // Return false to indicate failure
+  }
+};
+
+export const joinmeetGame = async (payload) => {
+  try {
+    const response = await axiosInstance.post(
+      "/thirdGame/joinmeetGame",
+      payload
+    );
+    if (response && response?.status === 200) {
+      return response.data;
+    }
+    toast.error("Unexpected response from the server.");
+    return false; // Return false to indicate failure
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return false; // Return false to indicate failure
   }
 };
 
 // The API call for getting questions for a specific level
-export const getQuestionsForLevel = async (payload) => {
+export const getQuestionsForsingleLevel = async (payload, navigate) => {
   try {
     const response = await axiosInstance.post(
-      "/firstGame/getQuestionsForLevel",
+      "/firstGame/single/getQuestionsForLevel",
       payload
     );
 
@@ -171,8 +231,51 @@ export const getQuestionsForLevel = async (payload) => {
   } catch (error) {
     // Handle errors
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error?.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
+    // Check for specific error message and navigate
+    if (
+      error?.response?.status === 400 &&
+      errorMessage === "You have already completed this level."
+    ) {
+      navigate("/game1singlelevelpage"); // Replace '/specific-path' with the desired route
+    }
+    return null; // Return null to indicate failure
+  }
+};
+
+// The API call for getting questions for a specific level
+export const getQuestionsFormultipleLevel = async (payload, navigate) => {
+  try {
+    const response = await axiosInstance.post(
+      "/firstGame/multiple/getQuestionsForLevel",
+      payload
+    );
+
+    // Check if the response is successful
+    if (response && response?.status === 200) {
+      toast.success("Level questions fetched successfully.");
+      return response.data; // Return the actual data
+    }
+    // Handle unexpected status codes
+    toast.error("Unexpected response from the server.");
+    return null;
+  } catch (error) {
+    // Handle errors
+    const errorMessage =
+      error?.response?.data?.message ||
+      error?.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    // Check for specific error message and navigate
+    if (
+      error?.response?.status === 400 &&
+      errorMessage === "You have already completed this level."
+    ) {
+      navigate("/game1multiplelevelpage"); // Replace '/specific-path' with the desired route
+    }
     return null; // Return null to indicate failure
   }
 };
@@ -180,10 +283,7 @@ export const getQuestionsForLevel = async (payload) => {
 // The API call for joining a multiplayer game
 export const joinMultipleGame = async (payload) => {
   try {
-    const response = await axiosInstance.post(
-      "/firstGame/joinmultipleGame",
-      payload
-    );
+    const response = await axiosInstance.post("/joinmultipleGame", payload);
     // Check if the response is successful
     if (response && response?.status === 200) {
       toast.success("Joined multiplayer game successfully.");
@@ -195,15 +295,20 @@ export const joinMultipleGame = async (payload) => {
   } catch (error) {
     // Handle errors
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return null; // Return null to indicate failure
   }
 };
 
-export const submitGame1Answer = async (payload) => {
+export const submitGame1singleAnswer = async (payload) => {
   try {
-    const response = await axiosInstance.post("/firstGame/submitanswer", payload);
+    const response = await axiosInstance.post(
+      "/firstGame/submitanswer",
+      payload
+    );
     // Check if the response is successful
     if (response && response?.status === 200) {
       toast.success("Answer submitted successfully.");
@@ -215,7 +320,34 @@ export const submitGame1Answer = async (payload) => {
   } catch (error) {
     // Handle errors
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return null; // Return null to indicate failure
+  }
+};
+
+export const submitGame1Answer = async (payload) => {
+  try {
+    const response = await axiosInstance.post(
+      "/firstGame/multiple/submitanswer",
+      payload
+    );
+    // Check if the response is successful
+    if (response && response?.status === 200) {
+      toast.success("Answer submitted successfully.");
+      return response.data; // Return the actual data
+    }
+    // Handle unexpected status codes
+    toast.error("Unexpected response from the server.");
+    return null;
+  } catch (error) {
+    // Handle errors
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return null; // Return null to indicate failure
   }
@@ -223,7 +355,7 @@ export const submitGame1Answer = async (payload) => {
 
 // The API call for getting questions for a specific level
 export const get1GameResult = async (payload) => {
-  console.log('payload', payload);
+  console.log("payload", payload);
 
   try {
     const response = await axiosInstance.post(
@@ -241,7 +373,9 @@ export const get1GameResult = async (payload) => {
   } catch (error) {
     // Handle errors
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return null; // Return null to indicate failure
   }
@@ -251,7 +385,10 @@ export const get1GameResult = async (payload) => {
 
 export const Check2validlevel = async (payload) => {
   try {
-    const response = await axiosInstance.post("/secoundGame/checkVaildlevel", payload);
+    const response = await axiosInstance.post(
+      "/secoundGame/checkVaildlevel",
+      payload
+    );
     if (response && response?.status === 200) {
       return true; // Return true to indicate success
     }
@@ -259,7 +396,9 @@ export const Check2validlevel = async (payload) => {
     return false; // Return false to indicate failure
   } catch (error) {
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return false; // Return false to indicate failure
   }
@@ -283,7 +422,9 @@ export const get2GameQuestions = async (payload) => {
   } catch (error) {
     // Handle errors
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return null; // Return null to indicate failure
   }
@@ -291,7 +432,10 @@ export const get2GameQuestions = async (payload) => {
 
 export const submitGame2Answer = async (payload) => {
   try {
-    const response = await axiosInstance.post("/secoundGame/submitanswer", payload);
+    const response = await axiosInstance.post(
+      "/secoundGame/submitanswer",
+      payload
+    );
     // Check if the response is successful
     if (response && response?.status === 200) {
       toast.success("Answer submitted successfully.");
@@ -303,7 +447,9 @@ export const submitGame2Answer = async (payload) => {
   } catch (error) {
     // Handle errors
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return null; // Return null to indicate failure
   }
@@ -311,8 +457,6 @@ export const submitGame2Answer = async (payload) => {
 
 // The API call for getting questions for a specific level
 export const get2GameResult = async (payload) => {
-  console.log('payload', payload);
-
   try {
     const response = await axiosInstance.post(
       "/secoundGame/getplayerResult",
@@ -329,7 +473,9 @@ export const get2GameResult = async (payload) => {
   } catch (error) {
     // Handle errors
     const errorMessage =
-      error?.response?.data?.message || error.message || "An error occurred. Please try again.";
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
     toast.error(errorMessage);
     return null; // Return null to indicate failure
   }

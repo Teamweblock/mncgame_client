@@ -26,18 +26,18 @@ const AddSkill = () => {
   return (
     <>
       <div>
-        <div className="addskill-part-main">
-          <div className="addskill-part-1">
-            <div className="skill-part1" style={{ marginTop: "130px" }}>
-              <h2 className="AddSkill">
+        <div className="addskill-part-main ">
+          <div className="addskill-part-1 lg:w-[70%] w-[90%] mx-auto  ">
+            <div className=" max-lg:mt-[600px] lg:mt-[130px] xl:mt-[250px] lg:w-[45%] w-full   max-lg:text-center flex justify-center  flex-col  max-lg:mx-auto" >
+              <h2 className=" max-lg:text-3xl max-sm:text-2xl text-5xl font-bold text-[#112e58] max-lg:text-center">
                 Are you ready to put your entrepreneurial skills to the test?
               </h2>
-              <p className="AddSkillSubText">
+              <p className="text-gray-400 font-medium text-[1.2rem]">
                 Build , strategize , complete Ultimate online business simulation
                 game.... Join now !
               </p>
               <input
-                className="skill-input"
+                className="skill-input outline-none text-gray-400 font-medium text-[1.2rem] mt-5 px-2"       
                 placeholder="Search games..."
                 type="text"
               />

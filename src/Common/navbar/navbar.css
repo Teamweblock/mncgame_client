@@ -81,15 +81,14 @@ padding: 12px;
 .navbar {
   width: 100%;
   display: flex;
-  justify-content: right !important;
-
+  /* justify-content: right !important; */
 padding-bottom: 50px;
 margin-top: 50px;
   background: transparent;
   position: relative;
   align-items: center;
   box-sizing: border-box;
-  padding-right: 50px;
+  /* padding-right: 50px; */
 }
 .navbar-menu {
   margin-bottom: 0px !important;
@@ -124,9 +123,9 @@ margin-top: 50px;
 
 }
 
-.navbar-menu li {
+/* .navbar-menu li {
 
-}
+} */
 
 .navbar-menu li a {
   text-decoration: none;

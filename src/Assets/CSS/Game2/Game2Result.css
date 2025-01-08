@@ -75,11 +75,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+/* 
 .game2result-width {
-  /* width: 80%;
-  margin: auto; */
-}
+  width: 80%;
+  margin: auto;
+} */
 
 .text-white1 {
   color: white;
@@ -123,8 +123,8 @@
   line-height: 0.2;
 }
 
-.text-centergame2 {
-}
+/* .text-centergame2 {
+} */
 
 @media screen and (max-width: 645px) {
   .Game2-bg {
@@ -140,4 +140,31 @@
 
 @media screen and (max-width: 1186px) {
   /* .Game2-bg {} */
+}
+
+.btnhome{
+  background-color: #ff8c00;
+  color: white;
+ height: 50px;
+ width: 200px;
+ border-radius: 10px;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: 700
+}
+.btnhome:hover{
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.new-result{
+   
+  background-image: url("/src/Assets/gameimages/img7.png");
+      background-size: cover; /* Ensures the image covers the entire area */
+      background-position: center; /* Centers the image */
+      background-repeat: no-repeat; /* Prevents tiling */
+      width: 100%; /* Full width */
+      height: 100vh; /* Full viewport height */
+
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import LoginPage from "./Auth/LoginPage";
@@ -37,11 +37,21 @@ import Footer from "../src/Common/Footer";
 import AboutPage from "./componets/AboutPage";
 import Contact from "./Auth/Contact";
 import { ToastContainer } from "react-toastify";
-import Game1LevelPage from "./playgame1/Game1LevelPage";
 import Game2LevelPage from "./playgame2/Game2LevelPage";
 import ForgotPassword from "./Auth/ForgotPassword";
 import ResetPassword from "./Auth/ResetPassword";
 import Game1WaitingPage from "./playgame1/Game1WaitingPage";
+import Overview from "./Profile/OverView";
+import Statics from "./Profile/Statics";
+import UpdateProfile from "./Profile/UpdateProfile";
+import CheckMail from "./Auth/CheckMail";
+import Congrates from "./Auth/Congrates";
+import Game1SingleLevelPage from "./playgame1/Game1SingleLevelPage";
+import Game1MultipleLevelPage from "./playgame1/Game1MultipleLevelPage";
+import SwipeSide from "./Home/Testimonials";
+import MultiplayerWaitingPage from "./playgame1/MultiplayerWaitingPage";
+import Popup from "./playgame1/Popup";
+import MeetplayerWaitingPage from "./playgame3/waitingpage";
 
 const App = () => {
   const location = useLocation();
@@ -103,10 +113,16 @@ const App = () => {
     "/game1result",
     "/welcomepagegame2",
     "/game1result2",
-    "/game1levelpage",
     "/game2levelpage",
+    "/user-profile",
+    // "/game1levelpage",
+    "/game1singlelevelpage",
+    "/game1multiplelevelpage",
+    "/user-profile",
+    "/waiting-player",
+    "/meetwaiting-player",
+    // "/",
   ];
-
   return (
     <div>
       {!noNavbarPaths.includes(location.pathname) && <Navbar />}
@@ -126,7 +142,15 @@ const App = () => {
         <Route path="/game1waiting" element={<Game1WaitingPage />} />
         <Route path="/game1result" element={<Game1Result />} />
         <Route path="/game1result2" element={<Game1Result2 />} />
-        <Route path="/game1levelpage" element={<Game1LevelPage />} />
+        {/* <Route path="/game1levelpage" element={<Game1LevelPage />} /> */}
+        <Route
+          path="/game1singlelevelpage"
+          element={<Game1SingleLevelPage />}
+        />
+        <Route
+          path="/game1multiplelevelpage"
+          element={<Game1MultipleLevelPage />}
+        />
         <Route path="/game2levelpage" element={<Game2LevelPage />} />
         <Route path="/welcomepagegame2" element={<WelcomePageGame2 />} />
         <Route path="/game2question" element={<Game2Questions />} />
@@ -134,6 +158,7 @@ const App = () => {
         <Route path="/chooserole" element={<ChooseRole />} />
         <Route path="/aboutrole" element={<AboutRole />} />
         <Route path="/endmeeting" element={<EndmeetingPage />} />
+        {/* <Route path="/game3result" element={<Game3Result />} /> */}
         <Route path="/game3result" element={<Game3Result />} />
         <Route path="/game2result" element={<Game2Result />} />
         <Route path="/videocall" element={<GroupVideoCall />} />
@@ -149,6 +174,17 @@ const App = () => {
         <Route path="/person3result" element={<Person3Result />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contactus" element={<Contact />} />
+
+        <Route path="/profile/overview" element={<Overview />} />
+        <Route path="/profile/statistics" element={<Statics />} />
+        <Route path="/profile/update" element={<UpdateProfile />} />
+        <Route path="/checkMail" element={<CheckMail />} />
+        <Route path="/congrates" element={<Congrates />} />
+
+        <Route path="/swipersie" element={<SwipeSide />} />
+        <Route path="/waiting-player" element={<MultiplayerWaitingPage />} />
+        <Route path="/popup" element={<Popup />} />
+        <Route path="/meetwaiting-player" element={<MeetplayerWaitingPage />} />
       </Routes>
       {!noNavbarPaths.includes(location.pathname) && <Footer />}
       <ToastContainer />

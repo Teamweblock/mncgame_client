@@ -23,7 +23,13 @@ const Game2Questions = () => {
   const handleNextClick = async () => {
     // e.preventDefault();
     try {
-      if (currentIndex <= playerData.length - 1) {
+      if (currentIndex <= playerData?.length - 1) {
+        console.log("selectedOption", selectedOption);
+
+        if (selectedOption?.trim() === "" || selectedOption === null) {
+          alert("Please enter an answer before proceeding.");
+          return; // Don't proceed if the input is empty
+        }
         const payload = {
           level: levelNumber,
           answers: selectedOption,
@@ -34,14 +40,12 @@ const Game2Questions = () => {
         const response = await submitGame2Answer(JSON.stringify(payload));
         if (response?.success === true) {
           // Check if it's the last question
-          if (currentIndex === playerData.length - 1) {
+          if (currentIndex === playerData?.length - 1) {
             setShowResults(true);
-            // Clear all localStorage except the token
-            localStorage.removeItem(`currentIndex${levelNumber}`);
+            // Clear only the `currentIndex` for the specific `levelNumber`
+            localStorage.removeItem(`currentIndex_${levelNumber}`);
             navigate("/game2result");
           } else {
-            console.log("check");
-
             if (!isQuizEnded) {
               setCurrentIndex((prevIndex) => prevIndex + 1);
               setSelectedOption(null);
@@ -121,10 +125,17 @@ const Game2Questions = () => {
       localStorage.setItem(`currentIndex_${levelNumber}`, currentIndex);
     }
   }, [currentIndex, levelNumber]);
-
   return (
     <div className="Game2-bg">
-      <img src={logo} className="mnc-logo" alt="logo" />
+      <a href="/">
+        <img
+          src={logo}
+          className="absolute top-[10%] left-[8%] max-md:left-[5%]"
+          alt="logo"
+          height={45}
+          width={100}
+        />
+      </a>
       <img
         src={icon1}
         className="icon10-game1 parallax-layer"
@@ -133,68 +144,58 @@ const Game2Questions = () => {
       />
       <img
         src={icon2}
-        className="icon11-game1 parallax-layer"
+        className="icon11-game1 parallax-layer max-md:hidden"
         style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         alt="icon2"
       />
-      {playerData?.length > 0 ? (
-        <>
-          <div className="game2-question-part">
-            <div className="game2-width">
-              <div className="card-container">
-                <div className="question-box">
-                  <p>
-                    {currentIndex + 1}.{" "}
-                    {playerData && playerData[currentIndex]
-                      ? playerData[currentIndex]?.questionText
-                      : "Loading..."}
-                  </p>
-                </div>
-                <div className="option-card">
-                  {playerData[currentIndex]?.options?.map(
-                    (optionText, index) => {
-                      const optionLetter = String.fromCharCode(65 + index); // Convert index to A, B, C, D
-                      return (
-                        <div
-                          key={optionLetter}
-                          className={`card-option${
-                            index + 1
-                          } card-content content${optionLetter} ${
-                            selectedOption === optionLetter ? "selected" : ""
-                          }`}
-                          onClick={() => handleOptionClick(optionLetter)}
-                        >
-                          <div className="card-content1">
-                            <h1>{optionLetter}.</h1>
-                            <div className={`option${optionLetter}`}>
-                              {optionText}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    }
-                  )}
-                </div>
-                {!showResults && !isQuizEnded && (
-                  <button onClick={handleNextClick} className="next-button">
-                    Next
-                  </button>
-                )}
-                {isQuizEnded && (
-                  <button
-                    onClick={handleNextClick}
-                    className="show-results-button"
-                  >
-                    Show Results
-                  </button>
-                )}
-              </div>
+      <div className=" w-[80%] mx-auto max-md:w-[90%] pt-20">
+        <div className="game2-width">
+          <div className="card-container">
+            <div className="bg-white px-2 max-md:w-full text-[17px] md:text-[1.4rem] font-semibold  items-center  rounded-lg text-center md:py-10 max-md:py-4  justify-center">
+              <p>
+                {currentIndex + 1}.{" "}
+                {playerData && playerData[currentIndex]
+                  ? playerData[currentIndex]?.questionText
+                  : "Loading..."}
+              </p>
             </div>
+            <div className="grid grid-cols-2 gap-8 max-lg:grid-cols-1 pt-10">
+              {playerData[currentIndex]?.options?.map((optionText, index) => {
+                const optionLetter = String.fromCharCode(65 + index); // Convert index to A, B, C, D
+                return (
+                  <div
+                    key={optionLetter}
+                    className={`card-option${
+                      index + 1
+                    } card-content content${optionLetter} ${
+                      selectedOption === optionLetter ? "selected" : ""
+                    }`}
+                    onClick={() => handleOptionClick(optionLetter)}
+                  >
+                    {/* card-content1 */}
+                    <div className="flex items-center justify-start gap-6 absolute left-10">
+                      <h2>{optionLetter}.</h2>
+                      <div className={`option${optionLetter} pb-2`}>
+                        {optionText}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {!showResults && !isQuizEnded && (
+              <button onClick={handleNextClick} className="next-button-game2">
+                Next
+              </button>
+            )}
+            {isQuizEnded && (
+              <button onClick={handleNextClick} className="show-results-button">
+                Show Results
+              </button>
+            )}
           </div>
-        </>
-      ) : (
-        <p>Loading questions...</p>
-      )}
+        </div>
+      </div>
 
       {/* <h6 className='game-footer-text'><span style={{fontWeight:"700", color:"white"}}>MULTI</span> NETWORKING COMPANY</h6> */}
     </div>

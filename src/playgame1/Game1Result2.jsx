@@ -34,7 +34,14 @@ const Game1Result2 = () => {
     navigate("/");
   };
   const selectLevelpage = () => {
-    navigate(`/game1levelpage?playerType=${playerType}`);
+    // Increment the level
+    const newLevelNumber = Number(levelNumber) + 1;
+    // Store the updated level back in localStorage
+    localStorage.setItem("levelNumber", newLevelNumber);
+    // Navigate to the new level with updated levelNumber in the URL
+    navigate(
+      `/game1singleplayer?levelNumber=${newLevelNumber}&playerType=${playerType}`
+    );
   };
   const handlegetresult = async () => {
     try {
@@ -75,15 +82,61 @@ const Game1Result2 = () => {
       setPlayerType(storedtype);
     }
   }, []);
+
+  const selectLevelPage = () => {
+    // Define the maximum level number (adjust this as per your requirements)
+    const maxLevel = 10;
+
+    // Increment the level
+    const newLevelNumber = Number(levelNumber) + 1;
+
+    // Check if the new level number is greater than or equal to 4 or exceeds maxLevel
+    if (newLevelNumber >= 4) {
+      alert("You have not moved to the next level.");
+      return; // Stop further execution
+    }
+    if (newLevelNumber >= maxLevel) {
+      // Show a message if the new level exceeds or is equal to maxLevel
+      alert(
+        "You have not moved to the next level. You've reached the maximum level."
+      );
+      return; // Stop further execution
+    }
+    // Store the updated level back in localStorage
+    localStorage.setItem("levelNumber", newLevelNumber);
+    // Navigate to the new level with updated levelNumber in the URL
+    navigate(
+      `/game1singleplayer?levelNumber=${newLevelNumber}&playerType=${playerType}`
+    );
+  };
+
   return (
     <>
       <div className="Game1-bg-result2">
-        <img src={logo} className="mnc-logo" />
-        <img
+        <div className=" px-10 flex items-center justify-between w-[90%] mx-auto max-lg:justify-center ">
+          <a href="/">
+            <img src={logo} className="" alt="Logo" />
+          </a>
+          <div className="gap-4 flex max-lg:hidden">
+            <button
+              onClick={selectLevelPage}
+              className="bg-[#ff5024] w-[200px]  text-white text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]"
+            >
+              NEXT LEVEL
+            </button>
+            <button
+              onClick={handleHome}
+              className="bg-[#ff5024] w-[200px]  text-white text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]"
+            >
+              EXIT{" "}
+            </button>
+          </div>
+        </div>
+        {/* <img
           src={icon1}
           className="icon7-game1 parallax-layer"
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-        />
+        /> */}
         <img
           src={icon1}
           className="icon8-game1 parallax-layer"
@@ -95,8 +148,77 @@ const Game1Result2 = () => {
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         />
         <div>
-          <h1 className="welldone-text">WELL DONE</h1>
-          <div className="players-width">
+          <div className="flex justify-center items-center mx-auto flex-col mt-5">
+            <img
+              src="./profileimg.png"
+              className="lg:h-[200px] lg:w-[200px] max-lg:h-[150px] max-lg:w-[150px] h-[100px] w-[100px] "
+              alt=""
+            />
+            <p className="text-white text-[1.5rem] max-sm:text-[1.2rem] font-bold mt-2">
+              Player 1
+            </p>
+            <p className="2xl:text-8xl text-4xl font-bold text-white max-sm:text-3xl mt-2">
+              CONGRATULATIONS
+            </p>
+            <div className="text-white text-[1.5rem] max-sm:text-[1.2rem] font-bold text-center mt-2">
+              <div>
+                Great work! Here's how your peers rated your performance.
+              </div>
+              <div>let's see your progress!</div>
+            </div>
+
+            <div className=" lg:w-[70%] w-full mx-auto flex  items-center mt-16 px-2 max-lg:hidden">
+              <h5 className="text-white text-[1.5rem] font-bold max-md:text-[1rem] ">
+                Non implementable
+              </h5>
+              <div className="progress-bar-container">
+                <div className="progress-bar">
+                  <div
+                    className="progress"
+                    style={{ width: `${playerResult}%` }}
+                  ></div>
+                </div>
+              </div>
+              <h5 className="text-white text-[1.5rem] font-bold max-md:text-[1rem]">
+                Implementable
+              </h5>
+            </div>
+            <div className="flex items-center  flex-col  mt-16 px-2 lg:hidden w-[90%]">
+              <div className="progress-bar-container">
+                <div className="progress-bar">
+                  <div
+                    className="progress"
+                    style={{ width: `${playerResult}%` }}
+                  ></div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between w-full mt-2">
+                <h5 className="text-white text-[1.5rem] font-bold max-md:text-[15px] ">
+                  Non implementable
+                </h5>
+                <h5 className="text-white text-[1.5rem] font-bold max-md:text-[15px]">
+                  Implementable
+                </h5>
+              </div>
+            </div>
+
+            <div className="gap-4 flex  flex-col lg:hidden mt-10 pb-4">
+              <button
+                className="bg-[#ff5024] w-[200px]  text-white text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]"
+                onClick={selectLevelpage}
+              >
+                NEXT LEVEL
+              </button>
+              <button
+                className="bg-[#ff5024] w-[200px]  text-white text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]"
+                onClick={handleHome}
+              >
+                EXIT
+              </button>
+            </div>
+          </div>
+          {/* <h1 className="welldone-text">WELL DONE</h1> */}
+          {/* <div className="players-width">
             <div className="player-group">
               <div className="player1">
                 <div>
@@ -116,7 +238,7 @@ const Game1Result2 = () => {
                     </p>
                   </div>
                   <div className="slider-container">
-                    <h5>Non implementable</h5>
+                    <h5>Non implementable ajau</h5>
                     <div className="progress-bar-container">
                       <div className="progress-bar">
                         <div
@@ -138,7 +260,7 @@ const Game1Result2 = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

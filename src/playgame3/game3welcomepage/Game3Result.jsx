@@ -1,117 +1,82 @@
+import React from "react";
+import backgroundImage from "../../Assets/gameimages/game3-background.png";
 
-import React, { useState } from "react";
-import img1 from "../../Assets/gameimages/img11.jpg";
-import icon1 from "../../Assets/gameimages/icon1.png"
-import logo from "../../Assets/gameimages/mnclogo2.png"
-
-import { useEffect } from "react";
-
-const Game3Result = () => {
-
-  const [percentage, setPercentage] = useState(40);
-  const [percentage2, setPercentage2] = useState(50);
-  const [percentage3, setPercentage3] = useState(70);
-  const [percentage4, setPercentage4] = useState(40);
-  const [percentage5, setPercentage5] = useState(89);  
-  
-
-    const [offset, setOffset] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const x = (window.innerWidth / 1 - clientX) / 120;
-    const y = (window.innerHeight / 1 - clientY) / 120;
-    setOffset({ x, y });
-  };
-
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+const ProgressCard = () => {
   return (
-    <>
-      <div className="game3-bg">
-      <img src={logo} className='mnc-logo'/>
-      <img src={icon1} className='icon1-game3' style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}/>
-        <div className="game3result-width">
-          <div className="result-group">
-            <div className="result-img-div">
-              <img className="result-img" src={img1} alt="Game result" />
-            </div>
-            <div className="result-range">
-              <div className="range-box">
-                <span className="progress-bar-label">
-                  CREATIVITY & INNOVATION
-                </span>
-                <div className="progress-bar">
-                  <div
-                    className="progress-bar-fill"
-                    style={{ width: `${percentage}%` }}
-                  >
-                    <span className="progress-bar-percentage">
-                      {percentage}%
-                    </span>
-                  </div>
-                </div>
+    <div
+      className="min-h-screen flex flex-col justify-center items-center bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${backgroundImage})`, // Replace with your background image URL
+      }}
+    >
+      {/* Header Section */}
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-extrabold text-white">CONGRATULATIONS</h1>
+        <p className="text-white mt-2">
+          Great work! Here’s how your peers rated your performance. Let’s see
+          your progress!
+        </p>
+      </div>
 
-                <span className="progress-bar-label2">STRATEGIC THINKING</span>
-                <div className="progress-bar">
-                  <div
-                    className="progress-bar-fill2"
-                    style={{ width: `${percentage2}%` }}
-                  >
-                    <span className="progress-bar-percentage">
-                      {percentage2}%
-                    </span>
-                  </div>
-                </div>
+      {/* Content Section */}
+      <div className="w-full max-w-6xl px-4">
+        {/* First Row: 3 Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          <div className="relative bg-purple-100 p-4 rounded-lg shadow-md">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-purple-600 rounded-t-lg"></div>
+            <p className="text-sm font-medium text-gray-700">
+              The average of your fundamental (Collaboration, Critical thinking,
+              Communication, E.Q) skills is
+            </p>
+            <h2 className="text-3xl font-bold text-purple-600 mt-2">05%</h2>
+          </div>
+          <div className="relative bg-blue-100 p-4 rounded-lg shadow-md">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600 rounded-t-lg"></div>
+            <p className="text-sm font-medium text-gray-700">
+              The average score of your Strategic thinking is
+            </p>
+            <h2 className="text-3xl font-bold text-blue-600 mt-2">95%</h2>
+          </div>
+          <div className="relative bg-green-100 p-4 rounded-lg shadow-md">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-green-600 rounded-t-lg"></div>
+            <p className="text-sm font-medium text-gray-700">
+              The average of your Management (Risk, Stakeholder, Relationship,
+              Crisis, and Time) skills is
+            </p>
+            <h2 className="text-3xl font-bold text-green-600 mt-2">37%</h2>
+          </div>
+        </div>
 
-                <span className="progress-bar-label3">FUNDAMENTAL SKILLS</span>
-                <div className="progress-bar">
-                  <div
-                    className="progress-bar-fill3"
-                    style={{ width: `${percentage3}%` }}
-                  >
-                    <span className="progress-bar-percentage">
-                      {percentage3}%
-                    </span>
-                  </div>
-                </div>
-
-                <span className="progress-bar-label4">MANAGEMENT SKILLS</span>
-                <div className="progress-bar">
-                  <div
-                    className="progress-bar-fill4"
-                    style={{ width: `${percentage4}%` }}
-                  >
-                    <span className="progress-bar-percentage">
-                      {percentage4}%
-                    </span>
-                  </div>
-                </div>
-
-                <span className="progress-bar-label5">
-                  OVERALL IMPACT AND CONFIGURATION
-                </span>
-                <div className="progress-bar">
-                  <div
-                    className="progress-bar-fill5"
-                    style={{ width: `${percentage5}%` }}
-                  >
-                    <span className="progress-bar-percentage">
-                      {percentage5}%
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Second Row: 2 Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center">
+          <div className="relative bg-yellow-100 p-4 rounded-lg shadow-md">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-yellow-600 rounded-t-lg"></div>
+            <p className="text-sm font-medium text-gray-700">
+              The average score of your creative and Innovative skills is
+            </p>
+            <h2 className="text-3xl font-bold text-yellow-600 mt-2">80%</h2>
+          </div>
+          <div className="relative bg-gray-100 p-4 rounded-lg shadow-md">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gray-600 rounded-t-lg"></div>
+            <p className="text-sm font-medium text-gray-700">
+              The average score of your overall impact and contribution is
+            </p>
+            <h2 className="text-3xl font-bold text-gray-600 mt-2">44%</h2>
           </div>
         </div>
       </div>
-    </>
+
+      {/* Footer Section */}
+      <div className="flex justify-center gap-6 mt-8">
+        <button className="bg-red-500 text-white px-10 py-2 rounded-full text-lg font-semibold shadow-md hover:bg-red-600">
+          Play Again
+        </button>
+        <button className="bg-white text-red-500 px-10 py-2 rounded-full text-lg font-semibold shadow-md hover:bg-red-100">
+          Exit
+        </button>
+      </div>
+    </div>
   );
 };
 
-export default Game3Result;
+export default ProgressCard;

@@ -29,15 +29,33 @@ const Game1Players = () => {
   // Navigate to the level page with playerType stored in local storage
   const handlePlayerLevel = (playerType) => {
     localStorage.setItem("playerType", playerType); // Save playerType to local storage
-    navigate(`/game1levelpage?playerType=${playerType}`);
+    console.log("playerType", playerType);
+
+    if (playerType == "multiple") {
+      navigate(`/game1multiplelevelpage`); // Navigate to the level page
+    } else if (playerType == "single") {
+      navigate(`/game1singlelevelpage`); // Navigate to the level page
+    }
   };
+
+  // Remove playerType from localStorage on initial load
+  useEffect(() => {
+    const storedPlayerType = localStorage?.getItem("playerType");
+    if (storedPlayerType) {
+      localStorage?.removeItem("playerType");
+      console.log("playerType removed from localStorage on first load.");
+    }
+  }, []);
 
   return (
     <>
-      <div className="game1-bg">
-        <a href="/">
-          <img src={logo} className="mnc-logo" alt="Logo" />
+      <div className="game1-bg  ">
+        <div className="lg:py-20 max-lg:py-6 w-[70%] flex lg:justify-start mx-auto cursor-pointer justify-center">
+
+        <a href="/" className="cursor-pointer">
+        <img src={logo} alt="Game Logo " height={50} width={120} />
         </a>
+        </div>
         <img
           src={icon1}
           className="icon3-game1 parallax-layer"
@@ -50,28 +68,32 @@ const Game1Players = () => {
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
           alt="Icon2"
         />
-        <div className="players-part">
-          <div className="single-player">
-            <img src={img1} className="player-img" alt="Single Player" />
-            <div className="center-btn" style={{ marginTop: "30px" }}>
+        <div className=" absolute inset-0 lg:justify-center lg:gap-20 pt-20  flex items-center max-lg:flex-col ">
+          <div className="flex flex-col  lg:gap-5  justify-center  ">
+            <img src={img1} className=" max-lg:h-[200px] max-lg:w-[200px] h-[350px] w-[350px] hover:scale-105 cursor-pointer  transition-transform duration-300 ease-in-out" alt="Single Player" 
+            // height={200}
+            // width={200}
+            />
               <button
-                className="players-btn"
+                className="players-btn  mx-auto mt-3"
                 onClick={() => handlePlayerLevel("single")}
               >
                 SINGLE PLAYER
               </button>
-            </div>
+          
           </div>
-          <div className="multi-player">
-            <img src={img2} className="player-img" alt="Multi Player" />
-            <div className="center-btn" style={{ marginTop: "30px" }}>
+          <div className="flex flex-col   justify-center  lg:gap-5 ">
+            <img src={img2} className="cursor-pointer max-lg:h-[200px] max-lg:w-[200px] h-[350px] w-[350px]   hover:scale-110 transition-transform duration-300 ease-in-out mb-2" alt="Multi Player"
+             
+            />
               <button
-                className="players-btn"
+                className="players-btn  mx-auto mt-3"
                 onClick={() => handlePlayerLevel("multiple")}
+                style={{hover:"white"}}
               >
                 MULTI PLAYER
               </button>
-            </div>
+              
           </div>
         </div>
       </div>

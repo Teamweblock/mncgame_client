@@ -1,15 +1,8 @@
-.EntrepreneurialMain {
-  width: 80%;
-  margin: auto;
-}
 
-.EntrepreneurialMainPaet {
-  width: 100%;
-  display: flex;
-}
+
+
 
 .EntrepreneurialImageSeaction {
-  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,11 +14,11 @@
   /* Smooth transition */
 }
 
-.EntrepreneurialTextSeacation {
+/* .EntrepreneurialTextSeacation {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .EntrepreneurialTitle {
   color: #012055;
@@ -102,9 +95,7 @@
     width: 60%;
   }
 
-  .EntrepreneurialImageSeaction {
-    width: 100%;
-  }
+ 
 
 }
 

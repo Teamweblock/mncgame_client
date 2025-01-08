@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* Full viewport height */
-  background-color: black; /* Optional: Add a contrasting background */
 }
 
 .loading-container p {
@@ -16,9 +15,9 @@
 .Game1-sinlgeplayer-bg {
   background-image: url("/src/Assets/gameimages/img1.jpg");
   width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  background-position: center;
+  min-height: 100vh;
+  background-position: cover;
+  background-repeat: no-repeat;
 }
 
 .timer {
@@ -45,10 +44,6 @@
   color: white;
 }
 
-.minutes-text {
-  color: white;
-  font-size: 20px;
-}
 
 .time-group {
   line-height: 40px;
@@ -59,10 +54,7 @@
   font-size: 130px;
 }
 
-.seconds-text {
-  color: white;
-  font-size: 20px;
-}
+
 
 .icon4-game1 {
   position: absolute;
@@ -72,14 +64,15 @@
 }
 
 .solution-box input {
-  width: 70%;
+  width: 90%;
   margin: auto;
   text-align: center;
-  height: 90px;
+ 
   border-radius: 10px;
   border: none;
   font-size: 20px;
   font-weight: 700;
+
 }
 
 .solution-box {
@@ -92,9 +85,10 @@
   color: white;
   border: none;
   padding: 10px 50px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 20px;
+  width: 200px;
 
   text-align: center;
   margin-top: 30px;
@@ -107,9 +101,9 @@
   padding: 10px 50px;
   border-radius: 20px;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 17px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .single-player-part {
@@ -117,7 +111,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50% , -50%); */
-  padding-top: 150px;
+  padding-top: 250px;
 }
 
 .countdown {
@@ -156,9 +150,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Game1-sinlgeplayer-bg {
-    height: 130vh !important;
-  }
+  
 
   .single-player-part {
     padding-top: 165px;
@@ -185,11 +177,6 @@
   }
 }
 
-@media screen and (max-width: 453px) {
-  .question-box p {
-    font-size: 16px;
-  }
-}
 
 @media screen and (max-width: 413px) {
   .next-button {
@@ -198,13 +185,23 @@
 }
 
 @media screen and (max-width: 354px) {
-  .Game1-sinlgeplayer-bg {
-    height: 185vh !important;
-  }
+
 }
 
 @media screen and (max-width: 320px) {
-  .question-box {
-    width: 227px;
-  }
+  
+}
+
+.question-box {
+  background-color: white;
+  background: rgb(55, 212, 241);
+  background: linear-gradient(
+    0deg,
+    rgba(55, 212, 241, 1) 0%,
+    rgba(195, 242, 251, 1) 0%,
+    rgba(213, 246, 252, 1) 23%,
+    rgba(205, 244, 252, 1) 47%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  
 }
