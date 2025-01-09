@@ -344,20 +344,26 @@ const Game1MultiPlayer = () => {
 
             <textarea
               type="text"
+              className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10 text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black resize-none overflow-y-auto"
               placeholder="Type Your Solution"
-              value={userAnswer}
-              onChange={handleInputChange}
-              className="outline-none text-wrap max-md:py-3 leading-relaxed md:py-[35px] w-[90%] flex justify-center mt-10   px-3 mx-auto rounded-lg text-center font-bold text-[18px] text-black"
+              value={userAnswer} // Bind the input value with state
+              onChange={handleInputChange} // Update state when input changes
             />
 
             <div className="text-center flex gap-2 justify-center flex-wrap pb-4">
               {currentQuestionIndex === 0 && (
-                <button className="show-btn me-sm-3 transition duration-700 ease-in-out" onClick={handleBack}>
+                <button
+                  className="show-btn me-sm-3 transition duration-700 ease-in-out"
+                  onClick={handleBack}
+                >
                   Back
                 </button>
               )}
               {currentQuestionIndex < playerData?.length - 1 ? (
-                <button className="show-btn transition duration-700 ease-in-out" onClick={handleNextQuestion}>
+                <button
+                  className="show-btn transition duration-700 ease-in-out"
+                  onClick={handleNextQuestion}
+                >
                   Next
                 </button>
               ) : (

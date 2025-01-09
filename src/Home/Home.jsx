@@ -542,9 +542,9 @@ const Home = () => {
         <div className="text-5xl font-bold mt-2 max-md:text-3xl max-md:w-[90%] text-center text-[#151310]">
           Why You Should Choose Us ?
         </div>
-        <div className="text-5xl mt-2 font-bold max-md:text-3xl text-[#151310]">
+        {/* <div className="text-5xl mt-2 font-bold max-md:text-3xl text-[#151310]">
         “What we do”
-        </div>
+        </div> */}
 
         <div className="img-b21">
           <img
