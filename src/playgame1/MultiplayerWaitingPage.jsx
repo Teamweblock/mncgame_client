@@ -50,6 +50,8 @@ const MultiplayerWaitingPage = () => {
     socket.emit("joinQueue", { level: levelNumber, playerId });
 
     const handlePlayersStatus = (playersData) => {
+      console.log("playersData", playersData);
+
       setPlayers(playersData);
       if (playersData?.length === 1) {
         setQueueStatus("1 player connected...");
@@ -151,44 +153,64 @@ const MultiplayerWaitingPage = () => {
       {/* Centered Cards and Text */}
       <div className="flex-1 flex flex-col justify-center items-center max-lg:mt-10">
         <div className="grid lg:grid-cols-3 max-lg:gap-2 gap-12 w-[90%] md:w-[65%] grid-cols-2 max-md:flex max-md:flex-wrap justify-center">
-          {players.map((player) => (
-            <div
-              key={player?.id}
-              className="bg-white rounded-3xl max-sm:w-[170px] max-md:w-[200px] transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-            >
-              <div
-                className="border-[4px] max-lg:mx-2 mx-3 my-3 max-lg:my-2 rounded-3xl"
-                style={{
-                  borderColor:
-                    player.status === "READY" ? "#34fc34" : "#ff142f",
-                }}
-              >
-                <div className="flex flex-col items-center gap-2 my-8 max-lg:my-2">
-                  <div>
-                    <img
-                      src={player?.imgSrc || female}
-                      alt={`${player?.name || "Player"}'s Avatar`}
-                      className="h-[150px] w-[150px] object-cover max-md:h-[100px] max-md:w-[100px] max-sm:h-[70px] max-sm:w-[70px]"
-                    />
-                  </div>
-                  <p className="text-[1.4rem] max-md:text-[1.1rem] font-bold text-black">
-                    {player?.name || "Unknown Player"}
-                  </p>
-                  <button
-                    className={`mx-2 text-white font-bold py-2 px-5 md:px-10 text-lg rounded-full transition duration-300 ease-in-out 
+          {players.map(
+            (player) => (
+              console.log("player", player),
+              (
+                <div
+                  key={player?.id}
+                  className="bg-white rounded-3xl max-sm:w-[170px] max-md:w-[200px] transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+                >
+                  <div
+                    className="border-[4px] max-lg:mx-2 mx-3 my-3 max-lg:my-2 rounded-3xl"
+                    style={{
+                      borderColor:
+                        player.status === "READY" ? "#34fc34" : "#ff142f",
+                    }}
+                  >
+                    <div className="flex flex-col items-center gap-2 my-8 max-lg:my-2">
+                      <div>
+                        <div className="flex justify-center items-center h-[150px] w-[150px] rounded-full bg-[#85d7ff] p-2 border-4 border-white max-md:h-[100px] max-md:w-[100px] max-sm:h-[70px] max-sm:w-[70px]">
+                          <div className="flex justify-center items-center h-full w-full rounded-full bg-[#85d7ff] p-2 border-4 border-white">
+                            {player?.avatar ? (
+                              <img
+                                src={player.avatar}
+                                alt={`${
+                                  player?.firstName || "Player"
+                                }'s Avatar`}
+                                className="h-full w-full object-cover rounded-full"
+                              />
+                            ) : (
+                              <span className="text-white text-3xl font-bold">
+                                {player?.firstName?.charAt(0)?.toUpperCase() ||
+                                  ""}
+                                {player?.Lastname?.charAt(0)?.toUpperCase() ||
+                                  ""}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-[1.4rem] max-md:text-[1.1rem] font-bold text-black">
+                        {player?.firstName || "Unknown Player"}
+                      </p>
+                      <button
+                        className={`mx-2 text-white font-bold py-2 px-5 md:px-10 text-lg rounded-full transition duration-300 ease-in-out 
                     ${
                       player.status === "READY"
                         ? "bg-gradient-to-r from-[#8D00FF] via-[#AA1BFF] to-[#C736FF]"
                         : "bg-red-500"
                     } 
                     hover:bg-opacity-80 hover:scale-105`}
-                  >
-                    {player.status.toUpperCase()}
-                  </button>
+                      >
+                        {player.status.toUpperCase()}
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              )
+            )
+          )}
         </div>
         <p className="text-[1.6rem] font-bold text-white text-center w-[90%] md:w-[70%] mx-auto mt-5 lg:mt-16 max-md:text-[1.2rem]">
           {queueStatus}

@@ -1,80 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { getweekgameview } from "../utils/axiosInstance";
 
 const OverviewChart = () => {
   const [analysisData, setAnalysisData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchAnalysisData = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       // Simulate API response with dummy data
-  //       const dummyData = [
-  //         {
-  //           id: 1,
-  //           title: "Revenue Growth",
-  //           description: "Revenue increased by 15% compared to the previous week.",
-  //         },
-  //         {
-  //           id: 2,
-  //           title: "New Customers",
-  //           description: "50 new customers were added this week.",
-  //         },
-  //         {
-  //           id: 3,
-  //           title: "Top Selling Product",
-  //           description: "Product XYZ was the top seller with 120 units sold.",
-  //         },
-  //       ];
-
-  //       // Simulate network delay
-  //       await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  //       setAnalysisData(dummyData); // Set dummy data
-  //     } catch (error) {
-  //       console.error("Error fetching weekly analysis data:", error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   fetchAnalysisData();
-  // }, []);
-
   useEffect(() => {
     const fetchAnalysisData = async () => {
       setIsLoading(true);
       try {
-        // Retrieve token from localStorage
-        const token = localStorage.getItem("token");
-
-        if (!token) {
-          throw new Error("Token not found in localStorage");
+        const userData = await getweekgameview(); // Fetch profile data using the new function
+        if (userData) {
+          setAnalysisData(data);
         }
-
-        const response = await fetch(
-          // "https://api.multinetworkingcompany.com/player/weeklyanalysis",
-          "https://http://localhost:8000/player/weeklyanalysis",
-          {
-            method: "POST",
-            headers: {
-              "x-access-token": token, // Use token from localStorage
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams({
-              startDate: "2024-12-24",
-              endDate: "2024-12-31",
-            }),
-          }
-        );
-        console.log("response ------------", response);
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setAnalysisData(data);
       } catch (error) {
         console.error("Failed to fetch weekly analysis data:", error);
       } finally {
@@ -84,25 +22,6 @@ const OverviewChart = () => {
 
     fetchAnalysisData();
   }, []);
-
-  //  {isLoading ? (
-  //           <p className="text-gray-400 text-center">Loading data...</p>
-  //         ) : analysisData.length ? (
-  //           analysisData.map((item, index) => (
-  //             <div
-  //               key={index}
-  //               className="bg-gray-50 p-2 rounded-lg mb-2 shadow-sm"
-  //             >
-  //               <h3 className="font-bold text-gray-600">{item.title}</h3>
-  //               <p className="text-gray-500">{item.description}</p>
-  //             </div>
-  //           ))
-  //         ) : (
-  //           <p className="text-gray-400 text-center">No data available.</p>
-  //         )}
-
-  //         {/* Pass data to OverviewChart if needed */}
-  //         <OverviewChart data={analysisData} />
   return (
     <div className="flex flex-col lg:flex-row items-center gap-10 p-4">
       <div className="relative w-48 h-48  md:w-60 md:h-60  flex items-center justify-center bg-white shadow-lg rounded-full">
