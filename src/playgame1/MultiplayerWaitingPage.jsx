@@ -244,7 +244,7 @@ export default MultiplayerWaitingPage;
 // import logo from "../Assets/gameimages/mnclogo2.png";
 // import female from "../Assets/images/female.avif";
 
-// const socket = io("http://13.127.231.142:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 // const MultiplayerWaitingPage = () => {
 //   const navigate = useNavigate();
@@ -481,7 +481,7 @@ export default MultiplayerWaitingPage;
 // import logo from "../Assets/gameimages/mnclogo2.png";
 // import female from "../Assets/images/female.avif";
 
-// const socket = io("http://13.127.231.142:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 // const MultiplayerWaitingPage = () => {
 //   const navigate = useNavigate();

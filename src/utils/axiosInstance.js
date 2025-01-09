@@ -2,13 +2,15 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const axiosInstance = axios.create({
-  baseURL: "http://13.127.231.142:8000",
+  // baseURL: "https://api.multinetworkingcompany.com",
+  baseURL: "http://localhost:8000",
   headers: {
     "Content-Type": "application/json",
   },
 });
 const axiosApi = axios.create({
-  baseURL: "http://13.127.231.142:8000",
+  // baseURL: "https://api.multinetworkingcompany.com",
+  baseURL: "http://localhost:8000",
   headers: {
     "Content-Type": "application/json",
   },

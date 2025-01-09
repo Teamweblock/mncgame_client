@@ -53,7 +53,8 @@ const OverviewChart = () => {
         }
 
         const response = await fetch(
-          "http://13.127.231.142:8000/player/weeklyanalysis",
+          // "https://api.multinetworkingcompany.com/player/weeklyanalysis",
+          "https://http://localhost:8000/player/weeklyanalysis",
           {
             method: "POST",
             headers: {

@@ -8,7 +8,8 @@ import female from "../Assets/images/female.avif";
 import icon1 from "../Assets/gameimages/icon1.png";
 import icon2 from "../Assets/gameimages/icon5.png";
 
-const socket = io("http://13.127.231.142:8000"); // Update with your backend URL
+const socket = io("http://localhost:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 const MultiplayerWaitingPage = () => {
   const location = useLocation();
@@ -300,7 +301,7 @@ export default MultiplayerWaitingPage;
 // // import icon1 from "../Assets/gameimages/icon1.png"
 // // import icon2 from "../Assets/gameimages/icon5.png";
 
-// const socket = io("http://13.127.231.142:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 // const MultiplayerWaitingPage = () => {
 //   const navigate = useNavigate();

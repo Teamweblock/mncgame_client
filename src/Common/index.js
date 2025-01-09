@@ -1,4 +1,5 @@
-const backendDomin = process.env.BACKEND_URL || "http://13.127.231.142:8000";
+// const backendDomin = process.env.BACKEND_URL || "https://api.multinetworkingcompany.com";
+const backendDomin = process.env.BACKEND_URL || "http://localhost:8000";
 
 const SummaryApi = {
   signUP: {
