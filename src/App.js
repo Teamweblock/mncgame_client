@@ -180,7 +180,7 @@ const App = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contactus" element={<Contact />} />
 
-        {/* <Route path="/profile/overview" element={<Overview />} /> */}
+        <Route path="/profile/overview" element={<Overview />} />
         <Route path="/profile/statistics" element={<Statics />} />
         <Route path="/profile/update" element={<UpdateProfile />} />
         <Route path="/checkMail" element={<CheckMail />} />
