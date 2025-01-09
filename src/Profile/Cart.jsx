@@ -116,7 +116,7 @@ const data = [
     bgColor: "#9faeec",
     icon: <Briefcase size={20} color="white" />,
     imageSrc: "/sta.jpg",
-    progress: 40,
+    progress: 20,
   },
   {
     id: 2,
@@ -127,7 +127,7 @@ const data = [
     bgColor: "#aee6fd",
     icon: <File size={20} color="white" />,
     imageSrc: "/sta2.jpg",
-    progress: 60,
+    progress: 20,
   },
   {
     id: 3,
@@ -138,7 +138,7 @@ const data = [
     bgColor: "#88e7ed",
     icon: <Globe size={20} color="white" />,
     imageSrc: "/sta3.jpg",
-    progress: 20,
+    progress: 0,
   },
 ];
 

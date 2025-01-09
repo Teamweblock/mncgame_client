@@ -536,13 +536,9 @@ code {
 }
 .transition-all {
   transition: all 0.3s ease-in-out;
-<<<<<<< HEAD
 } 
 
 
-=======
-}
->>>>>>> 4079430757fb14d17c6d5005bd818de0815e2bab
 .addskill-part-main {
   width: 100%;
   height: 100vh;

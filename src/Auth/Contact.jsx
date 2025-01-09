@@ -30,7 +30,7 @@ const Contact = () => {
   }, []);
   return (
     <div>
-      <div style={{ textAlign: "center" }} className="home-container-3 mb-12">
+      <div style={{ textAlign: "center" }} className="home-container-3  mb-12">
         <h6 className="contact-text mt-5 group relative w-max ">
           CONTACT US
           <span class="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-[#a90bd4]  group-hover:w-full"></span>
@@ -39,7 +39,7 @@ const Contact = () => {
           Stay Connected with us 
         </h1>
       </div>
-      <img style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} src={img16} className="absolute-img2 parallax-layer" />
+      <img style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }} src={img16} className="absolute-img2 parallax-layer sm:block hidden" />
       {/* <div className="contact-grid ">
      
         <div className="row mt-4">

@@ -52,6 +52,7 @@ import SwipeSide from "./Home/Testimonials";
 import MultiplayerWaitingPage from "./playgame1/MultiplayerWaitingPage";
 import Popup from "./playgame1/Popup";
 import MeetplayerWaitingPage from "./playgame3/waitingpage";
+import Game1MultiplayerResult from "./playgame1/game1multiplayerresult";
 
 const App = () => {
   const location = useLocation();
@@ -123,7 +124,8 @@ const App = () => {
     "/meetwaiting-player",
     // "/",
     "/congrates",
-    "/checkMail"
+    "/checkMail",
+    "/game1multiplayerresult"
   ];
   return (
     <div>
@@ -144,6 +146,7 @@ const App = () => {
         <Route path="/game1waiting" element={<Game1WaitingPage />} />
         <Route path="/game1result" element={<Game1Result />} />
         <Route path="/game1result2" element={<Game1Result2 />} />
+        <Route path="/game1multiplayerresult" element={<Game1MultiplayerResult />} />
         {/* <Route path="/game1levelpage" element={<Game1LevelPage />} /> */}
         <Route
           path="/game1singlelevelpage"
@@ -177,7 +180,7 @@ const App = () => {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contactus" element={<Contact />} />
 
-        <Route path="/profile/overview" element={<Overview />} />
+        {/* <Route path="/profile/overview" element={<Overview />} /> */}
         <Route path="/profile/statistics" element={<Statics />} />
         <Route path="/profile/update" element={<UpdateProfile />} />
         <Route path="/checkMail" element={<CheckMail />} />

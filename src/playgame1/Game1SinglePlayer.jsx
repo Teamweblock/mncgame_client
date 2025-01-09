@@ -211,7 +211,7 @@ const Game1SinglePlayer = () => {
   return (
     <div className="Game1-sinlgeplayer-bg">
       <a href="/">
-        <img src={logo} className="mnc-logo flex justify-center items-center" />
+        <img src="/mnclogo2.png" className="mnc-logo flex justify-center items-center" />
       </a>
       <img
         src={icon1}

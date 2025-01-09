@@ -139,7 +139,7 @@ const MultiplayerWaitingPage = () => {
     <div className="waiting-page-multi flex flex-col min-h-screen bg-gray-900 text-white">
       {/* Header */}
       <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-20 max-lg:pt-10 max-lg:justify-center">
-        <img src={logo} alt="Game Logo" height={50} width={120} />
+        <img src="/mnclogo2.png" alt="Game Logo" height={50} width={120} />
         <button
           className="bg-orange-500 text-white text-xl font-bold rounded-full px-6 py-2 max-lg:hidden 
           hover:bg-orange-600 hover:scale-105 hover:shadow-lg transition-all"

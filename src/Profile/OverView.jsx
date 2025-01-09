@@ -25,7 +25,7 @@ const Overview = () => {
               <div className="flex justify-between items-center mb-4">
                 <div>
                   <h2 className="text-[1.3rem] text-[#3f3f3f] font-bold">
-                    Customer Analysis
+                    Skill Analysis
                   </h2>
                   <p className="text-[1rem] font-medium text-gray-400">
                     Week Analysis
@@ -100,21 +100,21 @@ const Overview = () => {
               <h2 className="text-[1.3rem] font-bold text-[#3f3f3f]">
                 Skills Overview
               </h2>
-              <button className="px-3 py-1 text-sm border border-blue-400 rounded-full font-bold flex items-center gap-2 text-[#3f3f3f] hover:bg-gray-50">
+              {/* <button className="px-3 py-1 text-sm border border-blue-400 rounded-full font-bold flex items-center gap-2 text-[#3f3f3f] hover:bg-gray-50">
                 Leadership
                 <span>
                   <ChevronDown size={20} />
                 </span>
-              </button>
+              </button> */}
             </div>
             <SkillsOverview />
           </div>
         </div>
 
-        <div className="flex gap-6 flex-wrap">
+        {/* <div className="flex gap-6 flex-wrap">
           <div className="bg-[#eff2f9] p-4 rounded-lg shadow md:w-[25%] w-full h-[350px]"></div>
           <div className="bg-[#eff2f9] p-4 rounded-lg shadow h-[350px] flex-1"></div>
-        </div>
+        </div> */}
       </main>
       </div>
     </>

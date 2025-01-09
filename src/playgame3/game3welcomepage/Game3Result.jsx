@@ -45,7 +45,7 @@ const ProgressCard = () => {
       // }}
     >
       {/* Header Section */}
-      <img src={logo} className="mnc-logo" />
+      <img src="/mnclogo2.png" className="mnc-logo" />
       <div className="text-center mb-8 mt-32">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">CONGRATULATIONS</h1>
         <p className="text-white mt-2">

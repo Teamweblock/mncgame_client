@@ -117,7 +117,7 @@ const EndmeetingPage = () => {
     >
       {/* Header */}
       {/* <div className="absolute top-8 left-8 text-white text-4xl font-extrabold"> */}
-      <img src={logo} className="top-8 left-8 absolute" />
+      <img src="/mnclogo2.png" className="top-8 left-8 absolute" />
       {/* </div> */}
 
       {/* Light Bulb Icon */}
@@ -304,7 +304,7 @@ const ParticipantCard = ({ role, imgSrc, onClick }) => {
 
   return (
     <div
-      className="flex flex-col items-center cursor-pointer transform hover:scale-105 transition duration-300 ease-in-out"
+      className="flex flex-col items-center cursor-pointer "
       onClick={onClick}
     >
       <div className="flex flex-col items-center bg-white bg-opacity-50 rounded-lg shadow-xl p-5 w-64 h-64 relative">

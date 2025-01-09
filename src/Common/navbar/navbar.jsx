@@ -6,11 +6,13 @@ import logo from "../../Assets/images/logoimg.png";
 import "./navbar.css";
 import { Menu } from "lucide-react";
 import { User } from "lucide-react";
+// import {  MenuItem, Button } from "@material-ui/core";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const location = useLocation();
 
@@ -32,6 +34,26 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
   const isLoggedIn = !!token;
   console.log("ajay", token, isLoggedIn);
+
+  const handleLogout = async () => {
+    try {
+      localStorage.removeItem("token");
+      console.log("User logged out");
+      navigate("/"); // Redirect to the signin page
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
 
   return (
     <>
@@ -57,10 +79,28 @@ const Navbar = () => {
               </Link>
 
               {isLoggedIn ? (
-                <Link to="/profile/overview">
-                  <div className="rounded-full h-10 w-10 flex justify-center items-center  bg-[#f37ce7]">
+                <Link to="/">
+                  <div
+                    className="rounded-full h-10 w-10 flex justify-center items-center bg-[#f37ce7] cursor-pointer"
+                    onClick={toggleDropdown}
+                  >
                     <User color="white" />
                   </div>
+
+                  {/* Dropdown Menu */}
+                  {isDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg">
+                      <ul className="py-2">
+                        <li
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          // onClick={closeDropdown}
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </Link>
               ) : (
                 <button
@@ -75,7 +115,7 @@ const Navbar = () => {
         </div>
 
         {menuOpen && (
-          <div className="absolute z-10  top-0 right-0 w-[200px] h-[100vh] bg-[#ebe8fd] z-1000 flex flex-col  text-black font-semibold">
+          <div className="absolute z-10  top-0 right-0 w-[200px] h-[100vh] bg-white z-1000 flex flex-col  text-black font-semibold">
             <button
               className="absolute top-4 right-4 black text-3xl"
               onClick={toggleMenu}
@@ -104,21 +144,31 @@ const Navbar = () => {
                   <li className={` ${isActive("/contactus")}`}>Contact</li>
                 </div>
               </Link>
+
               {isLoggedIn ? (
-                <Link to="/profile/overview" onClick={toggleMenu}>
-                  <div className="w-max">
-                    <li className={` ${isActive("/profile/overview")}`}>
-                      Profile
-                    </li>
-                  </div>
-                </Link>
-              ) :  <button
-              className="border-2 border-[#C04AE2] hover:border-[#C04AE2] hover:bg-white transition duration-700 text-black font-semibold rounded-lg px-4 py-1 w-28"
-              onClick={handleOpen}
-            >
-              Login
-            </button>}
-             
+                <>
+                  <Link to="/" onClick={toggleMenu}>
+                    <div className="w-max grid gap-2">
+                      <li className={` ${isActive("/")}`}>
+                        Profile
+                      </li>
+                    </div>
+                  </Link>
+                  <button
+                    className="border-2 border-[#C04AE2] hover:border-[#C04AE2] hover:bg-white transition duration-700 text-black font-semibold rounded-lg px-4 py-1 w-28"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="border-2 border-[#C04AE2] hover:border-[#C04AE2] hover:bg-white transition duration-700 text-black font-semibold rounded-lg px-4 py-1 w-28"
+                  onClick={handleOpen}
+                >
+                  Login
+                </button>
+              )}
             </ul>
           </div>
         )}

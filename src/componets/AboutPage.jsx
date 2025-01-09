@@ -9,9 +9,9 @@ import img6 from "../Assets/Aboutimages/img6.png";
 import img7 from "../Assets/Aboutimages/img7.png";
 import img8 from "../Assets/Aboutimages/img8.png";
 import img9 from "../Assets/Aboutimages/img9.png";
-import img10 from "../Assets/Aboutimages/img10.png";
-import img11 from "../Assets/Aboutimages/img11.png";
-import img12 from "../Assets/Aboutimages/img12.png";
+// import img10 from "../Assets/Aboutimages/M.png";
+// import img11 from "../Assets/Aboutimages/N.png";
+// import img12 from "../Assets/Aboutimages/C.png";
 import logo from "../Assets/images/logoimg.png";
 import Contact from "../Auth/Contact";
 import aicon from "../Assets/images/aicon1.png";
@@ -112,25 +112,6 @@ const AboutPage = () => {
 
         <img className="about-img1" src={img3} alt="About" />
         <div className="mnc-group grid gap-6 w-[70%] mx-auto max-md:w-[90%]">
-          {/* <div className="flex flex-wrap gap-10 items-center justify-center max-md:flex-col max-md:text-center max-md:justify-center max-lg:flex-row max-lg:text-center max-lg:justify-center">
-            <div>
-              <img
-                className="h-[120px] w-[100px] lg:h-[120px] lg:w-[100px]"
-                src={img10}
-                alt="Multi"
-              />
-            </div>
-            <div className="lg:flex-1 lg:ml-3">
-              <h3 className="multi-text text-animated lg:text-lg">Multi</h3>
-              <div className="grid w-fit">
-                <p className="about-para-text xl:w-[50%] lg:w-[90%] animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-black pr-5">
-                  Abroad approach to networking, involving various types of
-                  interactions and opportunities
-                </p>
-                <span className="animate-blink border-r-2 border-black h-full ml-1"></span>
-              </div>
-            </div>
-          </div> */}
           <div
             id="networking-section"
             className="flex flex-wrap gap-10 items-center justify-center max-md:flex-col max-md:text-center max-md:justify-center max-lg:flex-row max-lg:text-center max-lg:justify-center"
@@ -144,8 +125,8 @@ const AboutPage = () => {
               >
                 <img
                   className="h-[120px] w-[100px] lg:h-[120px] lg:w-[100px]"
-                  src={img10}
-                  alt="Networking"
+                  src="/img10.png"
+                  alt="Multi"
                 />
               </motion.div>
             </div>
@@ -184,7 +165,7 @@ const AboutPage = () => {
                 >
                   <img
                     className="h-[120px] w-[100px] lg:h-[120px] lg:w-[100px]"
-                    src={img11}
+                    src="/img11.png"
                     alt="Networking"
                   />
                 </motion.div>
@@ -223,8 +204,8 @@ const AboutPage = () => {
               >
                 <img
                   className="h-[120px] w-[100px] lg:h-[120px] lg:w-[100px]"
-                  src={img12}
-                  alt="Networking"
+                  src="/img12.png"
+                  alt="Company"
                 />
               </motion.div>
             </div>

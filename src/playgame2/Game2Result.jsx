@@ -69,7 +69,7 @@ const Game2Result = () => {
     return (
         <div className="new-result relative">
             <img
-                src={logo}
+                src="/mnclogo2.png"
                 onClick={handleHome}
                 height={45}
                 width={100}

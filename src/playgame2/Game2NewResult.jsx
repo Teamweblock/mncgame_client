@@ -29,7 +29,7 @@ const Game2NewResult = ({ score, levelNumber }) => {
       <div className="sm:w-[90%] md:w-[100%] lg:w-[100%] xl:w-[100%] 2xl:w-[70%] flex flex-col sm:flex-row md:flex place-content-center items-center mx-auto text-center">
       {/* <div className="grid h-[50%] sm:grid-cols-2 md:grid-cols-5 grid-cols-1 gap-2 m-10 justify-center items-center"> */}
         <h1 className=" text-white text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl font-bold  px-2 sm:px-4 mt-4 sm:mt-0">
-          ENTREPRENEURIA
+        ENTEREPRENEURIAL
         </h1>
 
         <GameChartResult className="col-span-3" score={score} levelNumber={levelNumber} />

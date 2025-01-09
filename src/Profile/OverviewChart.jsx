@@ -4,43 +4,6 @@ const OverviewChart = () => {
   const [analysisData, setAnalysisData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchAnalysisData = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       // Simulate API response with dummy data
-  //       const dummyData = [
-  //         {
-  //           id: 1,
-  //           title: "Revenue Growth",
-  //           description: "Revenue increased by 15% compared to the previous week.",
-  //         },
-  //         {
-  //           id: 2,
-  //           title: "New Customers",
-  //           description: "50 new customers were added this week.",
-  //         },
-  //         {
-  //           id: 3,
-  //           title: "Top Selling Product",
-  //           description: "Product XYZ was the top seller with 120 units sold.",
-  //         },
-  //       ];
-
-  //       // Simulate network delay
-  //       await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  //       setAnalysisData(dummyData); // Set dummy data
-  //     } catch (error) {
-  //       console.error("Error fetching weekly analysis data:", error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   fetchAnalysisData();
-  // }, []);
-
   useEffect(() => {
     const fetchAnalysisData = async () => {
       setIsLoading(true);
@@ -85,24 +48,7 @@ const OverviewChart = () => {
     fetchAnalysisData();
   }, []);
 
-  //  {isLoading ? (
-  //           <p className="text-gray-400 text-center">Loading data...</p>
-  //         ) : analysisData.length ? (
-  //           analysisData.map((item, index) => (
-  //             <div
-  //               key={index}
-  //               className="bg-gray-50 p-2 rounded-lg mb-2 shadow-sm"
-  //             >
-  //               <h3 className="font-bold text-gray-600">{item.title}</h3>
-  //               <p className="text-gray-500">{item.description}</p>
-  //             </div>
-  //           ))
-  //         ) : (
-  //           <p className="text-gray-400 text-center">No data available.</p>
-  //         )}
 
-  //         {/* Pass data to OverviewChart if needed */}
-  //         <OverviewChart data={analysisData} />
   return (
     <div className="flex flex-col lg:flex-row items-center gap-10 p-4">
       <div className="relative w-48 h-48  md:w-60 md:h-60  flex items-center justify-center bg-white shadow-lg rounded-full">
@@ -186,7 +132,7 @@ const OverviewChart = () => {
 
       {/* Legend Section */}
       <div className="space-y-3 mt-6 lg:mt-0">
-        {isLoading ? (
+      {isLoading ? (
           <p className="text-gray-400 text-center">Loading data...</p>
         ) : analysisData.length ? (
           analysisData.map((item, index) => (
@@ -211,10 +157,7 @@ const OverviewChart = () => {
         ) : (
           <p className="text-gray-400 text-center">No data available.</p>
         )}
-        {/* {analysisData.map((item, index) => {
-          return(
-            <>
-            <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded-sm bg-indigo-500" />
           <div className="text-[#0e2b54] font-semibold text-[1.2rem]">
             Problem Pilot
@@ -232,27 +175,6 @@ const OverviewChart = () => {
             Strategy Trial
           </div>
         </div>
-            </>
-          )
-        })} */}
-        {/* <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-sm bg-indigo-500" />
-          <div className="text-[#0e2b54] font-semibold text-[1.2rem]">
-            Problem Pilot
-          </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-sm bg-cyan-400" />
-          <div className="text-[#0e2b54] font-semibold text-[1.2rem]">
-            Entrepreneurial Edge
-          </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded-sm bg-teal-400" />
-          <div className="text-[#0e2b54] font-semibold text-[1.2rem]">
-            Strategy Trial
-          </div>
-        </div> */}
       </div>
     </div>
   );

@@ -13,6 +13,8 @@ const Game1Result = () => {
   const [isDraggingPlayer1, setIsDraggingPlayer1] = useState(false);
   const [isDraggingPlayer2, setIsDraggingPlayer2] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [timeLeft, setTimeLeft] = useState(120);
+   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // Handle mouse move for parallax effect
   const handleMouseMove = (e) => {
@@ -128,7 +130,7 @@ const Game1Result = () => {
   return (
     <>
       <div className="Game1-bg-result">
-        <img src={logo} className="mnc-logo" />
+        <img src="/mnclogo2.png" className="mnc-logo" />
         {/* Parallax images */}
         <img
           src={icon1}
@@ -286,14 +288,14 @@ const Game1Result = () => {
             </div>
 
             {/* Buttons */}
-            <div className="btn-group2 pb-3">
+            {/* <div className="btn-group2 pb-3">
               <button className="home-btn  transition duration-700 ease-in-out" onClick={handleHome}>
                 Home
               </button>
               <button className="next-btn  transition duration-700 ease-in-out" onClick={selectLevelpage}>
-                Next Level
+                Next
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

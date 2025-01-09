@@ -167,7 +167,7 @@ const MultiplayerWaitingPage = () => {
     <div className="min-h-screen flex flex-col welcomepage-bg3 text-gray-900">
       {/* Header */}
       <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-10">
-        <img src={logo} alt="Game Logo" className="h-10 w-auto" />
+        <img src="/mnclogo2.png" alt="Game Logo" className="h-10 w-auto" />
         <div className="bg-orange-600 text-white text-lg font-bold rounded-full px-6 py-2  md:block hover:bg-orange-700 hover:scale-105 transition-all duration-300 ease-in-out">
           {timeLeft > 0 ? `${formatTime(timeLeft)} LEFT` : "TIME EXPIRED"}
         </div>

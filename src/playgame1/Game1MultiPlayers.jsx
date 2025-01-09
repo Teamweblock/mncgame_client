@@ -302,7 +302,7 @@ const Game1MultiPlayer = () => {
     <div className="Game1-bg2">
       <div className="max-lg:flex max-lg:justify-center max-lg:mx-auto">
         <img
-          src={logo}
+          src="/mnclogo2.png"
           className="absolute top-[10%] lg:left-[15%] "
           width={100}
           height={45}

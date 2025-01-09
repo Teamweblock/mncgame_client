@@ -34,7 +34,7 @@ const WelcomePageGame3 = () => {
   return (
     <>
       <div className="welcomepage-bg3">
-        <img src={logo} className="mnc-logo" />
+        <img src="/mnclogo2.png" className="mnc-logo" />
         <img
           src={icon1}
           className="icon1-game3"
@@ -49,15 +49,17 @@ const WelcomePageGame3 = () => {
           <h1 className="welcome-text3 transition duration-500 ease-in-out hover:text-glow  glow-effect">WELCOME TO STRATEGIC TRIAL</h1>
           {/* <TextAnimation text="WELCOME TO STRATEGIC TRIAL" speed={150} className="animated-text" /> */}
           <h4 className="welcome-para3">Fundamental Skills Development</h4>
-          <div className="playbtn">
+          {/* <div className="playbtn"> */}
+          <div className="grid justify-center items-center">
+            <button className='border-2 px-20 text-lg font-bold bg-white text-black rounded-lg py-2 transition duration-700 ease-in-out' >Coming Soon...</button>
             {/* <button
               className="game1Playbtn w-100 py-3"
               style={{ letterSpacing: "2px", fontSize: "20px" }}
             >
               Comming Soon...
             </button> */}
-            <button className='game1Playbtn transition duration-700 ease-in-out'  onClick={handleBack}>Back</button>
-            <button  className='game1Playbtn btn-margin transition duration-700'  onClick={playGame3}>Next</button>
+            {/* <button className='game1Playbtn transition duration-700 ease-in-out'  onClick={handleBack}>Back</button>
+            <button  className='game1Playbtn btn-margin transition duration-700'  onClick={playGame3}>Next</button> */}
           </div>
         </div>
         <div className="absolute bottom-8 right-8 text-white">
