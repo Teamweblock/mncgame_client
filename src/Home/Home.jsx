@@ -79,7 +79,6 @@ import join from "../Assets/illustration/Group 1.png";
 import SwipeSide from "./Testimonials";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-// E:\MNC\mnc\src\images\HOME\icon\11111.png
 
 const Home = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });

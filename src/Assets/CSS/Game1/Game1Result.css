@@ -1,30 +1,15 @@
 .progress-bar-container {
   position: relative;
   height: 16px;
-  /* height: 20px; */
   background: #ddd;
   border-radius: 10px;
 }
-/* .progress-bar-container {
-  display: flex;
-  align-items: center;
-} */
 
 .progress-bar {
   height: 100%;
   background: orange;
   border-radius: 10px;
 }
-
-/* .progress-bar {
-  background-color: white !important;
-  border-radius: 10px;
-  height: 10px;
-  width: 100%;
-  position: relative;
-  border: none !important;
-  margin-bottom: 0px !important;
-} */
 
 .slider {
   position: absolute;
@@ -36,7 +21,7 @@
 }
 
 .Game1-bg-result {
-  background-image: url(/src/Assets/gameimages/img1.jpg);
+  background-image: url("../../../Assets/gameimages/img1.jpg");
   width: 100%;
   min-height: 100vh;
   padding-top: 50px;
@@ -45,7 +30,7 @@
 }
 
 .Game1-bg-result2 {
-  background-image: url(/src/Assets/gameimages/img1.jpg);
+  background-image: url("../../../Assets/gameimages/img1.jpg");
   width: 100%;
   min-height: 100vh;
   padding-top: 50px;
@@ -125,7 +110,6 @@
   line-height: 25px;
 }
 
-/* Slider.css */
 .slider-container {
   display: flex;
   justify-content: center;
@@ -197,24 +181,6 @@
   transition: 0.3s;
 }
 
-@media screen and (max-width: 2560px) {
-}
-
-@media screen and (max-width: 1540px) {
-}
-
-@media screen and (max-width: 1400px) {
-}
-
-/* @media screen and (max-width:1072px) {
-    .Game1-bg-result{
-      height: 130vh;
-    }
-  } */
-
-@media screen and (max-width: 885px) {
-}
-
 @media screen and (max-width: 835px) {
   .player1 {
     display: block;
@@ -225,43 +191,10 @@
   }
 }
 
-@media screen and (max-width: 769px) {
-}
-
-@media screen and (max-width: 620px) {
-}
-
-@media screen and (max-width: 673px) {
-  /* .Game1-bg-result{
-          height: 230vh !important;
-        } */
-}
-
-@media screen and (max-width: 600px) {
-  /* .Game1-bg-result{
-          height: 200vh;
-        } */
-}
-
 @media screen and (max-width: 534px) {
-  /* .Game1-bg-result{
-          height: 240vh;
-        } */
   .mnc-logo {
     left: 35%;
   }
-}
-
-@media screen and (max-width: 400px) {
-  /* .Game1-bg-result{
-          height: 260vh;
-        } */
-}
-
-@media screen and (max-width: 352px) {
-  /* .Game1-bg-result{
-          height: 280vh;
-        } */
 }
 
 @media screen and (max-width: 483px) {
@@ -271,30 +204,12 @@
   }
 }
 
-@media screen and (max-width: 1130px) {
-  /* .Game1-bg-result{
-          height: 160vh;
-        } */
-}
-
-@media screen and (max-width: 575px) {
-}
-
 @media screen and (max-width: 524px) {
   .next-btn {
     display: block;
     margin: auto;
     margin-top: 20px;
   }
-}
-
-@media screen and (max-width: 384px) {
-}
-
-@media screen and (max-width: 376px) {
-}
-
-@media screen and (max-width: 320px) {
 }
 
 @media screen and (max-width: 863px) {
@@ -310,37 +225,4 @@
   .icon8-game1 {
     left: 0%;
   }
-}
-
-@media screen and (max-width: 1289px) {
-  /* .progress-bar-container {
-    max-width: 440px;
-  } */
-}
-
-@media screen and (max-width: 768px) {
-}
-
-@media screen and (max-width: 1378px) {
-  /* .progress-bar-container {
-    max-width: 586px !important;
-  } */
-}
-
-@media screen and (max-width: 1298px) {
-  /* .progress-bar-container {
-    max-width: 500px !important;
-  } */
-}
-
-@media screen and (max-width: 1175px) {
-  /* .progress-bar-container {
-    max-width: 350px !important;
-  } */
-}
-
-@media screen and (max-width: 1043px) {
-}
-
-@media screen and (max-width: 768px) {
 }

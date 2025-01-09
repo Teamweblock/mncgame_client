@@ -127,9 +127,9 @@ const App = () => {
   ];
   return (
     <div>
-      {!noNavbarPaths.includes(location.pathname) && <Navbar />} 
+      {!noNavbarPaths.includes(location.pathname) && <Navbar />}
       <Routes>
-        <Route path="/" element={<Home />} /> 
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/games" element={<GameHome />} />
         <Route path="/game1" element={<Game1 />} />
@@ -140,10 +140,10 @@ const App = () => {
         <Route path="/welcomepagegame1" element={<WelcomePageGame1 />} />
         <Route path="/game1players" element={<Game1Players />} />
         <Route path="/game1singleplayer" element={<Game1SinglePlayer />} />
-        <Route path="/game1multiplayer" element={<Game1MultiPlayer />} /> 
+        <Route path="/game1multiplayer" element={<Game1MultiPlayer />} />
         <Route path="/game1waiting" element={<Game1WaitingPage />} />
         <Route path="/game1result" element={<Game1Result />} />
-        <Route path="/game1result2" element={<Game1Result2 />} /> 
+        <Route path="/game1result2" element={<Game1Result2 />} />
         {/* <Route path="/game1levelpage" element={<Game1LevelPage />} /> */}
         <Route
           path="/game1singlelevelpage"

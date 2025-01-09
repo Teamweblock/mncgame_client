@@ -1,24 +1,12 @@
 .Game2-bg {
-  background-image: url("/src/Assets/gameimages/img7.png");
+  background-image: url("../../../Assets/gameimages/img7.png");
   height: 100vh;
   background-position: center;
   background-size: cover;
   overflow: hidden;
-
 }
 
-/* .question-box {
-  background-color: white;
-  padding: 20px;
-  color: black;
-  border-radius: 20px;
-  font-size: 20px;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-} */
-.question-game2{
+.question-game2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +20,6 @@
   text-align: center;
   margin-top: 20px;
   margin: auto;
- 
 }
 
 .show-results-button {
@@ -46,7 +33,7 @@
   font-weight: 600;
   font-size: 17px;
 }
-.show-results-button:hover{
+.show-results-button:hover {
   background-color: orange;
   color: white;
 }
@@ -59,12 +46,10 @@
 }
 
 .game2-width {
-
   margin: auto;
   margin-top: 100px;
 }
 
-/* Card.css */
 .card-container {
   margin-top: 50px;
   display: block;
@@ -72,21 +57,18 @@
   text-align: center;
 }
 
-/* ---------- 1 ---------- */
 .card-option1 {
-  background-color: #fff; /* Default white background */
+  background-color: #fff;
   position: relative;
-  /* width: 480px; */
+
   padding: 40px 0;
-  
-  /* padding: 10px 20px; */
-  /* margin: 20px 20px 0px 0px; */
+
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  color: black; /* Default text color */
-  transition: all 0.4s ease-out; /* Smooth transition for background and text color */
+  color: black;
+  transition: all 0.4s ease-out;
   text-align: center;
-  /* justify-content: center; */
+
   align-items: center;
   display: flex;
   font-size: 17px;
@@ -96,149 +78,136 @@
 .card-option1::before {
   content: "";
   position: absolute;
-  width: 12px; /* Small white stripe */
+  width: 12px;
   height: 100%;
-  background-color: #fd8347; /* White stripe */
+  background-color: #fd8347;
   top: 0;
   left: 0;
-  z-index: 2; /* Ensure stripe stays on top of the background */
+  z-index: 2;
   transition: 0.4s ease-out;
 }
 
 .card-option1::after {
   content: "";
   position: absolute;
-  width: 0%; /* Initially hidden orange background */
+  width: 0%;
   height: 100%;
   background-color: #fd8347;
   top: 0;
   left: 0;
   transition: 0.4s ease-out;
-  z-index: -1; /* Keep it below the text and stripe */
+  z-index: -1;
 }
 
 .card-option1:hover::before {
-  width: 12px; /* Keep the white stripe width fixed */
-  background-color: rgb(255, 255, 255); /* White stripe */
+  width: 12px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-option1:hover::after {
-  width: 100%; /* Expand orange background on hover */
+  width: 100%;
 }
 
 .card-option1:hover {
-  background-color: white; /* Change entire background to orange on hover */
-  color: white; /* Change text color to white on hover */
+  background-color: white;
+  color: white;
 }
 
 .card-content.contentA.selected::before {
-  width: 12px; /* Keep the white stripe width fixed */
-  background-color: rgb(255, 255, 255); /* White stripe */
+  width: 12px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-content.contentA.selected::after {
-  width: 100%; /* Expand orange background on hover */
+  width: 100%;
 }
 
 .card-content.contentA.selected {
-  /* background-color: orange; */
   background-color: rgb(252, 252, 252);
-  color: white; /* Change text color to white on hover */
+  color: white;
 }
 
-/* ----------- 1 end ---------- */
-/* ---------- 2 ---------- */
 .card-option2 {
-  background-color: #fff; /* Default white background */
+  background-color: #fff;
   position: relative;
-  /* width: 480px; */
+
   padding: 40px 0;
- 
-  
-  /* margin: 20px 0 0 20px; */
+
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  color: black; /* Default text color */
-  transition: all 0.4s ease-out; /* Smooth transition for background and text color */
+  color: black;
+  transition: all 0.4s ease-out;
   text-align: center;
-  /* justify-content: center; */
+
   align-items: center;
   display: flex;
   font-size: 17px;
   font-weight: 600;
-
 }
 
 .card-option2::before {
   content: "";
   position: absolute;
-  width: 12px; /* Small white stripe */
+  width: 12px;
   height: 100%;
-  background-color: skyblue; /* White stripe */
+  background-color: skyblue;
   top: 0;
   left: 0;
-  z-index: 2; /* Ensure stripe stays on top of the background */
+  z-index: 2;
   transition: 0.4s ease-out;
 }
 
 .card-option2::after {
   content: "";
   position: absolute;
-  width: 0%; /* Initially hidden skyblue background */
+  width: 0%;
   height: 100%;
   background-color: skyblue;
   top: 0;
   left: 0;
   transition: 0.4s ease-out;
-  z-index: -1; /* Keep it below the text and stripe */
+  z-index: -1;
 }
 
 .card-option2:hover::before {
-  width: 12px; /* Keep the white stripe width fixed */
-  background-color: rgb(255, 255, 255); /* White stripe */
+  width: 12px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-option2:hover::after {
-  width: 100%; /* Expand skyblue background on hover */
+  width: 100%;
 }
 
 .card-option2:hover {
-  background-color: white; /* Change entire background to skyblue on hover */
-  color: white; /* Change text color to white on hover */
+  background-color: white;
+  color: white;
 }
 
 .card-content.contentB.selected::before {
-  width: 12px; /* Keep the white stripe width fixed */
-  background-color: rgb(255, 255, 255); /* White stripe */
+  width: 12px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-content.contentB.selected::after {
-  width: 100%; /* Expand skyblue background on hover */
+  width: 100%;
 }
 
 .card-content.contentB.selected {
-  /* background-color: skyblue; */
   background-color: rgb(252, 252, 252);
-  color: white; /* Change text color to white on hover */
-  /* Selected background for option B */
+  color: white;
 }
 
-/* ----------- 2 end ---------- */
-/* ---------- 3 ---------- */
 .card-option3 {
-  background-color: #fff; /* Default white background */
+  background-color: #fff;
   position: relative;
-  /* width: 480px; */
   padding: 40px 40px;
 
- 
-  /* margin: 20px 20px 0 0; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  color: black; /* Default text color */
-  transition: all 0.4s ease-out; /* Smooth transition for background and text color */
+  color: black;
+  transition: all 0.4s ease-out;
   text-align: center;
-  /* justify-content: center; */
+
   align-items: center;
   display: flex;
   font-size: 17px;
@@ -248,153 +217,132 @@
 .card-option3::before {
   content: "";
   position: absolute;
-  width: 12px; /* Small white stripe */
+  width: 12px;
   height: 100%;
-  background-color: #ffda67; /* White stripe */
-  
+  background-color: #ffda67;
+
   top: 0;
   left: 0;
-  z-index: 2; /* Ensure stripe stays on top of the background */
+  z-index: 2;
   transition: 0.4s ease-out;
 }
 
 .card-option3::after {
   content: "";
   position: absolute;
-  width: 0%; /* Initially hidden #ffda67 background */
+  width: 0%;
   height: 100%;
   background-color: #ffda67;
   top: 0;
   left: 0;
   transition: 0.4s ease-out;
-  z-index: -1; /* Keep it below the text and stripe */
+  z-index: -1;
 }
 
 .card-option3:hover::before {
-  width: 12px; /* Keep the white stripe width fixed */
-  background-color: rgb(255, 255, 255); /* White stripe */
+  width: 12px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-option3:hover::after {
-  width: 100%; /* Expand #ffda67 background on hover */
+  width: 100%;
 }
 
 .card-option3:hover {
-  background-color: white; /* Change entire background to #ffda67 on hover */
-  color: white; /* Change text color to white on hover */
+  background-color: white;
+  color: white;
 }
 
 .card-content.contentC.selected::before {
-  width: 12px; /* Keep the white stripe width fixed */
-  background-color: rgb(255, 255, 255); /* White stripe */
+  width: 12px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-content.contentC.selected::after {
-  width: 100%; /* Expand #ffda67 background on hover */
+  width: 100%;
 }
 
 .card-content.contentC.selected {
-  /* background-color: #ffda67; */
   background-color: rgb(252, 252, 252);
-  color: white; /* Change text color to white on hover */
+  color: white;
 }
 
-/* ----------- 3 end ---------- */
-/* ---------- 4 ---------- */
 .card-option4 {
-  background-color: #fff; /* Default white background */
+  background-color: #fff;
   position: relative;
-  /* width: 480px; */
+
   padding: 40px 0;
 
-  /* margin: 20px 0 0 20px; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  color: black; /* Default text color */
-  transition: all 0.4s ease-out; /* Smooth transition for background and text color */
+  color: black;
+  transition: all 0.4s ease-out;
   text-align: center;
-  /* justify-content: center; */
+
   align-items: center;
   display: flex;
   font-size: 17px;
   font-weight: 600;
- 
 }
 
 .card-option4::before {
   content: "";
   position: absolute;
-  width: 12px; /* Small white stripe */
+  width: 12px;
   height: 100%;
-  background-color: rgb(8, 120, 180); /* White stripe */
+  background-color: rgb(8, 120, 180);
   top: 0;
   left: 0;
-  z-index: 2; /* Ensure stripe stays on top of the background */
+  z-index: 2;
   transition: 0.4s ease-out;
 }
 
 .card-option4::after {
   content: "";
   position: absolute;
-  width: 0%; /* Initially hidden rgb(8, 120, 180) background */
+  width: 0%;
   height: 100%;
   background-color: rgb(8, 120, 180);
   top: 0;
   left: 0;
   transition: 0.4s ease-out;
-  z-index: -1; /* Keep it below the text and stripe */
+  z-index: -1;
 }
 
 .card-option4:hover::before {
-  width: 12px; /* Keep the white stripe width fixed */
-  background-color: rgb(255, 255, 255); /* White stripe */
+  width: 12px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-option4:hover::after {
-  width: 100%; /* Expand rgb(8, 120, 180) background on hover */
+  width: 100%;
 }
 
 .card-option4:hover {
-  background-color: white; /* Change entire background to rgb(8, 120, 180) on hover */
-  color: white; /* Change text color to white on hover */
+  background-color: white;
+  color: white;
 }
 
 .card-content.contentD.selected::before {
-  width: 12px; /* Keep the white stripe width fixed */
-  background-color: rgb(255, 255, 255); /* White stripe */
+  width: 12px;
+  background-color: rgb(255, 255, 255);
 }
 
 .card-content.contentD.selected::after {
-  width: 100%; /* Expand rgb(8, 120, 180) background on hover */
+  width: 100%;
 }
 
 .card-content.contentD.selected {
-  /* background-color: rgb(8, 120, 180); */
   background-color: rgb(252, 252, 252);
-  color: white; /* Change text color to white on hover */
+  color: white;
 }
-
-/* ----------- 4 end  ---------- */
-
-/* .card-content {
-  position: relative;
-  z-index: 2;
-  width: 160px;
-  height: 250px;
-  background-color: white;
-  transform: rotate(10deg);
-  border-radius: 20px;
-  font-weight: 700;
-  padding: 10px 20px;
-} */
 
 .card-content1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 10px 20px; */
+
   padding: 10px 10px 10px 60px;
-  
 }
 
 .card-content1 h1 {
@@ -472,12 +420,10 @@
 
 .card-content.contentB.selected {
   background-color: skyblue;
-  /* Selected background for option B */
 }
 
 .card-content.contentC.selected {
   background-color: #ffda67;
-  /* Selected background for option C */
 }
 
 .card-content.contentD.selected {
@@ -489,7 +435,6 @@
   height: 10%;
   bottom: 18%;
   left: 10%;
-
 }
 
 .result-img2 {
@@ -508,7 +453,7 @@
 }
 
 @media screen and (max-width: 1187px) {
-  .icon10-game1{
+  .icon10-game1 {
     display: none;
   }
 
@@ -516,23 +461,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-
-  /* .card-option2 {
-    margin-top: 30px;
-    margin: 20px 0;
-  }
-
-  .card-option1 {
-    margin: 20px 0 0 0;
-  }
-
-  .card-option3 {
-    margin: 20px 0 0 0;
-  }
-
-  .card-option4 {
-    margin: 20px 0 0 0;
-  } */
 
   .Game2-bg {
     height: 300vh !important;
@@ -546,12 +474,6 @@
   }
 }
 
-/* @media screen and (max-width:1430px) {
-  .Game2-bg {
-    height: 130vh !important;
-  }
-} */
-
 @media screen and (max-width: 1186px) {
   .Game2-bg {
     height: 166vh !important;
@@ -564,19 +486,19 @@
   }
 }
 
-.next-button-game2{
+.next-button-game2 {
   background-color: white;
   border-radius: 10px;
   width: 200px;
   border: none;
-   color: black;
-   padding: 5px 10px ;
-   font-size: 18px;
-   font-weight: 600;
+  color: black;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-weight: 600;
   margin-top: 30px;
   height: 50px;
 }
-.next-button-game2:hover{
+.next-button-game2:hover {
   background-color: #ff8c00;
   color: white;
   font-weight: 600;

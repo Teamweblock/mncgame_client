@@ -1,15 +1,17 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
   @keyframes glow-pulse {
-    0%, 100% {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 0px rgba(255, 255, 255, 0.5);
+    0%,
+    100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 0px rgba(255, 255, 255, 0.5);
     }
     50% {
-      text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 0.7);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 1),
+        0 0 20px rgba(255, 255, 255, 0.7);
     }
   }
 
@@ -31,14 +33,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-/* form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-} */
 
 a {
   text-decoration: none !important;
@@ -69,10 +63,6 @@ i {
 .form-check-label {
   font-size: 12px;
 }
-
-/* span {
-  color: red;
-} */
 
 .text-center {
   text-align: center;
@@ -115,16 +105,6 @@ code {
   position: absolute;
   left: -130px;
   top: 599px;
-}
-
-.bg-img1 {
-  background-image: url("../src/Assets/images//img11.png");
-  width: 100%;
-  height: 600px;
-  position: absolute;
-  top: 0;
-  background-position: center;
-  background-size: cover;
 }
 
 .pilot-img {
@@ -212,7 +192,6 @@ code {
 }
 
 .form-input {
-  /* outline border none ; */
   outline: none;
   padding: 10px;
   background-color: white;
@@ -285,7 +264,7 @@ code {
   border: none;
   width: 100%;
   outline: none;
-  color: #bba692
+  color: #bba692;
 }
 
 .f-input-icon {
@@ -312,11 +291,9 @@ code {
   font-size: 25px;
 }
 
-
 .f-icon {
   margin-right: 20px;
 }
-
 
 .f-icon1 {
   background-color: #fd6685;
@@ -403,24 +380,18 @@ code {
   }
 }
 
-.bg-img1 {
-  animation: slideIn 3s ease-in-out infinite alternate;
-  /* Adjust timing and animation properties as needed */
-}
-
 .text {
   width: 80%;
   margin: auto;
 }
 
-.login-bg-img{
-  background-image: url("../src//Assets/images/loginimg2.jpg");
+.login-bg-img {
+  background-image: url("../src/Assets/images/loginimg2.jpg");
   width: 100%;
   height: 100%;
   background-position: center;
   background-size: cover;
   overflow: hidden;
-  /* margin-bottom: 20px; */
 }
 
 .login-img {
@@ -522,8 +493,8 @@ code {
   margin-right: 150px;
 }
 
-.welcomepage-bg3{
-  background-image: url("/src/Assets/gameimages/img8.png");
+.welcomepage-bg3 {
+  background-image: url("../src/Assets/gameimages/img8.png");
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -552,7 +523,6 @@ code {
   gap: 12px;
 }
 
-
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -564,24 +534,23 @@ code {
   text-orientation: mixed;
   transform: rotate(180deg);
 }
-/* Add smooth transitions for carousel */
 .transition-all {
   transition: all 0.3s ease-in-out;
+<<<<<<< HEAD
 } 
 
 
+=======
+}
+>>>>>>> 4079430757fb14d17c6d5005bd818de0815e2bab
 .addskill-part-main {
   width: 100%;
   height: 100vh;
   display: flex;
-  /* background-image: url('./Assets/images/gameimg2.png'); */
   background-image: url("./Assets/illustration/Slider-Image.png");
-  /* background-image: url('./Assets/illustration/headerimage.png'); */
   background-size: cover;
-  /* background-position: right top; */
   background-repeat: no-repeat;
 }
-
 
 .game-main-part {
   width: 100%;
@@ -644,14 +613,12 @@ code {
 }
 
 .socialicons {
-  
   display: flex;
   gap: 10px;
   align-items: center;
   justify-content: center;
-
 }
-.follow-us{
+.follow-us {
   margin-top: 15px;
   font-weight: bold;
 }
@@ -678,10 +645,6 @@ code {
     grid-template-columns: 1fr !important;
     gap: 60px;
   }
-
-
-
-
 
   .game-part1 {
     width: 70%;
@@ -711,7 +674,6 @@ code {
 }
 
 @media (max-width: 1199px) {
-
 }
 
 @media (max-width: 1000px) {
@@ -772,9 +734,8 @@ code {
 
 .line {
   width: 100px;
-  /* Adjust this based on the distance between steps */
   height: 4px;
- 
+
   animation: lineAnimation 2s infinite;
 }
 
@@ -813,12 +774,6 @@ code {
   }
 }
 
-@media screen and (max-width: 1024px) {
-  /* .footer-text{
-
-  } */
-}
-
 @media screen and (max-width: 768px) {
   .footer-icon-group {
     display: block;
@@ -847,78 +802,62 @@ code {
   }
 }
 
-
- /* footer new css */
-
-
-.copyright{
+.copyright {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
-.get-in-touch{
+.get-in-touch {
   display: flex;
   align-items: center;
- gap: 10px;
+  gap: 10px;
   justify-items: center;
 }
 
-
-
-.footer-icon-set{
+.footer-icon-set {
   margin-bottom: 12px;
 }
-.footer-text{
+.footer-text {
   margin-top: 12px;
 }
 
-/* login page css  */
-
-
-.google-btn{
+.google-btn {
   border: none;
   border-radius: 30px;
-
 }
-.Login-heading{
-font-size: 50px;
-font-weight: 700;
-
+.Login-heading {
+  font-size: 50px;
+  font-weight: 700;
 }
 @media screen and (max-width: 1024px) {
-  .logie-form{
+  .logie-form {
     display: flex;
-    flex-wrap:wrap ;
-
+    flex-wrap: wrap;
   }
 }
 
-.login-heading{
- font-size: 60px;
- font-weight: 700;
- margin-top: 20px
+.login-heading {
+  font-size: 60px;
+  font-weight: 700;
+  margin-top: 20px;
 }
-.login-discription{
+.login-discription {
   font-weight: 700;
   font-size: 20px;
 }
 @media screen and (max-width: 1024px) {
-  .login-heading{
+  .login-heading {
     font-size: 30px;
     font-weight: 700;
-    margin-top: 20px
-   }
-   .login-discription{
-
+    margin-top: 20px;
+  }
+  .login-discription {
     font-weight: 700;
     font-size: 15px;
-
-   }
-
+  }
 }
-.black-circle{
+.black-circle {
   height: 30px;
   width: 30px;
   border-radius: 50px;
@@ -926,38 +865,35 @@ font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
-   
 }
-.white-circle{
+.white-circle {
   height: 15px;
   width: 15px;
   border-radius: 50px;
   background-color: #fff;
- 
 }
-.all-circle{
+.all-circle {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
- 
+
   border-bottom: 5px solid black;
 }
-.both-circle{
+.both-circle {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.forgetPass-bg{
+.forgetPass-bg {
   background-image: url("/public/forget.jpg");
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    object-fit: cover;
-    background-position:center;
-    background-repeat: no-repeat;
-
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .mnc-logo {
   width: 100px;
@@ -967,56 +903,54 @@ font-weight: 700;
   display: flex;
   justify-content: center;
   margin: auto;
-
 }
-.resetPass-bg{
-  background-image: url("/src/Assets/gameimages/img1.jpg");
+.resetPass-bg {
+  background-image: url("../src/Assets/gameimages/img1.jpg");
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  background-position:center;
+  background-position: center;
 }
 
-.endmetting{
-  background-image: url("/src/Assets/gameimages/endmetting.png");
+.endmetting {
+  background-image: url("../src/Assets/gameimages/endmetting.png");
   width: 100%;
   object-fit: cover;
-  background-position:center;
+  background-position: center;
 }
-.game3result{
-  background-image: url("/src/Assets/gameimages/game3result.png");
+.game3result {
+  background-image: url("../src/Assets/gameimages/game3result.png");
   width: 100%;
   object-fit: cover;
-  background-position:center;
+  background-position: center;
 }
 
-/* Customize the pagination dots */
 .custom-pagination {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px; /* Adjust position */
+  margin-top: 20px;
 }
 
 .custom-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: #a90bd4; /* Dot color */
-  opacity: 1; /* Fully visible */
+  background-color: #a90bd4;
+  opacity: 1;
   transition: background-color 0.3s ease;
 }
 
 .custom-pagination .swiper-pagination-bullet-active {
-  background-color: #1b1916; /* Active dot color */
+  background-color: #1b1916;
 }
 
 .waiting-page-multi {
-  background-image: url("/src/Assets/gameimages/img1.jpg");
-  background-repeat: no-repeat; 
-  background-position: center top; 
-  background-size: cover; 
-  min-height: 100vh; 
+  background-image: url("../src/Assets/gameimages/img1.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: start; 
+  justify-content: start;
 }

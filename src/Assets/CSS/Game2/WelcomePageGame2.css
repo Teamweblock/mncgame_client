@@ -1,192 +1,178 @@
 .welcomepage-bg {
-    background-image: url("/src/Assets/gameimages/img7.png");
-    width: 100%;
-    height: 100vh;
+  background-image: url("../../../Assets/gameimages/img7.png");
+  width: 100%;
+  height: 100vh;
 }
 
-
 .welcome-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .welcome-text2 {
-    font-size: 100px;
-    color: white;
-    text-align: center;
-    line-height: 80px;
-    font-weight: 700;
-
-
+  font-size: 100px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  font-weight: 700;
 }
 
 .welcome-para2 {
-    color: rgb(239, 189, 63);
-    text-align: center;
-    margin-top: 20px;
+  color: rgb(239, 189, 63);
+  text-align: center;
+  margin-top: 20px;
 }
 
 .game2Playbtn {
-    background-color: white;
-    color: black;
-    padding: 10px 100px;
-    font-weight: 700;
-    border: none;
-    font-size: 25px;
-    border-radius: 20px;
-    text-align: center;
-    margin-top: 20px;
+  background-color: white;
+  color: black;
+  padding: 10px 100px;
+  font-weight: 700;
+  border: none;
+  font-size: 25px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .game2Playbtn:hover {
-    background-color: orange;
-    color: white;
-    transition: 0.3s;
+  background-color: orange;
+  color: white;
+  transition: 0.3s;
 }
 
 .playbtn {
-    text-align: center;
+  text-align: center;
 }
 
 .icon1-game1 {
-    height: 8%;
-    position: absolute;
-    left: 15%;
-    top: 22%;
+  height: 8%;
+  position: absolute;
+  left: 15%;
+  top: 22%;
 }
 
 .game-footer-text {
-    position: absolute;
-    bottom: 36px;
-    right: 6%;
-    color: white;
-    font-weight: 300;
-    line-height: 4px;
-    letter-spacing: 5px;
+  position: absolute;
+  bottom: 36px;
+  right: 6%;
+  color: white;
+  font-weight: 300;
+  line-height: 4px;
+  letter-spacing: 5px;
 }
 
 @media screen and (max-width: 1000px) {
-    .welcome-text2 {
-        font-size: 70px;
-    }
+  .welcome-text2 {
+    font-size: 70px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .welcome-text2 {
-        font-size: 85px;
-    }
+  .welcome-text2 {
+    font-size: 85px;
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .welcome-text2 {
-        font-size: 50px;
-    }
+  .welcome-text2 {
+    font-size: 50px;
+  }
 
-    .welcome-title {
-        width: 90%;
-    }
+  .welcome-title {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .welcome-text2 {
-        font-size: 40px;
-    }
+  .welcome-text2 {
+    font-size: 40px;
+  }
 
-    .game2Playbtn {
-        padding: 8px 50px;
-
-    }
+  .game2Playbtn {
+    padding: 8px 50px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .welcome-text2 {
-        font-size: 30px;
-        line-height: 31px;
-
-    }
+  .welcome-text2 {
+    font-size: 30px;
+    line-height: 31px;
+  }
 }
 
 @media screen and (max-width: 327px) {
-    .game2Playbtn {
-        padding: 10px 40px;
-    }
+  .game2Playbtn {
+    padding: 10px 40px;
+  }
 
-    .welcome-title {
-        top: 60%;
-    }
+  .welcome-title {
+    top: 60%;
+  }
 }
 
-@media screen and (max-width:946px) {
-    .welcome-text2 {
-        font-size: 70px;
-    }
+@media screen and (max-width: 946px) {
+  .welcome-text2 {
+    font-size: 70px;
+  }
 }
 
-@media screen and (max-width:714px) {
-    .welcome-text2 {
-
-        font-size: 60px;
-    }
+@media screen and (max-width: 714px) {
+  .welcome-text2 {
+    font-size: 60px;
+  }
 }
 
-@media screen and (max-width:594px) {
-    .welcome-text2 {
-        font-size: 40px !important;
-    }
-
+@media screen and (max-width: 594px) {
+  .welcome-text2 {
+    font-size: 40px !important;
+  }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 425px) {
+  .welcome-para {
+    font-size: 17px;
+  }
 
-    .welcome-para {
-        font-size: 17px;
-
-    }
-
-    .welcome-text2 {
-        line-height: 40px;
-    }
+  .welcome-text2 {
+    line-height: 40px;
+  }
 }
 
-@media screen and (max-width:496px) {
-    .welcome-text2 {
-        line-height: 48px;
-    }
-
+@media screen and (max-width: 496px) {
+  .welcome-text2 {
+    line-height: 48px;
+  }
 }
 
-@media screen and (max-width:1024px) {
-    .welcome-text2 {
-        line-height: 70px;
-    }
+@media screen and (max-width: 1024px) {
+  .welcome-text2 {
+    line-height: 70px;
+  }
 }
 
-@media screen and (max-width:530px) {
-    .welcome-text2 {
-        line-height: 40px;
-    }
+@media screen and (max-width: 530px) {
+  .welcome-text2 {
+    line-height: 40px;
+  }
 }
 
-@media screen and (max-width:390px) {
-    .welcome-text2 {
-        font-size: 30px !important;
-    }
+@media screen and (max-width: 390px) {
+  .welcome-text2 {
+    font-size: 30px !important;
+  }
 }
 
-@media screen and (max-width:546px) {
-
-    .welcome-text2 {
-        line-height: 40px;
-    }
+@media screen and (max-width: 546px) {
+  .welcome-text2 {
+    line-height: 40px;
+  }
 }
 
 @media screen and (max-width: 321px) {
-
-    .Game1-bg {
-        height: 115vh;
-    }
+  .Game1-bg {
+    height: 115vh;
+  }
 }
-
-/*  */

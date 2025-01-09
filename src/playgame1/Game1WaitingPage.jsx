@@ -8,6 +8,7 @@ import female from "../Assets/images/female.avif";
 import "../Assets/CSS/Game1/Game1WaitingPage.css"; // CSS applied
 
 const socket = io("http://localhost:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 const Game1WaitingPage = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Game1WaitingPage = () => {
     socket.emit("joinQueue", { level: levelNumber, playerId });
     // Handle opponent match found
     const handleStart = ({ roomCode, opponentName }) => {
-      console.log("opponentName", opponentName);
+      console.log("opponentName ------------- ", opponentName);
       setQueueStatus("Match found! Starting the game...");
       setOpponent({ name: opponentName, avatar: female }); // Assuming opponent avatar is female for now
       setTimeout(() => {

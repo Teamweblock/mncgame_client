@@ -5,10 +5,11 @@ import { toast } from "react-toastify";
 import { joinmeetGame } from "../utils/axiosInstance";
 import logo from "../Assets/gameimages/mnclogo2.png";
 import female from "../Assets/images/female.avif";
-import icon1 from "../Assets/gameimages/icon1.png"
+import icon1 from "../Assets/gameimages/icon1.png";
 import icon2 from "../Assets/gameimages/icon5.png";
 
 const socket = io("http://localhost:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 const MultiplayerWaitingPage = () => {
   const location = useLocation();
@@ -32,12 +33,12 @@ const MultiplayerWaitingPage = () => {
   };
 
   useEffect(() => {
-      window.addEventListener("mousemove", handleMouseMove);
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-      };
-    }, []);
-    
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   useEffect(() => {
     queueStatusRef.current = queueStatus;
   }, [queueStatus]);
@@ -54,7 +55,6 @@ const MultiplayerWaitingPage = () => {
         console.error("Error: Unable to join the queue", err);
         setIsDialogOpen(true);
         // navigate("/chooserole");
-
       }
     };
 
@@ -103,7 +103,6 @@ const MultiplayerWaitingPage = () => {
     const handleDisconnectMessage = () => {
       setIsDialogOpen(true);
       // navigate("/chooserole");
-
     };
 
     socket.on("playersStatus", handlePlayersStatus);
@@ -114,7 +113,6 @@ const MultiplayerWaitingPage = () => {
       console.error("Socket connection error:", err);
       setIsDialogOpen(true);
       // navigate("/chooserole");
-
     });
 
     return () => {
@@ -141,6 +139,7 @@ const MultiplayerWaitingPage = () => {
           ) {
             socket.emit("leaveQueue", { playerId });
             toast.info("No match found. Returning to level selection.");
+            // setIsDialogOpen(true);
             navigate("/chooserole");
           }
         }
@@ -170,10 +169,10 @@ const MultiplayerWaitingPage = () => {
       <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-10">
         <img src={logo} alt="Game Logo" className="h-10 w-auto" />
         <div className="bg-orange-600 text-white text-lg font-bold rounded-full px-6 py-2  md:block hover:bg-orange-700 hover:scale-105 transition-all duration-300 ease-in-out">
-  {timeLeft > 0 ? `${formatTime(timeLeft)} LEFT` : "TIME EXPIRED"}
-</div>
+          {timeLeft > 0 ? `${formatTime(timeLeft)} LEFT` : "TIME EXPIRED"}
+        </div>
 
-  <img
+        <img
           src={icon1}
           className="icon1-game3"
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
@@ -182,7 +181,7 @@ const MultiplayerWaitingPage = () => {
           src={icon2}
           className="icon2-game3"
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-        /> 
+        />
       </div>
 
       {/* Players Grid */}
@@ -196,8 +195,8 @@ const MultiplayerWaitingPage = () => {
               <div
                 className={`border-[4px] rounded-3xl p-4 w-full ${
                   player.status === "ready"
-                    ?  "border-[#00FF00]"
-                    :  "border-[#FF0000]"
+                    ? "border-[#00FF00]"
+                    : "border-[#FF0000]"
                 }`}
               >
                 {/* Player Avatar */}
@@ -213,7 +212,7 @@ const MultiplayerWaitingPage = () => {
                 </p>
 
                 {/* Player Role */}
-               
+
                 <p
                   className={`text-5xl font-bold text-center mt-2 ${
                     player.status === "ready"
@@ -222,7 +221,10 @@ const MultiplayerWaitingPage = () => {
                       ? "text-[#FF0000]"
                       : "text-gray-500"
                   }`}
-                  style={{fontFamily: "Bebas Neue", verticalAlign: "Cap height"}}
+                  style={{
+                    fontFamily: "Bebas Neue",
+                    verticalAlign: "Cap height",
+                  }}
                 >
                   {player.role}
                 </p>
@@ -253,18 +255,19 @@ const MultiplayerWaitingPage = () => {
           Cancel
         </button>
       </div>
-<div className="absolute bottom-8 right-8 text-white">
-          <p className="text-sm tracking-widest">
-            MULTI <span className="">NETWORKING COMPANY</span>
-          </p>
-        </div>
+      <div className="absolute bottom-8 right-8 text-white">
+        <p className="text-sm tracking-widest">
+          MULTI <span className="">NETWORKING COMPANY</span>
+        </p>
+      </div>
       {/* Dialog Box */}
       {isDialogOpen && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
           <div className="bg-yellow-500 p-6 shadow-lg max-w-sm w-full outline outline-4 outline-yellow-500 relative rounded-lg">
             <div className="absolute inset-0 m-[10px] border-4 border-white rounded-xl pointer-events-none"></div>
             <h2 className="text-white text-xl font-bold mb-4 leading-relaxed text-center relative z-10 mt-6">
-            LOOKS LIKE WE COULDN'T <br /> FIND A MATCH <br /> TRY AGAIN FOR A BETTER <br /> SHOT!
+              LOOKS LIKE WE COULDN'T <br /> FIND A MATCH <br /> TRY AGAIN FOR A
+              BETTER <br /> SHOT!
             </h2>
             <div className="text-center relative z-20">
               <button
@@ -286,9 +289,6 @@ const MultiplayerWaitingPage = () => {
 
 export default MultiplayerWaitingPage;
 
-
-
-
 // import React, { useEffect, useState, useRef } from "react";
 // import { useNavigate } from "react-router-dom";
 // import { toast } from "react-toastify";
@@ -301,7 +301,7 @@ export default MultiplayerWaitingPage;
 // // import icon1 from "../Assets/gameimages/icon1.png"
 // // import icon2 from "../Assets/gameimages/icon5.png";
 
-// const socket = io("http://localhost:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 // const MultiplayerWaitingPage = () => {
 //   const navigate = useNavigate();
@@ -420,7 +420,7 @@ export default MultiplayerWaitingPage;
 //           ) {
 //             socket.emit("leaveQueue", { playerId });
 //             setIsDialogOpen(true);
-            
+
 //             // toast.info("No match found. Returning to level selection.");
 //             navigate("/chooserole");
 //           }
@@ -447,16 +447,16 @@ export default MultiplayerWaitingPage;
 
 //   return (
 //     <div className="min-h-screen flex flex-col welcomepage-bg3 text-gray-900">
-      //  {/* <img
-      //     src={icon1}
-      //     className="icon1-game3"
-      //     style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-      //   />
-      //   <img
-      //     src={icon2}
-      //     className="icon2-game3"
-      //     style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-      //   /> */}
+//  {/* <img
+//     src={icon1}
+//     className="icon1-game3"
+//     style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
+//   />
+//   <img
+//     src={icon2}
+//     className="icon2-game3"
+//     style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
+//   /> */}
 
 //       {/* Header */}
 //       <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-10">

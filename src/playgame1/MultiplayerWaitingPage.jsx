@@ -509,7 +509,7 @@ export default MultiplayerWaitingPage;
 // import logo from "../Assets/gameimages/mnclogo2.png";
 // import female from "../Assets/images/female.avif";
 
-// const socket = io("http://localhost:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 // const MultiplayerWaitingPage = () => {
 //   const navigate = useNavigate();
@@ -653,7 +653,7 @@ export default MultiplayerWaitingPage;
 //       <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-20 max-lg:pt-10 max-lg:justify-center">
 //         <img src={logo} alt="Game Logo" height={50} width={120} />
 //         <button
-//           className="bg-orange-500 text-white text-xl font-bold rounded-full px-6 py-2 max-lg:hidden 
+//           className="bg-orange-500 text-white text-xl font-bold rounded-full px-6 py-2 max-lg:hidden
 //     hover:bg-orange-600 hover:scale-105 hover:shadow-lg transition-all"
 //           // onClick={handleButtonClick}
 //         >
@@ -687,8 +687,8 @@ export default MultiplayerWaitingPage;
 //                     {player?.name || "Unknown Player"}
 //                   </p>
 //                   <button
-//                     className={`mx-2 text-white font-bold py-2 px-3 md:px-10 text-lg rounded-full transition duration-300 ease-in-out 
-//                     ${player.status === "READY" ? "bg-green-500" : "bg-red-500"} 
+//                     className={`mx-2 text-white font-bold py-2 px-3 md:px-10 text-lg rounded-full transition duration-300 ease-in-out
+//                     ${player.status === "READY" ? "bg-green-500" : "bg-red-500"}
 //                     hover:bg-opacity-80 hover:scale-105`}
 //                   >
 //                     {player.status.toUpperCase()}
@@ -726,7 +726,6 @@ export default MultiplayerWaitingPage;
 //   OKAY
 // </button>
 
-
 //     </div>
 //   </div>
 // </div>
@@ -739,10 +738,6 @@ export default MultiplayerWaitingPage;
 
 // export default MultiplayerWaitingPage;
 
-
-
-
-
 // import React, { useEffect, useState, useRef } from "react";
 // import { useNavigate, useLocation } from "react-router-dom";
 // import { toast } from "react-toastify";
@@ -751,7 +746,7 @@ export default MultiplayerWaitingPage;
 // import logo from "../Assets/gameimages/mnclogo2.png";
 // import female from "../Assets/images/female.avif";
 
-// const socket = io("http://localhost:8000"); // Update with your backend URL
+// const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 
 // const MultiplayerWaitingPage = () => {
 //   const navigate = useNavigate();
@@ -797,7 +792,7 @@ export default MultiplayerWaitingPage;
 
 //     const handlePlayersStatus = (playersData) => {
 //       console.log('playersData',playersData);
-      
+
 //       setPlayers(playersData);
 //       if (playersData?.length === 1) {
 //         setQueueStatus("1 player connected...");

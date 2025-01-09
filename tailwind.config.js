@@ -35,7 +35,7 @@ module.exports = {
           },
           "100%": {
             borderColor: "white"
-          }  
+          }
         },
         'blink-caret': {
           'from, to': { borderColor: 'transparent' },

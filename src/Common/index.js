@@ -1,3 +1,4 @@
+// const backendDomin = process.env.BACKEND_URL || "https://api.multinetworkingcompany.com";
 const backendDomin = process.env.BACKEND_URL || "http://localhost:8000";
 
 const SummaryApi = {

@@ -1,117 +1,114 @@
+.welcomepage-bg3 {
+  background-image: url("../../../Assets/gameimages/img8.png");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
 
-.welcomepage-bg3{
-    background-image: url("/src/Assets/gameimages/img8.png");
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-
-height: 100vh;
+  height: 100vh;
 }
-.welcome-title{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 70%;
-    transform: translate(-50%, -50%);
+.welcome-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
 }
-.welcome-text3{
-    font-size: 100px;
-    color: white;
-    text-align: center;
-    line-height: 80px;
-   
+.welcome-text3 {
+  font-size: 100px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
 }
-.welcome-para3{
-    color: black;
-    text-align: center;
-    margin-top: 20px;
+.welcome-para3 {
+  color: black;
+  text-align: center;
+  margin-top: 20px;
 }
-.game3Playbtn{
-    background-color: white;
-    color:black;
-    padding: 10px 70px;
-    font-weight: 700;
-    border: none;
-    font-size: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 20px;
+.game3Playbtn {
+  background-color: white;
+  color: black;
+  padding: 10px 70px;
+  font-weight: 700;
+  border: none;
+  font-size: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 20px;
 }
-.game3Playbtn:hover{
-    background-color: orange;
-    color: white;
-    transition: 0.3s;
+.game3Playbtn:hover {
+  background-color: orange;
+  color: white;
+  transition: 0.3s;
 }
-.playbtn{
-    text-align: center;
+.playbtn {
+  text-align: center;
 }
 .icon2-game3 {
-    position: absolute;
-    height: 10%;
-    right: 8%;
-    bottom: 20%;
-  }
-  .icon1-game1{
-    height: 8%;
-    position: absolute;
-    left: 15%;
-    top: 19%;
+  position: absolute;
+  height: 10%;
+  right: 8%;
+  bottom: 20%;
+}
+.icon1-game1 {
+  height: 8%;
+  position: absolute;
+  left: 15%;
+  top: 19%;
 }
 @media screen and (max-width: 1000px) {
-    .welcome-text3{
-        font-size: 70px;
-    }
+  .welcome-text3 {
+    font-size: 70px;
+  }
 }
 @media screen and (max-width: 800px) {
-    .welcome-text3{
-        font-size: 50px;
-    }
-    .welcome-title{
-        width: 90%;
-    }
+  .welcome-text3 {
+    font-size: 50px;
+  }
+  .welcome-title {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 600px) {
-    .welcome-text3{
-        font-size: 40px;
-    }
+  .welcome-text3 {
+    font-size: 40px;
+  }
 }
 @media screen and (max-width: 400px) {
-    .welcome-text3{
-        font-size: 30px;
-    }
+  .welcome-text3 {
+    font-size: 30px;
+  }
 }
 
 @media screen and (max-width: 327px) {
-    .game3Playbtn{
-        padding: 10px 40px;
-    }
+  .game3Playbtn {
+    padding: 10px 40px;
+  }
 }
-@media screen and (max-width:1037px) {
-    .welcome-text3{
-        font-size: 80px;
-    }
-}
-
-@media screen and (max-width:900px) {
-    .welcome-text3{
-        font-size:65px;
-    }
-}
-@media screen and (max-width:568px) {
-    .welcome-text3{
-        font-size:50px;
-        line-height: 50px;
-    }
-    
+@media screen and (max-width: 1037px) {
+  .welcome-text3 {
+    font-size: 80px;
+  }
 }
 
-@media screen and (max-width:436px) {
-    .welcome-text3{
-        font-size:40px;
-    }
+@media screen and (max-width: 900px) {
+  .welcome-text3 {
+    font-size: 65px;
+  }
 }
-@media screen and (max-width:981px) {
-    .playbtn{
-        width: 80%;
-    }
+@media screen and (max-width: 568px) {
+  .welcome-text3 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+
+@media screen and (max-width: 436px) {
+  .welcome-text3 {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 981px) {
+  .playbtn {
+    width: 80%;
+  }
 }
