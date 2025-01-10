@@ -46,7 +46,9 @@ const WelcomePageGame3 = () => {
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
         />
         <div className="welcome-title">
-          <h1 className="welcome-text3 transition duration-500 ease-in-out hover:text-glow  glow-effect">WELCOME TO STRATEGIC TRIAL</h1>
+          <h1 className="welcome-text3 transition duration-500 ease-in-out hover:text-glow  glow-effect">
+            WELCOME TO STRATEGIC TRIAL
+          </h1>
           {/* <TextAnimation text="WELCOME TO STRATEGIC TRIAL" speed={150} className="animated-text" /> */}
           <h4 className="welcome-para3">Fundamental Skills Development</h4>
           {/* <div className="playbtn"> */}

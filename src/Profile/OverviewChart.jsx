@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getweekgameview } from "../utils/axiosInstance";
 
 const OverviewChart = () => {
   const [analysisData, setAnalysisData] = useState([]);
@@ -8,36 +9,10 @@ const OverviewChart = () => {
     const fetchAnalysisData = async () => {
       setIsLoading(true);
       try {
-        // Retrieve token from localStorage
-        const token = localStorage.getItem("token");
-
-        if (!token) {
-          throw new Error("Token not found in localStorage");
+        const userData = await getweekgameview(); // Fetch profile data using the new function
+        if (userData) {
+          setAnalysisData(data);
         }
-
-        const response = await fetch(
-          // "https://api.multinetworkingcompany.com/player/weeklyanalysis",
-          "https://http://localhost:8000/player/weeklyanalysis",
-          {
-            method: "POST",
-            headers: {
-              "x-access-token": token, // Use token from localStorage
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams({
-              startDate: "2024-12-24",
-              endDate: "2024-12-31",
-            }),
-          }
-        );
-        console.log("response ------------", response);
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setAnalysisData(data);
       } catch (error) {
         console.error("Failed to fetch weekly analysis data:", error);
       } finally {

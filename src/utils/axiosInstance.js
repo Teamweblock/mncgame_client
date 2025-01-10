@@ -130,6 +130,38 @@ export const resetaPassword = async (payload) => {
   }
 };
 
+// API call for getting user profile
+export const getUserProfile = async () => {
+  try {
+    const response = await axiosInstance.get("/player/profile"); // Adjust the endpoint to match your backend
+    return response.data; // Return the user profile data
+  } catch (error) {
+    console.error("Error fetching user profile", error);
+    return null; // Return null in case of an error
+  }
+};
+
+// API call for getting user profile
+export const getUserRecent = async () => {
+  try {
+    const response = await axiosInstance.post("/player/recentactivity"); // Adjust the endpoint to match your backend
+    return response.data; // Return the user profile data
+  } catch (error) {
+    console.error("Error fetching user profile", error);
+    return null; // Return null in case of an error
+  }
+};
+
+// API call for getting user profile
+export const getweekgameview = async () => {
+  try {
+    const response = await axiosInstance.post("/player/weeklyanalysis"); // Adjust the endpoint to match your backend
+    return response.data; // Return the user profile data
+  } catch (error) {
+    console.error("Error fetching user profile", error);
+    return null; // Return null in case of an error
+  }
+};
 export const Check1validlevel = async (payload) => {
   try {
     const response = await axiosInstance.post(

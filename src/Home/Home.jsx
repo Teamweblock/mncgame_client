@@ -92,7 +92,7 @@ const Home = () => {
   // const handleRedirect = () => {
   //   const token = localStorage.getItem('token');
   //   if (token) {
-  //     navigate('/profile/overview'); 
+  //     navigate('/profile/overview');
   //   } else {
   //     navigate('/login');
   //   }
@@ -114,7 +114,6 @@ const Home = () => {
   //   ref.current.scrollIntoView({ behavior: 'smooth' });
   //   ref.current.focus();
   // };
-
 
   const handleRedirect = () => {
     const token = localStorage.getItem("token");
@@ -517,7 +516,7 @@ const Home = () => {
                 Work Smartly With Endless Possibility
               </h1>
               <p className="text-[1.6rem] mt-6 text-[#5e5c5c] font-bold text-3xl max-lg:text-center animate-spring-in animate-delay-2000">
-              Guide your career path with our digital compass.
+                Guide your career path with our digital compass.
               </p>
               {/* <div>
                 <div className="max-lg:text-center xl:mt-[25%] lg:ml-[7%]">
@@ -566,9 +565,11 @@ const Home = () => {
           {businessList.map((business, index) => (
             <div
               key={index}
-              className={`border-[6px] ${index === 0 ? "border-[#ffcdbd]" : ""
-                } ${index === 1 ? "border-[#d7efc2]" : ""} ${index === 2 ? "border-[#ffca9d]" : ""
-                }  text-center px-3 md:px-10 rounded-xl flex flex-col items-center gap-2 justify-center md:py-20 py-16 bg-cover hover:cursor-pointer object-contain shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300`}
+              className={`border-[6px] ${
+                index === 0 ? "border-[#ffcdbd]" : ""
+              } ${index === 1 ? "border-[#d7efc2]" : ""} ${
+                index === 2 ? "border-[#ffca9d]" : ""
+              }  text-center px-3 md:px-10 rounded-xl flex flex-col items-center gap-2 justify-center md:py-20 py-16 bg-cover hover:cursor-pointer object-contain shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300`}
             >
               <img
                 src={business.img}
@@ -618,7 +619,12 @@ const Home = () => {
               opportunities for themselves while honing their skills in a
               supportive environment.
             </p>
-            <button className="text-white font-bold bg-[#a90bd4] w-[180px] h-[50px] rounded-[5px] border-0 outline-none cursor-pointer mt-2.5" onClick={() => navigate("/about")}>KNOW MORE</button>
+            <button
+              className="text-white font-bold bg-[#a90bd4] w-[180px] h-[50px] rounded-[5px] border-0 outline-none cursor-pointer mt-2.5"
+              onClick={() => navigate("/about")}
+            >
+              KNOW MORE
+            </button>
           </div>
           {/* <div className="abutton max-md:text-center max-lg:text-center flex items-center">
           </div> */}
@@ -699,11 +705,14 @@ const Home = () => {
                 <p className="text-[1.2rem] font-medium text-[#5a4d43]">
                   {shipping.discription}
                 </p>
-                <FaArrowRightLong onClick={() => scrollToAndFocus(index)} className="text-[#C04AE2] text-5xl" />
+                <FaArrowRightLong
+                  onClick={() => scrollToAndFocus(index)}
+                  className="text-[#C04AE2] text-5xl"
+                />
               </div>
             ))}
           </div>
-         </div>
+        </div>
         <div className=" max-md:mt-6">
           <img
             style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
@@ -757,7 +766,10 @@ const Home = () => {
                   alt=""
                 />
               </div>
-              <div ref={divRef1} className="part-1-text  lg:pl-20 flex justify-center flex-col max-lg:text-center  lg:w-[60%]">
+              <div
+                ref={divRef1}
+                className="part-1-text  lg:pl-20 flex justify-center flex-col max-lg:text-center  lg:w-[60%]"
+              >
                 <div className="font-1 max-lg:mx-auto ">
                   <h3 className="h2 text-[#151310]">1</h3>
 
@@ -775,7 +787,9 @@ const Home = () => {
                 </div>
 
                 <div className=" max-lg:mx-auto text-[1.3rem] text-[#5a4d43] font-medium mb-4 max-md:px-4 mt-2">
-                Step into real-life scenarios and test your creativity and quick thinking! Can you find unique solutions under pressure? Play and find out how innovative your solutions are.
+                  Step into real-life scenarios and test your creativity and
+                  quick thinking! Can you find unique solutions under pressure?
+                  Play and find out how innovative your solutions are.
                 </div>
                 <button onClick={playGame1} className="max-lg:mx-auto ">
                   Play Now
@@ -792,7 +806,10 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div ref={divRef2} className=" sm:mt-10 port-part-2 lg:w-[70%] lg:flex-row-reverse w-[90%] mx-auto pt-16 flex justify-between  max-lg:items-center gap-20 max-lg:flex-col relative">
+            <div
+              ref={divRef2}
+              className=" sm:mt-10 port-part-2 lg:w-[70%] lg:flex-row-reverse w-[90%] mx-auto pt-16 flex justify-between  max-lg:items-center gap-20 max-lg:flex-col relative"
+            >
               <div
                 className=" border-[6px] border-[#9cf6d2] w-[220px] h-[230px] sm:w-[300px] sm:h-[330px]"
                 style={{ borderRadius: "15px" }}
@@ -830,14 +847,19 @@ const Home = () => {
                   Entrepreneurial Edge
                 </div>
                 <div className=" max-lg:mx-auto text-[1.3rem] text-[#5a4d43] font-medium mb-4 max-md:px-4 mt-2">
-                Ignite your entrepreneurial spirit, conquer challenges, and cultivate a mindset for success! It's a game of Mindset mastery!
+                  Ignite your entrepreneurial spirit, conquer challenges, and
+                  cultivate a mindset for success! It's a game of Mindset
+                  mastery!
                 </div>
                 <button onClick={playGame2} className="max-lg:mx-auto">
                   Play Now
                 </button>
               </div>
             </div>
-            <div ref={divRef3} className="port-part-3 sm:mt-10  relative  lg:w-[70%] w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-20 max-lg:flex-col">
+            <div
+              ref={divRef3}
+              className="port-part-3 sm:mt-10  relative  lg:w-[70%] w-[90%] mx-auto pt-16 flex justify-between max-lg:items-center gap-20 max-lg:flex-col"
+            >
               <div
                 className="border-[6px] border-[#ffb1d9] ] w-[220px] h-[230px]  sm:w-[300px] sm:h-[330px] "
                 style={{ borderRadius: "15px" }}
@@ -875,8 +897,9 @@ const Home = () => {
                   />
                 </div>
                 <div className=" max-lg:mx-auto text-[1.3rem] text-[#5a4d43] font-medium mb-4 max-md:px-4 mt-2">
-                  Navigate complex business scenarios and uncover the secrets to corporate success. A challenge for your fundamental skills and strategic thinking!
-
+                  Navigate complex business scenarios and uncover the secrets to
+                  corporate success. A challenge for your fundamental skills and
+                  strategic thinking!
                 </div>
                 <button onClick={playGame3} className="max-lg:mx-auto">
                   Play Now
@@ -913,20 +936,25 @@ const Home = () => {
           alt="Join section background"
         />
 
-        <div className="text-center mx-auto flex justify-center flex-col px-4 pt-10
-            w-[90%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[65%]">
-          <h1 className="text-[#221f1b] font-bold
-              text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+        <div
+          className="text-center mx-auto flex justify-center flex-col px-4 pt-10
+            w-[90%] sm:w-[80%] md:w-[75%] lg:w-[70%] xl:w-[65%]"
+        >
+          <h1
+            className="text-[#221f1b] font-bold
+              text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+          >
             Come on, join with us!
           </h1>
 
-          <p className="text-[#5a4d43] font-medium mt-3
-              text-base sm:text-lg md:text-xl lg:text-2xl">
+          <p
+            className="text-[#5a4d43] font-medium mt-3
+              text-base sm:text-lg md:text-xl lg:text-2xl"
+          >
             Create an account and refer your friend
           </p>
         </div>
       </div>
-
 
       <div className="join-main ">
         <img
