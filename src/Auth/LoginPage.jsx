@@ -38,19 +38,43 @@ const LoginPage = () => {
     if (res && res.token) {
     
       const currentTime = new Date().getTime();
-      const expirationTime = currentTime + 2 * 60 * 60 * 1000;
-
+      // const expirationTime = currentTime + 2 * 60 * 60 * 1000;
+      const expirationTime = currentTime + 8 * 60 * 60 * 1000; // 8 hours in milliseconds
+      // const expirationTime = currentTime + 1 * 60 * 1000; // 1 minutes in milliseconds
     
       localStorage.setItem("token", res.token);
       localStorage.setItem("tokenExpiration", expirationTime);
 
+       // Set auto-logout
+       const remainingTime = expirationTime - currentTime;
+       setTimeout(() => handleAutoLogout(), remainingTime);
     
       dispatch(login(res.token));
       setFormData({});
       navigate("/");
+    }else {
+      toast.error("Login failed. Please try again.");
     }
   };
 
+  // const handleAutoLogout = () => {
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("tokenExpiration");
+  //   toast.error("Your session has expired. Please log in again.");
+  //   navigate("/login");
+  // };
+
+  const handleAutoLogout = () => {
+    // Remove only the 'token' key from localStorage
+    Object.keys(localStorage).forEach((key) => {
+      if (key !== "token") {
+        localStorage.removeItem(key);
+      }
+    });
+  
+    toast.error("Your session has expired. Please log in again.");
+    navigate("/login");
+  };
 
   const responseGoogle = async (authResult) => {
     try {
@@ -95,20 +119,27 @@ const LoginPage = () => {
     console.log("Current Token:", token);
     console.log("Token Expiration Time:", expirationTime);
     console.log("Current Time:", currentTime);
-  
-    if (token && expirationTime && currentTime > expirationTime) {
-      // Token is expired, remove it from localStorage
-      localStorage.removeItem("token");
-      localStorage.removeItem("tokenExpiration");
-  
-      console.log("Token has expired and has been removed.");
-  
-      // Optionally, notify the user with a toast or alert
-      toast.error("Your session has expired. Please log in again.");
-      navigate("/login"); // Redirect to login page
-    } else {
-      console.log("Token is valid.");
+
+    if (token && expirationTime) {
+      if (currentTime > expirationTime) {
+        handleAutoLogout();
+      } else {
+        // Calculate remaining time and set timeout for auto-logout
+        const remainingTime = expirationTime - currentTime;
+        setTimeout(() => handleAutoLogout(), remainingTime);
+      }
     }
+  
+    // if (token && expirationTime && currentTime > expirationTime) {
+    //   localStorage.removeItem("token");
+    //   localStorage.removeItem("tokenExpiration");
+  
+    //   console.log("Token has expired and has been removed.");
+    //   toast.error("Your session has expired. Please log in again.");
+    //   navigate("/login"); 
+    // } else {
+    //   console.log("Token is valid.");
+    // }
   }, [navigate]);
   
 

@@ -7,6 +7,7 @@ import male from "../Assets/images/male.avif";
 import female from "../Assets/images/female.avif";
 import "../Assets/CSS/Game1/Game1WaitingPage.css"; // CSS applied
 
+
 const socket = io("http://localhost:8000"); // Update with your backend URL
 // const socket = io("https://api.multinetworkingcompany.com"); // Update with your backend URL
 

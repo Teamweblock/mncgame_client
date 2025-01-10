@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-
+// const backendUrl = process.env.BACKEND_URL;
 const axiosInstance = axios.create({
   // baseURL: "https://api.multinetworkingcompany.com",
   baseURL: "http://localhost:8000",

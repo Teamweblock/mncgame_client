@@ -6,9 +6,10 @@ const data = [
   { name: "Group C", value: 39 },
   { name: "Group D", value: 26 },
   { name: "Group B", value: 24 },
+  { name: "Group E", value: 20 },
 ];
 
-const COLORS = ["#5574fa", "#fda134", "#17ab93", "#fe9678"];
+const COLORS = ["#5574fa", "#fda134", "#17ab93", "#fe9678", "#fda134"];
 
 const ManagementChart = () => {
   const minValueIndex = data.reduce(
@@ -72,7 +73,7 @@ const ManagementChart = () => {
             dy="1.2em"
             style={{ fill: "gray", fontSize: "14px", fontWeight: "semi-bold" }}
           >
-            Management
+            Well Done!
           </tspan>
         </text>
       </PieChart>

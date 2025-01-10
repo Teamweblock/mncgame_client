@@ -103,7 +103,7 @@
 
 
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Briefcase, File, Globe } from "lucide-react";
 
 const data = [
@@ -116,7 +116,7 @@ const data = [
     bgColor: "#9faeec",
     icon: <Briefcase size={20} color="white" />,
     imageSrc: "/sta.jpg",
-    progress: 20,
+    progress: 80,
   },
   {
     id: 2,
@@ -127,7 +127,7 @@ const data = [
     bgColor: "#aee6fd",
     icon: <File size={20} color="white" />,
     imageSrc: "/sta2.jpg",
-    progress: 20,
+    progress: 70,
   },
   {
     id: 3,
@@ -138,15 +138,40 @@ const data = [
     bgColor: "#88e7ed",
     icon: <Globe size={20} color="white" />,
     imageSrc: "/sta3.jpg",
-    progress: 0,
+    progress: 40,
   },
 ];
 
-const Cart = () => {
+const Cart = ({onCardClick}) => {
+
+  const [progressValues, setProgressValues] = useState(
+    data.reduce((acc, item) => {
+      acc[item.id] = 0; // Initial progress value is set to 0
+      return acc;
+    }, {})
+  );
+
+  useEffect(() => {
+    data.forEach((item) => {
+      let currentProgress = 0;
+      const interval = setInterval(() => {
+        if (currentProgress < item.progress) {
+          currentProgress += 1;
+          setProgressValues((prevValues) => ({
+            ...prevValues,
+            [item.id]: currentProgress,
+          }));
+        } else {
+          clearInterval(interval);
+        }
+      }, 30); // Adjust the speed of animation here
+    });
+  }, []);
+
   return (
     <>
       {data.map((item) => (
-        <div key={item.id} className="shadow-lg rounded-lg">
+        <div key={item.id} className="shadow-lg rounded-lg" onClick={() => onCardClick(item.id)}>
           <div
             className={`bg-gradient-to-r from-[${item.gradientFrom}] to-[${item.gradientTo}] p-4 rounded-t-lg`}
           >
@@ -170,8 +195,11 @@ const Cart = () => {
           <div className="p-4">
             <div className="w-full bg-gray-200 rounded-full h-2">
               <div
-                className="bg-blue-500 h-2 rounded-full"
-                style={{ width: `${item.progress}%` }}
+                className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+                // style={{ width: `${item.progress}%` }}
+                style={{
+                  width: `${progressValues[item.id]}%`,
+                }}
               ></div>
             </div>
             <div className="flex items-center justify-between text-[#0e2b54] mt-1">
