@@ -3,16 +3,20 @@ import { Mic, MicOff, Video, VideoOff } from "lucide-react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import CloseIcon from "@mui/icons-material/Close";
-import LightbulbOutlined from "@mui/icons-material/LightbulbOutlined";
 import { TbBulbFilled } from "react-icons/tb";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import { useNavigate } from "react-router-dom";
 import logo from "../Assets/gameimages/mnclogo2.png";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
+import { io } from "socket.io-client";
+const socket = io(process.env.BACKEND_URL || "http://localhost:8000"); // Update with your backend URL
 
 const EndmeetingPage = () => {
+  // Extract roomCode from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const roomCode = urlParams.get("roomCode");
   const participants = [
     {
       role: "CEO",
@@ -73,32 +77,23 @@ const EndmeetingPage = () => {
 
   const getColor = (key) => {
     const value = sliderValues[key];
-    if (value < 20) return "#FFC400"; 
-    if (value < 40) return "#2AC6BA"; 
-    if (value < 60) return "#FF0969"; 
-    if (value < 80) return "#52B1EB"; 
-    if (value < 90) return "#7C68C5"; 
+    if (value < 20) return "#FFC400";
+    if (value < 40) return "#2AC6BA";
+    if (value < 60) return "#FF0969";
+    if (value < 80) return "#52B1EB";
+    if (value < 90) return "#7C68C5";
     return "error"; // Red
   };
 
   const getTextColorClass = (key) => {
     const value = sliderValues[key];
-    if (value < 20) return "text-[#FFC400]"; 
-    if (value < 40) return "text-[#2AC6BA]"; 
-    if (value < 60) return "text-[#FF0969]"; 
-    if (value < 80) return "text-[#52B1EB]"; 
-    if (value < 90) return "text-[#7C68C5]"; 
+    if (value < 20) return "text-[#FFC400]";
+    if (value < 40) return "text-[#2AC6BA]";
+    if (value < 60) return "text-[#FF0969]";
+    if (value < 80) return "text-[#52B1EB]";
+    if (value < 90) return "text-[#7C68C5]";
     return "text-red-500"; // Red
   };
-
-  // const getColor = () => {
-  //   if (sliderValues.creativity) return "primary"; // Blue
-  //   if (sliderValues.strategicThinking) return "secondary"; // Pink
-  //   return "error"; // Red
-  // };
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
 
   const handleEndMeeting = () => {
     navigate("/game3result");
@@ -107,18 +102,33 @@ const EndmeetingPage = () => {
   const toggleDialog = () => {
     setIsDialogOpen(!isDialogOpen);
   };
+  useEffect(() => {
+    // Log when the socket is connected
+    socket.on("connect", () => {
+      console.log("Socket connected:", socket.id);
+      if (roomCode) {
+        console.log("Room Code from URL:", roomCode);
+        socket.emit("joinRoom", roomCode); // Join the room using roomCode
+      }
+    });
+
+    // Your other code for listening to "newQuestion"
+    const meetData = (data) => {
+      console.log("Received question:", data.question);
+      console.log("Players:", data.players);
+    };
+
+    socket.on("newQuestion", meetData);
+
+    // Cleanup
+    return () => {
+      socket.off("newQuestion", meetData);
+    };
+  }, []);
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center flex flex-col items-center relative endmetting"
-      // style={{
-      //   backgroundImage: `url('https://img.freepik.com/premium-vector/computer-monitor-is-desk-with-purple-background_889056-205324.jpg?w=1060')`,
-      // }}
-    >
-      {/* Header */}
-      {/* <div className="absolute top-8 left-8 text-white text-4xl font-extrabold"> */}
+    <div className="min-h-screen bg-cover bg-center flex flex-col items-center relative endmetting">
       <img src={logo} className="top-8 left-8 absolute" />
-      {/* </div> */}
 
       {/* Light Bulb Icon */}
       <div className="absolute top-10 right-20">
@@ -244,56 +254,59 @@ const EndmeetingPage = () => {
 
       {/* Modal for Selected Participant */}
       {selectedParticipant && (
-  <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50 m-2">
-    <div className="backdrop-blur-xl bg-white/80 rounded-lg shadow-lg w-full max-w-4xl p-8 flex flex-col md:flex-row relative">
-      <button
-        onClick={() => setSelectedParticipant(null)}
-        className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
-      >
-        <CloseIcon sx={{ fontSize: 30 }} />
-      </button>
+        <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50 m-2">
+          <div className="backdrop-blur-xl bg-white/80 rounded-lg shadow-lg w-full max-w-4xl p-8 flex flex-col md:flex-row relative">
+            <button
+              onClick={() => setSelectedParticipant(null)}
+              className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
+            >
+              <CloseIcon sx={{ fontSize: 30 }} />
+            </button>
 
-      {/* Image Section */}
-      <div className="flex-1 flex flex-col items-center justify-center md:mb-0">
-        <img
-          src={selectedParticipant.imgSrc}
-          alt={selectedParticipant.role}
-          className="rounded-lg shadow-md w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-black"
-        />
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mt-4">
-          {selectedParticipant.role}
-        </h2>
-      </div>
-
-      {/* Slider Section */}
-      <div className="flex-1 px-2">
-        <Box sx={{ width: "100%" }}>
-          {Object.keys(sliderValues).map((key, idx) => (
-            <div key={idx} className="">
-              <p className={`font-semibold text-lg md:text-2xl ${getTextColorClass(key)}`}>
-                {key
-                  .replace(/([A-Z])/g, " $1")
-                  .replace(/^./, (str) => str.toUpperCase())}
-              </p>
-              <PrettoSlider
-                value={sliderValues[key]}
-                onChange={(e, value) => handleSliderChange(e, value, key)}
-                aria-label={key}
-                valueLabelDisplay="on"
-                defaultValue={key}
-                style={{
-                  color: getColor(key),
-                  // height: window.innerWidth < 768 ? "4px" : "8px",
-                }}
+            {/* Image Section */}
+            <div className="flex-1 flex flex-col items-center justify-center md:mb-0">
+              <img
+                src={selectedParticipant.imgSrc}
+                alt={selectedParticipant.role}
+                className="rounded-lg shadow-md w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-black"
               />
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mt-4">
+                {selectedParticipant.role}
+              </h2>
             </div>
-          ))}
-        </Box>
-      </div>
-    </div>
-  </div>
-)}
 
+            {/* Slider Section */}
+            <div className="flex-1 px-2">
+              <Box sx={{ width: "100%" }}>
+                {Object.keys(sliderValues).map((key, idx) => (
+                  <div key={idx} className="">
+                    <p
+                      className={`font-semibold text-lg md:text-2xl ${getTextColorClass(
+                        key
+                      )}`}
+                    >
+                      {key
+                        .replace(/([A-Z])/g, " $1")
+                        .replace(/^./, (str) => str.toUpperCase())}
+                    </p>
+                    <PrettoSlider
+                      value={sliderValues[key]}
+                      onChange={(e, value) => handleSliderChange(e, value, key)}
+                      aria-label={key}
+                      valueLabelDisplay="on"
+                      defaultValue={key}
+                      style={{
+                        color: getColor(key),
+                        // height: window.innerWidth < 768 ? "4px" : "8px",
+                      }}
+                    />
+                  </div>
+                ))}
+              </Box>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -355,51 +368,50 @@ const ParticipantCard = ({ role, imgSrc, onClick }) => {
 export default EndmeetingPage;
 
 const PrettoSlider = styled(Slider)({
-  color: '#52af77',
+  color: "#52af77",
   height: 15,
   "@media (max-width: 768px)": {
     height: 6, // Reduced height for mobile screens
   },
-  '& .MuiSlider-track': {
-    border: '2px solid black',
+  "& .MuiSlider-track": {
+    border: "2px solid black",
     height: 15,
     "@media (max-width: 768px)": {
       height: 6, // Reduced track height for mobile screens
     },
   },
-  '& .MuiSlider-thumb': {
+  "& .MuiSlider-thumb": {
     height: 24,
     width: 24,
-    backgroundColor: '#fff',
-    border: '2px solid currentColor',
-    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-      boxShadow: 'inherit',
+    backgroundColor: "#fff",
+    border: "2px solid currentColor",
+    "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
+      boxShadow: "inherit",
     },
-    '&::before': {
-      display: 'none',
+    "&::before": {
+      display: "none",
     },
   },
-  '& .MuiSlider-valueLabel': {
+  "& .MuiSlider-valueLabel": {
     lineHeight: 1.2,
     fontSize: 10,
-    background: 'unset',
+    background: "unset",
     padding: 0,
     width: 20,
     height: 20,
-    borderRadius: '50% 50% 50% 0',
-    backgroundColor: 'black',
-    transformOrigin: 'bottom left',
-    transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
-    '&::before': { display: 'none' },
-    '&.MuiSlider-valueLabelOpen': {
-      transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+    borderRadius: "50% 50% 50% 0",
+    backgroundColor: "black",
+    transformOrigin: "bottom left",
+    transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
+    "&::before": { display: "none" },
+    "&.MuiSlider-valueLabelOpen": {
+      transform: "translate(50%, -100%) rotate(-45deg) scale(1)",
     },
-    '& > *': {
-      transform: 'rotate(45deg)',
+    "& > *": {
+      transform: "rotate(45deg)",
     },
   },
 });
-
 
 // import React, { useEffect, useState } from "react";
 // import { Mic, MicOff, Video, VideoOff } from "lucide-react";

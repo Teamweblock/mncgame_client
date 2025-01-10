@@ -11,7 +11,7 @@ const OverviewChart = () => {
       try {
         const userData = await getweekgameview(); // Fetch profile data using the new function
         if (userData) {
-          setAnalysisData(data);
+          setAnalysisData(userData);
         }
       } catch (error) {
         console.error("Failed to fetch weekly analysis data:", error);

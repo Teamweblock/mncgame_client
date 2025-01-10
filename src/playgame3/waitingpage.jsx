@@ -109,11 +109,6 @@ const MultiplayerWaitingPage = () => {
     socket.on("playersReady", handlePlayersReady);
     socket.on("startGame", handleStart);
     socket.on("disconnectMessage", handleDisconnectMessage);
-    socket.on("connect_error", (err) => {
-      console.error("Socket connection error:", err);
-      setIsDialogOpen(true);
-      // navigate("/chooserole");
-    });
 
     return () => {
       socket.off("playersStatus", handlePlayersStatus);
@@ -137,7 +132,7 @@ const MultiplayerWaitingPage = () => {
             queueStatusRef.current ===
             "WAITING TO CONNECT WITH OTHER PLAYERS ..."
           ) {
-            socket.emit("leaveQueue", { playerId });
+            socket.emit("leavemeetQueue", { playerId });
             toast.info("No match found. Returning to level selection.");
             // setIsDialogOpen(true);
             navigate("/chooserole");
@@ -152,7 +147,7 @@ const MultiplayerWaitingPage = () => {
 
   const handleCancel = () => {
     if (window.confirm("Are you sure you want to leave the queue?")) {
-      socket.emit("leaveQueue", { playerId });
+      socket.emit("leavemeetQueue", { playerId });
       navigate("/chooserole");
     }
   };
@@ -165,7 +160,7 @@ const MultiplayerWaitingPage = () => {
 
   const handleLeaveQueue = () => {
     setIsDialogOpen(false); // Close the dialog
-    socket.emit("leaveQueue", { playerId }); // Emit leave queue event
+    socket.emit("leavemeetQueue", { playerId }); // Emit leave queue event
     navigate("/chooserole"); // Navigate to chooserole page
   };
 
@@ -173,7 +168,9 @@ const MultiplayerWaitingPage = () => {
     <div className="min-h-screen flex flex-col welcomepage-bg3 text-gray-900">
       {/* Header */}
       <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-10">
-        <img src={logo} alt="Game Logo" className="h-10 w-auto" />
+        <a href="/">
+          <img src={logo} alt="Game Logo" className="h-10 w-auto" />
+        </a>
         <div className="bg-orange-600 text-white text-lg font-bold rounded-full px-6 py-2  md:block hover:bg-orange-700 hover:scale-105 transition-all duration-300 ease-in-out">
           {timeLeft > 0 ? `${formatTime(timeLeft)} LEFT` : "TIME EXPIRED"}
         </div>
@@ -206,19 +203,28 @@ const MultiplayerWaitingPage = () => {
                 }`}
               >
                 {/* Player Avatar */}
-                <img
-                  src={player.imgSrc || female}
-                  alt={`${player.name}'s Avatar`}
-                  className="h-[100px] w-[100px] object-cover rounded-full mx-auto"
-                />
+                {/* <div className="flex justify-center items-center h-[150px] w-[150px] rounded-full bg-[#85d7ff] p-2 border-4 border-white max-md:h-[100px] max-md:w-[100px] max-sm:h-[70px] max-sm:w-[70px]"> */}
+                {/* <div className="flex justify-center items-center h-full w-full rounded-full bg-[#85d7ff] p-2 border-4 border-white"> */}
+                {player?.avatar ? (
+                  <img
+                    src={player.avatar}
+                    alt={`${player?.firstName || "Player"}'s Avatar`}
+                    className="h-full w-full object-cover rounded-full"
+                  />
+                ) : (
+                  <span className="text-white text-3xl font-bold">
+                    {player?.firstName?.charAt(0)?.toUpperCase() || ""}
+                    {player?.lastName?.charAt(0)?.toUpperCase() || ""}
+                  </span>
+                )}
+                {/* </div> */}
+                {/* </div> */}
 
                 {/* Player Name */}
                 <p className="text-[1.2rem] font-bold text-gray-800 text-center mt-4">
-                  {player.name}
+                  {player.firstName}
                 </p>
-
                 {/* Player Role */}
-
                 <p
                   className={`text-5xl font-bold text-center mt-2 ${
                     player.status === "ready"

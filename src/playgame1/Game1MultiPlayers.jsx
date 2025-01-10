@@ -180,7 +180,6 @@ const Game1MultiPlayer = () => {
     // Start the countdown
     startCountdown(remainingTime);
   };
-  socket.emit("joinRoom", { roomCode: "room-34wdn3mu6" });
   socket.on("newQuestion", handleStart);
 
   function displayQuestion(question) {
@@ -352,12 +351,18 @@ const Game1MultiPlayer = () => {
 
             <div className="text-center flex gap-2 justify-center flex-wrap pb-4">
               {currentQuestionIndex === 0 && (
-                <button className="show-btn me-sm-3 transition duration-700 ease-in-out" onClick={handleBack}>
+                <button
+                  className="show-btn me-sm-3 transition duration-700 ease-in-out"
+                  onClick={handleBack}
+                >
                   Back
                 </button>
               )}
               {currentQuestionIndex < playerData?.length - 1 ? (
-                <button className="show-btn transition duration-700 ease-in-out" onClick={handleNextQuestion}>
+                <button
+                  className="show-btn transition duration-700 ease-in-out"
+                  onClick={handleNextQuestion}
+                >
                   Next
                 </button>
               ) : (

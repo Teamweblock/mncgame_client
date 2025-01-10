@@ -40,7 +40,6 @@ import { ToastContainer } from "react-toastify";
 import Game2LevelPage from "./playgame2/Game2LevelPage";
 import ForgotPassword from "./Auth/ForgotPassword";
 import ResetPassword from "./Auth/ResetPassword";
-import Game1WaitingPage from "./playgame1/Game1WaitingPage";
 import Overview from "./Profile/OverView";
 import Statics from "./Profile/Statics";
 import UpdateProfile from "./Profile/UpdateProfile";
@@ -141,7 +140,6 @@ const App = () => {
         <Route path="/game1players" element={<Game1Players />} />
         <Route path="/game1singleplayer" element={<Game1SinglePlayer />} />
         <Route path="/game1multiplayer" element={<Game1MultiPlayer />} />
-        <Route path="/game1waiting" element={<Game1WaitingPage />} />
         <Route path="/game1result" element={<Game1Result />} />
         <Route path="/game1result2" element={<Game1Result2 />} />
         {/* <Route path="/game1levelpage" element={<Game1LevelPage />} /> */}
