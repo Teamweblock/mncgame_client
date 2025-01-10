@@ -129,11 +129,19 @@ const Footer = () => {
               <h6 className="f-title">Service</h6>
 
 
-
+            
+              <Link to={"/welcomepagegame1"}>
               <h6 className="f-subtitle text-[#bba692]">ProblemPilot</h6>
+              </Link>
+              <Link to={"/welcomepagegame2"}>
               <h6 className="f-subtitle text-[#bba692]">Entrepreneurial Edge</h6>
+              </Link>
+              <Link to={"/welcomepagegame3"}>
               <h6 className="f-subtitle text-[#bba692]">Startegy Trial</h6>
+              </Link>
+              <Link to={"profile/overview"}>
               <h6 className="f-subtitle text-[#bba692]">Portfolio</h6>
+              </Link>
             </div>
           </div>
           <div className="">

@@ -14,7 +14,7 @@ import img6 from "../Assets/icon/6.png";
 import imgab5 from "../Assets/icon/ab5.png";
 import imgab4 from "../Assets/icon/ab5.png";
 import img8 from "../Assets/icon/8.png";
-import imga9 from "../Assets/icon/9.png";
+// import imga9 from "../Assets/icon/innovative (2).png";
 import img10 from "../Assets/icon/10.png";
 import imga11 from "../Assets/icon/11.png";
 import imga12 from "../Assets/icon/12.png";
@@ -78,6 +78,7 @@ import img40 from "../Assets/illustration/411.png";
 import join from "../Assets/illustration/Group 1.png";
 import SwipeSide from "./Testimonials";
 import { FaArrowRightLong } from "react-icons/fa6";
+// import image9 from "../../public/11111.png"
 
 const Home = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -218,7 +219,7 @@ const Home = () => {
     },
     {
       id: 2,
-      img: imga9,
+      img: "/9.png",
       title: "Enterpreneurial Edge",
       discription:
         "Explore the enterpreneurial spirit within you with our game designed to test your innovative thiking and business acumen. Discover if you have what it takes to thrive in the world of enterpreneurship, regradless of your current venture status.",
@@ -352,129 +353,129 @@ const Home = () => {
       <div className="home-container1 position-relative">
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon1 parallax-layer"
+          className="home-icon1 parallax-layer sm:block hidden"
           src={icon19}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-14 parallax-layer"
+          className="home-icon-14 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon2 parallax-layer"
+          className="home-icon2 parallax-layer sm:block hidden"
           src={icon2}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-14 parallax-layer"
+          className="home-icon-14 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon3 parallax-layer"
+          className="home-icon3 parallax-layer sm:block hidden"
           src={icon3}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-15 parallax-layer"
+          className="home-icon-15 parallax-layer sm:block hidden"
           src={icon14}
         />
 
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-24 parallax-layer"
+          className="home-icon-24 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-25 parallax-layer"
+          className="home-icon-25 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-26 parallax-layer"
+          className="home-icon-26 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-27 parallax-layer"
+          className="home-icon-27 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-28 parallax-layer"
+          className="home-icon-28 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-29 parallax-layer"
+          className="home-icon-29 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-30 parallax-layer"
+          className="home-icon-30 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-31 parallax-layer"
+          className="home-icon-31 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-32 parallax-layer"
+          className="home-icon-32 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon4 parallax-layer"
+          className="home-icon4 parallax-layer sm:block hidden"
           src={icon4}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-16 parallax-layer"
+          className="home-icon-16 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon5 parallax-layer"
+          className="home-icon5 parallax-layer sm:block hidden"
           src={icon5}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-17 parallax-layer"
+          className="home-icon-17 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon6 parallax-layer"
+          className="home-icon6 parallax-layer sm:block hidden"
           src={icon6}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-18 parallax-layer"
+          className="home-icon-18 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-21 parallax-layer"
+          className="home-icon-21 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-22 parallax-layer"
+          className="home-icon-22 parallax-layer sm:block hidden" 
           src={icon14}
         />
 
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon9 parallax-layer max-lg:hidden"
+          className="home-icon9 parallax-layer max-lg:hidden sm:block hidden"
           src={icon9}
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon-19 parallax-layer"
+          className="home-icon-19 parallax-layer sm:block hidden"
           src={icon14}
         />
         <img
@@ -484,7 +485,7 @@ const Home = () => {
         />
         <img
           style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-          className="home-icon11 parallax-layer"
+          className="home-icon11 parallax-layer sm:block hidden"
           src={icon11}
         />
         <img
@@ -540,9 +541,9 @@ const Home = () => {
         <div className="text-5xl font-bold mt-2 max-md:text-3xl max-md:w-[90%] text-center text-[#151310]">
           Why You Should Choose Us ?
         </div>
-        <div className="text-5xl mt-2 font-bold max-md:text-3xl text-[#151310]">
-          “What we do”
-        </div>
+        {/* <div className="text-5xl mt-2 font-bold max-md:text-3xl text-[#151310]">
+        “What we do”
+        </div> */}
 
         <div className="img-b21">
           <img
@@ -560,33 +561,6 @@ const Home = () => {
             alt=""
           />
         </div>
-        {/* <div className="box-main">
-          <div className="box2" id="box-box">
-            <img className="img-2" src={img2} alt="" />
-            <h1>Complete Businesss Control</h1>
-            <p>
-              pore et dolore manga aliqua. Ut enim ad minim veniam, quis
-              nostrude exerci tation
-            </p>
-          </div>
-          <div className="box3" id="box-box">
-            <img className="img-3" src={img3} alt="" />
-            <h1>Critical Analytics and report</h1>
-            <p>
-              pore et dolore manga aliqua. Ut enim ad minim veniam, quis
-              nostrude exerci tation
-            </p>
-          </div>
-          <div className="box4" id="box-box">
-            <img className="img-4" src={img4} alt="" />
-            <h1>User Satisfaction Guarranted</h1>
-            <p>
-              pore et dolore manga aliqua. Ut enim ad minim veniam, quis
-              nostrude exerci tation
-            </p>
-          </div>
-        </div> */}
-
         <div className="grid lg:grid-cols-3 gap-10  w-[90%] lg:w-[80%] mx-auto mt-32  sm:grid-cols-2 grid-cols-1">
           {businessList.map((business, index) => (
             <div
@@ -614,7 +588,7 @@ const Home = () => {
         <div className="mt-4">
           <img
             style={{ transform: `translate(${offset.x}px, ${offset.y}px) ` }}
-            className="img-26 parallax-layer"
+            className="img-26 parallax-layer sm:block hidden"
             src={img26}
             alt=""
           />
@@ -658,12 +632,12 @@ const Home = () => {
         <div className="ab-part-2 ">
           <div className="ab12 flex max-lg:flex-col max-lg:justify-center max-lg:mx-auto">
             <img
-              className="img-ab5 flex justify-center mx-auto "
+              className="img-ab5  justify-center mx-auto sm:block  hidden"
               src={imgab5}
               alt=""
             />
             <img
-              className="img-ab4 flex max-lg:justify-center max-lg:mx-auto -ml-[100px] mt-20 "
+              className="img-ab4  max-lg:justify-center max-lg:mx-auto -ml-[100px] mt-20 sm:block hidden"
               src={aboutimg}
               alt=""
             />
@@ -800,8 +774,8 @@ const Home = () => {
                   <h3 className="h2 text-[#151310]">1</h3>
 
                   <img
-                    className="w-8 h-auto mt-7 -ml-[25px]"
-                    src={imgf17}
+                    className=" w-8 h-16 mt-7 -ml-[25px] "
+                    src="/11111.png"
                     alt=""
                   />
                 </div>

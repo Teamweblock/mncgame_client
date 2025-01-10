@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CheckMail = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="login-bg-img">
@@ -63,7 +65,7 @@ const CheckMail = () => {
                     required
                   /> */}
 
-                    <button className=" mt-2 text-white font-bold text-[1.1rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg">
+                    <button onClick={() => navigate("/login")} className=" mt-2 text-white font-bold text-[1.1rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg" >
                       Back To Login
                     </button>
                   </form>

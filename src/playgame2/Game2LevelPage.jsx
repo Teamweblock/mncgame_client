@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "../Assets/CSS/Game1/Game1Levelpage.css";
 import { toast } from "react-toastify";
 import { Check2validlevel } from "../utils/axiosInstance";
+import lockimage from "../Assets/gameimages/levelLock.png"
 
 const Game2LevelPage = () => {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ const Game2LevelPage = () => {
     <div className="level-bg">
       <div className="pt-20 px-10 flex items-center justify-between w-[90%] mx-auto max-lg:justify-center">
         <a href="/">
-          <img src={logo} className="" alt="Logo" />
+          <img src="/mnclogo2.png" className="" alt="Logo" />
         </a>
         <button
           className="bg-[#ff5024] text-slate-50 max-lg:hidden hover:bg-white hover:text-[#ff5024] hover:border-[#ff5024] transition delay-300  duration-1000  text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]"
@@ -115,7 +116,7 @@ const Game2LevelPage = () => {
                   {lockedLevels[`level${levelNumber}`] && (
                     <div className="bg-[#fff2d8] w-12 h-12 rounded-lg flex items-center justify-center absolute top-4 right-2 max-lg:h-8 max-lg:w-8">
                       <img
-                        src="./levellock.png"
+                        src={lockimage}
                         className=" h-8 w-8 max-lg:w-6 max-lg:h-6"
                         alt=""
                       />

@@ -45,6 +45,20 @@ const Navbar = () => {
       ? "text-purple-600 border-b-2 border-purple-600"
       : "text-black";
 
+  // const token = localStorage.getItem("token");
+  // const isLoggedIn = !!token;
+  console.log("ajay", token, isLoggedIn);
+
+  const handleLogout = async () => {
+    try {
+      localStorage.removeItem("token");
+      console.log("User logged out");
+      navigate("/"); // Redirect to the signin page
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+
   return (
     <>
       <nav className="transparent relative w-full bg-transparent pt-10">
@@ -98,7 +112,7 @@ const Navbar = () => {
         </div>
 
         {menuOpen && (
-          <div className="absolute z-10 top-0 right-0 w-[200px] h-[100vh] bg-[#ebe8fd] z-1000 flex flex-col text-black font-semibold">
+          <div className="absolute z-10  top-0 right-0 w-[200px] h-[100vh] bg-white z-1000 flex flex-col  text-black font-semibold">
             <button
               className="absolute top-4 right-4 text-3xl"
               onClick={toggleMenu}
@@ -118,12 +132,23 @@ const Navbar = () => {
               <Link to="/contactus" onClick={toggleMenu}>
                 <li className={`${isActive("/contactus")}`}>Contact</li>
               </Link>
+             
               {isLoggedIn ? (
+                <>
                 <Link to="/profile/overview" onClick={toggleMenu}>
-                  <li className={`${isActive("/profile/overview")}`}>
-                    Profile
-                  </li>
-                </Link>
+                  <div className="w-max grid gap-2">
+                    <li className={` ${isActive("/profile/overview")}`}>
+                      Profile
+                    </li>
+                  </div>
+                  </Link>
+                  <button
+                    className="border-2 border-[#C04AE2] hover:border-[#C04AE2] hover:bg-white transition duration-700 text-black font-semibold rounded-lg px-4 py-1 w-28"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                  </>
               ) : (
                 <button
                   className="border-2 border-[#C04AE2] hover:border-[#C04AE2] hover:bg-white transition duration-700 text-black font-semibold rounded-lg px-4 py-1 w-28"

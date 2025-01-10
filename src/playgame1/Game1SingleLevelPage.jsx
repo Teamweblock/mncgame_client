@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import img2 from "../Assets/images/img2 copy.png";
 import img3 from "../Assets/images/img3 copy.png";
-import logo from "../Assets/gameimages/mnclogo2.png";
+import logo from "../Assets/gameimages/image.jpg";
+import logoimg from "../Assets/gameimages/image.jpg";
 import { Check1validlevel } from "../utils/axiosInstance";
 import "../Assets/CSS/Game1/Game1Levelpage.css";
+import lockimage from "../Assets/gameimages/levelLock.png"
 
 const Game1SingleLevelPage = () => {
   const navigate = useNavigate();
@@ -105,7 +107,7 @@ const Game1SingleLevelPage = () => {
     <div className="level-bg">
       <div className="pt-20 px-10 flex items-center justify-between w-[90%] mx-auto max-lg:justify-center">
         <a href="/">
-          <img src={logo} className="" alt="Logo" />
+          <img src="/mnclogo2.png" className="" alt="Logo" />
         </a>
         <button
           className="bg-[#ff5024] text-slate-50 max-lg:hidden hover:bg-white hover:text-[#ff5024] hover:border-[#ff5024] transition delay-300  duration-1000  text-[1.4rem] font-bold rounded-full px-6 py-2 max-md:text-[1.2rem]"
@@ -139,7 +141,7 @@ const Game1SingleLevelPage = () => {
                   />
                   {lockedLevels[`level${levelNumber}`] && (
                     <div className="bg-[#fff2d8] w-12 h-12 rounded-lg flex items-center justify-center absolute top-4 right-2 max-lg:h-8 max-lg:w-8">
-                      <img src="./levellock.png" className=" h-8 w-8 max-lg:w-6 max-lg:h-6" alt="" />
+                      <img src={lockimage} className=" h-8 w-8 max-lg:w-6 max-lg:h-6" alt="" />
 
                       {/* <FaLock className=" h-6 w-6 max-lg:w-4 max-lg:h-4"  color="#ffbd2c" /> */}
                     </div>

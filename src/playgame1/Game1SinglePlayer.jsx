@@ -211,7 +211,7 @@ const Game1SinglePlayer = () => {
   return (
     <div className="Game1-sinlgeplayer-bg">
       <a href="/">
-        <img src={logo} className="mnc-logo flex justify-center items-center" />
+        <img src="/mnclogo2.png" className="mnc-logo flex justify-center items-center" />
       </a>
       <img
         src={icon1}
@@ -246,12 +246,14 @@ const Game1SinglePlayer = () => {
                       {/* <h4>
                     Question {currentQuestionIndex + 1} {"-"}
                   </h4> */}
-                      <p className="px-4">{playerData[currentQuestionIndex]?.question}</p>
+                      <p className="px-4">
+                        {playerData[currentQuestionIndex]?.question}
+                      </p>
                     </div>
 
                     <textarea
                       type="text"
-                      className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10  text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black "
+                      className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10 text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black resize-none overflow-y-auto"
                       placeholder="Type Your Solution"
                       value={userAnswer} // Bind the input value with state
                       onChange={handleInputChange} // Update state when input changes

@@ -66,14 +66,14 @@ const Sidebar = () => {
             </Link>
           </li>
 
-          <li className="flex items-center gap-2 ">
+          {/* <li className="flex items-center gap-2 "> */}
             {/* <Link to="/subscription" className="flex  items-center gap-2"> */}
-            <SubscriptIcon size={20} strokeWidth={2} color="gray" />
-            <p className="text-[#0e2b54] font-semibold text-[1.2rem]">
+            {/* <SubscriptIcon size={20} strokeWidth={2} color="gray" /> */}
+            {/* <p className="text-[#0e2b54] font-semibold text-[1.2rem]">
               Subscription
-            </p>
+            </p> */}
             {/* </Link> */}
-          </li>
+          {/* </li> */}
           <li className="flex items-center gap-2">
             <Link to="/profile/update" className="flex  items-center gap-2">
               <UserPen
@@ -90,14 +90,6 @@ const Sidebar = () => {
               </p>
             </Link>
           </li>
-          <li className="flex items-center gap-2">
-            {/* <Link to="/setting" className="flex  items-center gap-2"> */}
-            <Settings size={20} strokeWidth={2} color="gray" />
-            <p className="text-[#0e2b54] font-semibold text-[1.2rem]">
-              Setting
-            </p>
-            {/* </Link> */}
-          </li>
           <li className="flex items-center gap-2" >
             {/* <Link to="/setting" className="flex  items-center gap-2"> */}
             <AiOutlineLogout size={20} strokeWidth={2} color="gray" />
@@ -112,17 +104,13 @@ const Sidebar = () => {
         </div>
 
         <div className=" ml-auto px-6 mb-[14rem]">
-          <img src={vectorsmart} alt="" height={100} width={130} className="absolute z-0" />
-          <p className="text-[1rem] relative mt-[135px]  font-bold text-[#0e2b54] ">
+          {/* <img src={vectorsmart} alt="" height={100} width={130} className="absolute z-0" /> */}
+          {/* <p className="text-[1rem] relative mt-[135px]  font-bold text-[#0e2b54] ">
             Support 24/7
-          </p>
-          <p className="text-[12px] -mt-2 font-semibold text-gray-400 text-center ">
-            Contects us anytime
-          </p>
-          {/* <p className="text-[12px] z-30 font-semibold text-white text-center ">
-            Help?
           </p> */}
-
+          {/* <p className="text-[12px] -mt-2 font-semibold text-gray-400 text-center ">
+            Contects us anytime
+          </p> */}
           <div className="mx-auto w-full text-center">
             {/* <button className="bg-blue-500 mt-1 text-white font-semibold text-[1rem] px-4 py-1 rounded-full text-center">
               Help ?

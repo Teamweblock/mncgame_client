@@ -129,7 +129,7 @@ const Game2Questions = () => {
     <div className="Game2-bg">
       <a href="/">
         <img
-          src={logo}
+          src="/mnclogo2.png"
           className="absolute top-[10%] left-[8%] max-md:left-[5%]"
           alt="logo"
           height={45}

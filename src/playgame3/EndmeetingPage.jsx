@@ -127,8 +127,16 @@ const EndmeetingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cover bg-center flex flex-col items-center relative endmetting">
-      <img src={logo} className="top-8 left-8 absolute" />
+    <div
+      className="min-h-screen bg-cover bg-center flex flex-col items-center relative endmetting"
+      // style={{
+      //   backgroundImage: `url('https://img.freepik.com/premium-vector/computer-monitor-is-desk-with-purple-background_889056-205324.jpg?w=1060')`,
+      // }}
+    >
+      {/* Header */}
+      {/* <div className="absolute top-8 left-8 text-white text-4xl font-extrabold"> */}
+      <img src="/mnclogo2.png" className="top-8 left-8 absolute" />
+      {/* </div> */}
 
       {/* Light Bulb Icon */}
       <div className="absolute top-10 right-20">
@@ -317,7 +325,7 @@ const ParticipantCard = ({ role, imgSrc, onClick }) => {
 
   return (
     <div
-      className="flex flex-col items-center cursor-pointer transform hover:scale-105 transition duration-300 ease-in-out"
+      className="flex flex-col items-center cursor-pointer "
       onClick={onClick}
     >
       <div className="flex flex-col items-center bg-white bg-opacity-50 rounded-lg shadow-xl p-5 w-64 h-64 relative">

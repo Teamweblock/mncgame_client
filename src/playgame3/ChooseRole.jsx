@@ -157,9 +157,7 @@ export default function RoleCarousel() {
       />
 
       {/* Main content */}
-      <a href="/">
-        <img src={logo} className="mnc-logo mx-auto" />
-      </a>
+        <img src="/mnclogo2.png" className="mnc-logo mx-auto " />
       <div className="relative z-10 container mx-auto px-4 py-12 flex flex-col items-center min-h-screen">
         <h1 className="tracking-widest mt-24 font-extrabold text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white text-center block xl:hidden">
           YOUR ROLE

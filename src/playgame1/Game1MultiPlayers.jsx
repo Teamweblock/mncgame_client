@@ -301,7 +301,7 @@ const Game1MultiPlayer = () => {
     <div className="Game1-bg2">
       <div className="max-lg:flex max-lg:justify-center max-lg:mx-auto">
         <img
-          src={logo}
+          src="/mnclogo2.png"
           className="absolute top-[10%] lg:left-[15%] "
           width={100}
           height={45}
@@ -343,10 +343,10 @@ const Game1MultiPlayer = () => {
 
             <textarea
               type="text"
+              className="outline-none max-md:py-3 md:py-[35px] w-[90%] flex justify-center mt-10 text-wrap px-1 mx-auto rounded-lg text-center font-bold text-[18px] text-black resize-none overflow-y-auto"
               placeholder="Type Your Solution"
-              value={userAnswer}
-              onChange={handleInputChange}
-              className="outline-none text-wrap max-md:py-3 leading-relaxed md:py-[35px] w-[90%] flex justify-center mt-10   px-3 mx-auto rounded-lg text-center font-bold text-[18px] text-black"
+              value={userAnswer} // Bind the input value with state
+              onChange={handleInputChange} // Update state when input changes
             />
 
             <div className="text-center flex gap-2 justify-center flex-wrap pb-4">

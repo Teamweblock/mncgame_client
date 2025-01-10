@@ -53,7 +53,7 @@ const Game1Players = () => {
         <div className="lg:py-20 max-lg:py-6 w-[70%] flex lg:justify-start mx-auto cursor-pointer justify-center">
 
         <a href="/" className="cursor-pointer">
-        <img src={logo} alt="Game Logo " height={50} width={120} />
+        <img src="/mnclogo2.png" alt="Game Logo " height={50} width={120} />
         </a>
         </div>
         <img

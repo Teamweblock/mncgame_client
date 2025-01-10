@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { get1GameResult } from "../utils/axiosInstance";
 import Confetti from "react-confetti";
-const Game1Result2 = () => {
+const Game1MultiplayerResult = () => {
   const navigate = useNavigate();
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [levelNumber, setLevelNumber] = useState(null);
@@ -167,11 +167,16 @@ const Game1Result2 = () => {
             <p className="2xl:text-8xl text-4xl font-bold text-white max-sm:text-3xl mt-2">
               CONGRATULATIONS
             </p>
-          
+            <div className="text-white text-[1.5rem] max-sm:text-[1.2rem] font-bold text-center mt-2">
+              <div>
+                Great work! Here's how your peers rated your performance.
+              </div>
+              <div>let's see your progress!</div>
+            </div>
 
             <div className=" lg:w-[70%] w-full mx-auto flex  items-center mt-16 px-2 max-lg:hidden">
               <h5 className="text-white text-[1.5rem] font-bold max-md:text-[1rem] px-2">
-              Common
+                Non implementable
               </h5>
               <div className="progress-bar-container">
                 <div className="progress-bar">
@@ -182,7 +187,7 @@ const Game1Result2 = () => {
                 </div>
               </div>
               <h5 className="text-white text-[1.5rem] font-bold max-md:text-[1rem] px-2">
-                Unique
+                Implementable
               </h5>
             </div>
             <div className="flex items-center  flex-col  mt-16 px-2 lg:hidden w-[90%]">
@@ -196,10 +201,10 @@ const Game1Result2 = () => {
               </div>
               <div className="flex items-center justify-between w-full mt-2">
                 <h5 className="text-white text-[1.5rem] font-bold max-md:text-[15px] ">
-                Common
+                  Non implementable
                 </h5>
                 <h5 className="text-white text-[1.5rem] font-bold max-md:text-[15px]">
-                Unique
+                  Implementable
                 </h5>
               </div>
             </div>
@@ -225,4 +230,4 @@ const Game1Result2 = () => {
   );
 };
 
-export default Game1Result2;
+export default Game1MultiplayerResult;

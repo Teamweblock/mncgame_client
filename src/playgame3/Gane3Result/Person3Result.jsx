@@ -33,7 +33,7 @@ const Person3Result = () => {
   return (
     <>
       <div className="game3-bg">
-      <img src={logo} className='mnc-logo'/>
+      <img src="/mnclogo2.png" className='mnc-logo'/>
       <img src={icon1} className='icon1-game3' style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}/>
         <div className="game3result-width">
           <div className="result-group">

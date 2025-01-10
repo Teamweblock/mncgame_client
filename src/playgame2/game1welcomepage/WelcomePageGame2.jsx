@@ -37,7 +37,7 @@ const WelcomePageGame2 = () => {
     <>
       <div className="welcomepage-bg">
         <a href="/">
-          <img src={logo} className="mnc-logo" />
+          <img src="/mnclogo2.png" className="mnc-logo" />
         </a>
         <img
           src={icon1}
