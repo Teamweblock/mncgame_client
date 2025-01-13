@@ -14,6 +14,22 @@ const Statics = () => {
     { name: "Creative And Inovative", percentage: 90, color: "#d51aff" },
     { name: "Impact And Contribution", percentage: 60, color: "#25d3dd" },
   ];
+  const problenPilot = [
+    {
+      name: "Self Progress",
+      percentage: 73,
+      decrement: "Common",
+      increment: "Unique",
+      color: "#4e6ce8",
+    },
+    {
+      name: "Peer Reviews",
+      percentage: 53,
+      decrement: "Non Implemented",
+      increment: "Implemented",
+      color: "#25d3dd",
+    },
+  ];
 
   const [percentage, setPercentage] = useState(0);
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
@@ -23,17 +39,39 @@ const Statics = () => {
   const handleCardClick = (id) => {
     setSelectedCard(id);
   };
+  
 
-  //skill progress animation
+  //problem pilot
+  useEffect(() => {
+    if (selectedCard === 1) {
+      // Reset progress for all items
+      const initialProgress = problenPilot.reduce((acc, skill) => {
+        acc[skill.percentage] = 0;
+        return acc;
+      }, {});
+      setProgress(initialProgress);
+      // Animate progress for each skill
+      problenPilot.forEach((skill) => {
+        setTimeout(() => {
+          setProgress((prev) => ({
+            ...prev,
+            [skill.percentage]: skill.percentage,
+          }));
+        }, 100); // Adjust delay if needed
+      });
+    }
+  }, [selectedCard]); // Watch for changes in selectedCard
+
+  //skill progress animation -Strategy Trial
   useEffect(() => {
     if (selectedCard === 3) {
       const progressAnimation = skills.reduce((acc, skill) => {
         acc[skill.name] = 0; // Reset initial progress for all skills
         return acc;
       }, {});
-  
+
       setProgress(progressAnimation);
-  
+
       skills.forEach((skill) => {
         let progressValue = 0;
         const interval = setInterval(() => {
@@ -51,8 +89,8 @@ const Statics = () => {
     }
   }, [selectedCard]);
   
- 
-// Entrepreneurial Edge
+
+  // Entrepreneurial Edge
   useEffect(() => {
     if (selectedCard === 2) {
       const targetPercentage = 73;
@@ -64,30 +102,30 @@ const Statics = () => {
           return prev;
         });
       }, 50);
-  
+
       return () => clearInterval(interval);
     }
   }, [selectedCard]);
 
   useEffect(() => {
     if (selectedCard === 2) {
-    let animationFrame;
+      let animationFrame;
 
-    const animate = () => {
-      setAnimatedPercentage((prev) => {
-        if (prev < percentage) {
-          animationFrame = requestAnimationFrame(animate);
-          return Math.min(prev + 1, percentage);
-        }
-        cancelAnimationFrame(animationFrame);
-        return prev;
-      });
-    };
+      const animate = () => {
+        setAnimatedPercentage((prev) => {
+          if (prev < percentage) {
+            animationFrame = requestAnimationFrame(animate);
+            return Math.min(prev + 1, percentage);
+          }
+          cancelAnimationFrame(animationFrame);
+          return prev;
+        });
+      };
 
-    animationFrame = requestAnimationFrame(animate);
+      animationFrame = requestAnimationFrame(animate);
 
-    return () => cancelAnimationFrame(animationFrame);
-  }
+      return () => cancelAnimationFrame(animationFrame);
+    }
   }, [percentage, selectedCard]);
 
   const radius = 15.91549430918954;
@@ -96,7 +134,6 @@ const Statics = () => {
     (animatedPercentage / 100) * circumference
   } ${circumference}`;
 
- 
   return (
     <>
       <div className="flex lg:w-[100%] w-full">
@@ -124,6 +161,55 @@ const Statics = () => {
             </div>
             <div className="flex w-full gap-6 p-3 flex-wrap">
               <div className="flex w-full gap-6 p-2 flex-wrap">
+                <div className="sm:w-[100%] md:w-[100%] lg:w-[100%] xl:w-[100%] flex   w-full">
+                  {selectedCard === 1 && (
+                    <div className=" rounded-lg flex flex-col w-full">
+                      {problenPilot.map((skill, index) => {
+                        return (
+                          <ul className="px-2 space-y-3">
+                            <li className="border-2 rounded-xl px-2 py-2">
+                              <div className="flex items-center justify-between text-[#0e2b54] mx-2">
+                                <p className="text-[1.3] font-semibold lg">
+                                  <b>
+                                    <h3>{skill.name}</h3>
+                                  </b>{" "}
+                                </p>
+                              </div>
+                              <div className="w-full bg-gray-200 rounded-xl h-10 my-1">
+                                <div
+                                  className={`h-10 rounded-xl   text-white grid items-center pl-6`}
+                                  // style={{
+                                  //   width: `${skill.percentage}%`,
+                                  //   backgroundColor: skill.color, 
+                                  // }}
+                                  style={{
+                                    width: `${progress[skill.percentage] || 0}%`, // Dynamic progress
+                                    backgroundColor: skill.color,
+                                    transition: "width 0.8s ease-in-out", // Smooth transition
+                                  }}
+                                >
+                                 {skill.percentage}%
+                                </div>
+                              </div>
+                              <div className="flex justify-between text-[#0e2b54] mt-2">
+                                <b>
+                                  <span className="text-xs sm:text-base md:text-lg font-semibold">
+                                    {skill.decrement}
+                                  </span>
+                                </b>{" "}
+                                <b>
+                                  <span className="text-xs sm:text-base md:text-lg font-semibold">
+                                    {skill.increment}
+                                  </span>
+                                </b>{" "}
+                              </div>
+                            </li>
+                          </ul>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
                 {/* left div */}
                 <div className=" sm:w-[100%] md:w-[100%] lg:w-[50%] xl:w-[66%] flex  flex-col gap-5 w-full  ">
                   {selectedCard === 3 && (
@@ -154,22 +240,13 @@ const Statics = () => {
                                 }}
                               ></div>
                             </div>
-                            {/* <div className="w-full bg-gray-200 rounded-full h-2 my-1">
-                            <div
-                              className="h-2 rounded-full transition-all duration-700"
-                              style={{
-                                width: `${skill.percentage}%`,
-                                backgroundColor: skill.color,
-                              }}
-                            ></div>
-                          </div> */}
                           </li>
                         ))}
                       </ul>
                     </div>
                   )}
                   {selectedCard === 2 && (
-                    <div className="pb-6   rounded-lg shadow-md border flex flex-col gap-4  lg:w-[85%] w-full">
+                    <div className="pb-6   rounded-lg shadow-md border flex flex-col gap-4  lg:w-[100%] w-full">
                       <div class="text-center mb-4">
                         <h3 class="text-[1.3rem] text-[#0e2b54] font-bold p-4">
                           How Strong your Entrepreneurial skills?
@@ -188,7 +265,7 @@ const Statics = () => {
                               r={radius}
                               fill="transparent"
                               stroke="#e2e8f0"
-                              strokeWidth="3"
+                              strokeWidth="5"
                             />
                             {/* Animated circle */}
                             <circle
@@ -232,25 +309,47 @@ const Statics = () => {
                       </div>
                     </>
                   )}
-                  <div className="    ">
-                    <div className="bg-gradient-to-br from-[#fc9aff] via-[#0068ff] to-[#10f6ff] rounded-lg shadow-lg h-[800px] justify-center flex">
-                      <div className="flex flex-col items-center justify-center p-6 text-white min-h-[200px] space-y-4">
-                        <h3 className="text-xl font-bold flex items-center gap-2">
-                          Upgrade plan
-                          <RocketIcon className="h-5 w-5" />
-                        </h3>
-                        <p className="text-sm text-center opacity-50  font-medium">
-                          Get 3 months free trial and
-                          <br />
-                          unlock all Pro features
-                        </p>
-                        <button className="bg-white text-[1rem] font-bold px-6 py-2 rounded-lg hover:bg-white/90   text-[#0e2b54]">
-                          Upgrade
-                        </button>
+                  <div className="">
+                    {(selectedCard === 2 || selectedCard === 3) && (
+                      <div className="bg-gradient-to-br from-[#fc9aff] via-[#0068ff] to-[#10f6ff] rounded-lg shadow-lg h-[800px] justify-center flex">
+                        <div className="flex flex-col items-center justify-center p-6 text-white min-h-[200px] space-y-4">
+                          <h3 className="text-xl font-bold flex items-center gap-2">
+                            Upgrade plan
+                            <RocketIcon className="h-5 w-5" />
+                          </h3>
+                          <p className="text-sm text-center opacity-50  font-medium">
+                            Get 3 months free trial and
+                            <br />
+                            unlock all Pro features
+                          </p>
+                          <button className="bg-white text-[1rem] font-bold px-6 py-2 rounded-lg hover:bg-white/90   text-[#0e2b54]">
+                            Upgrade
+                          </button>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
+              </div>
+              <div className="mx-4">
+                {selectedCard === 1 && (
+                  <div className="bg-gradient-to-br from-[#fc9aff] via-[#0068ff] to-[#10f6ff] rounded-lg shadow-lg h-[500px] w-fit justify-center flex">
+                    <div className="flex flex-col items-center justify-center p-6 text-white min-h-[200px] space-y-4">
+                      <h3 className="sm:text-2xl text-base font-bold flex items-center gap-2">
+                        Upgrade plan
+                        <RocketIcon className="h-5 w-5" />
+                      </h3>
+                      <p className="text-xl text-center opacity-50  font-medium">
+                        Get 3 months free trial and
+                        <br />
+                        unlock all Pro features
+                      </p>
+                      <button className="bg-white text-[1rem] font-bold px-6 py-2 rounded-lg hover:bg-white/90   text-[#0e2b54]">
+                        Upgrade
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
