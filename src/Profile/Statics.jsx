@@ -24,20 +24,53 @@ const Statics = () => {
     setSelectedCard(id);
   };
 
+  //skill progress animation
   useEffect(() => {
-    const targetPercentage = 73;
-    const interval = setInterval(() => {
-      setPercentage((prev) => {
-        if (prev < targetPercentage) return prev + 1;
-        clearInterval(interval);
-        return prev;
+    if (selectedCard === 3) {
+      const progressAnimation = skills.reduce((acc, skill) => {
+        acc[skill.name] = 0; // Reset initial progress for all skills
+        return acc;
+      }, {});
+  
+      setProgress(progressAnimation);
+  
+      skills.forEach((skill) => {
+        let progressValue = 0;
+        const interval = setInterval(() => {
+          if (progressValue < skill.percentage) {
+            progressValue += 1;
+            setProgress((prevProgress) => ({
+              ...prevProgress,
+              [skill.name]: progressValue,
+            }));
+          } else {
+            clearInterval(interval);
+          }
+        }, 30); // Adjust animation speed
       });
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, []);
+    }
+  }, [selectedCard]);
+  
+ 
+// Entrepreneurial Edge
+  useEffect(() => {
+    if (selectedCard === 2) {
+      const targetPercentage = 73;
+      setPercentage(0); // Reset percentage before starting animation
+      const interval = setInterval(() => {
+        setPercentage((prev) => {
+          if (prev < targetPercentage) return prev + 1;
+          clearInterval(interval);
+          return prev;
+        });
+      }, 50);
+  
+      return () => clearInterval(interval);
+    }
+  }, [selectedCard]);
 
   useEffect(() => {
+    if (selectedCard === 2) {
     let animationFrame;
 
     const animate = () => {
@@ -54,7 +87,8 @@ const Statics = () => {
     animationFrame = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationFrame);
-  }, [percentage]);
+  }
+  }, [percentage, selectedCard]);
 
   const radius = 15.91549430918954;
   const circumference = 2 * Math.PI * radius;
@@ -62,34 +96,7 @@ const Statics = () => {
     (animatedPercentage / 100) * circumference
   } ${circumference}`;
 
-  useEffect(() => {
-    const animateProgress = () => {
-      const progressAnimation = skills.reduce((acc, skill) => {
-        acc[skill.name] = 0; // Initial value
-        return acc;
-      }, {});
-
-      setProgress(progressAnimation);
-
-      skills.forEach((skill, index) => {
-        let progressValue = 0;
-        const interval = setInterval(() => {
-          if (progressValue < skill.percentage) {
-            progressValue += 1;
-            setProgress((prevProgress) => ({
-              ...prevProgress,
-              [skill.name]: progressValue,
-            }));
-          } else {
-            clearInterval(interval);
-          }
-        }); // Delay for staggered animation
-      });
-    };
-
-    animateProgress();
-  }, []);
-
+ 
   return (
     <>
       <div className="flex lg:w-[100%] w-full">
@@ -140,9 +147,9 @@ const Statics = () => {
                             </div>
                             <div className="w-full bg-gray-200 rounded-full h-2 my-1">
                               <div
-                                className="h-2 rounded-full transition-all duration-300"
+                                className="h-2 rounded-full transition-all duration-1000"
                                 style={{
-                                  width: `${progress[skill.name]}%`,
+                                  width: `${progress[skill.name] || 0}%`,
                                   backgroundColor: skill.color,
                                 }}
                               ></div>

@@ -53,6 +53,7 @@ const WelcomePageGame3 = () => {
           <h4 className="welcome-para3">Fundamental Skills Development</h4>
           {/* <div className="playbtn"> */}
           <div className="flex gap-2 justify-center items-center">
+            {/* <button className='border-2 px-20 text-lg font-bold bg-white text-black rounded-lg py-2 transition duration-700 ease-in-out' >Coming Soon...</button> */}
             {/* <button
               className="game1Playbtn w-100 py-3"
               style={{ letterSpacing: "2px", fontSize: "20px" }}

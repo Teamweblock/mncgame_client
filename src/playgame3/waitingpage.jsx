@@ -54,7 +54,7 @@ const MultiplayerWaitingPage = () => {
       } catch (err) {
         console.error("Error: Unable to join the queue", err);
         setIsDialogOpen(true);
-        // navigate("/chooserole");
+        navigate("/chooserole");
       }
     };
 
@@ -101,6 +101,7 @@ const MultiplayerWaitingPage = () => {
     };
 
     const handleDisconnectMessage = () => {
+      socket.emit("leaveQueue", { playerId });
       setIsDialogOpen(true);
       // navigate("/chooserole");
     };
@@ -119,9 +120,12 @@ const MultiplayerWaitingPage = () => {
   }, [playerId]);
 
   useEffect(() => {
-    if (timeLeft <= 0) {
+    // if (timeLeft <= 0) {
+    //   setIsDialogOpen(true);
+    //   return;
+    // }
+    if (timeLeft <= 0 && !isDialogOpen) {
       setIsDialogOpen(true);
-      return;
     }
 
     const countdown = setInterval(() => {
@@ -129,21 +133,23 @@ const MultiplayerWaitingPage = () => {
         if (prev <= 1) {
           clearInterval(countdown);
           if (
-            queueStatusRef.current ===
+            !isDialogOpen && queueStatusRef.current ===
             "WAITING TO CONNECT WITH OTHER PLAYERS ..."
           ) {
             socket.emit("leavemeetQueue", { playerId });
-            toast.info("No match found. Returning to level selection.");
+            // toast.info("No match found. Returning to level selection.");
+            setIsDialogOpen(true);
             // setIsDialogOpen(true);
-            navigate("/chooserole");
+            // navigate("/chooserole");
           }
+          return 0;
         }
         return prev - 1;
       });
     }, 1000);
 
     return () => clearInterval(countdown);
-  }, [timeLeft, playerId, navigate]);
+  }, [timeLeft, playerId, navigate,, isDialogOpen]);
 
   const handleCancel = () => {
     if (window.confirm("Are you sure you want to leave the queue?")) {
@@ -160,20 +166,21 @@ const MultiplayerWaitingPage = () => {
 
   const handleLeaveQueue = () => {
     setIsDialogOpen(false); // Close the dialog
-    socket.emit("leavemeetQueue", { playerId }); // Emit leave queue event
+    // socket.emit("leavemeetQueue", { playerId }); // Emit leave queue event
     navigate("/chooserole"); // Navigate to chooserole page
   };
 
   return (
     <div className="min-h-screen flex flex-col welcomepage-bg3 text-gray-900">
       {/* Header */}
-      <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-10">
+      <div className="flex items-center justify-between w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] mx-auto pt-10">
         <a href="/">
           <img src={logo} alt="Game Logo" className="h-10 w-auto" />
         </a>
-        <div className="bg-orange-600 text-white text-lg font-bold rounded-full px-6 py-2  md:block hover:bg-orange-700 hover:scale-105 transition-all duration-300 ease-in-out">
-          {timeLeft > 0 ? `${formatTime(timeLeft)} LEFT` : "TIME EXPIRED"}
-        </div>
+        <button className="bg-orange-600 text-white text-lg font-bold rounded-full px-6 py-2  md:block hover:bg-orange-700 hover:scale-105 transition-all duration-300 ease-in-out">
+          {/* {timeLeft > 0 ? `${formatTime(timeLeft)} LEFT` : "TIME EXPIRED"} */}
+          {formatTime(timeLeft)} LEFT
+        </button>
 
         <img
           src={icon1}
@@ -189,7 +196,7 @@ const MultiplayerWaitingPage = () => {
 
       {/* Players Grid */}
       <div className="flex-1 flex flex-col justify-center items-center mt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-[90%] md:w-[70%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-[90%] sm:w-[80%] md:w-[80%] lg:w-[95%] xl:w-[70%] ">
           {players.map((player) => (
             <div
               key={player.id}
@@ -203,47 +210,49 @@ const MultiplayerWaitingPage = () => {
                 }`}
               >
                 {/* Player Avatar */}
-                <div className="flex justify-center items-center h-[150px] w-[150px] rounded-full bg-[#85d7ff] p-2 border-4 border-white max-md:h-[100px] max-md:w-[100px] max-sm:h-[70px] max-sm:w-[70px]">
-                  <div className="flex justify-center items-center h-full w-full rounded-full bg-[#85d7ff] p-2 border-4 border-white">
-                    {player?.avatar ? (
-                      <img
-                        src={player?.avatar}
-                        alt={`${player?.firstName || "Player"}'s Avatar`}
-                        className="h-full w-full object-cover rounded-full"
-                      />
-                    ) : (
-                      <span className="text-white text-3xl font-bold">
-                        {player?.firstName?.charAt(0)?.toUpperCase() || ""}
-                        {player?.lastName?.charAt(0)?.toUpperCase() || ""}
-                      </span>
-                    )}
+                <div className="flex flex-col items-center ">
+                  <div className="flex justify-center items-center h-[150px] w-[150px] rounded-full bg-[#85d7ff] p-2 border-4 border-white max-md:h-[100px] max-md:w-[100px] max-sm:h-[70px] max-sm:w-[70px]">
+                    <div className="flex justify-center items-center h-full w-full rounded-full bg-[#85d7ff] p-2 border-4 border-white">
+                      {player?.avatar ? (
+                        <img
+                          src={player.avatar}
+                          alt={`${player?.firstName || "Player"}'s Avatar`}
+                          className="h-full w-full object-cover rounded-full"
+                        />
+                      ) : (
+                        <span className="text-white text-md md:text-xl lg:text-3xl font-bold">
+                          {player?.firstName?.charAt(0)?.toUpperCase() || ""}
+                          {player?.lastName?.charAt(0)?.toUpperCase() || ""}
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                {/* Player Name */}
-                <p className="text-[1.2rem] font-bold text-gray-800 text-center mt-4">
-                  {player.firstName}
-                </p>
-                {/* Player Role */}
-                <p
-                  className={`text-5xl font-bold text-center mt-2 ${
-                    player.status === "ready"
-                      ? "text-[#00FF00]"
-                      : player.status === "waiting"
-                      ? "text-[#FF0000]"
-                      : "text-gray-500"
-                  }`}
-                  style={{
-                    fontFamily: "Bebas Neue",
-                    verticalAlign: "Cap height",
-                  }}
-                >
-                  {player.role}
-                </p>
+                  {/* Player Name */}
+                  <p className="text-[1.2rem] font-bold text-gray-800 text-center mt-2">
+                    {player.firstName}
+                  </p>
+                  {/* Player Role */}
+                  <p
+                    className={`text-5xl font-bold text-center ${
+                      player.status === "ready"
+                        ? "text-[#00FF00]"
+                        : player.status === "waiting"
+                        ? "text-[#FF0000]"
+                        : "text-gray-500"
+                    }`}
+                    style={{
+                      fontFamily: "Bebas Neue",
+                      verticalAlign: "Cap height",
+                    }}
+                  >
+                    {player.role}
+                  </p>
+                </div>
 
                 {/* Player Status */}
                 <div
-                  className={`mt-4 text-center text-white font-bold py-2 px-6 rounded-full ${
+                  className={`mt-2 text-center text-white font-bold py-2 px-6 rounded-full ${
                     player.status === "ready" ? "bg-[#00FF00]" : "bg-[#FF0000]"
                   }`}
                 >
@@ -274,16 +283,16 @@ const MultiplayerWaitingPage = () => {
       </div>
       {/* Dialog Box */}
       {isDialogOpen && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
-          <div className="bg-yellow-500 p-6 shadow-lg max-w-sm w-full outline outline-4 outline-yellow-500 relative rounded-lg">
-            <div className="absolute inset-0 m-[10px] border-4 border-white rounded-xl pointer-events-none"></div>
+        <div className="fixed inset-0 px-2 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-yellow-500 p-6 shadow-lg max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full outline outline-4 outline-yellow-500 relative rounded-lg">
+            <div className="absolute inset-0 m-[10px] py-16 border-4 border-white rounded-xl pointer-events-none"></div>
             <h2 className="text-white text-xl font-bold mb-4 leading-relaxed text-center relative z-10 mt-6">
               LOOKS LIKE WE COULDN'T <br /> FIND A MATCH <br /> TRY AGAIN FOR A
               BETTER <br /> SHOT!
             </h2>
-            <div className="text-center relative z-20">
+            <div className="text-center relative mb-10 z-20">
               <button
-                className="mt-[-3px] bg-white text-yellow-500 font-bold px-6 py-3 w-72 rounded-full shadow-md hover:bg-yellow-100 transition-all transform hover:scale-110 hover:shadow-lg hover:translate-y-[-4px]"
+                className="mt-[-3px] bg-white text-yellow-500 font-bold px-24 py-3  rounded-full shadow-md hover:bg-yellow-100 transition-all transform hover:scale-110 hover:shadow-lg hover:translate-y-[-4px]"
                 onClick={handleLeaveQueue}
               >
                 OKAY

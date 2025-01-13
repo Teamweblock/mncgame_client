@@ -137,19 +137,17 @@ const MultiplayerWaitingPage = () => {
   return (
     <div className="waiting-page-multi flex flex-col min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-20 max-lg:pt-10 max-lg:justify-center">
+      <div className="flex items-center justify-between w-[90%] md:w-[70%] mx-auto pt-10">
         <img src="/mnclogo2.png" alt="Game Logo" height={50} width={120} />
-        <button
-          className="bg-orange-500 text-white text-xl font-bold rounded-full px-6 py-2 max-lg:hidden 
-          hover:bg-orange-600 hover:scale-105 hover:shadow-lg transition-all"
-        >
+        <button className="bg-orange-600 text-white text-lg font-bold rounded-full px-6 py-2  md:block hover:bg-orange-700 hover:scale-105 transition-all duration-300 ease-in-out">
+          {/* {timeLeft > 0 ? `${formatTime(timeLeft)} LEFT` : "TIME EXPIRED"} */}
           {formatTime(timeLeft)} LEFT
         </button>
       </div>
 
       {/* Centered Cards and Text */}
       <div className="flex-1 flex flex-col justify-center items-center max-lg:mt-10">
-        <div className="grid lg:grid-cols-3 max-lg:gap-2 gap-12 w-[90%] md:w-[65%] grid-cols-2 max-md:flex max-md:flex-wrap justify-center">
+        <div className="grid lg:grid-cols-3 max-lg:gap-2 gap-6 w-[90%] md:w-[65%] grid-cols-2 max-md:flex max-md:flex-wrap justify-center">
           {players.map((player) => (
             <div
               key={player?.id}
@@ -172,7 +170,7 @@ const MultiplayerWaitingPage = () => {
                           className="h-full w-full object-cover rounded-full"
                         />
                       ) : (
-                        <span className="text-white text-3xl font-bold">
+                        <span className="text-white text-md md:text-xl lg:text-3xl font-bold">
                           {player?.firstName?.charAt(0)?.toUpperCase() || ""}
                           {player?.lastName?.charAt(0)?.toUpperCase() || ""}
                         </span>
@@ -183,7 +181,7 @@ const MultiplayerWaitingPage = () => {
                     {player?.firstName || "Unknown Player"}
                   </p>
                   <button
-                    className={`mx-2 text-white font-bold py-2 px-5 md:px-10 text-lg rounded-full transition duration-300 ease-in-out 
+                    className={`mx-2 text-white font-bold py-2 px-4  text-lg rounded-full transition duration-300 ease-in-out 
                     ${
                       player.status === "READY"
                         ? "bg-gradient-to-r from-[#8D00FF] via-[#AA1BFF] to-[#C736FF]"
@@ -217,16 +215,16 @@ const MultiplayerWaitingPage = () => {
 
       {/* Dialog Box */}
       {isDialogOpen && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center">
-          <div className="bg-yellow-500 p-6 shadow-lg max-w-sm w-full outline outline-4 outline-yellow-500 relative rounded-lg">
-            <div className="absolute inset-0 m-[10px] border-4 border-white rounded-xl pointer-events-none"></div>
+        <div className="fixed inset-0 px-2 bg-gray-500 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-yellow-500 p-6 shadow-lg max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full outline outline-4 outline-yellow-500 relative rounded-lg">
+            <div className="absolute inset-0 m-[10px] py-16 border-4 border-white rounded-xl pointer-events-none"></div>
             <h2 className="text-white text-xl font-bold mb-4 leading-relaxed text-center relative z-10 mt-6">
               LOOKS LIKE WE COULDN'T <br /> FIND A MATCH <br /> TRY AGAIN FOR A
               BETTER <br /> SHOT!
             </h2>
-            <div className="text-center relative z-20">
+            <div className="text-center relative mb-10 z-20">
               <button
-                className="mt-[-3px] bg-white text-yellow-500 font-bold px-6 py-3 w-72 rounded-full shadow-md hover:bg-yellow-100 transition-all transform hover:scale-110 hover:shadow-lg hover:translate-y-[-4px]"
+                className="mt-[-3px] bg-white text-yellow-500 font-bold px-24 py-3  rounded-full shadow-md hover:bg-yellow-100 transition-all transform hover:scale-110 hover:shadow-lg hover:translate-y-[-4px]"
                 onClick={() => {
                   setIsDialogOpen(false); // Close the dialog
                   navigate("/game1multiplelevelpage"); // Redirect to the 'game1multiplelevelpage'
