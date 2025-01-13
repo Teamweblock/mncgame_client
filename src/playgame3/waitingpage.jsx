@@ -203,22 +203,22 @@ const MultiplayerWaitingPage = () => {
                 }`}
               >
                 {/* Player Avatar */}
-                {/* <div className="flex justify-center items-center h-[150px] w-[150px] rounded-full bg-[#85d7ff] p-2 border-4 border-white max-md:h-[100px] max-md:w-[100px] max-sm:h-[70px] max-sm:w-[70px]"> */}
-                {/* <div className="flex justify-center items-center h-full w-full rounded-full bg-[#85d7ff] p-2 border-4 border-white"> */}
-                {player?.avatar ? (
-                  <img
-                    src={player.avatar}
-                    alt={`${player?.firstName || "Player"}'s Avatar`}
-                    className="h-full w-full object-cover rounded-full"
-                  />
-                ) : (
-                  <span className="text-white text-3xl font-bold">
-                    {player?.firstName?.charAt(0)?.toUpperCase() || ""}
-                    {player?.lastName?.charAt(0)?.toUpperCase() || ""}
-                  </span>
-                )}
-                {/* </div> */}
-                {/* </div> */}
+                <div className="flex justify-center items-center h-[150px] w-[150px] rounded-full bg-[#85d7ff] p-2 border-4 border-white max-md:h-[100px] max-md:w-[100px] max-sm:h-[70px] max-sm:w-[70px]">
+                  <div className="flex justify-center items-center h-full w-full rounded-full bg-[#85d7ff] p-2 border-4 border-white">
+                    {player?.avatar ? (
+                      <img
+                        src={player?.avatar}
+                        alt={`${player?.firstName || "Player"}'s Avatar`}
+                        className="h-full w-full object-cover rounded-full"
+                      />
+                    ) : (
+                      <span className="text-white text-3xl font-bold">
+                        {player?.firstName?.charAt(0)?.toUpperCase() || ""}
+                        {player?.lastName?.charAt(0)?.toUpperCase() || ""}
+                      </span>
+                    )}
+                  </div>
+                </div>
 
                 {/* Player Name */}
                 <p className="text-[1.2rem] font-bold text-gray-800 text-center mt-4">

@@ -3,10 +3,11 @@ import { getweekgameview } from "../utils/axiosInstance";
 
 const OverviewChart = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [AnalysisData, setAnalysisData] = useState(true);
   const [offsets, setOffsets] = useState({
-    problemPilot: 283,
-    entrepreneurialEdge: 283,
-    strategyTrial: 283,
+    problemPilot: 100,
+    entrepreneurialEdge: 100,
+    strategyTrial: 100,
   });
   const [playTime, setPlayTime] = useState("83.5%"); // Static value for now
 
@@ -19,12 +20,13 @@ const OverviewChart = () => {
         if (userData) {
           setAnalysisData(userData);
         }
+        console.log("AnalysisData", AnalysisData);
 
         // Once the API is ready, update the offsets based on data
         setOffsets({
-          problemPilot: 283 - 84.6,  // Example value for now
-          entrepreneurialEdge: 283 - 56.6,  // Example value for now
-          strategyTrial: 283 - 28.9,  // Example value for now
+          problemPilot: 100 - 84.6, // Example value for now
+          entrepreneurialEdge: 100 - 56.6, // Example value for now
+          strategyTrial: 100 - 28.9, // Example value for now
         });
 
         // Replace with dynamic data after API integration
@@ -168,7 +170,6 @@ const OverviewChart = () => {
 
 export default OverviewChart;
 
-
 // import React, { useEffect, useState } from "react";
 // import { getweekgameview } from "../utils/axiosInstance";
 
@@ -193,7 +194,6 @@ export default OverviewChart;
 
 //     fetchAnalysisData();
 //   }, []);
-
 
 //   return (
 //     <div className="flex flex-col lg:flex-row items-center gap-10 p-4">
@@ -278,7 +278,7 @@ export default OverviewChart;
 
 //       {/* Legend Section */}
 //       <div className="space-y-3 mt-6 lg:mt-0">
-  
+
 //         <div className="flex items-center gap-2">
 //           <div className="w-4 h-4 rounded-sm bg-indigo-500" />
 //           <div className="text-[#0e2b54] font-semibold text-[1.2rem]">
