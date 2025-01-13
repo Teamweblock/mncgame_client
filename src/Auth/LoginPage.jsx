@@ -40,7 +40,7 @@ const LoginPage = () => {
       const currentTime = new Date().getTime();
       // const expirationTime = currentTime + 2 * 60 * 60 * 1000;
       const expirationTime = currentTime + 8 * 60 * 60 * 1000; // 8 hours in milliseconds
-      // const expirationTime = currentTime + 1 * 60 * 1000; // 1 minutes in milliseconds
+      // const expirationTime = currentTime + 2 * 60 * 1000; // 2 minutes in milliseconds
     
       localStorage.setItem("token", res.token);
       localStorage.setItem("tokenExpiration", expirationTime);
@@ -76,6 +76,28 @@ const LoginPage = () => {
     navigate("/login");
   };
 
+  // const responseGoogle = async (authResult) => {
+  //   try {
+  //     const tokenId = authResult.credential;
+  //     const decoded = jwtDecode(tokenId); // Decoded user information
+  //     const result = await googleAuth(JSON.stringify({ tokenId }));
+  //     const token = result?.token;
+  //     if (result && token) {
+  //       localStorage.setItem("token", result.token);
+  //       console.log("token save ho gya j ajay", );
+        
+  //       dispatch(login(result.token));
+  //       console.log("token save ho gya j", );
+
+  //       navigate("/");
+  //     } else {
+  //       console.error("Google login failed at backend:", result);
+  //     }
+  //   } catch (error) {
+  //     console.error("Google login error:", error);
+  //   }
+  // };
+
   const responseGoogle = async (authResult) => {
     try {
       const tokenId = authResult.credential;
@@ -83,12 +105,18 @@ const LoginPage = () => {
       const result = await googleAuth(JSON.stringify({ tokenId }));
       const token = result?.token;
       if (result && token) {
-        localStorage.setItem("token", result.token);
-        console.log("token save ho gya j ajay", );
-        
-        dispatch(login(result.token));
-        console.log("token save ho gya j", );
+        const currentTime = new Date().getTime();
+        const expirationTime = currentTime + 8 * 60 * 60 * 1000; // 8 hours
+        // const expirationTime = currentTime + 2 * 60 * 1000; // 2 minutes in milliseconds
 
+        localStorage.setItem("token", token);
+        localStorage.setItem("tokenExpiration", expirationTime);
+
+        // Schedule auto-logout
+        const remainingTime = expirationTime - currentTime;
+        setTimeout(handleAutoLogout, remainingTime);
+
+        dispatch(login(token));
         navigate("/");
       } else {
         console.error("Google login failed at backend:", result);

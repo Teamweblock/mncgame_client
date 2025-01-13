@@ -152,15 +152,15 @@ const Footer = () => {
 
               <div className=" flex gap-2 items-center">
                 <MdLocationPin className="footer-icon-set" size={25} />
-                <p className="text-[#bba692] text-[1.3rem] font-normal">Mumbai, India</p>
+                <p className="text-[#bba692] text-sm sm:text-base md:text-base font-normal">Mumbai, India</p>
               </div>
               <div className="flex gap-1 items-center">
                 <MdOutlineMail className="footer-icon-set" size={25} />
-                <p className="text-[#bba692] text-[1.3rem] font-normal">multinetworkingcompany@gmail.com</p>
+                <p className="text-[#bba692] text-sm sm:text-base md:text-base font-normal">multinetworkingcompany@gmail.com</p>
               </div>
               <div className="flex gap-2 items-center">
                 <FaPhoneAlt className="footer-icon-set" size={25} />
-                <p className="text-[#bba692] text-[1.3rem] font-normal">+91 98335 74462</p>
+                <p className="text-[#bba692] text-sm sm:text-base md:text-base font-normal">+91 98335 74462</p>
               </div>
               {/* <div className="icon-group">
               <div>
