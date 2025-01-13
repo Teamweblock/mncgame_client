@@ -9,6 +9,7 @@ const OverviewChart = () => {
     strategyTrial: 283,
   });
   const [playTime, setPlayTime] = useState("83.5%"); // Static value for now
+  const [analysisData, setAnalysisData] = useState([]);
 
   useEffect(() => {
     const fetchAnalysisData = async () => {
