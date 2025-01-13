@@ -3,14 +3,13 @@ import { getweekgameview } from "../utils/axiosInstance";
 
 const OverviewChart = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [AnalysisData, setAnalysisData] = useState(true);
+  const [AnalysisData, setAnalysisData] = useState([]);
+  const [playTime, setPlayTime] = useState(0); // Static value for now
   const [offsets, setOffsets] = useState({
     problemPilot: 100,
     entrepreneurialEdge: 100,
     strategyTrial: 100,
   });
-  const [playTime, setPlayTime] = useState("83.5%"); // Static value for now
-  const [analysisData, setAnalysisData] = useState([]);
 
   useEffect(() => {
     const fetchAnalysisData = async () => {
@@ -18,10 +17,11 @@ const OverviewChart = () => {
       try {
         // Simulated API call, will replace with actual API later
         const userData = await getweekgameview(); // Fetch profile data using the new function
+        console.log("userData", userData?.games);
+
         if (userData) {
-          setAnalysisData(userData);
+          setAnalysisData(userData?.games);
         }
-        console.log("AnalysisData", AnalysisData);
 
         // Once the API is ready, update the offsets based on data
         setOffsets({
