@@ -153,6 +153,17 @@ export const getUserRecent = async () => {
 };
 
 // API call for getting user profile
+export const getSkillsOverview = async () => {
+  try {
+    const response = await axiosInstance.post("/player/userskillsoverview"); // Adjust the endpoint to match your backend
+    return response.data; // Return the user profile data
+  } catch (error) {
+    console.error("Error fetching user profile", error);
+    return null; // Return null in case of an error
+  }
+};
+
+// API call for getting user profile
 export const getweekgameview = async () => {
   try {
     const response = await axiosInstance.post("/player/weeklyanalysis"); // Adjust the endpoint to match your backend

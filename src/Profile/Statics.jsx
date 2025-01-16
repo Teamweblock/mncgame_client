@@ -1,12 +1,17 @@
 import { Calendar, RocketIcon, ChevronDown } from "lucide-react";
 import React, { useEffect, useState } from "react";
-// import UpgradeCard from "../Components/UpgradeCard";
 import ManagementChart from "./ManagementChart";
 import Cart from "./Cart";
 import Sidebar from "./Sidebar";
 import ProfileHeader from "./ProfileHeader";
+import DatePicker from "../componets/DatePicker"; // Ensure the Calendar component is correctly imported
 
 const Statics = () => {
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  const toggleCalendar = () => {
+    setShowCalendar(!showCalendar);
+  };
   const skills = [
     { name: "Fundamental Skills", percentage: 70, color: "#4e6ce8" },
     { name: "Strategic Trial", percentage: 50, color: "#25d3dd" },
@@ -39,7 +44,6 @@ const Statics = () => {
   const handleCardClick = (id) => {
     setSelectedCard(id);
   };
-  
 
   //problem pilot
   useEffect(() => {
@@ -88,7 +92,6 @@ const Statics = () => {
       });
     }
   }, [selectedCard]);
-  
 
   // Entrepreneurial Edge
   useEffect(() => {
@@ -142,18 +145,31 @@ const Statics = () => {
         <div className="bg-[#eff2f9] p-4 rounded-lg   my-4  md:ml-[300px]  w-full">
           <ProfileHeader />
           <div className="bg-white rounded-lg pb-10">
-            <div className="flex justify-between items-center px-2">
-              <p className="text-[1.3rem] text-[#0e2b54] font-semibold">
-                Analytics
-              </p>
-              <div className="border-2 border-gray-300 rounded-lg px-4 py-1 flex items-center gap-2 text-nowrap">
-                <span>
-                  <Calendar size={15} />
-                </span>{" "}
-                This Week
-                <span>
-                  <ChevronDown size={15} />
-                </span>
+            <div>
+              <div className="flex justify-between items-center px-2">
+                <p className="text-[1.3rem] text-[#0e2b54] font-semibold">
+                  Analytics
+                </p>
+                <div className="relative">
+                  <div className="border-2 border-gray-300 rounded-lg px-4 py-1 flex items-center gap-2">
+                    <span>
+                      <Calendar size={15} />
+                    </span>
+                    This Week
+                    <button
+                      className="ml-2 flex items-center"
+                      onClick={toggleCalendar}
+                      aria-label="Toggle Calendar Dropdown"
+                    >
+                      <ChevronDown size={15} />
+                    </button>
+                  </div>
+                  {showCalendar && (
+                    <div className="absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-10 w-[300px] md:w-[500px]">
+                      <DatePicker />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             <div className="lg:grid-cols-3 grid m-4 grid-cols-1 gap-8 md:grid-cols-2">
@@ -180,15 +196,17 @@ const Statics = () => {
                                   className={`h-10 rounded-xl   text-white grid items-center pl-6`}
                                   // style={{
                                   //   width: `${skill.percentage}%`,
-                                  //   backgroundColor: skill.color, 
+                                  //   backgroundColor: skill.color,
                                   // }}
                                   style={{
-                                    width: `${progress[skill.percentage] || 0}%`, // Dynamic progress
+                                    width: `${
+                                      progress[skill.percentage] || 0
+                                    }%`, // Dynamic progress
                                     backgroundColor: skill.color,
                                     transition: "width 0.8s ease-in-out", // Smooth transition
                                   }}
                                 >
-                                 {skill.percentage}%
+                                  {skill.percentage}%
                                 </div>
                               </div>
                               <div className="flex justify-between text-[#0e2b54] mt-2">

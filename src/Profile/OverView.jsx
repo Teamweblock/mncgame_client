@@ -1,6 +1,4 @@
-import { CandyCane, ChevronDown, Settings } from "lucide-react";
 import React, { useState, useEffect } from "react";
-import { CircleX } from "lucide-react";
 import { UserPen } from "lucide-react";
 import OverviewChart from "./OverviewChart";
 import SkillsOverview from "./SkillsOverview";
@@ -41,7 +39,6 @@ const Overview = () => {
     };
 
     fetchUserProfile();
-
     fetchRecentActivities();
   }, []);
 
@@ -56,9 +53,6 @@ const Overview = () => {
             <div className="bg-white p-4 rounded-lg">
               <div className="flex justify-between items-center mb-4">
                 <div>
-
-                {/*date - 10/1/2025 
-                 my change to the code (jay jathar) update the text in the h2 tag */}
                   <h2 className="text-[1.3rem] text-[#3f3f3f] font-bold">
                     Customer Analysis
                   </h2>
