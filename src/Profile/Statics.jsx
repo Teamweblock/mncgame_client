@@ -19,7 +19,7 @@ const Statics = () => {
     { name: "Creative And Inovative", percentage: 90, color: "#d51aff" },
     { name: "Impact And Contribution", percentage: 60, color: "#25d3dd" },
   ];
-  const problenPilot = [
+  const problenPilot = [  
     {
       name: "Self Progress",
       percentage: 73,
@@ -47,7 +47,7 @@ const Statics = () => {
 
   //problem pilot
   useEffect(() => {
-    if (selectedCard === 1) {
+    if (selectedCard === 1 || selectedCard === null) {
       // Reset progress for all items
       const initialProgress = problenPilot.reduce((acc, skill) => {
         acc[skill.percentage] = 0;
@@ -65,6 +65,8 @@ const Statics = () => {
       });
     }
   }, [selectedCard]); // Watch for changes in selectedCard
+
+
 
   //skill progress animation -Strategy Trial
   useEffect(() => {
@@ -178,7 +180,7 @@ const Statics = () => {
             <div className="flex w-full gap-6 p-3 flex-wrap">
               <div className="flex w-full gap-6 p-2 flex-wrap">
                 <div className="sm:w-[100%] md:w-[100%] lg:w-[100%] xl:w-[100%] flex   w-full">
-                  {selectedCard === 1 && (
+                  {(selectedCard === 1 || selectedCard === null) && (
                     <div className=" rounded-lg flex flex-col w-full">
                       {problenPilot.map((skill, index) => {
                         return (
@@ -350,7 +352,7 @@ const Statics = () => {
                 </div>
               </div>
               <div className="mx-4">
-                {selectedCard === 1 && (
+                {(selectedCard === 1 || selectedCard === null) && (
                   <div className="bg-gradient-to-br from-[#fc9aff] via-[#0068ff] to-[#10f6ff] rounded-lg shadow-lg h-[500px] w-fit justify-center flex">
                     <div className="flex flex-col items-center justify-center p-6 text-white min-h-[200px] space-y-4">
                       <h3 className="sm:text-2xl text-base font-bold flex items-center gap-2">

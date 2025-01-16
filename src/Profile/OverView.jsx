@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 import ProfileHeader from "./ProfileHeader";
 import UserProfile from "../Auth/UserProfile";
 import { getUserProfile, getUserRecent } from "../utils/axiosInstance";
+import { ConsoleLevel } from "@zegocloud/zego-uikit-prebuilt";
 
 const Overview = () => {
   const [userData, setUserData] = useState(null); // State to hold user data
@@ -16,6 +17,7 @@ const Overview = () => {
     const fetchRecentActivities = async () => {
       try {
         const response = await getUserRecent();
+        // console.log(response, "----------response");
         if (response) {
           setRecentActivities(response);
         }
