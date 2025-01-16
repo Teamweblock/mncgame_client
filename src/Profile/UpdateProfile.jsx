@@ -9,7 +9,6 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -21,19 +20,17 @@ const MenuProps = {
   },
 };
 
-// jay changes for list of skills and expertise 
+// jay changes for list of skills and expertise
 const names = ["skiil 1", "skill 2", "skill 3", "skill 4", "skill 5"];
 
 //jay chnages for list of expertise
 const expertiseList = [
-  
   "Expertise 1",
   "Expertise 2",
   "Expertise 3",
   "Expertise 4",
   "Expertise 5",
 ];
-
 
 function getStyles(name, personName, theme) {
   return {
@@ -223,7 +220,6 @@ const UpdateProfile = () => {
               </h1>
               <div className="grid sm:grid-cols-2 gap-4">
                 {education.map((field, index) => (
-                  
                   <div key={index}>
                     <label
                       htmlFor={field.label}
@@ -299,24 +295,28 @@ const UpdateProfile = () => {
                       </label>
                       {/* Name: jay jathar Date: 16/1/25 Expertise Dropdown */}
                       <FormControl sx={{ m: 1, width: 300 }}>
-                      <Select
-                        className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
-                        multiple
-                        value={personExpertise}
-                        onChange={handleExpertiseChange}
-                        input={<OutlinedInput label="Expertise" />}
-                        MenuProps={MenuProps}
-                      >
-                        {expertiseList.map((expertise) => (
-                          <MenuItem
-                            key={expertise}
-                            value={expertise}
-                            style={getStyles(expertise, personExpertise, theme)}
-                          >
-                            {expertise}
-                          </MenuItem>
-                        ))}
-                      </Select>
+                        <Select
+                          className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
+                          multiple
+                          value={personExpertise}
+                          onChange={handleExpertiseChange}
+                          input={<OutlinedInput label="Expertise" />}
+                          MenuProps={MenuProps}
+                        >
+                          {expertiseList.map((expertise) => (
+                            <MenuItem
+                              key={expertise}
+                              value={expertise}
+                              style={getStyles(
+                                expertise,
+                                personExpertise,
+                                theme
+                              )}
+                            >
+                              {expertise}
+                            </MenuItem>
+                          ))}
+                        </Select>
                       </FormControl>
                     </div>
                   ) : (
@@ -356,8 +356,6 @@ const UpdateProfile = () => {
 
 export default UpdateProfile;
 
-
-
 // import React, { useState } from "react";
 // import { ChevronDown } from "lucide-react";
 // import Sidebar from "./Sidebar";
@@ -374,7 +372,6 @@ export default UpdateProfile;
 //       [field]: values.map((v) => v.value),
 //     }));
 //   };
-
 
 //   const fields = [
 //     { label: "First Name", placeholder: "Enter first name" },
