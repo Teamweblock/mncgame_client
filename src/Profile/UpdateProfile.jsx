@@ -226,7 +226,7 @@ const UpdateProfile = () => {
                 </label>
                 <textarea
                   id="address"
-                  className="mt-1 block shadow-lg w-full h-20 px-4 py-2 border rounded-lg outline-none text-[1rem] text-gray-400"
+                  className="mt-1 block shadow-lg w-full h-20 px-4 py-2 border rounded-lg outline-none text-[1rem] text-gray-400 resize-none overflow-y-auto"
                   placeholder="Enter your address"
                 />
               </div>
