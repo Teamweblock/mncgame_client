@@ -1,36 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
 import Sidebar from "./Sidebar";
 import ProfileHeader from "./ProfileHeader";
-import { useTheme } from "@mui/material/styles";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import Select1 from "react-dropdown-select";
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-
+import { getUserProfile } from "../utils/axiosInstance";
+import UserProfile from "../Auth/UserProfile";
+import UserProfileEdit from "../Auth/UserProfileEdit";
 
 const UpdateProfile = () => {
   // Name: jay jathar Date: 16/1/25 State to handle country codes fetched from API
   const [countryCodes, setCountryCodes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const theme = useTheme();
-  const [personName, setPersonName] = useState([]);
-  const [personExpertise, setPersonExpertise] = useState([]);
   const [formData, setFormData] = useState({});
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const profileData = await getUserProfile();
+        if (profileData) {
+          setUserData(profileData?.userData);
+        }
+      } catch (error) {
+        console.error("Error fetching user profile", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
+  const hanleclick = () => {
+    alert("clicked");
+  };
 
   const handleSelectChange = (values, field) => {
     setFormData((prevData) => ({
@@ -39,27 +41,7 @@ const UpdateProfile = () => {
     }));
   };
 
-
-  // name : jay jathar Handle change for the skills dropdown
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
-  };
-  // jay chnages Handle change for the expertise dropdown
-
-  const handleExpertiseChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonExpertise(typeof value === "string" ? value.split(",") : value);
-  };
-
-  // Name: jay jathar Date: 16/1/25 Fetch country codes from API (mocked API for demonstration)
+  //jay
   useEffect(() => {
     const fetchCountryCodes = async () => {
       try {
@@ -88,14 +70,14 @@ const UpdateProfile = () => {
   }, []);
 
   const fields = [
-    { label: "First Name", placeholder: "Enter first name" },
-    { label: "Last Name", placeholder: "Enter last name" },
+    { label: "First Name", placeholder: "Enter first name", type: "text" },
+    { label: "Last Name", placeholder: "Enter last name", type: "text" },
     {
       label: "Mobile Number",
       placeholder: "Enter mobile number",
       type: "mobile", // Name: jay jathar Date: 16/1/25 Custom type for handling country code dropdown
     },
-    { label: "Email", placeholder: "Enter email" },
+    { label: "Email", placeholder: "Enter email", type: "text" },
   ];
 
   const education = [
@@ -107,16 +89,6 @@ const UpdateProfile = () => {
       placeholder: "Enter your skills and expertise",
     },
   ];
-
-  // const professional = [
-  //   { label: "Current Job", placeholder: "Enter current job" },
-  //   { label: "Company Name", placeholder: "Enter company name" },
-  //   { label: "Job Role", placeholder: "Enter job role" },
-  //   { label: "LinkedIn Profile", placeholder: "Enter LinkedIn profile URL" },
-  //   { label: "Skills", placeholder: "Enter your skills" },
-  //   { label: "Expertise", placeholder: "Enter your expertise" },
-  // ];
-
 
   const professional = [
     { label: "Current Job", placeholder: "Enter current job", type: "text" },
@@ -139,7 +111,6 @@ const UpdateProfile = () => {
     },
   ];
 
-
   //option fopr skills and expertise check
   return (
     <>
@@ -154,7 +125,13 @@ const UpdateProfile = () => {
           {/* Profile Form */}
           <div className="rounded-lg border bg-[#eff2f9] relative mt-4">
             <div className="flex items-center justify-between absolute md:-top-16 left-4 right-4 -top-10">
-              <div className="h-16 w-16 rounded-full bg-blue-500 flex justify-center items-center" />
+              <div className="h-16 w-16 rounded-full bg-blue-500 flex justify-center items-center">
+                <UserProfileEdit
+                  userProfile={userData}
+                  loading={loading}
+                  hanleclick={hanleclick}
+                />
+              </div>
               <img
                 src="/profile1.png"
                 alt="profile"
@@ -166,6 +143,22 @@ const UpdateProfile = () => {
               {" "}
               {/*Name: jay jathar Date: 16/1/25 Form for updating profile details*/}
               <div className="grid sm:grid-cols-2 gap-4">
+                {fields.map((field, index) => (
+                  <div key={index}>
+                    <label
+                      htmlFor="currentJob"
+                      className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      id="currentJob"
+                      className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
+                      placeholder={field.placeholder}
+                    />
+                  </div>
+                ))}
+
                 {fields.map((field, index) =>
                   field.type === "mobile" ? (
                     <div key={index}>
@@ -256,7 +249,7 @@ const UpdateProfile = () => {
                 Professional Details
               </h1>
               <div className="grid sm:grid-cols-2 gap-4">
-              {professional.map((field, index) => (
+                {professional.map((field, index) => (
                   <div key={index}>
                     <label
                       htmlFor="currentJob"
@@ -339,14 +332,14 @@ export default UpdateProfile;
 // import Select from "react-dropdown-select";
 
 // const UpdateProfile = () => {
-  // const [formData, setFormData] = useState({});
+// const [formData, setFormData] = useState({});
 
-  // const handleSelectChange = (values, field) => {
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [field]: values.map((v) => v.value),
-  //   }));
-  // };
+// const handleSelectChange = (values, field) => {
+//   setFormData((prevData) => ({
+//     ...prevData,
+//     [field]: values.map((v) => v.value),
+//   }));
+// };
 
 //   const fields = [
 //     { label: "First Name", placeholder: "Enter first name" },
@@ -365,26 +358,26 @@ export default UpdateProfile;
 //     },
 //   ];
 
-  // const professional = [
-  //   { label: "Current Job", placeholder: "Enter current job", type: "text" },
-  //   { label: "Company Name", placeholder: "Enter company name", type: "text" },
-  //   { label: "Job Role", placeholder: "Enter job role", type: "text" },
-  //   {
-  //     label: "LinkedIn Profile",
-  //     placeholder: "Enter LinkedIn profile URL",
-  //     type: "text",
-  //   },
-  //   {
-  //     label: "Skills",
-  //     placeholder: "Enter your skills",
-  //     options: ["JavaScript", "React", "Node.js", "Python"],
-  //   },
-  //   {
-  //     label: "Expertise",
-  //     placeholder: "Enter your expertise",
-  //     options: ["Frontend", "Backend", "Full Stack", "DevOps"],
-  //   },
-  // ];
+// const professional = [
+//   { label: "Current Job", placeholder: "Enter current job", type: "text" },
+//   { label: "Company Name", placeholder: "Enter company name", type: "text" },
+//   { label: "Job Role", placeholder: "Enter job role", type: "text" },
+//   {
+//     label: "LinkedIn Profile",
+//     placeholder: "Enter LinkedIn profile URL",
+//     type: "text",
+//   },
+//   {
+//     label: "Skills",
+//     placeholder: "Enter your skills",
+//     options: ["JavaScript", "React", "Node.js", "Python"],
+//   },
+//   {
+//     label: "Expertise",
+//     placeholder: "Enter your expertise",
+//     options: ["Frontend", "Backend", "Full Stack", "DevOps"],
+//   },
+// ];
 
 //   return (
 //     <>
@@ -479,61 +472,61 @@ export default UpdateProfile;
 //                 Professional Details
 //               </h1>
 //               <div className="grid sm:grid-cols-2 gap-4">
-                // {professional.map((field, index) => (
-                //   <div key={index}>
-                //     <label
-                //       htmlFor="currentJob"
-                //       className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
-                //     >
-                //       {field.label}
-                //     </label>
-                //     {field.type === "text" ? (
-                //       <input
-                //         id="currentJob"
-                //         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
-                //         placeholder={field.placeholder}
-                //       />
-                //     ) : (
-                //       <Select
-                //         options={field.options.map((option) => ({
-                //           value: option,
-                //           label: option,
-                //         }))}
-                //         multi
-                //         placeholder={field.placeholder}
-                //         onChange={(values) =>
-                //           handleSelectChange(values, field.label.toLowerCase())
-                //         }
-                //         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
-                //       >
-                //         {field.options.map((option, index) => (
-                //           <option
-                //             key={index}
-                //             value={option}
-                //             className="border rounded-full"
-                //           >
-                //             {option}
-                //           </option>
-                //         ))}
-                //       </Select>
-                //       // <Select
-                //       //   id="currentJob"
-                //       //   className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
-                //       //   placeholder={field.placeholder}
-                //       // >
-                //       //   {field.options.map((option, index) => (
-                //       //     <option
-                //       //       key={index}
-                //       //       value={option}
-                //       //       className="border rounded-full"
-                //       //     >
-                //       //       {option}
-                //       //     </option>
-                //       //   ))}
-                //       // </Select>
-                //     )}
-                //   </div>
-                // ))}
+// {professional.map((field, index) => (
+//   <div key={index}>
+//     <label
+//       htmlFor="currentJob"
+//       className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
+//     >
+//       {field.label}
+//     </label>
+//     {field.type === "text" ? (
+//       <input
+//         id="currentJob"
+//         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
+//         placeholder={field.placeholder}
+//       />
+//     ) : (
+//       <Select
+//         options={field.options.map((option) => ({
+//           value: option,
+//           label: option,
+//         }))}
+//         multi
+//         placeholder={field.placeholder}
+//         onChange={(values) =>
+//           handleSelectChange(values, field.label.toLowerCase())
+//         }
+//         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
+//       >
+//         {field.options.map((option, index) => (
+//           <option
+//             key={index}
+//             value={option}
+//             className="border rounded-full"
+//           >
+//             {option}
+//           </option>
+//         ))}
+//       </Select>
+//       // <Select
+//       //   id="currentJob"
+//       //   className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
+//       //   placeholder={field.placeholder}
+//       // >
+//       //   {field.options.map((option, index) => (
+//       //     <option
+//       //       key={index}
+//       //       value={option}
+//       //       className="border rounded-full"
+//       //     >
+//       //       {option}
+//       //     </option>
+//       //   ))}
+//       // </Select>
+//     )}
+//   </div>
+// ))}
 //               </div>
 
 //               <div className="flex gap-4 justify-center mt-10 mb-5">
