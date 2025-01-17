@@ -8,6 +8,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Select1 from "react-dropdown-select";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -20,33 +21,24 @@ const MenuProps = {
   },
 };
 
-// jay changes for list of skills and expertise
-const names = ["skiil 1", "skill 2", "skill 3", "skill 4", "skill 5"];
 
-//jay chnages for list of expertise
-const expertiseList = [
-  "Expertise 1",
-  "Expertise 2",
-  "Expertise 3",
-  "Expertise 4",
-  "Expertise 5",
-];
-
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight: personName.includes(name)
-      ? theme.typography.fontWeightMedium
-      : theme.typography.fontWeightRegular,
-  };
-}
 
 const UpdateProfile = () => {
   // Name: jay jathar Date: 16/1/25 State to handle country codes fetched from API
   const [countryCodes, setCountryCodes] = useState([]);
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
+  const [personName, setPersonName] = useState([]);
   const [personExpertise, setPersonExpertise] = useState([]);
+  const [formData, setFormData] = useState({});
+
+  const handleSelectChange = (values, field) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: values.map((v) => v.value),
+    }));
+  };
+
 
   // name : jay jathar Handle change for the skills dropdown
   const handleChange = (event) => {
@@ -116,14 +108,38 @@ const UpdateProfile = () => {
     },
   ];
 
+  // const professional = [
+  //   { label: "Current Job", placeholder: "Enter current job" },
+  //   { label: "Company Name", placeholder: "Enter company name" },
+  //   { label: "Job Role", placeholder: "Enter job role" },
+  //   { label: "LinkedIn Profile", placeholder: "Enter LinkedIn profile URL" },
+  //   { label: "Skills", placeholder: "Enter your skills" },
+  //   { label: "Expertise", placeholder: "Enter your expertise" },
+  // ];
+
+
   const professional = [
-    { label: "Current Job", placeholder: "Enter current job" },
-    { label: "Company Name", placeholder: "Enter company name" },
-    { label: "Job Role", placeholder: "Enter job role" },
-    { label: "LinkedIn Profile", placeholder: "Enter LinkedIn profile URL" },
-    { label: "Skills", placeholder: "Enter your skills" },
-    { label: "Expertise", placeholder: "Enter your expertise" },
+    { label: "Current Job", placeholder: "Enter current job", type: "text" },
+    { label: "Company Name", placeholder: "Enter company name", type: "text" },
+    { label: "Job Role", placeholder: "Enter job role", type: "text" },
+    {
+      label: "LinkedIn Profile",
+      placeholder: "Enter LinkedIn profile URL",
+      type: "text",
+    },
+    {
+      label: "Skills",
+      placeholder: "Enter your skills",
+      options: ["JavaScript", "React", "Node.js", "Python"],
+    },
+    {
+      label: "Expertise",
+      placeholder: "Enter your expertise",
+      options: ["Frontend", "Backend", "Full Stack", "DevOps"],
+    },
   ];
+
+
   //option fopr skills and expertise check
   return (
     <>
@@ -240,109 +256,68 @@ const UpdateProfile = () => {
                 Professional Details
               </h1>
               <div className="grid sm:grid-cols-2 gap-4">
-                {professional.map((field, index) =>
-                  field.label === "Skills" ? (
-                    <div key={index}>
-                      <label
-                        htmlFor={field.label}
-                        className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
-                      >
-                        {field.label}
-                      </label>
-
-                      <FormControl sx={{ m: 1, width: 300 }}>
-                        {/* <InputLabel id="demo-multiple-name-label">Name</InputLabel> */}
-                        <Select
-                          // labelId="demo-multiple-name-label"
-                          // id="demo-multiple-name"
-                          className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
-                          multiple
-                          value={personName}
-                          onChange={handleChange}
-                          input={<OutlinedInput label="Name" />}
-                          MenuProps={MenuProps}
-                        >
-                          {names.map((name) => (
-                            <MenuItem
-                              key={name}
-                              value={name}
-                              style={getStyles(name, personName, theme)}
-                            >
-                              {name}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                      <select
-                        labelId="demo-multiple-checkbox-label"
-                        className="mt-1 shadow-lg block w-full px-4 py-2 border rounded-full outline-none text-[1rem] text-gray-400"
-                      >
-                        <option value="skill1">Skill 1</option>
-                        <option value="skill2">Skill 2</option>
-                        <option value="skill3">Skill 3</option>
-                        <option value="skill4">Skill 4</option>
-                        <option value="skill5">Skill 5</option>
-                      </select>
-                    </div>
-                  ) : // Name: jay jathar Date: 16/1/25 Changes for Expertise dropdown
-                  field.label === "Expertise" ? (
-                    <div key={index}>
-                      <label
-                        htmlFor={field.label}
-                        className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
-                      >
-                        {field.label}
-                      </label>
-                      {/* Name: jay jathar Date: 16/1/25 Expertise Dropdown */}
-                      <FormControl sx={{ m: 1, width: 300 }}>
-                        <Select
-                          className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
-                          multiple
-                          value={personExpertise}
-                          onChange={handleExpertiseChange}
-                          input={<OutlinedInput label="Expertise" />}
-                          MenuProps={MenuProps}
-                        >
-                          {expertiseList.map((expertise) => (
-                            <MenuItem
-                              key={expertise}
-                              value={expertise}
-                              style={getStyles(
-                                expertise,
-                                personExpertise,
-                                theme
-                              )}
-                            >
-                              {expertise}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
-                    </div>
-                  ) : (
-                    // still
-                    <div key={index}>
-                      <label
-                        htmlFor={field.label}
-                        className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
-                      >
-                        {field.label}
-                      </label>
+              {professional.map((field, index) => (
+                  <div key={index}>
+                    <label
+                      htmlFor="currentJob"
+                      className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
+                    >
+                      {field.label}
+                    </label>
+                    {field.type === "text" ? (
                       <input
-                        id={field.label}
+                        id="currentJob"
                         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
                         placeholder={field.placeholder}
                       />
-                    </div>
-                  )
-                )}
+                    ) : (
+                      <Select1
+                        options={field.options.map((option) => ({
+                          value: option,
+                          label: option,
+                        }))}
+                        multi
+                        placeholder={field.placeholder}
+                        onChange={(values) =>
+                          handleSelectChange(values, field.label.toLowerCase())
+                        }
+                        className="mt-1 shadow-lg block w-full p-2 border bg-white !rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
+                      >
+                        {field.options.map((option, index) => (
+                          <option
+                            key={index}
+                            value={option}
+                            className="border rounded-full bg-black"
+                          >
+                            {option}
+                          </option>
+                        ))}
+                      </Select1>
+                      // <Select
+                      //   id="currentJob"
+                      //   className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
+                      //   placeholder={field.placeholder}
+                      // >
+                      //   {field.options.map((option, index) => (
+                      //     <option
+                      //       key={index}
+                      //       value={option}
+                      //       className="border rounded-full"
+                      //     >
+                      //       {option}
+                      //     </option>
+                      //   ))}
+                      // </Select>
+                    )}
+                  </div>
+                ))}
               </div>
               {/* Buttons */}
               <div className="flex gap-4 justify-center mt-10 mb-5">
                 <button className="px-8 py-2 h-[50px] bg-[#facd32] font-bold text-[1.3rem] text-slate-50 hover:bg-white hover:text-[#facd32] transition duration-700 rounded-lg">
                   Update
                 </button>
-                <button className="px-8 py-2 h-[50px] bg-[#f7f7f7] font-bold text-[1.3rem] text-[#facd32] border border-[#facd32] hover:bg-[#facd32] hover:text-slate-50 transition duration-700 rounded-lg">
+                <button className="px-8 py-2 h-[50px] bg-[#6E9FFF] font-bold text-[1.3rem] text-slate-50 border border-[#6E9FFF] hover:bg-white hover:text-[#6E9FFF] transition duration-700 rounded-lg">
                   Cancel
                 </button>
               </div>
@@ -364,14 +339,14 @@ export default UpdateProfile;
 // import Select from "react-dropdown-select";
 
 // const UpdateProfile = () => {
-//   const [formData, setFormData] = useState({});
+  // const [formData, setFormData] = useState({});
 
-//   const handleSelectChange = (values, field) => {
-//     setFormData((prevData) => ({
-//       ...prevData,
-//       [field]: values.map((v) => v.value),
-//     }));
-//   };
+  // const handleSelectChange = (values, field) => {
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [field]: values.map((v) => v.value),
+  //   }));
+  // };
 
 //   const fields = [
 //     { label: "First Name", placeholder: "Enter first name" },
@@ -390,26 +365,26 @@ export default UpdateProfile;
 //     },
 //   ];
 
-//   const professional = [
-//     { label: "Current Job", placeholder: "Enter current job", type: "text" },
-//     { label: "Company Name", placeholder: "Enter company name", type: "text" },
-//     { label: "Job Role", placeholder: "Enter job role", type: "text" },
-//     {
-//       label: "LinkedIn Profile",
-//       placeholder: "Enter LinkedIn profile URL",
-//       type: "text",
-//     },
-//     {
-//       label: "Skills",
-//       placeholder: "Enter your skills",
-//       options: ["JavaScript", "React", "Node.js", "Python"],
-//     },
-//     {
-//       label: "Expertise",
-//       placeholder: "Enter your expertise",
-//       options: ["Frontend", "Backend", "Full Stack", "DevOps"],
-//     },
-//   ];
+  // const professional = [
+  //   { label: "Current Job", placeholder: "Enter current job", type: "text" },
+  //   { label: "Company Name", placeholder: "Enter company name", type: "text" },
+  //   { label: "Job Role", placeholder: "Enter job role", type: "text" },
+  //   {
+  //     label: "LinkedIn Profile",
+  //     placeholder: "Enter LinkedIn profile URL",
+  //     type: "text",
+  //   },
+  //   {
+  //     label: "Skills",
+  //     placeholder: "Enter your skills",
+  //     options: ["JavaScript", "React", "Node.js", "Python"],
+  //   },
+  //   {
+  //     label: "Expertise",
+  //     placeholder: "Enter your expertise",
+  //     options: ["Frontend", "Backend", "Full Stack", "DevOps"],
+  //   },
+  // ];
 
 //   return (
 //     <>
@@ -504,61 +479,61 @@ export default UpdateProfile;
 //                 Professional Details
 //               </h1>
 //               <div className="grid sm:grid-cols-2 gap-4">
-//                 {professional.map((field, index) => (
-//                   <div key={index}>
-//                     <label
-//                       htmlFor="currentJob"
-//                       className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
-//                     >
-//                       {field.label}
-//                     </label>
-//                     {field.type === "text" ? (
-//                       <input
-//                         id="currentJob"
-//                         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
-//                         placeholder={field.placeholder}
-//                       />
-//                     ) : (
-//                       <Select
-//                         options={field.options.map((option) => ({
-//                           value: option,
-//                           label: option,
-//                         }))}
-//                         multi
-//                         placeholder={field.placeholder}
-//                         onChange={(values) =>
-//                           handleSelectChange(values, field.label.toLowerCase())
-//                         }
-//                         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
-//                       >
-//                         {field.options.map((option, index) => (
-//                           <option
-//                             key={index}
-//                             value={option}
-//                             className="border rounded-full"
-//                           >
-//                             {option}
-//                           </option>
-//                         ))}
-//                       </Select>
-//                       // <Select
-//                       //   id="currentJob"
-//                       //   className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
-//                       //   placeholder={field.placeholder}
-//                       // >
-//                       //   {field.options.map((option, index) => (
-//                       //     <option
-//                       //       key={index}
-//                       //       value={option}
-//                       //       className="border rounded-full"
-//                       //     >
-//                       //       {option}
-//                       //     </option>
-//                       //   ))}
-//                       // </Select>
-//                     )}
-//                   </div>
-//                 ))}
+                // {professional.map((field, index) => (
+                //   <div key={index}>
+                //     <label
+                //       htmlFor="currentJob"
+                //       className="block text-[#0e2b54] font-semibold text-[1.2rem] px-4"
+                //     >
+                //       {field.label}
+                //     </label>
+                //     {field.type === "text" ? (
+                //       <input
+                //         id="currentJob"
+                //         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] outline-none text-gray-400 text-[1rem] px-4"
+                //         placeholder={field.placeholder}
+                //       />
+                //     ) : (
+                //       <Select
+                //         options={field.options.map((option) => ({
+                //           value: option,
+                //           label: option,
+                //         }))}
+                //         multi
+                //         placeholder={field.placeholder}
+                //         onChange={(values) =>
+                //           handleSelectChange(values, field.label.toLowerCase())
+                //         }
+                //         className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
+                //       >
+                //         {field.options.map((option, index) => (
+                //           <option
+                //             key={index}
+                //             value={option}
+                //             className="border rounded-full"
+                //           >
+                //             {option}
+                //           </option>
+                //         ))}
+                //       </Select>
+                //       // <Select
+                //       //   id="currentJob"
+                //       //   className="mt-1 shadow-lg block w-full p-2 border rounded-full h-[50px] justify-center outline-none text-gray-400 text-[1rem] px-4"
+                //       //   placeholder={field.placeholder}
+                //       // >
+                //       //   {field.options.map((option, index) => (
+                //       //     <option
+                //       //       key={index}
+                //       //       value={option}
+                //       //       className="border rounded-full"
+                //       //     >
+                //       //       {option}
+                //       //     </option>
+                //       //   ))}
+                //       // </Select>
+                //     )}
+                //   </div>
+                // ))}
 //               </div>
 
 //               <div className="flex gap-4 justify-center mt-10 mb-5">
