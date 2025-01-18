@@ -2,7 +2,7 @@ import { User } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { FiEdit } from "react-icons/fi";
 
-const UserProfileEdit = ({ loading, userProfile, hanleclick, bgColor = "#f37ce7" }) => {
+const UserProfileEdit = ({ loading, userProfile, handleclick, bgColor = "#f37ce7" }) => {
   const [profile, setProfile] = useState(null);
 
 
@@ -35,7 +35,7 @@ const UserProfileEdit = ({ loading, userProfile, hanleclick, bgColor = "#f37ce7"
         />
       ) : (
         // If no avatar, show initials
-        <span className="text-white text-lg font-semibold" onClick={hanleclick}>
+        <span className="text-white text-lg font-semibold" onClick={handleclick}>
           {/* {getInitials()} */}
           <FiEdit className="text-white text-2xl"  />
         </span>

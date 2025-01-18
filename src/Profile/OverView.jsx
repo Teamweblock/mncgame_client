@@ -12,6 +12,7 @@ const Overview = () => {
   const [userData, setUserData] = useState(null); // State to hold user data
   const [recentActivities, setRecentActivities] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchRecentActivities = async () => {

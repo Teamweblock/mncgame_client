@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Sidebar from "./Sidebar";
 import ProfileHeader from "./ProfileHeader";
 import Select1 from "react-dropdown-select";
@@ -12,6 +12,7 @@ const UpdateProfile = () => {
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({});
   const [userData, setUserData] = useState(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -30,8 +31,21 @@ const UpdateProfile = () => {
     fetchUserProfile();
   }, []);
 
-  const hanleclick = () => {
-    alert("clicked");
+  // const handleclick = () => {
+  //   alert("clicked");
+  // };
+
+  const handleclick = () => {
+    // Trigger the file input click programmatically
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      console.log("Selected file:", file);
+      // You can handle file upload here
+    }
   };
 
   const handleSelectChange = (values, field) => {
@@ -129,8 +143,17 @@ const UpdateProfile = () => {
                 <UserProfileEdit
                   userProfile={userData}
                   loading={loading}
-                  hanleclick={hanleclick}
+                  handleclick={handleclick}
                 />
+                <div>
+                  {/* Hidden file input */}
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    style={{ display: "none" }}
+                    onChange={handleFileChange}
+                  />
+                </div>
               </div>
               <img
                 src="/profile1.png"
