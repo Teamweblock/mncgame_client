@@ -12,20 +12,16 @@ const OverviewChart = () => {
     const fetchAnalysisData = async () => {
       try {
         const userData = await getweekgameview();
-        console.log(userData, "userData");
 
         if (userData) {
           const data = {
-            problemPilot: Math.min(
-              userData.problemPilotPercentage || 83.5,
-              100
-            ),
+            problemPilot: Math.min(userData?.problemPilotPercentage || 0, 100),
             entrepreneurialEdge: Math.min(
-              userData.entrepreneurialEdgePercentage || 90,
+              userData?.entrepreneurialEdgePercentage || 0,
               100
             ),
             strategyTrial: Math.min(
-              userData.strategyTrialPercentage || 40,
+              userData?.strategyTrialPercentage || 0,
               100
             ),
           };
