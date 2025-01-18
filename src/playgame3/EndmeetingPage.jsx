@@ -49,6 +49,7 @@ const EndmeetingPage = () => {
     "A new government regulation will affect our operations starting next quarter.",
   ];
   const [selectedParticipant, setSelectedParticipant] = useState(null); // State for selected participant
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
   const [currentTopic, setCurrentTopic] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [sliderValues, setSliderValues] = useState({
@@ -126,6 +127,17 @@ const EndmeetingPage = () => {
     };
   }, []);
 
+  const handleParticipantClick = (participant) => {
+    const storedRole = localStorage.getItem("role");
+    if (storedRole === participant.role) {
+      setErrorMessage(
+        "You can only add scores for other members of your group. You cannot add your own score."
+      );
+    } else {
+      setSelectedParticipant(participant);
+      setErrorMessage(""); // Clear any previous error message
+    }
+  };
   return (
     <div
       className="min-h-screen bg-cover bg-center flex flex-col items-center relative endmetting"
@@ -230,7 +242,8 @@ const EndmeetingPage = () => {
             key={index}
             role={participant.role}
             imgSrc={participant.imgSrc}
-            onClick={() => setSelectedParticipant(participant)}
+            // onClick={() => setSelectedParticipant(participant)}
+            onClick={() => handleParticipantClick(participant)}
           />
         ))}
       </div>
@@ -240,7 +253,8 @@ const EndmeetingPage = () => {
         <ParticipantCard
           role={participants[3].role}
           imgSrc={participants[3].imgSrc}
-          onClick={() => setSelectedParticipant(participants[3])}
+          onClick={() => handleParticipantClick(participants[3])}
+          // onClick={() => setSelectedParticipant(participants[3])}
         />
         <div className="bg-white bg-opacity-90 h-fit rounded-xl shadow-lg text-center self-end mb-5">
           <p className="text-gray-900 text-lg font-bold px-2">{currentTopic}</p>
@@ -248,7 +262,8 @@ const EndmeetingPage = () => {
         <ParticipantCard
           role={participants[2].role}
           imgSrc={participants[2].imgSrc}
-          onClick={() => setSelectedParticipant(participants[2])}
+          onClick={() => handleParticipantClick(participants[2])}
+          // onClick={() => setSelectedParticipant(participants[2])}
         />
       </div>
 
@@ -261,8 +276,8 @@ const EndmeetingPage = () => {
       </button>
 
       {/* Modal for Selected Participant */}
-      {selectedParticipant && (
-        <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50 m-2">
+      {selectedParticipant && !errorMessage && (
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50 m-2">
           <div className="backdrop-blur-xl bg-white/80 rounded-lg shadow-lg w-full max-w-4xl p-8 flex flex-col md:flex-row relative">
             <button
               onClick={() => setSelectedParticipant(null)}
@@ -305,13 +320,29 @@ const EndmeetingPage = () => {
                       defaultValue={key}
                       style={{
                         color: getColor(key),
-                        // height: window.innerWidth < 768 ? "4px" : "8px",
                       }}
                     />
                   </div>
                 ))}
               </Box>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal for Error Message */}
+      {errorMessage && (
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50 m-2">
+          <div className="backdrop-blur-xl bg-white/80 rounded-lg shadow-lg w-full max-w-4xl p-8 text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800">
+              {errorMessage}
+            </h2>
+            <button
+              onClick={() => setErrorMessage("")}
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg"
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
