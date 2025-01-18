@@ -130,6 +130,27 @@ export const resetaPassword = async (payload) => {
   }
 };
 
+export const ConnectMessage = async (payload) => {
+  try {
+    const response = await axiosInstance.post(
+      "/player/connect",
+      payload
+    );
+    if (response && response?.status === 200) {
+      return true; // Return true to indicate success
+    }
+    toast.error("Unexpected response from the server.");
+    return false; // Return false to indicate failure
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false; // Return false to indicate failure
+  }
+};
+
 // API call for getting user profile
 export const getUserProfile = async () => {
   try {

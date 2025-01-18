@@ -203,7 +203,7 @@ const Statics = () => {
                   </div>
                   {showCalendar && (
                     <div className="absolute right-0 mt-2 bg-white  border border-gray-300 rounded-lg shadow-lg z-10 w-[300px] md:w-[500px]">
-                      <CustomDatePicker className="w-full pl-80 -ml-[60px]"/>
+                      <CustomDatePicker className="w-full pl-80 -ml-[60px]" />
                       {/* margin-left: -298px; */}
                     </div>
                   )}
