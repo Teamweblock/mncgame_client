@@ -1,21 +1,7 @@
 import { useState } from "react";
-import {
-  Container,
-  Box,
-  TextField,
-  Typography,
-  Button,
-  Grid,
-  CircularProgress,
-} from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import img34 from "../Assets/images/forget.png";
+import { CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { forgotPassword } from "../utils/axiosInstance";
-
-import logo from "../Assets/images/logoimg.png";
-
-import loginimg1 from "../Assets/images/loginimg1.png";
 import { ChevronLeft } from "lucide-react";
 
 const ForgotPassword = () => {
@@ -196,7 +182,11 @@ const ForgotPassword = () => {
           />
           <div className="row">
             <div className="col-md-6">
-            <img className="login-img sm:block hidden" src="/forgot.png" alt="Login" />
+              <img
+                className="login-img sm:block hidden"
+                src="/forgot.png"
+                alt="Login"
+              />
             </div>
             <div className="col-md-6 d-flex  " style={{ marginTop: "50px" }}>
               <div className="loginform">

@@ -46,55 +46,52 @@ export default DatePicker;
 // import React, { useState } from "react";
 // import DatepickerApp from "react-tailwindcss-datepicker";
 
-// const Datepicker = () => {
-//     const [value, setValue] = useState({
-//         startDate: null,
-//         endDate: null
-//     });
+// import React, { useState } from "react";
+// import { addYears } from "date-fns";
+// import "react-date-range/dist/styles.css"; // Main style file
+// import "react-date-range/dist/theme/default.css"; // Theme file
+// import { enUS } from "date-fns/locale";
+// import { DateRangePicker } from "react-date-range";
 
-//     return (
-//         <DatepickerApp
-//             value={value}
-//             onChange={newValue => setValue(newValue)}
-//             showShortcuts={true}
-//         />
-//     );
+// const DatePicker = () => {
+//   const [state, setState] = useState([
+//     {
+//       startDate: new Date(),
+//       endDate: addYears(new Date(), 1),
+//       key: "selection",
+//     },
+//   ]);
+
+//   return (
+//     <DateRangePicker
+//       editableDateInputs={true}
+//       onChange={(item) => setState([item.selection])}
+//       moveRangeOnFirstSelection={false}
+//       ranges={state}
+//       locale={enUS}
+//       //   className="-ml-[60px] sm:w-96 lg:w-[600px]"
+//       classNames={{
+//         dateRangeWrapper:
+//           "-ml-[80px] -sm:ml-[0px] -lg:ml-[0px] w-[152px] sm:w-[22rem] lg:w-[350px]", // Custom width class
+//         calendarWrapper: "w-[100px]", // Full width for the calendar itself
+//         dateDisplayItem:
+//           "w-[30px] px-0 sm:px-2 py-1 text-[8px] sm:text-sm bg-white rounded-md border border-gray-300", // Month, year, and date input styles
+//         month: "w-[100px]", // Full width for the month picker
+//         // dateDisplayWrapper:"flex items-center justify-between gap-2 p-2 w-full bg-gray-100 rounded-md", // Custom styles for the date display wrapper
+//         // monthAndYearWrapper: "w-[150px]", // Ensure full width for the dropdowns
+//         monthAndYearPickers: "w-[100px] sm:w-fit",
+//         weekDays:
+//           "grid grid-cols-7 text-center w-[140px] sm:w-full text-[8px] sm:text-sm font-medium", // Adjusts the layout of week header
+//         days: "grid grid-cols-7 w-[140px] sm:w-full  text-[8px] sm:text-sm font-medium", // Ensures proper grid layout for calendar days
+//         staticRanges: " w-[10px]", // Ensures static ranges take full width
+//         staticRange: "p-2 text-sm cursor-pointer hover:bg-blue-100 rounded",
+//         definedRangesWrapper: "w-full sm:w-[10px] p-4", // Adjust container width
+//       }}
+//     />
+//   );
 // };
 
-// export default Datepicker;
-
-// import React, { useState } from 'react';
-// import dayjs from 'dayjs';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { StaticDateRangePicker } from '@mui/x-date-pickers-pro/StaticDateRangePicker';
-// import { DateTimePickerToolbar } from '@mui/x-date-pickers/DateTimePicker';
-
-// const Datepicker = () => {
-//     const [dateRange, setDateRange] = useState([null, null]);
-//     const [error, setError] = useState(null);
-
-//     const today = dayjs();
-
-//     const validateRange = (range) => {
-//         const [start, end] = range;
-//         if (start && start.isAfter(today, 'day')) {
-//             setError('Start date cannot be in the future.');
-//             return false;
-//         }
-//         if (end && (end.isBefore(start, 'day') || end.isAfter(today, 'day'))) {
-//             setError('End date must be after or equal to the start date and not in the future.');
-//             return false;
-//         }
-//         setError(null);
-//         return true;
-//     };
-
-//     const handleChange = (newRange) => {
-//         if (validateRange(newRange)) {
-//             setDateRange(newRange);
-//         }
-//     };
+// export default DatePicker;
 
 //     const shortcutsItems = [
 //         {

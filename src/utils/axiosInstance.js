@@ -130,6 +130,27 @@ export const resetaPassword = async (payload) => {
   }
 };
 
+export const ConnectMessage = async (payload) => {
+  try {
+    const response = await axiosInstance.post(
+      "/player/connect",
+      payload
+    );
+    if (response && response?.status === 200) {
+      return true; // Return true to indicate success
+    }
+    toast.error("Unexpected response from the server.");
+    return false; // Return false to indicate failure
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false; // Return false to indicate failure
+  }
+};
+
 // API call for getting user profile
 export const getUserProfile = async () => {
   try {
@@ -173,6 +194,91 @@ export const getweekgameview = async () => {
     return null; // Return null in case of an error
   }
 };
+
+export const gameOverview = async (payload) => {
+  try {
+    const response = await axiosInstance.get(
+      "/player/gameOverview",
+      payload
+    );
+    if (response && response?.status === 200) {
+      return response.data; // Return the user profile data
+    }
+    toast.error("Unexpected response from the server.");
+    return false; // Return false to indicate failure
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false; // Return false to indicate failure
+  }
+};
+
+export const problemPilot = async (payload) => {
+  try {
+    const response = await axiosInstance.get(
+      "player/problem-pilot",
+      payload
+    );
+    if (response && response?.status === 200) {
+      return response.data; // Return the user profile data
+    }
+    toast.error("Unexpected response from the server.");
+    return false; // Return false to indicate failure
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false; // Return false to indicate failure
+  }
+};
+
+export const entrepreneurialEdge = async (payload) => {
+  try {
+    const response = await axiosInstance.get(
+      "/player/entrepreneurial-edge",
+      payload
+    );
+    if (response && response?.status === 200) {
+      return response.data; // Return the user profile data
+    }
+    toast.error("Unexpected response from the server.");
+    return false; // Return false to indicate failure
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false; // Return false to indicate failure
+  }
+};
+
+export const strategyTrial = async (payload) => {
+  try {
+    const response = await axiosInstance.get(
+      "/player/strategy-trial",
+      payload
+    );
+    if (response && response?.status === 200) {
+      return response.data; // Return the user profile data
+    }
+    toast.error("Unexpected response from the server.");
+    return false; // Return false to indicate failure
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false; // Return false to indicate failure
+  }
+};
+
 export const Check1validlevel = async (payload) => {
   try {
     const response = await axiosInstance.post(

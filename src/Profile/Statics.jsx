@@ -9,6 +9,13 @@ import DatePicker from "../componets/DatePicker"; // Ensure the Calendar compone
 
 const Statics = () => {
   const [showCalendar, setShowCalendar] = useState(false);
+  const [percentage, setPercentage] = useState(0);
+  const [animatedPercentage, setAnimatedPercentage] = useState(0);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [progress, setProgress] = useState({});
+  const [problemPilotpro, setproblemPilotPro] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [skilloverview, setSkilloverview] = useState(null);
 
   const toggleCalendar = () => {
     setShowCalendar(!showCalendar);
@@ -20,27 +27,6 @@ const Statics = () => {
     { name: "Creative And Inovative", percentage: 90, color: "#d51aff" },
     { name: "Impact And Contribution", percentage: 60, color: "#25d3dd" },
   ];
-  const problenPilot = [  
-    {
-      name: "Self Progress",
-      percentage: 73,
-      decrement: "Common",
-      increment: "Unique",
-      color: "#4e6ce8",
-    },
-    {
-      name: "Peer Reviews",
-      percentage: 53,
-      decrement: "Non Implemented",
-      increment: "Implemented",
-      color: "#25d3dd",
-    },
-  ];
-
-  const [percentage, setPercentage] = useState(0);
-  const [animatedPercentage, setAnimatedPercentage] = useState(0);
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [progress, setProgress] = useState({});
 
   const handleCardClick = (id) => {
     setSelectedCard(id);
@@ -49,25 +35,54 @@ const Statics = () => {
   //problem pilot
   useEffect(() => {
     if (selectedCard === 1 || selectedCard === null) {
-      // Reset progress for all items
-      const initialProgress = problenPilot.reduce((acc, skill) => {
-        acc[skill.percentage] = 0;
-        return acc;
-      }, {});
-      setProgress(initialProgress);
-      // Animate progress for each skill
-      problenPilot.forEach((skill) => {
-        setTimeout(() => {
-          setProgress((prev) => ({
-            ...prev,
-            [skill.percentage]: skill.percentage,
-          }));
-        }, 100); // Adjust delay if needed
-      });
+      const fetchSkillsOverview = async () => {
+        try {
+          const initialProgress = await problemPilot(); // Fetch the real-time data
+          if (initialProgress?.datasets) {
+            // Format the fetched data to match the structure you need for rendering
+            const formattedData = initialProgress.datasets.map((dataset) => {
+              return {
+                name: dataset?.label,
+                percentage: dataset?.data[0], // Assuming each dataset has a single data point
+                color:
+                  dataset?.label === "Self Progress" ? "#4e6ce8" : "#25d3dd", // Color based on label
+                decrement:
+                  dataset?.label === "Self Progress"
+                    ? "Common"
+                    : "Non Implemented", // Example text, modify based on your logic
+                increment:
+                  dataset?.label === "Self Progress" ? "Unique" : "Implemented", // Example text, modify based on your logic
+              };
+            });
+
+            // Set the fetched data into the state
+            setproblemPilotPro(formattedData);
+            // Reset progress state
+            const initialProgressState = formattedData.reduce((acc, skill) => {
+              acc[skill.name] = 0; // Initial progress for each skill set to 0
+              return acc;
+            }, {});
+
+            setProgress(initialProgressState);
+            // Animate progress based on the fetched data
+            formattedData.forEach((skill) => {
+              setTimeout(() => {
+                setProgress((prev) => ({
+                  ...prev,
+                  [skill.name]: skill.percentage, // Update the progress dynamically
+                }));
+              }, 100); // Adjust delay if needed
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching skill overview", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchSkillsOverview();
     }
   }, [selectedCard]); // Watch for changes in selectedCard
-
-
 
   //skill progress animation -Strategy Trial
   useEffect(() => {
@@ -78,7 +93,6 @@ const Statics = () => {
       }, {});
 
       setProgress(progressAnimation);
-
       skills.forEach((skill) => {
         let progressValue = 0;
         const interval = setInterval(() => {
@@ -99,8 +113,28 @@ const Statics = () => {
   // Entrepreneurial Edge
   useEffect(() => {
     if (selectedCard === 2) {
-      const targetPercentage = 73;
-      setPercentage(0); // Reset percentage before starting animation
+      const fetchentrepreneurialEdge = async () => {
+        try {
+          const result = await entrepreneurialEdge();
+          setSkilloverview(result?.total);
+          if (result?.total) {
+            console.log("skilloverview", result?.total);
+          }
+        } catch (error) {
+          console.error("Error fetching skill overview", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchentrepreneurialEdge();
+    }
+  }, [selectedCard]);
+
+  useEffect(() => {
+    if (skilloverview !== null) {
+      const targetPercentage = skilloverview || 0;
+      setPercentage(0);
       const interval = setInterval(() => {
         setPercentage((prev) => {
           if (prev < targetPercentage) return prev + 1;
@@ -111,12 +145,11 @@ const Statics = () => {
 
       return () => clearInterval(interval);
     }
-  }, [selectedCard]);
+  }, [skilloverview]); // This effect runs when skilloverview is updated
 
   useEffect(() => {
     if (selectedCard === 2) {
       let animationFrame;
-
       const animate = () => {
         setAnimatedPercentage((prev) => {
           if (prev < percentage) {
@@ -183,45 +216,43 @@ const Statics = () => {
               <div className="flex w-full gap-6 p-2 flex-wrap">
                 <div className="sm:w-[100%] md:w-[100%] lg:w-[100%] xl:w-[100%] flex   w-full">
                   {(selectedCard === 1 || selectedCard === null) && (
-                    <div className=" rounded-lg flex flex-col w-full">
-                      {problenPilot.map((skill, index) => {
+                    <div className="rounded-lg flex flex-col w-full">
+                      {problemPilotpro.map((skill, index) => {
                         return (
-                          <ul className="px-2 space-y-3">
+                          <ul className="px-2 space-y-3" key={index}>
                             <li className="border-2 rounded-xl px-2 py-2">
                               <div className="flex items-center justify-between text-[#0e2b54] mx-2">
                                 <p className="text-[1.3] font-semibold lg">
                                   <b>
-                                    <h3>{skill.name}</h3>
+                                    <h3>{skill?.name}</h3>
                                   </b>{" "}
                                 </p>
                               </div>
                               <div className="w-full bg-gray-200 rounded-xl h-10 my-1">
                                 <div
-                                  className={`h-10 rounded-xl   text-white grid items-center pl-6`}
-                                  // style={{
-                                  //   width: `${skill.percentage}%`,
-                                  //   backgroundColor: skill.color,
-                                  // }}
+                                  className={`h-10 rounded-xl text-white grid items-center text-center text-xs font-semibold ${
+                                    progress[skill?.name] === 0
+                                      ? "text-black"
+                                      : ""
+                                  }`}
                                   style={{
-                                    width: `${
-                                      progress[skill.percentage] || 0
-                                    }%`, // Dynamic progress
-                                    backgroundColor: skill.color,
+                                    width: `${progress[skill?.name] || 0}%`, // Real-time progress data
+                                    backgroundColor: skill?.color,
                                     transition: "width 0.8s ease-in-out", // Smooth transition
                                   }}
                                 >
-                                  {skill.percentage}%
+                                  {progress[skill?.name]}%
                                 </div>
                               </div>
                               <div className="flex justify-between text-[#0e2b54] mt-2">
                                 <b>
                                   <span className="text-xs sm:text-base md:text-lg font-semibold">
-                                    {skill.decrement}
+                                    {skill?.decrement}
                                   </span>
                                 </b>{" "}
                                 <b>
                                   <span className="text-xs sm:text-base md:text-lg font-semibold">
-                                    {skill.increment}
+                                    {skill?.increment}
                                   </span>
                                 </b>{" "}
                               </div>
