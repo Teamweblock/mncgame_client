@@ -14,6 +14,7 @@ const socket = io("http://localhost:8000"); // Update with your backend URL
 const MultiplayerWaitingPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const hasFetched = useRef(false);
   const [timeLeft, setTimeLeft] = useState(120); // Timer starting at 120 seconds
   const [playerId, setPlayerId] = useState("");
   const [players, setPlayers] = useState([]);
@@ -45,6 +46,9 @@ const MultiplayerWaitingPage = () => {
 
   useEffect(() => {
     const fetchPlayerId = async () => {
+      if (hasFetched.current) return; // Prevent multiple calls
+      hasFetched.current = true;
+
       try {
         const payload = {};
         const response = await joinmeetGame(JSON.stringify(payload));
@@ -59,7 +63,7 @@ const MultiplayerWaitingPage = () => {
     };
 
     fetchPlayerId();
-  }, [navigate]);
+  }, [navigate]); // No dependencies to ensure it runs only once
 
   useEffect(() => {
     if (!playerId) return;
@@ -133,8 +137,9 @@ const MultiplayerWaitingPage = () => {
         if (prev <= 1) {
           clearInterval(countdown);
           if (
-            !isDialogOpen && queueStatusRef.current ===
-            "WAITING TO CONNECT WITH OTHER PLAYERS ..."
+            !isDialogOpen &&
+            queueStatusRef.current ===
+              "WAITING TO CONNECT WITH OTHER PLAYERS ..."
           ) {
             socket.emit("leavemeetQueue", { playerId });
             // toast.info("No match found. Returning to level selection.");
@@ -149,7 +154,7 @@ const MultiplayerWaitingPage = () => {
     }, 1000);
 
     return () => clearInterval(countdown);
-  }, [timeLeft, playerId, navigate,, isDialogOpen]);
+  }, [timeLeft, playerId, navigate, isDialogOpen]);
 
   const handleCancel = () => {
     if (window.confirm("Are you sure you want to leave the queue?")) {
