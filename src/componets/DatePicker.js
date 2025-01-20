@@ -1,3 +1,48 @@
+import React, { useState } from "react";
+import { DateRange } from "react-date-range";
+import { addYears } from "date-fns";
+import "react-date-range/dist/styles.css"; // Main style file
+import "react-date-range/dist/theme/default.css"; // Theme file
+import { enUS } from "date-fns/locale";
+import { DateRangePicker } from "react-date-range";
+
+const DatePicker = () => {
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: addYears(new Date(), 1),
+      key: "selection",
+    },
+  ]);
+
+  return (
+    <DateRangePicker
+      editableDateInputs={true}
+      onChange={(item) => setState([item.selection])}
+      moveRangeOnFirstSelection={false}
+      ranges={state}
+      locale={enUS}
+      classNames={{
+        dateRangeWrapper:
+          "-ml-[80px] -sm:ml-[0px] -lg:ml-[0px] w-[152px] sm:w-[22rem] lg:w-[350px]", // Custom width class
+        calendarWrapper: "w-[100px]", // Full width for the calendar itself
+        dateDisplayItem:
+          "w-[30px] px-0 sm:px-2 py-1 text-[8px] sm:text-sm bg-white rounded-md border border-gray-300", // Month, year, and date input styles
+        month: "!w-40 sm:!w-full", // Month picker width adjusted
+        monthAndYearPickers: "!w-[100px] sm:w-fit !p-[10px]",
+        weekDays:
+          "grid grid-cols-7 text-center w-[140px] sm:w-full text-[8px] sm:text-sm font-medium", // Adjusts the layout of week header
+        days: "grid grid-cols-7 w-[140px] sm:w-full  text-[8px] sm:text-sm font-medium", // Ensures proper grid layout for calendar days
+        staticRanges: " w-[10px]", // Ensures static ranges take full width
+        staticRange: "p-2 text-sm cursor-pointer hover:bg-blue-100 rounded",
+        definedRangesWrapper: "!w-[400px] sm:w-[10px] p-4", // Adjust container width
+      }}
+    />
+  );
+};
+
+export default DatePicker;
+
 // import React, { useState } from "react";
 // import DatepickerApp from "react-tailwindcss-datepicker";
 
@@ -311,55 +356,55 @@
 // export default RangeDatePicker;
 
 
-import React, { useState } from "react";
-import { DateRange } from "react-date-range";
-import { addYears } from "date-fns";
-import "react-date-range/dist/styles.css"; // Main style file
-import "react-date-range/dist/theme/default.css"; // Theme file
-import { enUS } from "date-fns/locale";
-import { DateRangePicker } from "react-date-range";
+// import React, { useState } from "react";
+// import { DateRange } from "react-date-range";
+// import { addYears } from "date-fns";
+// import "react-date-range/dist/styles.css"; // Main style file
+// import "react-date-range/dist/theme/default.css"; // Theme file
+// import { enUS } from "date-fns/locale";
+// import { DateRangePicker } from "react-date-range";
 
-const DatePicker = () => {
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: addYears(new Date(), 1),
-      key: "selection",
-    },
-  ]);
+// const DatePicker = () => {
+//   const [state, setState] = useState([
+//     {
+//       startDate: new Date(),
+//       endDate: addYears(new Date(), 1),
+//       key: "selection",
+//     },
+//   ]);
 
-  return (
-    <DateRangePicker
-      editableDateInputs={true}
-      onChange={(item) => setState([item.selection])}
-      moveRangeOnFirstSelection={false}
-      ranges={state}
-      locale={enUS}
-      //   className="-ml-[60px] sm:w-96 lg:w-[600px]"
-      classNames={{
-        dateRangeWrapper:
-          "-ml-[80px] -sm:ml-[0px] -lg:ml-[0px] w-[152px] sm:w-[22rem] lg:w-[350px]", // Custom width class
-        calendarWrapper: "w-[100px]", // Full width for the calendar itself
-        dateDisplayItem:
-          "w-[30px] px-0 sm:px-2 py-1 text-[8px] sm:text-sm bg-white rounded-md border border-gray-300", // Month, year, and date input styles
-        month: "!w-40 !sm:w-48 !important", // Month picker width adjusted
-        // dateDisplayWrapper:"flex items-center justify-between gap-2 p-2 w-full bg-gray-100 rounded-md", // Custom styles for the date display wrapper
-        // monthAndYearWrapper: "w-[150px]", // Ensure full width for the dropdowns
-        monthAndYearPickers: "!w-[100px] sm:w-fit !p-[10px]",
-        // monthAndYearWrapper: " !w-[80px] !sm:w-full",
-        // monthPickers: "!w-[10px] sm:w-fit",
-        weekDays:
-          "grid grid-cols-7 text-center w-[140px] sm:w-full text-[8px] sm:text-sm font-medium", // Adjusts the layout of week header
-        days: "grid grid-cols-7 w-[140px] sm:w-full  text-[8px] sm:text-sm font-medium", // Ensures proper grid layout for calendar days
-        staticRanges: " w-[10px]", // Ensures static ranges take full width
-        staticRange: "p-2 text-sm cursor-pointer hover:bg-blue-100 rounded",
-        definedRangesWrapper: "w-full sm:w-[10px] p-4", // Adjust container width
-      }}
-    />
-  );
-};
+//   return (
+//     <DateRangePicker
+//       editableDateInputs={true}
+//       onChange={(item) => setState([item.selection])}
+//       moveRangeOnFirstSelection={false}
+//       ranges={state}
+//       locale={enUS}
+//       //   className="-ml-[60px] sm:w-96 lg:w-[600px]"
+//       classNames={{
+//         dateRangeWrapper:
+//           "-ml-[80px] -sm:ml-[0px] -lg:ml-[0px] w-[152px] sm:w-[22rem] lg:w-[350px]", // Custom width class
+//         calendarWrapper: "w-[100px]", // Full width for the calendar itself
+//         dateDisplayItem:
+//           "w-[30px] px-0 sm:px-2 py-1 text-[8px] sm:text-sm bg-white rounded-md border border-gray-300", // Month, year, and date input styles
+//         month: "!w-40 !sm:w-48 !important", // Month picker width adjusted
+//         // dateDisplayWrapper:"flex items-center justify-between gap-2 p-2 w-full bg-gray-100 rounded-md", // Custom styles for the date display wrapper
+//         // monthAndYearWrapper: "w-[150px]", // Ensure full width for the dropdowns
+//         monthAndYearPickers: "!w-[100px] sm:w-fit !p-[10px]",
+//         // monthAndYearWrapper: " !w-[80px] !sm:w-full",
+//         // monthPickers: "!w-[10px] sm:w-fit",
+//         weekDays:
+//           "grid grid-cols-7 text-center w-[140px] sm:w-full text-[8px] sm:text-sm font-medium", // Adjusts the layout of week header
+//         days: "grid grid-cols-7 w-[140px] sm:w-full  text-[8px] sm:text-sm font-medium", // Ensures proper grid layout for calendar days
+//         staticRanges: " w-[10px]", // Ensures static ranges take full width
+//         staticRange: "p-2 text-sm cursor-pointer hover:bg-blue-100 rounded",
+//         definedRangesWrapper: "w-full sm:w-[10px] p-4", // Adjust container width
+//       }}
+//     />
+//   );
+// };
 
-export default DatePicker;
+// export default DatePicker;
 
 // import React, { useState } from "react";
 // import { DateRangePicker, DateRange } from "@matharumanpreet00/react-daterange-picker";

@@ -20,6 +20,34 @@
   }
 }
 
+.rdrDefinedRangesWrapper{
+  width: 242px !important;
+}
+
+.rdrStaticRangeLabel {
+  padding: 15px 20px !important; /* Default for desktop, laptop, and tablet */
+}
+
+/* Media query for mobile screens (max-width: 768px) */
+@media screen and (max-width: 765px) {
+  .rdrStaticRangeLabel {
+    padding : 5px 20px  !important /* Adjusted padding for mobile */
+  }
+}
+
+.rdrMonthPicker{
+  margin : 0px 0px !important 
+}
+
+.rdrNextPrevButton{
+background-color: #fff !important;
+}
+
+.rdrNextPrevButton i {
+  margin:  10px 0px !important;
+}
+
+
 .progress-ring__circle {
   transition: stroke-dashoffset 0.35s;
   transform: rotate(-90deg);

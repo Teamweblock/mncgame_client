@@ -14,7 +14,7 @@ const Navbar = () => {
   const location = useLocation();
   const token = localStorage.getItem("token");
   const isLoggedIn = !!token;
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  // const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -54,8 +54,8 @@ const Navbar = () => {
     try {
       localStorage.removeItem("token");
       // console.log("User logged out");
-      setIsDialogOpen(true);
-      // navigate("/"); // Redirect to the signin page
+      // setIsDialogOpen(true);
+      navigate("/"); // Redirect to the signin page
     } catch (error) {
       console.error("Error logging out:", error);
     }
@@ -162,7 +162,7 @@ const Navbar = () => {
             </ul>
           </div>
         )}
-        {isDialogOpen && (
+        {/* {isDialogOpen && (
         <div className="fixed inset-0 px-2 z-50 bg-gray-500 bg-opacity-50 flex items-center justify-center">
           <div className="bg-[#6E9FFF] p-6 shadow-lg max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full outline outline-4 outline-[#6E9FFF] relative rounded-lg">
             <div className="absolute inset-0 m-[10px] py-16 border-4 border-white rounded-xl pointer-events-none"></div>
@@ -182,7 +182,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
       </nav>
     </>
   );

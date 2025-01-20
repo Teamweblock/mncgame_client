@@ -13,23 +13,23 @@ import shapeimg from "../Assets/images/Shape.png";
 
 const Sidebar = () => {
   const location = useLocation();
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  // const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       localStorage.removeItem("token");
-      setIsDialogOpen(true);
+      // setIsDialogOpen(true);
       document.body.style.overflow = "hidden";
       // console.log("User logged out");
-      // navigate("/"); // Redirect to the signin page
+      navigate("/"); // Redirect to the signin page
     } catch (error) {
       console.error("Error logging out:", error);
     }
   };
   const handleDialogClose = () => {
-    setIsDialogOpen(false);
+    // setIsDialogOpen(false);
     document.body.style.overflow = "auto"; // Re-enable scrolling
     navigate("/"); // Navigate to a new route after logout
   };
@@ -165,7 +165,7 @@ const Sidebar = () => {
         </div>
       )} */}
 
-        {isDialogOpen && (
+        {/* {isDialogOpen && (
           <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-[#6E9FFF] p-6 shadow-lg max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full outline outline-4 outline-[#6E9FFF] relative rounded-lg z-60">
               <h2 className="text-white text-xl font-bold mb-4 leading-relaxed text-center relative z-10 mt-6">
@@ -181,7 +181,7 @@ const Sidebar = () => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </>
   );
