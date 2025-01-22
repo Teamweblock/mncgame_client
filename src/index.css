@@ -20,10 +20,17 @@
   }
 }
 
-.rdrDefinedRangesWrapper{
+.rdrDefinedRangesWrapper {
   width: 242px !important;
 }
-
+@media screen and (max-width: 765px) {
+  .rdrDefinedRangesWrapper {
+    width: 200px !important;
+  }
+}
+.rdrInputRanges {
+  display: none !important;
+}
 .rdrStaticRangeLabel {
   padding: 15px 20px !important; /* Default for desktop, laptop, and tablet */
 }
@@ -31,22 +38,21 @@
 /* Media query for mobile screens (max-width: 768px) */
 @media screen and (max-width: 765px) {
   .rdrStaticRangeLabel {
-    padding : 5px 20px  !important /* Adjusted padding for mobile */
+    padding: 5px 20px !important; /* Adjusted padding for mobile */
   }
 }
 
-.rdrMonthPicker{
-  margin : 0px 0px !important 
+.rdrMonthPicker {
+  margin: 0px 0px !important;
 }
 
-.rdrNextPrevButton{
-background-color: #fff !important;
+.rdrNextPrevButton {
+  background-color: #fff !important;
 }
 
 .rdrNextPrevButton i {
-  margin:  10px 0px !important;
+  margin: 10px 0px !important;
 }
-
 
 .progress-ring__circle {
   transition: stroke-dashoffset 0.35s;
@@ -81,7 +87,6 @@ background-color: #fff !important;
 .react-datepicker__day--keyboard-selected {
   background-color: #60a5fa;
 }
-
 
 body {
   margin: 0;
@@ -600,8 +605,7 @@ code {
 }
 .transition-all {
   transition: all 0.3s ease-in-out;
-} 
-
+}
 
 .addskill-part-main {
   width: 100%;

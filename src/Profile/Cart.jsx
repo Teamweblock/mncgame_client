@@ -1,11 +1,8 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import { Briefcase, File, Globe } from "lucide-react";
 import { gameOverview } from "../utils/axiosInstance";
 
-const Cart = ({ onCardClick }) => {
+const Cart = ({ onCardClick, startDate, endDate }) => {
   const [skillOverview, setSkillOverview] = useState([]);
   const [loading, setLoading] = useState(true);
   const [progressValues, setProgressValues] = useState({});
@@ -34,9 +31,11 @@ const Cart = ({ onCardClick }) => {
   useEffect(() => {
     const fetchSkillsOverview = async () => {
       try {
-        const skilloverview = await gameOverview();
-        if (skilloverview?.datasets) {
-          setSkillOverview(skilloverview.datasets);
+        if (startDate && endDate) {
+          const skilloverview = await gameOverview({ startDate, endDate }); // Pass dates to API
+          if (skilloverview?.datasets) {
+            setSkillOverview(skilloverview?.datasets);
+          }
         }
       } catch (error) {
         console.error("Error fetching skill overview", error);
@@ -46,7 +45,7 @@ const Cart = ({ onCardClick }) => {
     };
 
     fetchSkillsOverview();
-  }, []);
+  }, [startDate, endDate]); // Re-fetch data whenever start or end date changes
 
   useEffect(() => {
     const intervals = [];
@@ -82,11 +81,14 @@ const Cart = ({ onCardClick }) => {
             onClick={() => onCardClick(id)}
           >
             <div
-              className={`bg-gradient-to-r from-[${gradient?.from}] to-[${gradient?.to}] p-4 rounded-t-lg`}
+              className="p-4 rounded-t-lg"
+              style={{
+                background: `linear-gradient(to right, ${gradient?.from}, ${gradient?.to})`,
+              }}
             >
               <div className="flex justify-between">
                 <div
-                  className={`w-12 h-12 rounded-full flex justify-center items-center`}
+                  className="w-12 h-12 rounded-full flex justify-center items-center"
                   style={{ backgroundColor: gradient?.bg }}
                 >
                   {icon}
@@ -131,4 +133,3 @@ const Cart = ({ onCardClick }) => {
 };
 
 export default Cart;
-

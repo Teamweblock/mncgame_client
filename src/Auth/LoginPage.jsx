@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { googleAuth, signIn } from "../utils/axiosInstance";
 import { useDispatch } from "react-redux";
 import { GoogleLogin } from "@react-oauth/google";
-import jwtDecode from "jwt-decode";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
@@ -27,7 +26,7 @@ const LoginPage = () => {
       const res = await signIn(JSON.stringify(formData));
       if (res && res.token) {
         const currentTime = new Date().getTime();
-         const expirationTime = currentTime + 8 * 60 * 60 * 1000; // 8 hours in milliseconds
+        const expirationTime = currentTime + 8 * 60 * 60 * 1000; // 8 hours in milliseconds
         // const expirationTime = currentTime + 2 * 60 * 1000; // 2 minutes in milliseconds
         localStorage.setItem("token", res.token);
         localStorage.setItem("tokenExpiration", expirationTime);
@@ -49,11 +48,6 @@ const LoginPage = () => {
 
   const handleAutoLogout = () => {
     localStorage.clear();
-    // localStorage.removeItem("token");
-    // localStorage.removeItem("tokenExpiration");
-    // localStorage.removeItem("playerType");
-    // localStorage.removeItem("levelNumber");
-    // localStorage.removeItem("role");
     toast.error("Your session has expired. Please log in again.");
     navigate("/login");
   };
@@ -108,15 +102,26 @@ const LoginPage = () => {
   return (
     <div className="login-bg-img">
       <div className="container">
-        <img src="./mainlogo.png" alt="" height={45} width={120} style={{ marginTop: "30px" }} />
+        <img
+          src="./mainlogo.png"
+          alt=""
+          height={45}
+          width={120}
+          style={{ marginTop: "30px" }}
+        />
         <div className="row">
           <div className="col-md-6">
-            <img className="login-img sm:block hidden" src={loginimg1} alt="Login" />
+            <img
+              className="login-img sm:block hidden"
+              src={loginimg1}
+              alt="Login"
+            />
           </div>
           <div className="col-md-6 d-flex" style={{ marginTop: "50px" }}>
             <div className="loginform">
               <h1 className="login-heading text-center mx-auto">
-                <span style={{ color: "#fec200" }}>Hello,</span> login to your paradise!
+                <span style={{ color: "#fec200" }}>Hello,</span> login to your
+                paradise!
               </h1>
               <form onSubmit={handleSubmit} className="px-1 py-5">
                 <input
@@ -143,17 +148,34 @@ const LoginPage = () => {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </div>
                 </div>
-                <p onClick={handleForgetPassword} className="forget-password-text">
+                <p
+                  style={{
+                    float: "inline-end",
+                    margin: "10px 0px",
+                    fontWeight: "700",
+                    color: "orange",
+                    cursor: "pointer",
+                  }}
+                  onClick={handleForgetPassword}
+                >
                   Forget Password?
                 </p>
-                <button type="submit" className="login-btn">Login</button>
+                <button type="submit" className="login-btn">
+                  Login
+                </button>
                 <div className="pt-2">
-                  <GoogleLogin onSuccess={responseGoogle} onError={handleError} />
+                  <GoogleLogin
+                    onSuccess={responseGoogle}
+                    onError={handleError}
+                  />
                 </div>
               </form>
               <p className="text-center py-3">
                 Don't have an account?{" "}
-                <span onClick={handleSignUp} style={{ color: "orange", cursor: "pointer" }}>
+                <span
+                  onClick={handleSignUp}
+                  style={{ color: "orange", cursor: "pointer" }}
+                >
                   Signup
                 </span>
               </p>
@@ -166,7 +188,6 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
 
 // import React, { useEffect, useState } from "react";
 // import loginimg1 from "../Assets/images/loginimg1.png";
@@ -335,8 +356,6 @@ export default LoginPage;
 
 // export default LoginPage;
 
-
-
 // import React, { useEffect, useState } from "react";
 // import loginimg1 from "../Assets/images/loginimg1.png";
 // import { useNavigate } from "react-router-dom";
@@ -347,7 +366,7 @@ export default LoginPage;
 // import { useDispatch } from "react-redux";
 // import { GoogleLogin } from "@react-oauth/google";
 // import { jwtDecode } from "jwt-decode";
-// import { toast } from 'react-toastify'; 
+// import { toast } from 'react-toastify';
 
 // const LoginPage = () => {
 //   const [showPassword, setShowPassword] = useState(false);
@@ -364,19 +383,19 @@ export default LoginPage;
 //     const res = await signIn(JSON.stringify(formData));
 
 //     if (res && res.token) {
-    
+
 //       const currentTime = new Date().getTime();
 //       // const expirationTime = currentTime + 2 * 60 * 60 * 1000;
 //       // const expirationTime = currentTime + 8 * 60 * 60 * 1000; // 8 hours in milliseconds
 //       const expirationTime = currentTime + 2 * 60 * 1000; // 2 minutes in milliseconds
-    
+
 //       localStorage.setItem("token", res.token);
 //       localStorage.setItem("tokenExpiration", expirationTime);
 
 //        // Set auto-logout
 //        const remainingTime = expirationTime - currentTime;
 //        setTimeout(() => handleAutoLogout(), remainingTime);
-    
+
 //       dispatch(login(res.token));
 //       setFormData({});
 //       navigate("/");
@@ -385,12 +404,12 @@ export default LoginPage;
 //     }
 //   };
 
-  // const handleAutoLogout = () => {
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("tokenExpiration");
-  //   toast.error("Your session has expired. Please log in again.");
-  //   navigate("/login");
-  // };
+// const handleAutoLogout = () => {
+//   localStorage.removeItem("token");
+//   localStorage.removeItem("tokenExpiration");
+//   toast.error("Your session has expired. Please log in again.");
+//   navigate("/login");
+// };
 
 //   const handleAutoLogout = () => {
 //     // Remove only the 'token' key from localStorage
@@ -399,7 +418,7 @@ export default LoginPage;
 //         localStorage.removeItem(key);
 //       }
 //     });
-  
+
 //     toast.error("Your session has expired. Please log in again.");
 //     navigate("/login");
 //   };
@@ -413,7 +432,7 @@ export default LoginPage;
 //       if (result && token) {
 //         localStorage.setItem("token", result.token);
 //         console.log("token save ho gya j ajay", );
-        
+
 //         dispatch(login(result.token));
 //         console.log("token save ho gya j", );
 
@@ -470,7 +489,7 @@ export default LoginPage;
 //     const token = localStorage.getItem("token");
 //     const expirationTime = localStorage.getItem("tokenExpiration");
 //     const currentTime = new Date().getTime();
-  
+
 //     // Log the current token and expiration status
 //     console.log("Current Token:", token);
 //     console.log("Token Expiration Time:", expirationTime);
@@ -485,20 +504,18 @@ export default LoginPage;
 //         setTimeout(() => handleAutoLogout(), remainingTime);
 //       }
 //     }
-  
+
 //     // if (token && expirationTime && currentTime > expirationTime) {
 //     //   localStorage.removeItem("token");
 //     //   localStorage.removeItem("tokenExpiration");
-  
+
 //     //   console.log("Token has expired and has been removed.");
 //     //   toast.error("Your session has expired. Please log in again.");
-//     //   navigate("/login"); 
+//     //   navigate("/login");
 //     // } else {
 //     //   console.log("Token is valid.");
 //     // }
 //   }, [navigate]);
-  
-
 
 //   return (
 //     <div className="login-bg-img">
@@ -530,7 +547,7 @@ export default LoginPage;
 //                 <h1
 //                 className="login-heading text-center mx-auto"
 //                   style={{
-                  
+
 //                   }}
 //                 >
 //                   <span style={{ color: "#fec200" }}>Hello,</span> login to{" "}
@@ -578,7 +595,7 @@ export default LoginPage;
 //                   </button>
 //                   <div className="pt-2  ">
 //                     <GoogleLogin
-                    
+
 //                       onSuccess={responseGoogle}
 //                       onError={handleError}
 //                     />

@@ -196,8 +196,10 @@ export const getweekgameview = async () => {
 };
 
 export const gameOverview = async (payload) => {
+  console.log("payload", payload);
+
   try {
-    const response = await axiosInstance.get(
+    const response = await axiosInstance.post(
       "/player/gameOverview",
       payload
     );
@@ -218,7 +220,7 @@ export const gameOverview = async (payload) => {
 
 export const problemPilot = async (payload) => {
   try {
-    const response = await axiosInstance.get(
+    const response = await axiosInstance.post(
       "player/problem-pilot",
       payload
     );
@@ -239,7 +241,7 @@ export const problemPilot = async (payload) => {
 
 export const entrepreneurialEdge = async (payload) => {
   try {
-    const response = await axiosInstance.get(
+    const response = await axiosInstance.post(
       "/player/entrepreneurial-edge",
       payload
     );

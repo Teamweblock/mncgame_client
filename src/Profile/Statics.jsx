@@ -6,9 +6,6 @@ import Sidebar from "./Sidebar";
 import ProfileHeader from "./ProfileHeader";
 import DatePicker from "../componets/DatePicker"; // Ensure the Calendar component is correctly imported
 import { entrepreneurialEdge, problemPilot } from "../utils/axiosInstance";
-// import CustomDatePicker from "../componets/DatePicker";
-import { entrepreneurialEdge, problemPilot } from "../utils/axiosInstance";
-
 
 const Statics = () => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -19,9 +16,13 @@ const Statics = () => {
   const [problemPilotpro, setproblemPilotPro] = useState([]);
   const [loading, setLoading] = useState(true);
   const [skilloverview, setSkilloverview] = useState(null);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
+  // Toggle the calendar dropdown visibility
   const toggleCalendar = () => {
-    setShowCalendar(!showCalendar);
+    // setShowCalendar(!showCalendar);
+    setShowCalendar((prev) => !prev);
   };
   const skills = [
     { name: "Fundamental Skills", percentage: 70, color: "#4e6ce8" },
@@ -31,8 +32,17 @@ const Statics = () => {
     { name: "Impact And Contribution", percentage: 60, color: "#25d3dd" },
   ];
 
+  // Handle date selection from DatePicker
+  const handleDateChange = (selection) => {
+    setStartDate(selection.startDate);
+    setEndDate(selection.endDate);
+  };
+
+  // Handle card click in Cart
   const handleCardClick = (id) => {
+    console.log("Card clicked with id:", id);
     setSelectedCard(id);
+    // Add your logic for handling card clicks here
   };
 
   //problem pilot
@@ -40,7 +50,7 @@ const Statics = () => {
     if (selectedCard === 1 || selectedCard === null) {
       const fetchSkillsOverview = async () => {
         try {
-          const initialProgress = await problemPilot(); // Fetch the real-time data
+          const initialProgress = await problemPilot({ startDate, endDate }); // Fetch the real-time data
           if (initialProgress?.datasets) {
             // Format the fetched data to match the structure you need for rendering
             const formattedData = initialProgress.datasets.map((dataset) => {
@@ -85,7 +95,7 @@ const Statics = () => {
       };
       fetchSkillsOverview();
     }
-  }, [selectedCard]); // Watch for changes in selectedCard
+  }, [selectedCard, startDate, endDate]); // Watch for changes in selectedCard
 
   //skill progress animation -Strategy Trial
   useEffect(() => {
@@ -118,10 +128,9 @@ const Statics = () => {
     if (selectedCard === 2) {
       const fetchentrepreneurialEdge = async () => {
         try {
-          const result = await entrepreneurialEdge();
-          setSkilloverview(result?.total);
+          const result = await entrepreneurialEdge({ startDate, endDate });
           if (result?.total) {
-            console.log("skilloverview", result?.total);
+            setSkilloverview(result?.total);
           }
         } catch (error) {
           console.error("Error fetching skill overview", error);
@@ -132,29 +141,17 @@ const Statics = () => {
 
       fetchentrepreneurialEdge();
     }
-  }, [selectedCard]);
-
-  useEffect(() => {
-    if (skilloverview !== null) {
-      const targetPercentage = skilloverview || 0;
-      setPercentage(0);
-      const interval = setInterval(() => {
-        setPercentage((prev) => {
-          if (prev < targetPercentage) return prev + 1;
-          clearInterval(interval);
-          return prev;
-        });
-      }, 50);
-
-      return () => clearInterval(interval);
-    }
-  }, [skilloverview]); // This effect runs when skilloverview is updated
+  }, [selectedCard, startDate, endDate]);
 
   useEffect(() => {
     if (selectedCard === 2) {
       let animationFrame;
+      console.log(animationFrame, "animationFrame");
       const animate = () => {
         setAnimatedPercentage((prev) => {
+          console.log(prev, "prev");
+          console.log(percentage, "percentage");
+
           if (prev < percentage) {
             animationFrame = requestAnimationFrame(animate);
             return Math.min(prev + 1, percentage);
@@ -165,16 +162,33 @@ const Statics = () => {
       };
 
       animationFrame = requestAnimationFrame(animate);
-
       return () => cancelAnimationFrame(animationFrame);
     }
-  }, [percentage, selectedCard]);
+  }, [percentage, selectedCard, startDate, endDate]);
 
   const radius = 15.91549430918954;
   const circumference = 2 * Math.PI * radius;
   const strokeDasharray = `${
     (animatedPercentage / 100) * circumference
   } ${circumference}`;
+
+  useEffect(() => {
+    if (skilloverview !== null) {
+      const targetPercentage = skilloverview || 0;
+      setPercentage(0);
+      const interval = setInterval(() => {
+        setPercentage((prev) => {
+          console.log(prev, " ----------1----------------prev");
+          console.log(targetPercentage, "targetPercentage");
+          if (prev < targetPercentage) return prev + 1;
+          clearInterval(interval);
+          return prev;
+        });
+      }, 50);
+
+      return () => clearInterval(interval);
+    }
+  }, [skilloverview, startDate, endDate]); // This effect runs when skilloverview is updated
 
   return (
     <>
@@ -194,7 +208,7 @@ const Statics = () => {
                     <span>
                       <Calendar size={15} />
                     </span>
-                    This Week
+                    Date
                     <button
                       className="ml-2 flex items-center"
                       onClick={toggleCalendar}
@@ -204,12 +218,23 @@ const Statics = () => {
                     </button>
                   </div>
                   {showCalendar && (
-                    <div className="absolute right-0 mt-2 bg-white  border border-gray-300 rounded-lg shadow-lg z-10 w-[300px] md:w-[500px]">
-                      <DatePicker className="w-full pl-80 -ml-[60px]" />
-                      {/* margin-left: -298px; */}
+                    <div className="absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg z-10 w-[280px] md:w-[500px]">
+                      <DatePicker
+                        className="w-full pl-80 -ml-[60px]"
+                        startDate={startDate}
+                        endDate={endDate}
+                        onDateChange={handleDateChange} // Pass handler for date change
+                      />
                     </div>
                   )}
                 </div>
+              </div>
+              <div className="lg:grid-cols-3 grid m-4 grid-cols-1 gap-8 md:grid-cols-2">
+                <Cart
+                  onCardClick={handleCardClick}
+                  startDate={startDate}
+                  endDate={endDate}
+                />
               </div>
             </div>
             <div className="lg:grid-cols-3 grid m-4 grid-cols-1 gap-8 md:grid-cols-2">
@@ -416,5 +441,3 @@ const Statics = () => {
 };
 
 export default Statics;
-
-
