@@ -48,7 +48,7 @@ const Navbar = () => {
 
   // const token = localStorage.getItem("token");
   // const isLoggedIn = !!token;
-  console.log("ajay", token, isLoggedIn);
+  // console.log("ajay", token, isLoggedIn);
 
   const handleLogout = async () => {
     try {

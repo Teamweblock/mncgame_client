@@ -7,6 +7,8 @@ import ProfileHeader from "./ProfileHeader";
 import DatePicker from "../componets/DatePicker"; // Ensure the Calendar component is correctly imported
 import { entrepreneurialEdge, problemPilot } from "../utils/axiosInstance";
 // import CustomDatePicker from "../componets/DatePicker";
+import { entrepreneurialEdge, problemPilot } from "../utils/axiosInstance";
+
 
 const Statics = () => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -414,3 +416,5 @@ const Statics = () => {
 };
 
 export default Statics;
+
+

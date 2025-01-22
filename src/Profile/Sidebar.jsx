@@ -143,27 +143,6 @@ const Sidebar = () => {
             </button>
           </div>
         </div> */}
-        {/* {isDialogOpen && (
-        <div className="fixed inset-0 px-2 bg-gray-500 bg-opacity-50 flex items-center z-50 justify-center">
-          <div className="bg-[#6E9FFF] p-6 shadow-lg max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl w-full outline outline-4 outline-[#6E9FFF] relative rounded-lg">
-            <div className="absolute inset-0 m-[10px] py-16 border-4 border-white rounded-xl pointer-events-none"></div>
-            <h2 className="text-white text-xl font-bold mb-4 leading-relaxed text-center relative z-10 mt-6">
-              YOU ARE LOGGED OUT
-            </h2>
-            <div className="text-center relative mb-10 z-20">
-              <button
-                className="mt-[-3px] bg-white text-[#6E9FFF] font-bold px-24 py-3  rounded-full shadow-md hover:bg-yellow-100 transition-all transform hover:scale-110 hover:shadow-lg hover:translate-y-[-4px]"
-                onClick={() => {
-                  setIsDialogOpen(false); // Close the dialog
-                  navigate("/"); // Redirect to the 'game1multiplelevelpage'
-                }}
-              >
-                OKAY
-              </button>
-            </div>
-          </div>
-        </div>
-      )} */}
 
         {/* {isDialogOpen && (
           <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">

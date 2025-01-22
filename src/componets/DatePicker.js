@@ -44,6 +44,71 @@ const DatePicker = () => {
 export default DatePicker;
 
 // import React, { useState } from "react";
+// import { DateRangePicker } from "react-date-range";
+// import { addYears, isWithinInterval } from "date-fns";
+// import "react-date-range/dist/styles.css"; // Main style file
+// import "react-date-range/dist/theme/default.css"; // Theme file
+// import { enUS } from "date-fns/locale";
+
+// const DatePicker = () => {
+//   const [state, setState] = useState([
+//     {
+//       startDate: new Date(),
+//       endDate: addYears(new Date(), 1),
+//       key: "selection",
+//     },
+//   ]);
+
+//   // Example data
+//   const allData = [
+//     { id: 1, name: "Game 1", date: new Date("2025-01-15") },
+//     { id: 2, name: "Game 2", date: new Date("2025-02-10") },
+//     { id: 3, name: "Game 3", date: new Date("2025-03-20") },
+//     { id: 4, name: "Game 4", date: new Date("2025-04-05") },
+//     { id: 5, name: "Game 5", date: new Date("2025-05-10") },
+//     { id: 6, name: "Game 6", date: new Date("2025-06-15") },
+//   ];
+
+//   // Filter data based on date range
+//   const filteredData = allData.filter((item) =>
+//     isWithinInterval(item.date, {
+//       start: state[0].startDate,
+//       end: state[0].endDate,
+//     })
+//   );
+
+//   return (
+//     <div>
+//       <DateRangePicker
+//         editableDateInputs={true}
+//         onChange={(item) => setState([item.selection])}
+//         moveRangeOnFirstSelection={false}
+//         ranges={state}
+//         locale={enUS}
+//       />
+
+//       <div className="mt-4">
+//         <h2 className="text-lg font-bold">Filtered Games</h2>
+//         {filteredData.length > 0 ? (
+//           <ul>
+//             {filteredData.map((game) => (
+//               <li key={game.id} className="my-2">
+//                 {game.name} - {game.date.toDateString()}
+//               </li>
+//             ))}
+//           </ul>
+//         ) : (
+//           <p>No games available in the selected date range.</p>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default DatePicker;
+
+
+// import React, { useState } from "react";
 // import DatepickerApp from "react-tailwindcss-datepicker";
 
 // import React, { useState } from "react";
