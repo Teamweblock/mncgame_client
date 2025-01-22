@@ -5,6 +5,7 @@ import Cart from "./Cart";
 import Sidebar from "./Sidebar";
 import ProfileHeader from "./ProfileHeader";
 import DatePicker from "../componets/DatePicker"; // Ensure the Calendar component is correctly imported
+import { entrepreneurialEdge, problemPilot } from "../utils/axiosInstance";
 // import CustomDatePicker from "../componets/DatePicker";
 
 const Statics = () => {
@@ -202,7 +203,7 @@ const Statics = () => {
                   </div>
                   {showCalendar && (
                     <div className="absolute right-0 mt-2 bg-white  border border-gray-300 rounded-lg shadow-lg z-10 w-[300px] md:w-[500px]">
-                      <DatePicker className="w-full pl-80 -ml-[60px]"/>
+                      <DatePicker className="w-full pl-80 -ml-[60px]" />
                       {/* margin-left: -298px; */}
                     </div>
                   )}
