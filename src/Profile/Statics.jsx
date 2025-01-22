@@ -125,46 +125,91 @@ const Statics = () => {
 
   // Entrepreneurial Edge
   useEffect(() => {
-    if (selectedCard === 2) {
-      const fetchentrepreneurialEdge = async () => {
-        try {
-          const result = await entrepreneurialEdge({ startDate, endDate });
-          if (result?.total) {
-            setSkilloverview(result?.total);
-          }
-        } catch (error) {
-          console.error("Error fetching skill overview", error);
-        } finally {
-          setLoading(false);
+    const fetchEntrepreneurialEdge = async () => {
+      try {
+        const result = await entrepreneurialEdge({ startDate, endDate });
+        if (result?.total) {
+          setSkilloverview(result?.total);
+        } else {
+          setSkilloverview(0); // Handle cases where no total is returned
         }
-      };
-
-      fetchentrepreneurialEdge();
+      } catch (error) {
+        console.error("Error fetching skill overview", error);
+        setSkilloverview(0); // Reset in case of error
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    if (selectedCard === 2) {
+      fetchEntrepreneurialEdge();
     }
   }, [selectedCard, startDate, endDate]);
+  
+  // useEffect(() => {
+  //   if (selectedCard === 2) {
+  //     const fetchentrepreneurialEdge = async () => {
+  //       try {
+  //         const result = await entrepreneurialEdge({ startDate, endDate });
+  //         if (result?.total) {
+  //           setSkilloverview(result?.total);
+  //         }
+  //       } catch (error) {
+  //         console.error("Error fetching skill overview", error);
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     };
+
+  //     fetchentrepreneurialEdge();
+  //   }
+  // }, [selectedCard, startDate, endDate]);
+
+  // useEffect(() => {
+  //   if (selectedCard === 2) {
+  //     let animationFrame;
+  //     console.log(animationFrame, "animationFrame");
+  //     const animate = () => {
+  //       setAnimatedPercentage((prev) => {
+  //         console.log(prev, "prev");
+  //         console.log(percentage, "percentage");
+
+  //         if (prev < percentage) {
+  //           animationFrame = requestAnimationFrame(animate);
+  //           return Math.min(prev + 1, percentage);
+  //         }
+  //         cancelAnimationFrame(animationFrame);
+  //         return prev;
+  //       });
+  //     };
+
+  //     animationFrame = requestAnimationFrame(animate);
+  //     return () => cancelAnimationFrame(animationFrame);
+  //   }
+  // }, [percentage, selectedCard, startDate, endDate]);
 
   useEffect(() => {
-    if (selectedCard === 2) {
+    if (selectedCard === 2 && skilloverview !== null) {
+      const targetPercentage = skilloverview || 0; // Ensure default value
+      setAnimatedPercentage(0); // Reset animation
+      setPercentage(targetPercentage);
+  
       let animationFrame;
-      console.log(animationFrame, "animationFrame");
       const animate = () => {
         setAnimatedPercentage((prev) => {
-          console.log(prev, "prev");
-          console.log(percentage, "percentage");
-
-          if (prev < percentage) {
+          if (prev < targetPercentage) {
             animationFrame = requestAnimationFrame(animate);
-            return Math.min(prev + 1, percentage);
+            return Math.min(prev + 1, targetPercentage);
           }
           cancelAnimationFrame(animationFrame);
           return prev;
         });
       };
-
+  
       animationFrame = requestAnimationFrame(animate);
       return () => cancelAnimationFrame(animationFrame);
     }
-  }, [percentage, selectedCard, startDate, endDate]);
+  }, [skilloverview, startDate, endDate, selectedCard]); 
 
   const radius = 15.91549430918954;
   const circumference = 2 * Math.PI * radius;
