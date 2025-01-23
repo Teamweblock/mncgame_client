@@ -68,105 +68,12 @@ const Contact = () => {
         src={img16}
         className="absolute-img2 parallax-layer sm:block hidden"
       />
-      {/* <div className="contact-grid ">
-     
-        <div className="row mt-4">
-          <div className="col-lg-6 col-md-12 col-sm-12 col-12 text-center">
-            <div>
-            <h3 className="mb-3 ">Write us a message</h3>
-            <div className="form">
-              <input
-                className="form-input"
-                type="text"
-                placeholder="Your name"
-              />
-              <input
-                className="form-input"
-                type="text"
-                placeholder="Your email"
-              />
-              <input className="form-input" type="text" placeholder="Subject" />
-
-              <input
-                style={{ paddingBottom: "100px" }}
-                className="form-input"
-                type="text"
-                placeholder="Start writing message here"
-              />
-            <div className="d-flex">
-                <button className="start-btn">Get Started</button>
-              </div>
-           </div>
-             
-            </div>
- 
-          </div>
-          <div className="col-lg-6 col-md-12 col-sm-12 col-12 d-flex">
-            <div className="details">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
-                the industry's standard  
-                </p>
-                <div className="d-flex gap-3 mt-3" >
-                  <div>
-                 <img src={icon1} className="contact-icon"/>
-                  </div>
-                  <div>
-                    <h6 style={{fontWeight:"700"}}>Phone</h6>
-                    <p>0123-4567-8910</p>
-                  </div>
-                </div>
-                <div className="d-flex gap-3 mt-3" >
-                  <div>
-                  <img src={icon2} className="contact-icon"/>
-                  </div>
-                  <div>
-                    <h6 style={{fontWeight:"700"}}>Email</h6>
-                    <p>hello@rainydesign.com</p>
-                  </div>
-                </div>
-                <div className="d-flex gap-3 mt-3" >
-                  <div>
-                  <img src={icon3} className="contact-icon"/>
-                  </div>
-                  <div>
-                    <h6 style={{fontWeight:"700"}}>Address</h6>
-                    <p>Lorem ipsum , snfgri<br/> mumbai india</p>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <div className="">
         <div className="contact-main">
           <div className="contact-part1">
             <div className="text-2xl py-2 font-semibold ">
               Write us a message
             </div>
-            {/* <div className="form text-gray-400 font-medium">
-              <input
-                className="form-input"
-                type="text"
-                placeholder="Your name"
-              />
-              <input
-                className="form-input"
-                type="text"
-                placeholder="Your email"
-              />
-              <input className="form-input" type="text" placeholder="Subject" />
-
-              <input
-                style={{ paddingBottom: "100px" }}
-                className="form-input"
-                type="text"
-                placeholder="Start writing message here"
-              />
-              <div className="d-flex">
-                <button className="start-btn transition ease-in-out delay-150 bg-[#C04AE1] hover:-translate-y-1 hover:scale-110 hover:bg-[#C04AE1] duration-300">Get Started</button>
-              </div>
-            </div> */}
             <form onSubmit={handleSubmit}>
               <div className="form text-gray-400 font-medium">
                 <input
@@ -231,7 +138,6 @@ const Contact = () => {
               </p>
               <div className="d-flex gap-3 mt-3">
                 <div className="f-icon1">
-                  {/* <img src={icon3} className="contact-icon"/> */}
                   <FaPhoneAlt />
                 </div>
                 <div>
@@ -241,7 +147,6 @@ const Contact = () => {
               </div>
               <div className="d-flex gap-3 mt-3">
                 <div className="f-icon2">
-                  {/* <img src={icon2} className="contact-icon"/> */}
                   <MdEmail />
                 </div>
                 <div>
@@ -251,7 +156,6 @@ const Contact = () => {
               </div>
               <div className="d-flex gap-3 mt-3">
                 <div className="f-icon3">
-                  {/* <img src={icon2} className="contact-icon"/> */}
                   <FaLocationDot />
                 </div>
                 <div>
@@ -259,23 +163,12 @@ const Contact = () => {
                   <p>Mumbai, India</p>
                 </div>
               </div>
-              {/* <div className="d-flex gap-3 mt-3" >
-                <div className="f-icon3">
-                  <FaLocationDot />
-                </div>
-                <div>
-                  <h6 style={{ fontWeight: "700" }}>Address</h6>
-                  <p>Lorem ipsum , snfgri<br /> mumbai india</p>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
       </div>
 
-      <div>
-        {/* <img  style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}  src={img17} className="absolute-img3 parallax-layer"/> */}
-      </div>
+      <div></div>
     </div>
   );
 };

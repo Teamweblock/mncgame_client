@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FaLock } from "react-icons/fa"; // Import lock icon
 import img2 from "../Assets/images/img2 copy.png";
 import img3 from "../Assets/images/img3 copy.png";
-import logo from "../Assets/gameimages/mnclogo2.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../Assets/CSS/Game1/Game1Levelpage.css";
 import { toast } from "react-toastify";
 import { Check2validlevel } from "../utils/axiosInstance";
-import lockimage from "../Assets/gameimages/levelLock.png"
+import lockimage from "../Assets/gameimages/levelLock.png";
 
 const Game2LevelPage = () => {
   const navigate = useNavigate();
@@ -93,10 +91,10 @@ const Game2LevelPage = () => {
         </button>
       </div>
       <div className="level-img-div  w-[95%] mx-auto">
-      <div class="w-max mx-auto mt-3">
-        <h1 className="xl:text-5xl md:text-3xl text-2xl text-white font-bold text-center max-sm:pt-10 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5">
-          SELECT LEVEL 
-        </h1>
+        <div class="w-max mx-auto mt-3">
+          <h1 className="xl:text-5xl md:text-3xl text-2xl text-white font-bold text-center max-sm:pt-10 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5">
+            SELECT LEVEL
+          </h1>
         </div>
         <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-md:grid-cols-3 max-sm:grid-cols-2 pt-6">
           {[...Array(10).keys()].map((level) => {

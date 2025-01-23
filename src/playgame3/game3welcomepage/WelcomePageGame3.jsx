@@ -1,13 +1,10 @@
 import React from "react";
-
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import icon1 from "../../Assets/gameimages/icon1.png";
 import icon2 from "../../Assets/gameimages/icon5.png";
-import logo from "../../Assets/gameimages/mnclogo2.png";
 import "../../Assets/CSS/Game3/WelcomePageGame3.css";
-import TextAnimation from "../../Common/TextAnimation";
 const WelcomePageGame3 = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
@@ -60,8 +57,18 @@ const WelcomePageGame3 = () => {
             >
               Comming Soon...
             </button> */}
-            <button className='game1Playbtn transition duration-700 ease-in-out'  onClick={handleBack}>Back</button>
-            <button  className='game1Playbtn btn-margin transition duration-700'  onClick={playGame3}>Next</button>
+            <button
+              className="game1Playbtn transition duration-700 ease-in-out"
+              onClick={handleBack}
+            >
+              Back
+            </button>
+            <button
+              className="game1Playbtn btn-margin transition duration-700"
+              onClick={playGame3}
+            >
+              Next
+            </button>
           </div>
         </div>
         <div className="absolute bottom-8 right-8 text-white">

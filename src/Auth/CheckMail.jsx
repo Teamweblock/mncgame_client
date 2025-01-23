@@ -16,7 +16,11 @@ const CheckMail = () => {
           />
           <div className="row">
             <div className="col-md-6">
-              <img className="login-img sm:block hidden" src="/Checkmaill.png" alt="Login" />
+              <img
+                className="login-img sm:block hidden"
+                src="/Checkmaill.png"
+                alt="Login"
+              />
             </div>
             <div className="col-md-6 d-flex  " style={{ marginTop: "50px" }}>
               <div className="loginform">
@@ -31,9 +35,7 @@ const CheckMail = () => {
                     <div className="black-circle">
                       <div className="white-circle"></div>
                     </div>
-                    <div className="black-circle">
-                      {/* <div className="white-circle"></div> */}
-                    </div>
+                    <div className="black-circle"></div>
                   </div>
                 </div>
                 <div className="px-3">
@@ -55,17 +57,10 @@ const CheckMail = () => {
                     </div>
                   </h1>
                   <form className="px-1 lg:py-5">
-                    {/* <input
-                    className="login-input text-black placeholder:text-black "
-                    placeholder="Enter Your Email"
-                    type="email"
-                    name="email"
-                   
-            
-                    required
-                  /> */}
-
-                    <button onClick={() => navigate("/login")} className=" mt-2 text-white font-bold text-[1.1rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg" >
+                    <button
+                      onClick={() => navigate("/login")}
+                      className=" mt-2 text-white font-bold text-[1.1rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg"
+                    >
                       Back To Login
                     </button>
                   </form>
@@ -74,8 +69,6 @@ const CheckMail = () => {
                     Did not receive the email ? Check your spam filter or try
                     another email address{" "}
                   </p>
-
-                  {/* <button   className="flex items-center gap-2 text-[1.2rem] font-semibold mx-auto mt-4"> <span><ChevronLeft size={20}/></span>Back To login</button> */}
                 </div>
               </div>
             </div>

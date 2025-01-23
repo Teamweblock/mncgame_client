@@ -19,7 +19,6 @@ const axiosApi = axios.create({
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
-    console.log("Retrieved token:", token); // Debugging line
     if (token) {
       config.headers["x-access-token"] = token; // Attach token to header
     }
@@ -29,19 +28,6 @@ axiosInstance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
-// axiosInstance.interceptors.response.use(
-//   (response) => response,
-//   (error) => {
-//     if (error.response && error.response.status === 401) {
-//       // Token expired
-//       localStorage.removeItem("token");
-//       alert("Session expired. Please log in again.");
-//       window.location.href = "/login";
-//     }
-//     return Promise.reject(error);
-//   }
-// );
 
 export default axiosInstance;
 
@@ -196,7 +182,6 @@ export const getweekgameview = async () => {
 };
 
 export const gameOverview = async (payload) => {
-  console.log("payload", payload);
 
   try {
     const response = await axiosInstance.post(

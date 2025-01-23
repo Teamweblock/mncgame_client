@@ -11,15 +11,6 @@ const UserProfileEdit = ({ loading, userProfile, handleclick, bgColor = "#f37ce7
       setProfile(userProfile);
     }
   }, [userProfile]);
-
-
-  // const getInitials = () => {
-  //   if (profile && profile.firstName && profile.lastName) {
-  //     return `${profile.firstName.charAt(0)}${profile.lastName.charAt(0)}`.toUpperCase();
-  //   }
-  //   return ""; // Default initial if no name is available
-  // };
-
   return (
     <div
       className={`rounded-full h-12 w-12 flex justify-center items-center ${bgColor}`}

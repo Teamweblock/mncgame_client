@@ -140,60 +140,18 @@ const Statics = () => {
         setLoading(false);
       }
     };
-  
+
     if (selectedCard === 2) {
       fetchEntrepreneurialEdge();
     }
   }, [selectedCard, startDate, endDate]);
-  
-  // useEffect(() => {
-  //   if (selectedCard === 2) {
-  //     const fetchentrepreneurialEdge = async () => {
-  //       try {
-  //         const result = await entrepreneurialEdge({ startDate, endDate });
-  //         if (result?.total) {
-  //           setSkilloverview(result?.total);
-  //         }
-  //       } catch (error) {
-  //         console.error("Error fetching skill overview", error);
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     };
-
-  //     fetchentrepreneurialEdge();
-  //   }
-  // }, [selectedCard, startDate, endDate]);
-
-  // useEffect(() => {
-  //   if (selectedCard === 2) {
-  //     let animationFrame;
-  //     console.log(animationFrame, "animationFrame");
-  //     const animate = () => {
-  //       setAnimatedPercentage((prev) => {
-  //         console.log(prev, "prev");
-  //         console.log(percentage, "percentage");
-
-  //         if (prev < percentage) {
-  //           animationFrame = requestAnimationFrame(animate);
-  //           return Math.min(prev + 1, percentage);
-  //         }
-  //         cancelAnimationFrame(animationFrame);
-  //         return prev;
-  //       });
-  //     };
-
-  //     animationFrame = requestAnimationFrame(animate);
-  //     return () => cancelAnimationFrame(animationFrame);
-  //   }
-  // }, [percentage, selectedCard, startDate, endDate]);
 
   useEffect(() => {
     if (selectedCard === 2 && skilloverview !== null) {
       const targetPercentage = skilloverview || 0; // Ensure default value
       setAnimatedPercentage(0); // Reset animation
       setPercentage(targetPercentage);
-  
+
       let animationFrame;
       const animate = () => {
         setAnimatedPercentage((prev) => {
@@ -205,11 +163,11 @@ const Statics = () => {
           return prev;
         });
       };
-  
+
       animationFrame = requestAnimationFrame(animate);
       return () => cancelAnimationFrame(animationFrame);
     }
-  }, [skilloverview, startDate, endDate, selectedCard]); 
+  }, [skilloverview, startDate, endDate, selectedCard]);
 
   const radius = 15.91549430918954;
   const circumference = 2 * Math.PI * radius;

@@ -24,9 +24,3 @@ root.render(
 
 reportWebVitals();
 
-//  Clear all localStorage except the token
-// Object.keys(localStorage).forEach((key) => {
-//   if (key !== "token") {
-//     localStorage.removeItem(key);
-//   }
-// });

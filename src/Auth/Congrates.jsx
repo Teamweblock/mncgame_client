@@ -19,7 +19,11 @@ const Congrates = () => {
         />
         <div className="row">
           <div className="col-md-6">
-            <img className="login-img sm:block hidden" src="/congrates.svg" alt="Login" />
+            <img
+              className="login-img sm:block hidden"
+              src="/congrates.svg"
+              alt="Login"
+            />
           </div>
           <div className="col-md-6 d-flex  " style={{ marginTop: "50px" }}>
             <div className="loginform">
@@ -54,16 +58,6 @@ const Congrates = () => {
                   Your password has been changed successfully
                 </div>
                 <form className="px-1 lg:py-5">
-                  {/* <input
-                className="login-input text-black placeholder:text-black "
-                placeholder="Enter Your Email"
-                type="email"
-                name="email"
-               
-        
-                required
-              /> */}
-
                   <button
                     className=" mt-2 text-white font-bold text-[1.1rem]  bg-[#ff3a4b] py-2 w-full h-[50px] rounded-lg"
                     onClick={handleOpen}
@@ -76,8 +70,6 @@ const Congrates = () => {
                   Did not receive the email ? Check your spam filter or try
                   another email address{" "}
                 </p>
-
-                {/* <button   className="flex items-center gap-2 text-[1.2rem] font-semibold mx-auto mt-4"> <span><ChevronLeft size={20}/></span>Back To login</button> */}
               </div>
             </div>
           </div>

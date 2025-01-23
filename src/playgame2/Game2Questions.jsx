@@ -24,8 +24,6 @@ const Game2Questions = () => {
     // e.preventDefault();
     try {
       if (currentIndex <= playerData?.length - 1) {
-        console.log("selectedOption", selectedOption);
-
         if (selectedOption?.trim() === "" || selectedOption === null) {
           alert("Please enter an answer before proceeding.");
           return; // Don't proceed if the input is empty
@@ -184,20 +182,24 @@ const Game2Questions = () => {
               })}
             </div>
             {!showResults && !isQuizEnded && (
-              <button onClick={handleNextClick} className="next-button-game2 transition duration-700 delay-100">
+              <button
+                onClick={handleNextClick}
+                className="next-button-game2 transition duration-700 delay-100"
+              >
                 Next
               </button>
             )}
             {isQuizEnded && (
-              <button onClick={handleNextClick} className="show-results-button transition duration-700 delay-100">
+              <button
+                onClick={handleNextClick}
+                className="show-results-button transition duration-700 delay-100"
+              >
                 Show Results
               </button>
             )}
           </div>
         </div>
       </div>
-
-      {/* <h6 className='game-footer-text'><span style={{fontWeight:"700", color:"white"}}>MULTI</span> NETWORKING COMPANY</h6> */}
     </div>
   );
 };

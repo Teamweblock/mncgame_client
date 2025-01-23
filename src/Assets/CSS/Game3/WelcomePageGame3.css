@@ -6,6 +6,14 @@
 
   height: 100vh;
 }
+
+.icon1-game3 {
+  position: absolute;
+  height: 10%;
+  top: 23%;
+  left: 15%;
+}
+
 .welcome-title {
   position: absolute;
   top: 50%;

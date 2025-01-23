@@ -10,7 +10,6 @@ export default function SkillsOverview() {
     const fetchSkillsOverview = async () => {
       try {
         const skilloverview = await getSkillsOverview(); // Fetch API data
-        console.log("skilloverview", skilloverview);
 
         if (skilloverview) {
           setSkillOverview(skilloverview); // Store API response in state
