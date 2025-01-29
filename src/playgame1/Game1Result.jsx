@@ -8,13 +8,13 @@ import "../Assets/CSS/Game1/Game1Result.css";
 
 const Game1Result = () => {
   // States for player progress, dragging and parallax
-  const [player1Progress, setPlayer1Progress] = useState(10);
-  const [player2Progress, setPlayer2Progress] = useState(10);
+  const [player1Progress, setPlayer1Progress] = useState(0);
+  const [player2Progress, setPlayer2Progress] = useState(0);
   const [isDraggingPlayer1, setIsDraggingPlayer1] = useState(false);
   const [isDraggingPlayer2, setIsDraggingPlayer2] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [timeLeft, setTimeLeft] = useState(120);
-   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   // Handle mouse move for parallax effect
   const handleMouseMove = (e) => {

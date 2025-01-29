@@ -350,6 +350,49 @@ export const joinmeetGame = async (payload) => {
   }
 };
 
+export const updateProgress = async (payload) => {
+  try {
+    const response = await axiosInstance.post(
+      "/thirdGame/updateProgress",
+      payload
+    );
+
+    if (response && response.status === 200) {
+      return response.data;
+    }
+    toast.error("Unexpected response from the server.");
+    return false;
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false;
+  }
+};
+
+export const PlayerResults = async (payload) => {
+  try {
+    const response = await axiosInstance.post(
+      "/thirdGame/PlayerResults",
+      payload
+    );
+
+    if (response && response.status === 200) {
+      return response.data;
+    }
+    toast.error("Unexpected response from the server.");
+    return false;
+  } catch (error) {
+    const errorMessage =
+      error?.response?.data?.message ||
+      error.message ||
+      "An error occurred. Please try again.";
+    toast.error(errorMessage);
+    return false;
+  }
+};
 // The API call for getting questions for a specific level
 export const getQuestionsForsingleLevel = async (payload, navigate) => {
   try {

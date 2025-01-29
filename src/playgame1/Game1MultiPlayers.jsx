@@ -22,6 +22,10 @@ const Game1MultiPlayer = () => {
   const [levelNumber, setLevelNumber] = useState(null);
   const [playerType, setPlayerType] = useState(null);
   const [playersAnswered, setPlayersAnswered] = useState(0); // To track who has submitted answers
+  const [opponentsTimeLeft, setOpponentsTimeLeft] = useState({
+    opponent1: 180,
+    opponent2: 180,
+  });
   const navigate = useNavigate();
 
   const handleMouseMove = (e) => {
@@ -37,9 +41,7 @@ const Game1MultiPlayer = () => {
 
   const handleNextQuestion = async () => {
     if (userAnswer.trim() === "") {
-      navigate("/game1result");
-
-      // toast.error("Please enter an answer before proceeding.");
+      toast.error("Please enter an answer before proceeding.");
       return;
     }
 
@@ -57,6 +59,9 @@ const Game1MultiPlayer = () => {
       if (response?.success === true) {
         setUserAnswer(""); // Reset the answer input
         setPlayersAnswered((prev) => prev + 1); // Increment answered players
+
+        // Emit the answer to the server
+        socket.emit("answer", { answer: userAnswer });
 
         if (playersAnswered === playerData.length) {
           // Move to next question or show results
@@ -111,39 +116,6 @@ const Game1MultiPlayer = () => {
     );
   };
 
-  socket.on("playerDisconnected", (data) => {
-    console.log(data.message);
-    removeOpponent(data.id);
-  });
-
-  function removeOpponent(playerId) {
-    const opponentElements = document.querySelectorAll(".opponent");
-    opponentElements.forEach((element) => {
-      if (element.dataset.playerId === playerId) {
-        element.remove();
-      }
-    });
-  }
-
-  // Listen for opponent data
-  socket.on("opponentData", (opponents) => {
-    console.log("Received opponent data:", opponents);
-    updateOpponentUI(opponents);
-  });
-
-  function updateOpponentUI(opponents) {
-    opponents.forEach((opponent, index) => {
-      const opponentElement = document.getElementById(`opponent-${index + 1}`);
-      if (opponentElement) {
-        opponentElement.querySelector(".opponent-name").textContent =
-          opponent.name || "Unknown";
-        opponentElement.querySelector(".opponent-avatar").src =
-          opponent.avatar || "default-avatar.png";
-        opponentElement.querySelector(".opponent-status").textContent =
-          opponent.status || "Unknown";
-      }
-    });
-  }
   const UserTimer = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -169,50 +141,40 @@ const Game1MultiPlayer = () => {
     );
   };
 
-  // Listen for a new question
   const handleStart = (data) => {
     console.log("Received 'newQuestion' event:", data);
     const { question, remainingTime } = data;
 
-    // Display the question
-    displayQuestion(question);
+    // Update the state to display the question
+    setPlayerData((prevData) => {
+      const updatedData = [...prevData];
+      updatedData[currentQuestionIndex] = {
+        ...updatedData[currentQuestionIndex],
+        question,
+      };
+      return updatedData;
+    });
 
-    // Start the countdown
-    startCountdown(remainingTime);
+    // Reset the timer
+    setTimeLeft(remainingTime);
+    setCountdown(3); // Reset countdown
   };
-  socket.on("newQuestion", handleStart);
 
-  function displayQuestion(question) {
-    console.log("Displaying question:", question);
-    const questionElement = document.getElementById("question");
-    questionElement.textContent = question.text; // Adjust based on the question structure
-  }
+  useEffect(() => {
+    socket.on("newQuestion", handleStart);
+    socket.on("playerStates", (playerDetails) => {
+      const opponents = playerDetails.filter((p) => p.playerId !== socket.id);
+      setOpponentsTimeLeft({
+        opponent1: opponents[0]?.timeLeft || 180,
+        opponent2: opponents[1]?.timeLeft || 180,
+      });
+    });
 
-  function startCountdown(time) {
-    console.log(`Starting countdown for ${remainingTime} seconds`);
-    const timerElement = document.getElementById("timer");
-    let remainingTime = time;
-
-    const countdown = setInterval(() => {
-      remainingTime--;
-      timerElement.textContent = `Time Remaining: ${remainingTime}s`;
-
-      if (remainingTime <= 0) {
-        clearInterval(countdown);
-        handleTimeout();
-      }
-    }, 1000);
-  }
-
-  function handleTimeout() {
-    console.log("Time is up for this question!");
-    socket.emit("timeout", { message: "No answer submitted in time." });
-  }
-
-  // Submit an answer
-  function submitAnswer(answer) {
-    socket.emit("answer", { answer });
-  }
+    return () => {
+      socket.off("newQuestion", handleStart);
+      socket.off("playerStates");
+    };
+  }, []);
 
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
@@ -315,13 +277,13 @@ const Game1MultiPlayer = () => {
       <div className="flex gap-6 items-center justify-end max-md:justify-center max-lg:pt-44 px-10 pt-20">
         <div className="flex flex-col items-center">
           {countdown > 0 && <h6>{countdown}</h6>}
-          {countdown === 0 && <h6>{UserTimer(timeLeft)}</h6>}
+          {countdown === 0 && <h6>{UserTimer(opponentsTimeLeft.opponent1)}</h6>}
           <img className="avtar-img" src={img1} alt="Avatar" />
           <h6 className="text-white">Opponent 1</h6>
         </div>
         <div className="flex flex-col items-center">
           {countdown > 0 && <h6>{countdown}</h6>}
-          {countdown === 0 && <h6>{UserTimer(timeLeft)}</h6>}
+          {countdown === 0 && <h6>{UserTimer(opponentsTimeLeft.opponent2)}</h6>}
           <img className="avtar-img" src={img1} alt="Avatar" />
           <h6 className="text-white">Opponent 2</h6>
         </div>

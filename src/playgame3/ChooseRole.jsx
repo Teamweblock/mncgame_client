@@ -157,7 +157,7 @@ export default function RoleCarousel() {
       />
 
       {/* Main content */}
-        <img src="/mnclogo2.png" className="mnc-logo mx-auto " />
+      <img src="/mnclogo2.png" className="mnc-logo mx-auto " />
       <div className="relative z-10 container mx-auto px-4 py-12 flex flex-col items-center min-h-screen">
         <h1 className="tracking-widest mt-24 font-extrabold text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white text-center block xl:hidden">
           YOUR ROLE
@@ -279,18 +279,18 @@ export default function RoleCarousel() {
             <div className="w-96 h-fit p-4">
               <div className="bg-gray-100 p-4 rounded-lg shadow-md">
                 <img
-                  src={selectedRole.image}
-                  alt={`${selectedRole.title} profile`}
+                  src={selectedRole?.image}
+                  alt={`${selectedRole?.title} profile`}
                   className="w-96 h-full object-cover  rounded-full mx-auto mb-4 "
                 />
                 <p
-                  className={`${selectedRole.color} text-8xl text-center h-[84px]  leading-[144px] font-medium`}
+                  className={`${selectedRole?.color} text-8xl text-center h-[84px]  leading-[144px] font-medium`}
                   style={{
                     fontFamily: "Bebas Neue",
                     verticalAlign: "Cap height",
                   }}
                 >
-                  {selectedRole.title}
+                  {selectedRole?.title}
                 </p>
               </div>
             </div>
@@ -307,7 +307,7 @@ export default function RoleCarousel() {
                   About Role
                 </h2>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  {selectedRole.description}
+                  {selectedRole?.description}
                 </p>
               </div>
             </div>
