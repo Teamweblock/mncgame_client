@@ -50,7 +50,10 @@ const Statics = () => {
     if (selectedCard === 1 || selectedCard === null) {
       const fetchSkillsOverview = async () => {
         try {
-          const initialProgress = await problemPilot({ startDate, endDate }); // Fetch the real-time data
+          const initialProgress = await problemPilot({
+            startDate: startDate, 
+            endDate: endDate,
+          }); // Fetch the real-time data
           if (initialProgress?.datasets) {
             // Format the fetched data to match the structure you need for rendering
             const formattedData = initialProgress.datasets.map((dataset) => {

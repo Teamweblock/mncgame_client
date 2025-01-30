@@ -204,6 +204,8 @@ export const gameOverview = async (payload) => {
 };
 
 export const problemPilot = async (payload) => {
+  console.log("payload", payload);
+
   try {
     const response = await axiosInstance.post(
       "player/problem-pilot",

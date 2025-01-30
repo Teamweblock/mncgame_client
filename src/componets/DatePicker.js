@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { startOfWeek, endOfWeek, startOfMonth, endOfMonth, subDays, format } from "date-fns";
+import { startOfWeek, endOfWeek, startOfMonth, endOfMonth, subDays, format, addDays } from "date-fns";
 import { enUS } from "date-fns/locale";
 import "react-date-range/dist/styles.css"; // Main style file
 import "react-date-range/dist/theme/default.css"; // Theme file
@@ -10,7 +10,8 @@ const DatePicker = ({ startDate, endDate, onDateChange }) => {
 
   const [state, setState] = useState([
     {
-      startDate: startDate,  // Default start date is today
+      // startDate: addDays(new Date(), 1),  // Default start date is today
+      startDate: new Date(),  // Default start date is today
       endDate: endDate,    // Default end date is today
       key: "selection",
     },

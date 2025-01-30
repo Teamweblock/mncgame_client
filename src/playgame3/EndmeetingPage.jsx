@@ -11,43 +11,48 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { io } from "socket.io-client";
 import { updateProgress } from "../utils/axiosInstance";
+import { toast } from "react-toastify";
+import { VideoStream } from "./VideoStream.jsx";
 const socket = io(process.env.BACKEND_URL || "http://localhost:8000"); // Update with your backend URL
 
 const EndmeetingPage = () => {
   // Extract roomCode from the URL
   const urlParams = new URLSearchParams(window.location.search);
   const roomCode = urlParams.get("roomCode");
-  const participants = [
-    {
-      role: "CEO",
-      imgSrc:
-        "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSSJ5XZT9CbC8XaNbJ1giueOj46hv1rUGzqLVtMAQcWERMEpfna",
-    },
-    {
-      role: "CTO",
-      imgSrc:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaZNSRnnQ3cJCuc7Sqf_SKoiW5g9gNYSoHuA&s",
-    },
-    {
-      role: "CFO",
-      imgSrc:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-VY7IowRiyEvHITCtstzz77XjYp9mwPmnQ&s",
-    },
-    {
-      role: "CHRO",
-      imgSrc:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEpNCyrCjDvpPBpWD2lSSX3R4YOQYymoQrndX0hSE94srBk-hl05dy-DrzjuAcKd1dxY&usqp=CAU",
-    },
-  ];
-  const topics = [
-    "Your company has experienced a data breach, compromising customer information.",
-    "A new competitor has entered the market with a disruptive technology.",
-    "Employee satisfaction scores have reached an all-time high.",
-    "The latest financial report indicates a significant increase in revenue.",
-    "A key client has decided to renew their contract for an extended period.",
-    "The company has been shortlisted for a prestigious industry award.",
-    "A new government regulation will affect our operations starting next quarter.",
-  ];
+  const initialGameState = {
+    currentQuestion:
+      "How should we allocate the Q4 budget to maximize growth while maintaining profitability?",
+    players: [
+      {
+        id: "1",
+        name: "rajputboy",
+        role: "CEO",
+        imgSrc:
+          "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSSJ5XZT9CbC8XaNbJ1giueOj46hv1rUGzqLVtMAQcWERMEpfna",
+      },
+      {
+        id: "2",
+        name: "bgmipio",
+        role: "CFO",
+        imgSrc:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaZNSRnnQ3cJCuc7Sqf_SKoiW5g9gNYSoHuA&s",
+      },
+      {
+        id: "3",
+        name: "jay ",
+        role: "CTO",
+        imgSrc:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-VY7IowRiyEvHITCtstzz77XjYp9mwPmnQ&s",
+      },
+      {
+        id: "4",
+        name: "multinetworking ",
+        role: "CMO",
+        imgSrc:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEpNCyrCjDvpPBpWD2lSSX3R4YOQYymoQrndX0hSE94srBk-hl05dy-DrzjuAcKd1dxY&usqp=CAU",
+      },
+    ],
+  };
   const [selectedParticipant, setSelectedParticipant] = useState(null); // State for selected participant
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
   const [currentTopic, setCurrentTopic] = useState("");
@@ -62,12 +67,8 @@ const EndmeetingPage = () => {
   const navigate = useNavigate(); // Initialize navigate hook
   // Set a random topic on component mount
   useEffect(() => {
-    setCurrentTopic(getRandomTopic());
+    setCurrentTopic(initialGameState.currentQuestion);
   }, []);
-
-  const getRandomTopic = () => {
-    return topics[Math.floor(Math.random() * topics.length)];
-  };
 
   const handleSliderChange = (event, newValue, criteria) => {
     setSliderValues((prevValues) => ({
@@ -265,32 +266,34 @@ const EndmeetingPage = () => {
 
       {/* Top Row (CEO and CTO) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-6xl px-4">
-        {participants.slice(0, 2).map((participant, index) => (
-          <ParticipantCard
-            key={index}
-            role={participant.role}
-            imgSrc={participant.imgSrc}
-            // onClick={() => setSelectedParticipant(participant)}
-            onClick={() => handleParticipantClick(participant)}
-          />
-        ))}
+        {initialGameState.players.slice(0, 2).map(
+          (participant, index) => (
+            console.log(participant, "participant"),
+            (
+              <ParticipantCard
+                key={index}
+                initialGameState={initialGameState.players[index]}
+                // onClick={() => setSelectedParticipant(participant)}
+                onClick={() => handleParticipantClick(participant)}
+              />
+            )
+          )
+        )}
       </div>
 
       {/* Middle Row (CHRO, Notification, CFO) */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-6xl px-4 justify-center items-stretch ">
         <ParticipantCard
-          role={participants[3].role}
-          imgSrc={participants[3].imgSrc}
-          onClick={() => handleParticipantClick(participants[3])}
-          // onClick={() => setSelectedParticipant(participants[3])}
+          initialGameState={initialGameState.players[3]}
+          onClick={() => handleParticipantClick(initialGameState.players[3])}
+          // onClick={() => setSelectedParticipant(initialGameState.players[3])}
         />
         <div className="bg-white bg-opacity-90 h-fit rounded-xl shadow-lg text-center self-end mb-5">
           <p className="text-gray-900 text-lg font-bold px-2">{currentTopic}</p>
         </div>
         <ParticipantCard
-          role={participants[2].role}
-          imgSrc={participants[2].imgSrc}
-          onClick={() => handleParticipantClick(participants[2])}
+          initialGameState={initialGameState.players[2]}
+          onClick={() => handleParticipantClick(initialGameState.players[2])}
           // onClick={() => setSelectedParticipant(participants[2])}
         />
       </div>
@@ -330,7 +333,7 @@ const EndmeetingPage = () => {
             <div className="flex-1 px-2">
               <Box sx={{ width: "100%" }}>
                 {Object.keys(sliderValues).map((key, idx) => (
-                  <div key={idx}>
+                  <div key={idx} className="">
                     <p
                       className={`font-semibold text-lg md:text-2xl ${getTextColorClass(
                         key
@@ -346,7 +349,10 @@ const EndmeetingPage = () => {
                       aria-label={key}
                       valueLabelDisplay="on"
                       defaultValue={key}
-                      style={{ color: getColor(key) }}
+                      style={{
+                        color: getColor(key),
+                        // height: window.innerWidth < 768 ? "4px" : "8px",
+                      }}
                     />
                   </div>
                 ))}
@@ -383,48 +389,68 @@ const EndmeetingPage = () => {
   );
 };
 
-const ParticipantCard = ({ role, imgSrc, onClick }) => {
-  const [isMicOn, setIsMicOn] = useState(true);
-  const [isVideoOn, setIsVideoOn] = useState(true);
+const ParticipantCard = ({ initialGameState, onClick }) => {
+  // const [isMicOn, setIsMicOn] = useState(true);
+  // const [isVideoOn, setIsVideoOn] = useState(true);
+  const [audioEnabled, setAudioEnabled] = useState(true);
+  const [videoEnabled, setVideoEnabled] = useState(true);
+  const toggleAudio = (e) => {
+    e.stopPropagation(); // Prevent opening modal on button click
+    setAudioEnabled(!audioEnabled);
+    toast({
+      title: audioEnabled ? "Audio disabled" : "Audio enabled",
+      duration: 2000,
+    });
+  };
+
+  const toggleVideo = (e) => {
+    e.stopPropagation(); // Prevent opening modal on button click
+    setVideoEnabled(!videoEnabled);
+    toast({
+      title: videoEnabled ? "Video disabled" : "Video enabled",
+      duration: 2000,
+    });
+  };
 
   return (
     <div
-      className="flex flex-col items-center cursor-pointer "
+      className="flex flex-col items-center cursor-pointer"
       onClick={onClick}
     >
-      <div className="flex flex-col items-center bg-white bg-opacity-50 rounded-lg shadow-xl p-5 w-64 h-64 relative">
+      <div className="flex flex-col items-center bg-white bg-opacity-50 rounded-lg shadow-xl pt-5 w-64 h-64 relative">
+        {/* Status indicators */}
         <div className="absolute top-0 left-0 w-full h-8 bg-gray-200 rounded-t-lg flex items-center px-3">
           <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
           <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
         </div>
-        <img
-          src={imgSrc}
-          alt={role}
-          className="rounded-full w-36 h-36 mb-4 border-4 border-gray-200 shadow-md"
-        />
+        <div>
+          <VideoStream
+            key={initialGameState?.id}
+            isAudioEnabled={audioEnabled}
+            isVideoEnabled={videoEnabled}
+            player={initialGameState}
+          />
+        </div>
+
+        {/* Mic and Video buttons */}
         <div className="absolute bottom-3 right-3 flex space-x-2">
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsMicOn(!isMicOn);
-            }}
-            className="p-1 bg-white rounded-full shadow-md"
+            onClick={toggleAudio}
+            className="p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition"
           >
-            {isMicOn ? (
+            {audioEnabled ? (
               <Mic className="h-5 w-5 text-green-600" />
             ) : (
               <MicOff className="h-5 w-5 text-red-600" />
             )}
           </button>
+
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsVideoOn(!isVideoOn);
-            }}
-            className="p-1 bg-white rounded-full shadow-md"
+            onClick={toggleVideo}
+            className="p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition"
           >
-            {isVideoOn ? (
+            {videoEnabled ? (
               <Video className="h-5 w-5 text-green-600" />
             ) : (
               <VideoOff className="h-5 w-5 text-red-600" />
@@ -432,7 +458,11 @@ const ParticipantCard = ({ role, imgSrc, onClick }) => {
           </button>
         </div>
       </div>
-      <h3 className="mt-3 text-2xl font-bold text-center text-white">{role}</h3>
+
+      {/* Participant Role */}
+      <h3 className="mt-3 text-2xl font-bold text-center text-white">
+        {initialGameState?.role}({initialGameState?.name})
+      </h3>
     </div>
   );
 };

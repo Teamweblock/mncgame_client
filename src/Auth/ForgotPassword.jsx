@@ -26,9 +26,6 @@ const ForgotPassword = () => {
     }
   };
 
-  const handleHome = () => {
-    navigate("/");
-  };
   return (
     <>
       <div className="login-bg-img">
