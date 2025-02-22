@@ -1,0 +1,116 @@
+.StrategyMain {
+  width: 80%;
+  margin: auto;
+}
+
+.StrategyMainPaet {
+  width: 100%;
+  display: flex;
+}
+
+.StrategyImageSeaction {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.StrategyImage {
+  width: 100%;
+  transition: transform 0.3s ease;
+  /* Smooth transition */
+}
+
+.StrategyTextSeacation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.StrategyTitle {
+  color: #012055;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.StrategyText {
+  color: #848484;
+  font-size: 18px;
+}
+
+.StrategyButton {
+  border: 2px solid #9CFF00;
+  border-radius: 6px;
+  padding: 10px;
+  width: 35%;
+  color: black;
+  font: 600;
+  background-color: #fff;
+}
+
+.StrategyButton:hover {
+  background-color: #9CFF00;
+  color: #fff;
+}
+
+.StrategyImage:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width:1024px) {
+
+  .StrategyTitle {
+    font-size: 43px;
+  }
+
+  .StrategyButton {
+    width: 40%;
+  }
+
+}
+
+@media screen and (max-width:768px) {
+  .ProblemMain {
+    margin-bottom: 10px;
+  }
+
+  .StrategyTitle {
+    font-size: 38px;
+  }
+
+  .StrategyButton {
+    padding: 8px;
+    font-size: 16px;
+    width: 45%;
+  }
+}
+
+@media screen and (max-width:426px) {
+
+  .StrategyTitle {
+    font-size: 33px;
+  }
+
+  .StrategyText {
+    font-size: 15px;
+  }
+
+  .StrategyButton {
+    padding: 9px;
+    font-size: 12px;
+    width: 65%;
+  }
+
+  .StrategyImageSeaction {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width:376px) {
+
+  .StrategyTitle {
+    font-size: 28px;
+  }
+
+}

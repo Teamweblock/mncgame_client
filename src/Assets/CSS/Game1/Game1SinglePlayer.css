@@ -1,0 +1,181 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-container p {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Game1-sinlgeplayer-bg {
+  background-image: url("../../../Assets/gameimages/img1.jpg");
+  width: 100%;
+  min-height: 100vh;
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+.timer {
+  text-align: center;
+  display: flex;
+  color: white;
+  font-weight: 700;
+  margin: auto;
+  padding-bottom: 15px;
+}
+
+.time-group {
+  line-height: 40px;
+}
+
+.minutes {
+  font-size: 130px;
+  color: white;
+  font-weight: 700;
+}
+
+.dot2 {
+  font-size: 130px;
+  color: white;
+}
+
+.time-group {
+  line-height: 40px;
+}
+
+.seconds {
+  color: white;
+  font-size: 130px;
+}
+
+.icon4-game1 {
+  position: absolute;
+  height: 10%;
+  right: 10%;
+  top: 15%;
+}
+
+.solution-box input {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.solution-box {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.next-button {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  width: 200px;
+
+  text-align: center;
+  margin-top: 30px;
+}
+
+.show-button {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.single-player-part {
+  padding-top: 250px;
+}
+
+.countdown {
+  color: white;
+
+  margin: auto;
+  text-align: center;
+}
+
+.countdown h2 {
+  font-size: 100px;
+}
+
+.next-button:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.show-button:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 1140px) {
+  .single-player-part {
+    padding-top: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .single-player-part {
+    padding-top: 165px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .solution-box input {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 523px) {
+  .seconds {
+    font-size: 90px !important;
+  }
+
+  .minutes {
+    font-size: 90px !important;
+  }
+
+  .dot2 {
+    font-size: 90px !important;
+  }
+}
+
+@media screen and (max-width: 413px) {
+  .next-button {
+    margin-left: 0px !important;
+  }
+}
+
+.question-box {
+  background-color: white;
+  background: rgb(55, 212, 241);
+  background: linear-gradient(
+    0deg,
+    rgba(55, 212, 241, 1) 0%,
+    rgba(195, 242, 251, 1) 0%,
+    rgba(213, 246, 252, 1) 23%,
+    rgba(205, 244, 252, 1) 47%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}

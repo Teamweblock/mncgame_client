@@ -1,0 +1,229 @@
+.progress-bar-container {
+  width: 100%;
+  position: relative;
+  height: 16px;
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: orange;
+  border-radius: 10px;
+}
+
+.slider {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: orange;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.Game1-bg-result {
+  background-image: url("../../../Assets/gameimages/img1.jpg");
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 50px;
+  background-position: center;
+  background-size: cover;
+}
+
+.Game1-bg-result2 {
+  background-image: url("../../../Assets/gameimages/img1.jpg");
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 50px;
+  background-position: center;
+  background-size: cover;
+}
+
+.mnc-logo {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+}
+
+.btn-group2 {
+  text-align: center;
+}
+
+.icon7-game1 {
+  position: absolute;
+  height: 10%;
+  top: 7%;
+  right: 15%;
+}
+
+.icon8-game1 {
+  position: absolute;
+  height: 10%;
+  bottom: 3%;
+  left: 7%;
+}
+
+.icon9-game1 {
+  position: absolute;
+  height: 10%;
+  top: 13%;
+  right: 10%;
+}
+
+.welldone-text {
+  font-size: 80px;
+  color: white;
+  text-align: center;
+  line-height: 90px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: -5px;
+  margin-top: 60px;
+}
+
+.players-width {
+}
+
+.player1 {
+  display: flex;
+  gap: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.player-text {
+  color: white;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.player1-result {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress {
+  background-color: #00b0ff !important;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  height: -webkit-fill-available;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background-color: #ffb300;
+  border-radius: 50%;
+}
+
+.player2 {
+  display: flex;
+  gap: 50px;
+}
+
+.home-btn {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  width: 200px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.next-btn {
+  width: 200px;
+  background-color: darkorange;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 20px;
+
+  text-align: center;
+  margin-top: 30px;
+}
+
+.home-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 835px) {
+  .player1 {
+    display: block;
+  }
+
+  .player2 {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 534px) {
+  .mnc-logo {
+    left: 35%;
+  }
+}
+
+@media screen and (max-width: 483px) {
+  .welldone-text {
+    font-size: 50px;
+    margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  .next-btn {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 863px) {
+  .icon8-game1 {
+    position: absolute;
+    height: 10%;
+    bottom: 0%;
+    left: 2%;
+  }
+}
+
+@media screen and (max-width: 463px) {
+  .icon8-game1 {
+    left: 0%;
+  }
+}

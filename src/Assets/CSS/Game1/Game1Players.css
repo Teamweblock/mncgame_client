@@ -1,0 +1,131 @@
+.game1-bg {
+  background-image: url("../../../Assets/gameimages/img1.jpg");
+  width: 100%;
+  min-height: 100vh;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.mnc-logo {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  top: 6%;
+  left: 15%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.icon3-game1 {
+  position: absolute;
+  height: 10%;
+  bottom: 15%;
+  left: 7%;
+}
+
+.icon5-game1 {
+  position: absolute;
+  height: 10%;
+  right: 10%;
+  top: 15%;
+}
+
+.players-part {
+  width: 70%;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+}
+
+.single-player {
+  width: 40%;
+
+  margin: auto;
+}
+
+.player-img {
+  width: 350px;
+  height: 350px;
+  margin: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease-in-out;
+}
+
+.multi-player {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+
+.players-btn {
+  background-color: #ff6e3d;
+  color: white;
+  border: none;
+
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  width: 200px;
+
+  height: 45px;
+
+  margin-bottom: 40px;
+}
+
+.players-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+.play-hover:hover {
+  color: black;
+}
+
+@media screen and (max-width: 935px) {
+  .players-part {
+    display: block;
+    margin-top: 147px;
+  }
+
+  @media screen and (max-width: 934px) {
+    .single-player {
+      width: 90%;
+    }
+
+    .multi-player {
+      width: 90%;
+    }
+  }
+}
+
+@media screen and (max-width: 413px) {
+}
+
+@media screen and (max-width: 768px) {
+  .welcome-text1 {
+    font-size: 70px;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 496px) {
+  .welcome-text1 {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 354px) {
+  .players-part {
+    margin-top: 175px !important;
+  }
+}
